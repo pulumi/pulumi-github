@@ -21,13 +21,13 @@ class ReleaseArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
                  tag_name: pulumi.Input[_builtins.str],
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 discussion_category_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input[_builtins.bool]] = None,
-                 generate_release_notes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prerelease: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_commitish: Optional[pulumi.Input[_builtins.str]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 discussion_category_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional[_builtins.bool]] = None,
+                 generate_release_notes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prerelease: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_commitish: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Release resource.
 
@@ -84,112 +84,112 @@ class ReleaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Text describing the contents of the tag.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="discussionCategoryName")
-    def discussion_category_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discussion_category_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
         """
         return pulumi.get(self, "discussion_category_name")
 
     @discussion_category_name.setter
-    def discussion_category_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discussion_category_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discussion_category_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def draft(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def draft(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to create a published release.
         """
         return pulumi.get(self, "draft")
 
     @draft.setter
-    def draft(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def draft(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "draft", value)
 
     @_builtins.property
     @pulumi.getter(name="generateReleaseNotes")
-    def generate_release_notes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def generate_release_notes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
         """
         return pulumi.get(self, "generate_release_notes")
 
     @generate_release_notes.setter
-    def generate_release_notes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def generate_release_notes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "generate_release_notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the release.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def prerelease(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def prerelease(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to identify the release as a full release.
         """
         return pulumi.get(self, "prerelease")
 
     @prerelease.setter
-    def prerelease(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def prerelease(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prerelease", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCommitish")
-    def target_commitish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_commitish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
         """
         return pulumi.get(self, "target_commitish")
 
     @target_commitish.setter
-    def target_commitish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_commitish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_commitish", value)
 
 
 @pulumi.input_type
 class _ReleaseState:
     def __init__(__self__, *,
-                 assets_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 discussion_category_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 generate_release_notes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 html_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prerelease: Optional[pulumi.Input[_builtins.bool]] = None,
-                 published_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tarball_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_commitish: Optional[pulumi.Input[_builtins.str]] = None,
-                 upload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 zipball_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 assets_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 discussion_category_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 generate_release_notes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 html_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prerelease: pulumi.Input[Optional[_builtins.bool]] = None,
+                 published_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tarball_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_commitish: pulumi.Input[Optional[_builtins.str]] = None,
+                 upload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 zipball_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Release resources.
 
@@ -256,239 +256,239 @@ class _ReleaseState:
 
     @_builtins.property
     @pulumi.getter(name="assetsUrl")
-    def assets_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assets_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to API calls displaying the attached assets to this release.
         """
         return pulumi.get(self, "assets_url")
 
     @assets_url.setter
-    def assets_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assets_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assets_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Text describing the contents of the tag.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the date of the commit used for the release, and not the date when the release was drafted or published.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="discussionCategoryName")
-    def discussion_category_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discussion_category_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
         """
         return pulumi.get(self, "discussion_category_name")
 
     @discussion_category_name.setter
-    def discussion_category_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discussion_category_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discussion_category_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def draft(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def draft(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to create a published release.
         """
         return pulumi.get(self, "draft")
 
     @draft.setter
-    def draft(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def draft(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "draft", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="generateReleaseNotes")
-    def generate_release_notes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def generate_release_notes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
         """
         return pulumi.get(self, "generate_release_notes")
 
     @generate_release_notes.setter
-    def generate_release_notes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def generate_release_notes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "generate_release_notes", value)
 
     @_builtins.property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the release in GitHub.
         """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
-    def html_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the release.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeId")
-    def node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GraphQL global node id for use with v4 API
         """
         return pulumi.get(self, "node_id")
 
     @node_id.setter
-    def node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def prerelease(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def prerelease(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to identify the release as a full release.
         """
         return pulumi.get(self, "prerelease")
 
     @prerelease.setter
-    def prerelease(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def prerelease(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prerelease", value)
 
     @_builtins.property
     @pulumi.getter(name="publishedAt")
-    def published_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def published_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the date when the release was published. This will be empty if the release is a draft.
         """
         return pulumi.get(self, "published_at")
 
     @published_at.setter
-    def published_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def published_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "published_at", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseId")
-    def release_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def release_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the release.
         """
         return pulumi.get(self, "release_id")
 
     @release_id.setter
-    def release_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def release_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "release_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="tagName")
-    def tag_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the tag.
         """
         return pulumi.get(self, "tag_name")
 
     @tag_name.setter
-    def tag_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tarballUrl")
-    def tarball_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tarball_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to API calls to fetch the release TAR archive.
         """
         return pulumi.get(self, "tarball_url")
 
     @tarball_url.setter
-    def tarball_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tarball_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tarball_url", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCommitish")
-    def target_commitish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_commitish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
         """
         return pulumi.get(self, "target_commitish")
 
     @target_commitish.setter
-    def target_commitish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_commitish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_commitish", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadUrl")
-    def upload_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upload_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to API calls to upload assets.
         """
         return pulumi.get(self, "upload_url")
 
     @upload_url.setter
-    def upload_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upload_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upload_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to API calls that reference this release.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="zipballUrl")
-    def zipball_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zipball_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to API calls to fetch the release ZIP archive.
         """
         return pulumi.get(self, "zipball_url")
 
     @zipball_url.setter
-    def zipball_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zipball_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zipball_url", value)
 
 
@@ -498,15 +498,15 @@ class Release(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 discussion_category_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input[_builtins.bool]] = None,
-                 generate_release_notes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prerelease: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_commitish: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 discussion_category_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional[_builtins.bool]] = None,
+                 generate_release_notes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prerelease: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_commitish: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage a release in a specific
@@ -639,15 +639,15 @@ class Release(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 discussion_category_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input[_builtins.bool]] = None,
-                 generate_release_notes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prerelease: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_commitish: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 discussion_category_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional[_builtins.bool]] = None,
+                 generate_release_notes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prerelease: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_commitish: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -691,26 +691,26 @@ class Release(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assets_url: Optional[pulumi.Input[_builtins.str]] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            discussion_category_name: Optional[pulumi.Input[_builtins.str]] = None,
-            draft: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            generate_release_notes: Optional[pulumi.Input[_builtins.bool]] = None,
-            html_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_id: Optional[pulumi.Input[_builtins.str]] = None,
-            prerelease: Optional[pulumi.Input[_builtins.bool]] = None,
-            published_at: Optional[pulumi.Input[_builtins.str]] = None,
-            release_id: Optional[pulumi.Input[_builtins.int]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            tag_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tarball_url: Optional[pulumi.Input[_builtins.str]] = None,
-            target_commitish: Optional[pulumi.Input[_builtins.str]] = None,
-            upload_url: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            zipball_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Release':
+            assets_url: pulumi.Input[Optional[_builtins.str]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            discussion_category_name: pulumi.Input[Optional[_builtins.str]] = None,
+            draft: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            generate_release_notes: pulumi.Input[Optional[_builtins.bool]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            prerelease: pulumi.Input[Optional[_builtins.bool]] = None,
+            published_at: pulumi.Input[Optional[_builtins.str]] = None,
+            release_id: pulumi.Input[Optional[_builtins.int]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tarball_url: pulumi.Input[Optional[_builtins.str]] = None,
+            target_commitish: pulumi.Input[Optional[_builtins.str]] = None,
+            upload_url: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            zipball_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Release':
         """
         Get an existing Release resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

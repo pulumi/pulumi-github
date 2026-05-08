@@ -141,8 +141,8 @@ def get_membership(organization: Optional[_builtins.str] = None,
         role=pulumi.get(__ret__, 'role'),
         state=pulumi.get(__ret__, 'state'),
         username=pulumi.get(__ret__, 'username'))
-def get_membership_output(organization: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          username: Optional[pulumi.Input[_builtins.str]] = None,
+def get_membership_output(organization: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          username: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMembershipResult]:
     """
     Use this data source to find out if a user is a member of your organization, as well

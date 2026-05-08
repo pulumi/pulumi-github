@@ -126,13 +126,13 @@ export interface GetOrganizationTeamsOutputArgs {
     /**
      * (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
      */
-    resultsPerPage?: pulumi.Input<number>;
+    resultsPerPage?: pulumi.Input<number | undefined>;
     /**
      * (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
      */
-    rootTeamsOnly?: pulumi.Input<boolean>;
+    rootTeamsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
      */
-    summaryOnly?: pulumi.Input<boolean>;
+    summaryOnly?: pulumi.Input<boolean | undefined>;
 }

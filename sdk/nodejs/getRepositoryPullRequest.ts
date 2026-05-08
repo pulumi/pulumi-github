@@ -154,5 +154,5 @@ export interface GetRepositoryPullRequestOutputArgs {
     /**
      * Owner of the repository. If not provided, the provider's default owner is used.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
 }

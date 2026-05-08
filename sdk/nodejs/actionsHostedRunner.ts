@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *         source: "github",
  *     },
  *     size: "4-core",
- *     runnerGroupId: example.id,
+ *     runnerGroupId: example.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -52,7 +52,7 @@ import * as utilities from "./utilities";
  *         source: "github",
  *     },
  *     size: "8-core",
- *     runnerGroupId: advanced.id,
+ *     runnerGroupId: advanced.id.apply(x =>Number(x)),
  *     maximumRunners: 10,
  *     publicIpEnabled: true,
  * });
@@ -226,55 +226,55 @@ export interface ActionsHostedRunnerState {
     /**
      * Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
      */
-    image?: pulumi.Input<inputs.ActionsHostedRunnerImage>;
+    image?: pulumi.Input<inputs.ActionsHostedRunnerImage | undefined>;
     /**
      * Whether this runner should be used to generate custom images. Cannot be changed after creation.
      */
-    imageGen?: pulumi.Input<boolean>;
+    imageGen?: pulumi.Input<boolean | undefined>;
     /**
      * The version of the runner image to deploy. This is only relevant for runners using custom images.
      */
-    imageVersion?: pulumi.Input<string>;
+    imageVersion?: pulumi.Input<string | undefined>;
     /**
      * Timestamp (RFC3339) when the runner was last active.
      */
-    lastActiveOn?: pulumi.Input<string>;
+    lastActiveOn?: pulumi.Input<string | undefined>;
     /**
      * Detailed specifications of the machine size:
      */
-    machineSizeDetails?: pulumi.Input<pulumi.Input<inputs.ActionsHostedRunnerMachineSizeDetail>[]>;
+    machineSizeDetails?: pulumi.Input<pulumi.Input<inputs.ActionsHostedRunnerMachineSizeDetail>[] | undefined>;
     /**
      * Maximum number of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit costs.
      */
-    maximumRunners?: pulumi.Input<number>;
+    maximumRunners?: pulumi.Input<number | undefined>;
     /**
      * Name of the hosted runner. Must be between 1 and 64 characters and may only contain alphanumeric characters, '.', '-', and '_'.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Platform of the runner (e.g., "linux-x64", "win-x64").
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable static public IP for the runner. Note there are account limits. To list limits, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/limits`. Defaults to false.
      */
-    publicIpEnabled?: pulumi.Input<boolean>;
+    publicIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of public IP ranges assigned to this runner (only if `publicIpEnabled` is true):
      */
-    publicIps?: pulumi.Input<pulumi.Input<inputs.ActionsHostedRunnerPublicIp>[]>;
+    publicIps?: pulumi.Input<pulumi.Input<inputs.ActionsHostedRunnerPublicIp>[] | undefined>;
     /**
      * The ID of the runner group to assign this runner to.
      */
-    runnerGroupId?: pulumi.Input<number>;
+    runnerGroupId?: pulumi.Input<number | undefined>;
     /**
      * Machine size for the hosted runner (e.g., "4-core", "8-core"). Can be updated to scale the runner. To list available sizes, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/machine-sizes`.
      */
-    size?: pulumi.Input<string>;
+    size?: pulumi.Input<string | undefined>;
     /**
      * Current status of the runner (e.g., "Ready", "Provisioning").
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -288,23 +288,23 @@ export interface ActionsHostedRunnerArgs {
     /**
      * Whether this runner should be used to generate custom images. Cannot be changed after creation.
      */
-    imageGen?: pulumi.Input<boolean>;
+    imageGen?: pulumi.Input<boolean | undefined>;
     /**
      * The version of the runner image to deploy. This is only relevant for runners using custom images.
      */
-    imageVersion?: pulumi.Input<string>;
+    imageVersion?: pulumi.Input<string | undefined>;
     /**
      * Maximum number of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit costs.
      */
-    maximumRunners?: pulumi.Input<number>;
+    maximumRunners?: pulumi.Input<number | undefined>;
     /**
      * Name of the hosted runner. Must be between 1 and 64 characters and may only contain alphanumeric characters, '.', '-', and '_'.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable static public IP for the runner. Note there are account limits. To list limits, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/limits`. Defaults to false.
      */
-    publicIpEnabled?: pulumi.Input<boolean>;
+    publicIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the runner group to assign this runner to.
      */

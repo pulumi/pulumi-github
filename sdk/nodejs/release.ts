@@ -237,80 +237,80 @@ export interface ReleaseState {
     /**
      * URL that can be provided to API calls displaying the attached assets to this release.
      */
-    assetsUrl?: pulumi.Input<string>;
+    assetsUrl?: pulumi.Input<string | undefined>;
     /**
      * Text describing the contents of the tag.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * This is the date of the commit used for the release, and not the date when the release was drafted or published.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
      */
-    discussionCategoryName?: pulumi.Input<string>;
+    discussionCategoryName?: pulumi.Input<string | undefined>;
     /**
      * Set to `false` to create a published release.
      */
-    draft?: pulumi.Input<boolean>;
-    etag?: pulumi.Input<string>;
+    draft?: pulumi.Input<boolean | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
      */
-    generateReleaseNotes?: pulumi.Input<boolean>;
+    generateReleaseNotes?: pulumi.Input<boolean | undefined>;
     /**
      * URL of the release in GitHub.
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the release.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * GraphQL global node id for use with v4 API
      */
-    nodeId?: pulumi.Input<string>;
+    nodeId?: pulumi.Input<string | undefined>;
     /**
      * Set to `false` to identify the release as a full release.
      */
-    prerelease?: pulumi.Input<boolean>;
+    prerelease?: pulumi.Input<boolean | undefined>;
     /**
      * This is the date when the release was published. This will be empty if the release is a draft.
      */
-    publishedAt?: pulumi.Input<string>;
+    publishedAt?: pulumi.Input<string | undefined>;
     /**
      * The ID of the release.
      */
-    releaseId?: pulumi.Input<number>;
+    releaseId?: pulumi.Input<number | undefined>;
     /**
      * The name of the repository.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The name of the tag.
      */
-    tagName?: pulumi.Input<string>;
+    tagName?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to API calls to fetch the release TAR archive.
      */
-    tarballUrl?: pulumi.Input<string>;
+    tarballUrl?: pulumi.Input<string | undefined>;
     /**
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      */
-    targetCommitish?: pulumi.Input<string>;
+    targetCommitish?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to API calls to upload assets.
      */
-    uploadUrl?: pulumi.Input<string>;
+    uploadUrl?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to API calls that reference this release.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to API calls to fetch the release ZIP archive.
      */
-    zipballUrl?: pulumi.Input<string>;
+    zipballUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -320,27 +320,27 @@ export interface ReleaseArgs {
     /**
      * Text describing the contents of the tag.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
      */
-    discussionCategoryName?: pulumi.Input<string>;
+    discussionCategoryName?: pulumi.Input<string | undefined>;
     /**
      * Set to `false` to create a published release.
      */
-    draft?: pulumi.Input<boolean>;
+    draft?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
      */
-    generateReleaseNotes?: pulumi.Input<boolean>;
+    generateReleaseNotes?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the release.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set to `false` to identify the release as a full release.
      */
-    prerelease?: pulumi.Input<boolean>;
+    prerelease?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the repository.
      */
@@ -352,5 +352,5 @@ export interface ReleaseArgs {
     /**
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      */
-    targetCommitish?: pulumi.Input<string>;
+    targetCommitish?: pulumi.Input<string | undefined>;
 }

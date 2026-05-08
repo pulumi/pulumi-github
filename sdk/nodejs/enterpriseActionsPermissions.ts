@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *         verifiedAllowed: true,
  *     },
  *     enabledOrganizationsConfig: {
- *         organizationIds: [example_org.then(example_org => example_org.id)],
+ *         organizationIds: [output(example_org.then(example_org => example_org.id)).apply(x =>Number(x))],
  *     },
  * });
  * ```
@@ -138,23 +138,23 @@ export interface EnterpriseActionsPermissionsState {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    allowedActions?: pulumi.Input<string>;
+    allowedActions?: pulumi.Input<string | undefined>;
     /**
      * Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    allowedActionsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsAllowedActionsConfig>;
+    allowedActionsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsAllowedActionsConfig | undefined>;
     /**
      * The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      */
-    enabledOrganizations?: pulumi.Input<string>;
+    enabledOrganizations?: pulumi.Input<string | undefined>;
     /**
      * Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
      */
-    enabledOrganizationsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig>;
+    enabledOrganizationsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig | undefined>;
     /**
      * The slug of the enterprise.
      */
-    enterpriseSlug?: pulumi.Input<string>;
+    enterpriseSlug?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,11 +164,11 @@ export interface EnterpriseActionsPermissionsArgs {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    allowedActions?: pulumi.Input<string>;
+    allowedActions?: pulumi.Input<string | undefined>;
     /**
      * Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    allowedActionsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsAllowedActionsConfig>;
+    allowedActionsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsAllowedActionsConfig | undefined>;
     /**
      * The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      */
@@ -176,7 +176,7 @@ export interface EnterpriseActionsPermissionsArgs {
     /**
      * Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
      */
-    enabledOrganizationsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig>;
+    enabledOrganizationsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig | undefined>;
     /**
      * The slug of the enterprise.
      */

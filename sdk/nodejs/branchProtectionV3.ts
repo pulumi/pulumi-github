@@ -192,36 +192,36 @@ export interface BranchProtectionV3State {
     /**
      * The Git branch to protect.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    enforceAdmins?: pulumi.Input<boolean>;
-    etag?: pulumi.Input<string>;
+    enforceAdmins?: pulumi.Input<boolean | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The GitHub repository name.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      */
-    requireConversationResolution?: pulumi.Input<boolean>;
+    requireConversationResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean | undefined>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
+    requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews | undefined>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
+    requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks | undefined>;
     /**
      * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
      */
-    restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
+    restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions | undefined>;
 }
 
 /**
@@ -235,7 +235,7 @@ export interface BranchProtectionV3Args {
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    enforceAdmins?: pulumi.Input<boolean>;
+    enforceAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * The GitHub repository name.
      */
@@ -243,21 +243,21 @@ export interface BranchProtectionV3Args {
     /**
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      */
-    requireConversationResolution?: pulumi.Input<boolean>;
+    requireConversationResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean | undefined>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews>;
+    requiredPullRequestReviews?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviews | undefined>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks>;
+    requiredStatusChecks?: pulumi.Input<inputs.BranchProtectionV3RequiredStatusChecks | undefined>;
     /**
      * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
      */
-    restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions>;
+    restrictions?: pulumi.Input<inputs.BranchProtectionV3Restrictions | undefined>;
 }

@@ -13,45 +13,45 @@ export interface ActionsHostedRunnerImage {
     /**
      * The size of the image in gigabytes.
      */
-    sizeGb?: pulumi.Input<number>;
+    sizeGb?: pulumi.Input<number | undefined>;
     /**
      * The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionsHostedRunnerMachineSizeDetail {
     /**
      * Number of CPU cores.
      */
-    cpuCores?: pulumi.Input<number>;
+    cpuCores?: pulumi.Input<number | undefined>;
     /**
      * Machine size identifier.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Amount of memory in gigabytes.
      */
-    memoryGb?: pulumi.Input<number>;
+    memoryGb?: pulumi.Input<number | undefined>;
     /**
      * Amount of storage in gigabytes.
      */
-    storageGb?: pulumi.Input<number>;
+    storageGb?: pulumi.Input<number | undefined>;
 }
 
 export interface ActionsHostedRunnerPublicIp {
     /**
      * Whether this IP range is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Subnet length.
      */
-    length?: pulumi.Input<number>;
+    length?: pulumi.Input<number | undefined>;
     /**
      * IP address prefix.
      */
-    prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionsOrganizationPermissionsAllowedActionsConfig {
@@ -62,11 +62,11 @@ export interface ActionsOrganizationPermissionsAllowedActionsConfig {
     /**
      * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
      */
-    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
      */
-    verifiedAllowed?: pulumi.Input<boolean>;
+    verifiedAllowed?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ActionsOrganizationPermissionsEnabledRepositoriesConfig {
@@ -84,43 +84,43 @@ export interface ActionsRepositoryPermissionsAllowedActionsConfig {
     /**
      * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
      */
-    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
      */
-    verifiedAllowed?: pulumi.Input<boolean>;
+    verifiedAllowed?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BranchProtectionRequiredPullRequestReview {
     /**
      * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
      */
-    dismissStaleReviews?: pulumi.Input<boolean>;
+    dismissStaleReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
      */
-    dismissalRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
+    dismissalRestrictions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
      */
-    pullRequestBypassers?: pulumi.Input<pulumi.Input<string>[]>;
+    pullRequestBypassers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
      */
-    requireCodeOwnerReviews?: pulumi.Input<boolean>;
+    requireCodeOwnerReviews?: pulumi.Input<boolean | undefined>;
     /**
      * Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
      */
-    requireLastPushApproval?: pulumi.Input<boolean>;
+    requireLastPushApproval?: pulumi.Input<boolean | undefined>;
     /**
      * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      */
-    requiredApprovingReviewCount?: pulumi.Input<number>;
+    requiredApprovingReviewCount?: pulumi.Input<number | undefined>;
     /**
      * Restrict pull request review dismissals.
      */
-    restrictDismissals?: pulumi.Input<boolean>;
+    restrictDismissals?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BranchProtectionRequiredStatusCheck {
@@ -132,84 +132,84 @@ export interface BranchProtectionRequiredStatusCheck {
      * For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
      * For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
      */
-    contexts?: pulumi.Input<pulumi.Input<string>[]>;
+    contexts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Require branches to be up to date before merging. Defaults to `false`.
      */
-    strict?: pulumi.Input<boolean>;
+    strict?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BranchProtectionRestrictPush {
     /**
      * Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
      */
-    blocksCreations?: pulumi.Input<boolean>;
+    blocksCreations?: pulumi.Input<boolean | undefined>;
     /**
      * A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
      */
-    pushAllowances?: pulumi.Input<pulumi.Input<string>[]>;
+    pushAllowances?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BranchProtectionV3RequiredPullRequestReviews {
     /**
      * Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
      */
-    bypassPullRequestAllowances?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances>;
+    bypassPullRequestAllowances?: pulumi.Input<inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances | undefined>;
     /**
      * Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
      */
-    dismissStaleReviews?: pulumi.Input<boolean>;
+    dismissStaleReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The list of app slugs with dismissal access.
      */
-    dismissalApps?: pulumi.Input<pulumi.Input<string>[]>;
+    dismissalApps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of team slugs with dismissal access.
      * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      */
-    dismissalTeams?: pulumi.Input<pulumi.Input<string>[]>;
+    dismissalTeams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of user logins with dismissal access
      */
-    dismissalUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    dismissalUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * @deprecated Use enforceAdmins instead
      */
-    includeAdmins?: pulumi.Input<boolean>;
+    includeAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
      */
-    requireCodeOwnerReviews?: pulumi.Input<boolean>;
+    requireCodeOwnerReviews?: pulumi.Input<boolean | undefined>;
     /**
      * Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
      */
-    requireLastPushApproval?: pulumi.Input<boolean>;
+    requireLastPushApproval?: pulumi.Input<boolean | undefined>;
     /**
      * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      */
-    requiredApprovingReviewCount?: pulumi.Input<number>;
+    requiredApprovingReviewCount?: pulumi.Input<number | undefined>;
 }
 
 export interface BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances {
     /**
      * The list of app slugs allowed to bypass pull request requirements.
      */
-    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of team slugs allowed to bypass pull request requirements.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of user logins allowed to bypass pull request requirements.
      */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BranchProtectionV3RequiredStatusChecks {
     /**
      * The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
      */
-    checks?: pulumi.Input<pulumi.Input<string>[]>;
+    checks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
      *
@@ -220,15 +220,15 @@ export interface BranchProtectionV3RequiredStatusChecks {
      *
      * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      */
-    contexts?: pulumi.Input<pulumi.Input<string>[]>;
+    contexts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * @deprecated Use enforceAdmins instead
      */
-    includeAdmins?: pulumi.Input<boolean>;
+    includeAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * Require branches to be up to date before merging. Defaults to `false`.
      */
-    strict?: pulumi.Input<boolean>;
+    strict?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BranchProtectionV3Restrictions {
@@ -237,16 +237,16 @@ export interface BranchProtectionV3Restrictions {
      *
      * `restrictions` is only available for organization-owned repositories.
      */
-    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of team slugs with push access.
      * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of user logins with push access.
      */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface EnterpriseActionsPermissionsAllowedActionsConfig {
@@ -257,11 +257,11 @@ export interface EnterpriseActionsPermissionsAllowedActionsConfig {
     /**
      * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
      */
-    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
      */
-    verifiedAllowed?: pulumi.Input<boolean>;
+    verifiedAllowed?: pulumi.Input<boolean | undefined>;
 }
 
 export interface EnterpriseActionsPermissionsEnabledOrganizationsConfig {
@@ -279,7 +279,7 @@ export interface IssueLabelsLabel {
     /**
      * A short description of the label.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the label.
      */
@@ -287,14 +287,14 @@ export interface IssueLabelsLabel {
     /**
      * The URL to the issue label
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface OrganizationRulesetBypassActor {
     /**
      * (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
      */
-    actorId?: pulumi.Input<number>;
+    actorId?: pulumi.Input<number | undefined>;
     /**
      * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      */
@@ -314,15 +314,15 @@ export interface OrganizationRulesetConditions {
     /**
      * (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
      */
-    refName?: pulumi.Input<inputs.OrganizationRulesetConditionsRefName>;
+    refName?: pulumi.Input<inputs.OrganizationRulesetConditionsRefName | undefined>;
     /**
      * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
      */
-    repositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    repositoryIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Targets repositories that match the specified name patterns. (see below for nested schema)
      */
-    repositoryName?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryName>;
+    repositoryName?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryName | undefined>;
     /**
      * Targets repositories by custom or system properties. (see below for nested schema)
      *
@@ -330,7 +330,7 @@ export interface OrganizationRulesetConditions {
      *
      * > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
      */
-    repositoryProperty?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryProperty>;
+    repositoryProperty?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryProperty | undefined>;
 }
 
 export interface OrganizationRulesetConditionsRefName {
@@ -356,18 +356,18 @@ export interface OrganizationRulesetConditionsRepositoryName {
     /**
      * Whether renaming of target repositories is prevented.
      */
-    protected?: pulumi.Input<boolean>;
+    protected?: pulumi.Input<boolean | undefined>;
 }
 
 export interface OrganizationRulesetConditionsRepositoryProperty {
     /**
      * The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
      */
-    excludes?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryPropertyExclude>[]>;
+    excludes?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryPropertyExclude>[] | undefined>;
     /**
      * The repository properties and values to include. All of these properties must match for the condition to pass.
      */
-    includes?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryPropertyInclude>[]>;
+    includes?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryPropertyInclude>[] | undefined>;
 }
 
 export interface OrganizationRulesetConditionsRepositoryPropertyExclude {
@@ -382,7 +382,7 @@ export interface OrganizationRulesetConditionsRepositoryPropertyExclude {
     /**
      * The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }
 
 export interface OrganizationRulesetConditionsRepositoryPropertyInclude {
@@ -397,101 +397,101 @@ export interface OrganizationRulesetConditionsRepositoryPropertyInclude {
     /**
      * The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }
 
 export interface OrganizationRulesetRules {
     /**
      * (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
      */
-    branchNamePattern?: pulumi.Input<inputs.OrganizationRulesetRulesBranchNamePattern>;
+    branchNamePattern?: pulumi.Input<inputs.OrganizationRulesetRulesBranchNamePattern | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
-    commitAuthorEmailPattern?: pulumi.Input<inputs.OrganizationRulesetRulesCommitAuthorEmailPattern>;
+    commitAuthorEmailPattern?: pulumi.Input<inputs.OrganizationRulesetRulesCommitAuthorEmailPattern | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
-    commitMessagePattern?: pulumi.Input<inputs.OrganizationRulesetRulesCommitMessagePattern>;
+    commitMessagePattern?: pulumi.Input<inputs.OrganizationRulesetRulesCommitMessagePattern | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
-    committerEmailPattern?: pulumi.Input<inputs.OrganizationRulesetRulesCommitterEmailPattern>;
+    committerEmailPattern?: pulumi.Input<inputs.OrganizationRulesetRulesCommitterEmailPattern | undefined>;
     /**
      * (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
      */
-    copilotCodeReview?: pulumi.Input<inputs.OrganizationRulesetRulesCopilotCodeReview>;
+    copilotCodeReview?: pulumi.Input<inputs.OrganizationRulesetRulesCopilotCodeReview | undefined>;
     /**
      * (Boolean) Only allow users with bypass permission to create matching refs.
      */
-    creation?: pulumi.Input<boolean>;
+    creation?: pulumi.Input<boolean | undefined>;
     /**
      * (Boolean) Only allow users with bypass permissions to delete matching refs.
      */
-    deletion?: pulumi.Input<boolean>;
+    deletion?: pulumi.Input<boolean | undefined>;
     /**
      * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
      */
-    fileExtensionRestriction?: pulumi.Input<inputs.OrganizationRulesetRulesFileExtensionRestriction>;
+    fileExtensionRestriction?: pulumi.Input<inputs.OrganizationRulesetRulesFileExtensionRestriction | undefined>;
     /**
      * (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
      */
-    filePathRestriction?: pulumi.Input<inputs.OrganizationRulesetRulesFilePathRestriction>;
+    filePathRestriction?: pulumi.Input<inputs.OrganizationRulesetRulesFilePathRestriction | undefined>;
     /**
      * (Integer) The maximum number of characters allowed in file paths.
      */
-    maxFilePathLength?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFilePathLength>;
+    maxFilePathLength?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFilePathLength | undefined>;
     /**
      * (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      */
-    maxFileSize?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFileSize>;
+    maxFileSize?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFileSize | undefined>;
     /**
      * (Boolean) Prevent users with push access from force pushing to branches.
      */
-    nonFastForward?: pulumi.Input<boolean>;
+    nonFastForward?: pulumi.Input<boolean | undefined>;
     /**
      * (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
      */
-    pullRequest?: pulumi.Input<inputs.OrganizationRulesetRulesPullRequest>;
+    pullRequest?: pulumi.Input<inputs.OrganizationRulesetRulesPullRequest | undefined>;
     /**
      * (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
      */
-    requiredCodeScanning?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredCodeScanning>;
+    requiredCodeScanning?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredCodeScanning | undefined>;
     /**
      * (Boolean) Prevent merge commits from being pushed to matching branches.
      */
-    requiredLinearHistory?: pulumi.Input<boolean>;
+    requiredLinearHistory?: pulumi.Input<boolean | undefined>;
     /**
      * (Boolean) Commits pushed to matching branches must have verified signatures.
      */
-    requiredSignatures?: pulumi.Input<boolean>;
+    requiredSignatures?: pulumi.Input<boolean | undefined>;
     /**
      * (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
      */
-    requiredStatusChecks?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredStatusChecks>;
+    requiredStatusChecks?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredStatusChecks | undefined>;
     /**
      * (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
      */
-    requiredWorkflows?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredWorkflows>;
+    requiredWorkflows?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredWorkflows | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
      */
-    tagNamePattern?: pulumi.Input<inputs.OrganizationRulesetRulesTagNamePattern>;
+    tagNamePattern?: pulumi.Input<inputs.OrganizationRulesetRulesTagNamePattern | undefined>;
     /**
      * (Boolean) Only allow users with bypass permission to update matching refs.
      */
-    update?: pulumi.Input<boolean>;
+    update?: pulumi.Input<boolean | undefined>;
 }
 
 export interface OrganizationRulesetRulesBranchNamePattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -506,11 +506,11 @@ export interface OrganizationRulesetRulesCommitAuthorEmailPattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -525,11 +525,11 @@ export interface OrganizationRulesetRulesCommitMessagePattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -544,11 +544,11 @@ export interface OrganizationRulesetRulesCommitterEmailPattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -563,11 +563,11 @@ export interface OrganizationRulesetRulesCopilotCodeReview {
     /**
      * Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
      */
-    reviewDraftPullRequests?: pulumi.Input<boolean>;
+    reviewDraftPullRequests?: pulumi.Input<boolean | undefined>;
     /**
      * Copilot automatically reviews each new push to the pull request. Defaults to `false`.
      */
-    reviewOnPush?: pulumi.Input<boolean>;
+    reviewOnPush?: pulumi.Input<boolean | undefined>;
 }
 
 export interface OrganizationRulesetRulesFileExtensionRestriction {
@@ -602,31 +602,31 @@ export interface OrganizationRulesetRulesPullRequest {
     /**
      * Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
      */
-    allowedMergeMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedMergeMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
-    dismissStaleReviewsOnPush?: pulumi.Input<boolean>;
+    dismissStaleReviewsOnPush?: pulumi.Input<boolean | undefined>;
     /**
      * Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      */
-    requireCodeOwnerReview?: pulumi.Input<boolean>;
+    requireCodeOwnerReview?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      */
-    requireLastPushApproval?: pulumi.Input<boolean>;
+    requireLastPushApproval?: pulumi.Input<boolean | undefined>;
     /**
      * The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      */
-    requiredApprovingReviewCount?: pulumi.Input<number>;
+    requiredApprovingReviewCount?: pulumi.Input<number | undefined>;
     /**
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
-    requiredReviewThreadResolution?: pulumi.Input<boolean>;
+    requiredReviewThreadResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
      */
-    requiredReviewers?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesPullRequestRequiredReviewer>[]>;
+    requiredReviewers?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesPullRequestRequiredReviewer>[] | undefined>;
 }
 
 export interface OrganizationRulesetRulesPullRequestRequiredReviewer {
@@ -681,7 +681,7 @@ export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
      * (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
      */
-    doNotEnforceOnCreate?: pulumi.Input<boolean>;
+    doNotEnforceOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * Status checks that are required. Several can be defined.
      */
@@ -689,7 +689,7 @@ export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
      * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      */
-    strictRequiredStatusChecksPolicy?: pulumi.Input<boolean>;
+    strictRequiredStatusChecksPolicy?: pulumi.Input<boolean | undefined>;
 }
 
 export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
@@ -700,14 +700,14 @@ export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
     /**
      * The optional integration ID that this status check must originate from.
      */
-    integrationId?: pulumi.Input<number>;
+    integrationId?: pulumi.Input<number | undefined>;
 }
 
 export interface OrganizationRulesetRulesRequiredWorkflows {
     /**
      * Allow repositories and branches to be created if a check would otherwise prohibit it.
      */
-    doNotEnforceOnCreate?: pulumi.Input<boolean>;
+    doNotEnforceOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * Actions workflows that are required. Several can be defined.
      */
@@ -722,7 +722,7 @@ export interface OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
     /**
      * The ref (branch or tag) of the workflow file to use.
      */
-    ref?: pulumi.Input<string>;
+    ref?: pulumi.Input<string | undefined>;
     /**
      * The repository in which the workflow is defined.
      */
@@ -733,11 +733,11 @@ export interface OrganizationRulesetRulesTagNamePattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -752,15 +752,15 @@ export interface OrganizationWebhookConfiguration {
     /**
      * The content type for the payload. Valid values are either 'form' or 'json'.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Insecure SSL boolean toggle. Defaults to 'false'.
      */
-    insecureSsl?: pulumi.Input<boolean>;
+    insecureSsl?: pulumi.Input<boolean | undefined>;
     /**
      * The shared secret for the webhook
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * URL of the webhook
      */
@@ -795,7 +795,7 @@ export interface RepositoryCollaboratorsTeam {
      * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * Must be `push` for personal repositories. Defaults to `push`.
      */
-    permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string | undefined>;
     /**
      * The GitHub team id or the GitHub team slug.
      */
@@ -808,7 +808,7 @@ export interface RepositoryCollaboratorsUser {
      * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      */
-    permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string | undefined>;
     /**
      * The user to add to the repository as a collaborator.
      */
@@ -830,39 +830,39 @@ export interface RepositoryEnvironmentReviewer {
     /**
      * Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
      */
-    teams?: pulumi.Input<pulumi.Input<number>[]>;
+    teams?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
      */
-    users?: pulumi.Input<pulumi.Input<number>[]>;
+    users?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 export interface RepositoryPages {
     /**
      * The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
      */
-    buildType?: pulumi.Input<string>;
+    buildType?: pulumi.Input<string | undefined>;
     /**
      * The custom domain for the repository. This can only be set after the repository has been created.
      */
-    cname?: pulumi.Input<string>;
+    cname?: pulumi.Input<string | undefined>;
     /**
      * Whether the rendered GitHub Pages site has a custom 404 page.
      */
-    custom404?: pulumi.Input<boolean>;
+    custom404?: pulumi.Input<boolean | undefined>;
     /**
      * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
      */
-    source?: pulumi.Input<inputs.RepositoryPagesSource>;
+    source?: pulumi.Input<inputs.RepositoryPagesSource | undefined>;
     /**
      * The GitHub Pages site's build status e.g. `building` or `built`.
      */
-    status?: pulumi.Input<string>;
-    url?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface RepositoryPagesSource {
@@ -873,14 +873,14 @@ export interface RepositoryPagesSource {
     /**
      * The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
 }
 
 export interface RepositoryRulesetBypassActor {
     /**
      * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
      */
-    actorId?: pulumi.Input<number>;
+    actorId?: pulumi.Input<number | undefined>;
     /**
      * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
      */
@@ -920,102 +920,102 @@ export interface RepositoryRulesetRules {
     /**
      * (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
      */
-    branchNamePattern?: pulumi.Input<inputs.RepositoryRulesetRulesBranchNamePattern>;
+    branchNamePattern?: pulumi.Input<inputs.RepositoryRulesetRulesBranchNamePattern | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
-    commitAuthorEmailPattern?: pulumi.Input<inputs.RepositoryRulesetRulesCommitAuthorEmailPattern>;
+    commitAuthorEmailPattern?: pulumi.Input<inputs.RepositoryRulesetRulesCommitAuthorEmailPattern | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
-    commitMessagePattern?: pulumi.Input<inputs.RepositoryRulesetRulesCommitMessagePattern>;
+    commitMessagePattern?: pulumi.Input<inputs.RepositoryRulesetRulesCommitMessagePattern | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
-    committerEmailPattern?: pulumi.Input<inputs.RepositoryRulesetRulesCommitterEmailPattern>;
+    committerEmailPattern?: pulumi.Input<inputs.RepositoryRulesetRulesCommitterEmailPattern | undefined>;
     /**
      * (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
      */
-    copilotCodeReview?: pulumi.Input<inputs.RepositoryRulesetRulesCopilotCodeReview>;
+    copilotCodeReview?: pulumi.Input<inputs.RepositoryRulesetRulesCopilotCodeReview | undefined>;
     /**
      * (Boolean) Only allow users with bypass permission to create matching refs.
      */
-    creation?: pulumi.Input<boolean>;
+    creation?: pulumi.Input<boolean | undefined>;
     /**
      * (Boolean) Only allow users with bypass permissions to delete matching refs.
      */
-    deletion?: pulumi.Input<boolean>;
+    deletion?: pulumi.Input<boolean | undefined>;
     /**
      * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
      */
-    fileExtensionRestriction?: pulumi.Input<inputs.RepositoryRulesetRulesFileExtensionRestriction>;
+    fileExtensionRestriction?: pulumi.Input<inputs.RepositoryRulesetRulesFileExtensionRestriction | undefined>;
     /**
      * (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
      */
-    filePathRestriction?: pulumi.Input<inputs.RepositoryRulesetRulesFilePathRestriction>;
+    filePathRestriction?: pulumi.Input<inputs.RepositoryRulesetRulesFilePathRestriction | undefined>;
     /**
      * (Integer) The maximum number of characters allowed in file paths.
      */
-    maxFilePathLength?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFilePathLength>;
+    maxFilePathLength?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFilePathLength | undefined>;
     /**
      * (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      */
-    maxFileSize?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFileSize>;
+    maxFileSize?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFileSize | undefined>;
     /**
      * (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
      */
-    mergeQueue?: pulumi.Input<inputs.RepositoryRulesetRulesMergeQueue>;
+    mergeQueue?: pulumi.Input<inputs.RepositoryRulesetRulesMergeQueue | undefined>;
     /**
      * (Boolean) Prevent users with push access from force pushing to branches.
      */
-    nonFastForward?: pulumi.Input<boolean>;
+    nonFastForward?: pulumi.Input<boolean | undefined>;
     /**
      * (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
      */
-    pullRequest?: pulumi.Input<inputs.RepositoryRulesetRulesPullRequest>;
+    pullRequest?: pulumi.Input<inputs.RepositoryRulesetRulesPullRequest | undefined>;
     /**
      * (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
      */
-    requiredCodeScanning?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredCodeScanning>;
+    requiredCodeScanning?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredCodeScanning | undefined>;
     /**
      * (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
      */
-    requiredDeployments?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredDeployments>;
+    requiredDeployments?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredDeployments | undefined>;
     /**
      * (Boolean) Prevent merge commits from being pushed to matching branches.
      */
-    requiredLinearHistory?: pulumi.Input<boolean>;
+    requiredLinearHistory?: pulumi.Input<boolean | undefined>;
     /**
      * (Boolean) Commits pushed to matching branches must have verified signatures.
      */
-    requiredSignatures?: pulumi.Input<boolean>;
+    requiredSignatures?: pulumi.Input<boolean | undefined>;
     /**
      * (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
      */
-    requiredStatusChecks?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredStatusChecks>;
+    requiredStatusChecks?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredStatusChecks | undefined>;
     /**
      * (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
      */
-    tagNamePattern?: pulumi.Input<inputs.RepositoryRulesetRulesTagNamePattern>;
+    tagNamePattern?: pulumi.Input<inputs.RepositoryRulesetRulesTagNamePattern | undefined>;
     /**
      * (Boolean) Only allow users with bypass permission to update matching refs.
      */
-    update?: pulumi.Input<boolean>;
+    update?: pulumi.Input<boolean | undefined>;
     /**
      * (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
      */
-    updateAllowsFetchAndMerge?: pulumi.Input<boolean>;
+    updateAllowsFetchAndMerge?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RepositoryRulesetRulesBranchNamePattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -1030,11 +1030,11 @@ export interface RepositoryRulesetRulesCommitAuthorEmailPattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -1049,11 +1049,11 @@ export interface RepositoryRulesetRulesCommitMessagePattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -1068,11 +1068,11 @@ export interface RepositoryRulesetRulesCommitterEmailPattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -1087,11 +1087,11 @@ export interface RepositoryRulesetRulesCopilotCodeReview {
     /**
      * Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
      */
-    reviewDraftPullRequests?: pulumi.Input<boolean>;
+    reviewDraftPullRequests?: pulumi.Input<boolean | undefined>;
     /**
      * Copilot automatically reviews each new push to the pull request. Defaults to `false`.
      */
-    reviewOnPush?: pulumi.Input<boolean>;
+    reviewOnPush?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RepositoryRulesetRulesFileExtensionRestriction {
@@ -1126,62 +1126,62 @@ export interface RepositoryRulesetRulesMergeQueue {
     /**
      * Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
      */
-    checkResponseTimeoutMinutes?: pulumi.Input<number>;
+    checkResponseTimeoutMinutes?: pulumi.Input<number | undefined>;
     /**
      * When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
      */
-    groupingStrategy?: pulumi.Input<string>;
+    groupingStrategy?: pulumi.Input<string | undefined>;
     /**
      * Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
      */
-    maxEntriesToBuild?: pulumi.Input<number>;
+    maxEntriesToBuild?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of PRs that will be merged together in a group. Defaults to `5`.
      */
-    maxEntriesToMerge?: pulumi.Input<number>;
+    maxEntriesToMerge?: pulumi.Input<number | undefined>;
     /**
      * Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
      */
-    mergeMethod?: pulumi.Input<string>;
+    mergeMethod?: pulumi.Input<string | undefined>;
     /**
      * The minimum number of PRs that will be merged together in a group. Defaults to `1`.
      */
-    minEntriesToMerge?: pulumi.Input<number>;
+    minEntriesToMerge?: pulumi.Input<number | undefined>;
     /**
      * The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
      */
-    minEntriesToMergeWaitMinutes?: pulumi.Input<number>;
+    minEntriesToMergeWaitMinutes?: pulumi.Input<number | undefined>;
 }
 
 export interface RepositoryRulesetRulesPullRequest {
     /**
      * Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
      */
-    allowedMergeMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedMergeMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
-    dismissStaleReviewsOnPush?: pulumi.Input<boolean>;
+    dismissStaleReviewsOnPush?: pulumi.Input<boolean | undefined>;
     /**
      * Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      */
-    requireCodeOwnerReview?: pulumi.Input<boolean>;
+    requireCodeOwnerReview?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      */
-    requireLastPushApproval?: pulumi.Input<boolean>;
+    requireLastPushApproval?: pulumi.Input<boolean | undefined>;
     /**
      * The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      */
-    requiredApprovingReviewCount?: pulumi.Input<number>;
+    requiredApprovingReviewCount?: pulumi.Input<number | undefined>;
     /**
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
-    requiredReviewThreadResolution?: pulumi.Input<boolean>;
+    requiredReviewThreadResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
      */
-    requiredReviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryRulesetRulesPullRequestRequiredReviewer>[]>;
+    requiredReviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryRulesetRulesPullRequestRequiredReviewer>[] | undefined>;
 }
 
 export interface RepositoryRulesetRulesPullRequestRequiredReviewer {
@@ -1243,7 +1243,7 @@ export interface RepositoryRulesetRulesRequiredStatusChecks {
     /**
      * Allow repositories and branches to be created if a check would otherwise prohibit it.
      */
-    doNotEnforceOnCreate?: pulumi.Input<boolean>;
+    doNotEnforceOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * Status checks that are required. Several can be defined.
      */
@@ -1251,7 +1251,7 @@ export interface RepositoryRulesetRulesRequiredStatusChecks {
     /**
      * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      */
-    strictRequiredStatusChecksPolicy?: pulumi.Input<boolean>;
+    strictRequiredStatusChecksPolicy?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
@@ -1262,18 +1262,18 @@ export interface RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
     /**
      * The optional integration ID that this status check must originate from.
      */
-    integrationId?: pulumi.Input<number>;
+    integrationId?: pulumi.Input<number | undefined>;
 }
 
 export interface RepositoryRulesetRulesTagNamePattern {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the rule will fail if the pattern matches.
      */
-    negate?: pulumi.Input<boolean>;
+    negate?: pulumi.Input<boolean | undefined>;
     /**
      * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
@@ -1288,27 +1288,27 @@ export interface RepositorySecurityAndAnalysis {
     /**
      * The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
      */
-    advancedSecurity?: pulumi.Input<inputs.RepositorySecurityAndAnalysisAdvancedSecurity>;
+    advancedSecurity?: pulumi.Input<inputs.RepositorySecurityAndAnalysisAdvancedSecurity | undefined>;
     /**
      * The code security configuration for the repository. See Code Security below for details.
      */
-    codeSecurity?: pulumi.Input<inputs.RepositorySecurityAndAnalysisCodeSecurity>;
+    codeSecurity?: pulumi.Input<inputs.RepositorySecurityAndAnalysisCodeSecurity | undefined>;
     /**
      * The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      */
-    secretScanning?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanning>;
+    secretScanning?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanning | undefined>;
     /**
      * The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
      */
-    secretScanningAiDetection?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningAiDetection>;
+    secretScanningAiDetection?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningAiDetection | undefined>;
     /**
      * The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
      */
-    secretScanningNonProviderPatterns?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns>;
+    secretScanningNonProviderPatterns?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns | undefined>;
     /**
      * The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      */
-    secretScanningPushProtection?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningPushProtection>;
+    secretScanningPushProtection?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningPushProtection | undefined>;
 }
 
 export interface RepositorySecurityAndAnalysisAdvancedSecurity {
@@ -1359,7 +1359,7 @@ export interface RepositoryTemplate {
      *
      * > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
      */
-    includeAllBranches?: pulumi.Input<boolean>;
+    includeAllBranches?: pulumi.Input<boolean | undefined>;
     /**
      * The GitHub organization or user the template repository is owned by.
      */
@@ -1374,15 +1374,15 @@ export interface RepositoryWebhookConfiguration {
     /**
      * The content type for the payload. Valid values are either `form` or `json`.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Insecure SSL boolean toggle. Defaults to `false`.
      */
-    insecureSsl?: pulumi.Input<boolean>;
+    insecureSsl?: pulumi.Input<boolean | undefined>;
     /**
      * The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * The URL of the webhook.
      */
@@ -1394,7 +1394,7 @@ export interface TeamMembersMember {
      * The role of the user within the team.
      * Must be one of `member` or `maintainer`. Defaults to `member`.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The user to add to the team.
      */
@@ -1405,17 +1405,17 @@ export interface TeamSettingsReviewRequestDelegation {
     /**
      * The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
      */
-    algorithm?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string | undefined>;
     /**
      * The number of team members to assign to a pull request.
      */
-    memberCount?: pulumi.Input<number>;
+    memberCount?: pulumi.Input<number | undefined>;
     /**
      * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
      *
      * @deprecated Use the top-level notify attribute instead.
      */
-    notify?: pulumi.Input<boolean>;
+    notify?: pulumi.Input<boolean | undefined>;
 }
 
 export interface TeamSyncGroupMappingGroup {

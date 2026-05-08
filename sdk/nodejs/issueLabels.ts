@@ -122,11 +122,11 @@ export interface IssueLabelsState {
     /**
      * List of labels
      */
-    labels?: pulumi.Input<pulumi.Input<inputs.IssueLabelsLabel>[]>;
+    labels?: pulumi.Input<pulumi.Input<inputs.IssueLabelsLabel>[] | undefined>;
     /**
      * The GitHub repository
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,7 +136,7 @@ export interface IssueLabelsArgs {
     /**
      * List of labels
      */
-    labels?: pulumi.Input<pulumi.Input<inputs.IssueLabelsLabel>[]>;
+    labels?: pulumi.Input<pulumi.Input<inputs.IssueLabelsLabel>[] | undefined>;
     /**
      * The GitHub repository
      */

@@ -138,24 +138,24 @@ export interface IssueLabelState {
     /**
      * A 6 character hex code, **without the leading #**, identifying the color of the label.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * A short description of the label.
      */
-    description?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the label.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The GitHub repository
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The URL to the issue label
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,12 +169,12 @@ export interface IssueLabelArgs {
     /**
      * A short description of the label.
      */
-    description?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the label.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The GitHub repository
      */

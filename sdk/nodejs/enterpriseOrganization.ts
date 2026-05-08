@@ -139,31 +139,31 @@ export interface EnterpriseOrganizationState {
     /**
      * List of organization owner usernames.
      */
-    adminLogins?: pulumi.Input<pulumi.Input<string>[]>;
+    adminLogins?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The billing email address.
      */
-    billingEmail?: pulumi.Input<string>;
+    billingEmail?: pulumi.Input<string | undefined>;
     /**
      * The ID of the organization.
      */
-    databaseId?: pulumi.Input<number>;
+    databaseId?: pulumi.Input<number | undefined>;
     /**
      * The description of the organization.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the organization.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the enterprise.
      */
-    enterpriseId?: pulumi.Input<string>;
+    enterpriseId?: pulumi.Input<string | undefined>;
     /**
      * The name of the organization.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,11 +181,11 @@ export interface EnterpriseOrganizationArgs {
     /**
      * The description of the organization.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the organization.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the enterprise.
      */
@@ -193,5 +193,5 @@ export interface EnterpriseOrganizationArgs {
     /**
      * The name of the organization.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

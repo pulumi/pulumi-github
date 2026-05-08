@@ -121,7 +121,7 @@ export interface GetRepositoryFileOutputArgs {
     /**
      * Git branch. Defaults to the repository's default branch.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * The path of the file to read.
      */

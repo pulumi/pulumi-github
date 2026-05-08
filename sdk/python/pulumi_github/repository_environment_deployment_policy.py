@@ -21,8 +21,8 @@ class RepositoryEnvironmentDeploymentPolicyArgs:
     def __init__(__self__, *,
                  environment: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 branch_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryEnvironmentDeploymentPolicy resource.
 
@@ -64,38 +64,38 @@ class RepositoryEnvironmentDeploymentPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchPattern")
-    def branch_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         """
         return pulumi.get(self, "branch_pattern")
 
     @branch_pattern.setter
-    def branch_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPattern")
-    def tag_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
         """
         return pulumi.get(self, "tag_pattern")
 
     @tag_pattern.setter
-    def tag_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_pattern", value)
 
 
 @pulumi.input_type
 class _RepositoryEnvironmentDeploymentPolicyState:
     def __init__(__self__, *,
-                 branch_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironmentDeploymentPolicy resources.
 
@@ -121,74 +121,74 @@ class _RepositoryEnvironmentDeploymentPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="branchPattern")
-    def branch_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         """
         return pulumi.get(self, "branch_pattern")
 
     @branch_pattern.setter
-    def branch_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the deployment policy.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository of the environment.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the repository.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPattern")
-    def tag_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
         """
         return pulumi.get(self, "tag_pattern")
 
     @tag_pattern.setter
-    def tag_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_pattern", value)
 
 
@@ -198,10 +198,10 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_pattern: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
@@ -221,7 +221,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
@@ -246,7 +246,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
@@ -302,7 +302,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
@@ -327,7 +327,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
@@ -367,10 +367,10 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_pattern: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -400,12 +400,12 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            branch_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.int]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-            tag_pattern: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryEnvironmentDeploymentPolicy':
+            branch_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.int]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            tag_pattern: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryEnvironmentDeploymentPolicy':
         """
         Get an existing RepositoryEnvironmentDeploymentPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -210,47 +210,47 @@ export interface RepositoryPagesState {
     /**
      * The API URL of the GitHub Pages resource.
      */
-    apiUrl?: pulumi.Input<string>;
+    apiUrl?: pulumi.Input<string | undefined>;
     /**
      * The GitHub Pages site's build status (e.g., `building` or `built`).
      */
-    buildStatus?: pulumi.Input<string>;
+    buildStatus?: pulumi.Input<string | undefined>;
     /**
      * The type of GitHub Pages site to build. Can be `legacy` or `workflow`. Defaults to `legacy`.
      */
-    buildType?: pulumi.Input<string>;
+    buildType?: pulumi.Input<string | undefined>;
     /**
      * The custom domain for the repository.
      */
-    cname?: pulumi.Input<string>;
+    cname?: pulumi.Input<string | undefined>;
     /**
      * Whether the rendered GitHub Pages site has a custom 404 page.
      */
-    custom404?: pulumi.Input<boolean>;
+    custom404?: pulumi.Input<boolean | undefined>;
     /**
      * The absolute URL (with scheme) to the rendered GitHub Pages site.
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * Whether HTTPS is enforced for the GitHub Pages site. GitHub Pages sites serve over HTTPS by default; this setting only applies when a custom domain (`cname`) is configured. Requires `cname` to be set.
      */
-    httpsEnforced?: pulumi.Input<boolean>;
+    httpsEnforced?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the GitHub Pages site is public.
      */
-    public?: pulumi.Input<boolean>;
+    public?: pulumi.Input<boolean | undefined>;
     /**
      * The repository name to configure GitHub Pages for.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository.
      */
-    repositoryId?: pulumi.Input<number>;
+    repositoryId?: pulumi.Input<number | undefined>;
     /**
      * The source branch and directory for the rendered Pages site. Required when `buildType` is `legacy`. See Source below for details.
      */
-    source?: pulumi.Input<inputs.RepositoryPagesSource>;
+    source?: pulumi.Input<inputs.RepositoryPagesSource | undefined>;
 }
 
 /**
@@ -260,19 +260,19 @@ export interface RepositoryPagesArgs {
     /**
      * The type of GitHub Pages site to build. Can be `legacy` or `workflow`. Defaults to `legacy`.
      */
-    buildType?: pulumi.Input<string>;
+    buildType?: pulumi.Input<string | undefined>;
     /**
      * The custom domain for the repository.
      */
-    cname?: pulumi.Input<string>;
+    cname?: pulumi.Input<string | undefined>;
     /**
      * Whether HTTPS is enforced for the GitHub Pages site. GitHub Pages sites serve over HTTPS by default; this setting only applies when a custom domain (`cname`) is configured. Requires `cname` to be set.
      */
-    httpsEnforced?: pulumi.Input<boolean>;
+    httpsEnforced?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the GitHub Pages site is public.
      */
-    public?: pulumi.Input<boolean>;
+    public?: pulumi.Input<boolean | undefined>;
     /**
      * The repository name to configure GitHub Pages for.
      */
@@ -280,5 +280,5 @@ export interface RepositoryPagesArgs {
     /**
      * The source branch and directory for the rendered Pages site. Required when `buildType` is `legacy`. See Source below for details.
      */
-    source?: pulumi.Input<inputs.RepositoryPagesSource>;
+    source?: pulumi.Input<inputs.RepositoryPagesSource | undefined>;
 }

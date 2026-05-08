@@ -154,27 +154,27 @@ export interface EnterpriseSecurityAnalysisSettingsState {
     /**
      * Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
      */
-    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean>;
+    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The slug of the enterprise.
      */
-    enterpriseSlug?: pulumi.Input<string>;
+    enterpriseSlug?: pulumi.Input<string | undefined>;
     /**
      * Whether secret scanning is automatically enabled for new repositories. Defaults to `false`.
      */
-    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Custom URL for secret scanning push protection bypass instructions.
      */
-    secretScanningPushProtectionCustomLink?: pulumi.Input<string>;
+    secretScanningPushProtectionCustomLink?: pulumi.Input<string | undefined>;
     /**
      * Whether secret scanning push protection is automatically enabled for new repositories. Defaults to `false`.
      */
-    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether secret scanning validity checks are enabled. Defaults to `false`.
      */
-    secretScanningValidityChecksEnabled?: pulumi.Input<boolean>;
+    secretScanningValidityChecksEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -184,7 +184,7 @@ export interface EnterpriseSecurityAnalysisSettingsArgs {
     /**
      * Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
      */
-    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean>;
+    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The slug of the enterprise.
      */
@@ -192,17 +192,17 @@ export interface EnterpriseSecurityAnalysisSettingsArgs {
     /**
      * Whether secret scanning is automatically enabled for new repositories. Defaults to `false`.
      */
-    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Custom URL for secret scanning push protection bypass instructions.
      */
-    secretScanningPushProtectionCustomLink?: pulumi.Input<string>;
+    secretScanningPushProtectionCustomLink?: pulumi.Input<string | undefined>;
     /**
      * Whether secret scanning push protection is automatically enabled for new repositories. Defaults to `false`.
      */
-    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether secret scanning validity checks are enabled. Defaults to `false`.
      */
-    secretScanningValidityChecksEnabled?: pulumi.Input<boolean>;
+    secretScanningValidityChecksEnabled?: pulumi.Input<boolean | undefined>;
 }

@@ -121,18 +121,18 @@ export interface MembershipState {
      * from the organization. Instead, the member's role will be
      * downgraded to 'member'.
      */
-    downgradeOnDestroy?: pulumi.Input<boolean>;
-    etag?: pulumi.Input<string>;
+    downgradeOnDestroy?: pulumi.Input<boolean | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
      * `admin` role represents the `owner` role available via GitHub UI.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The user to add to the organization.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -145,13 +145,13 @@ export interface MembershipArgs {
      * from the organization. Instead, the member's role will be
      * downgraded to 'member'.
      */
-    downgradeOnDestroy?: pulumi.Input<boolean>;
+    downgradeOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
      * `admin` role represents the `owner` role available via GitHub UI.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The user to add to the organization.
      */

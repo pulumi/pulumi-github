@@ -20,8 +20,8 @@ __all__ = ['ActionsOrganizationWorkflowPermissionsArgs', 'ActionsOrganizationWor
 class ActionsOrganizationWorkflowPermissionsArgs:
     def __init__(__self__, *,
                  organization_slug: pulumi.Input[_builtins.str],
-                 can_approve_pull_request_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_workflow_permissions: Optional[pulumi.Input[_builtins.str]] = None):
+                 can_approve_pull_request_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_workflow_permissions: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationWorkflowPermissions resource.
 
@@ -49,35 +49,35 @@ class ActionsOrganizationWorkflowPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="canApprovePullRequestReviews")
-    def can_approve_pull_request_reviews(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def can_approve_pull_request_reviews(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
         """
         return pulumi.get(self, "can_approve_pull_request_reviews")
 
     @can_approve_pull_request_reviews.setter
-    def can_approve_pull_request_reviews(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def can_approve_pull_request_reviews(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "can_approve_pull_request_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultWorkflowPermissions")
-    def default_workflow_permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_workflow_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
         """
         return pulumi.get(self, "default_workflow_permissions")
 
     @default_workflow_permissions.setter
-    def default_workflow_permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_workflow_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_workflow_permissions", value)
 
 
 @pulumi.input_type
 class _ActionsOrganizationWorkflowPermissionsState:
     def __init__(__self__, *,
-                 can_approve_pull_request_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_workflow_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_slug: Optional[pulumi.Input[_builtins.str]] = None):
+                 can_approve_pull_request_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_workflow_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationWorkflowPermissions resources.
 
@@ -94,38 +94,38 @@ class _ActionsOrganizationWorkflowPermissionsState:
 
     @_builtins.property
     @pulumi.getter(name="canApprovePullRequestReviews")
-    def can_approve_pull_request_reviews(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def can_approve_pull_request_reviews(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
         """
         return pulumi.get(self, "can_approve_pull_request_reviews")
 
     @can_approve_pull_request_reviews.setter
-    def can_approve_pull_request_reviews(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def can_approve_pull_request_reviews(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "can_approve_pull_request_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultWorkflowPermissions")
-    def default_workflow_permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_workflow_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
         """
         return pulumi.get(self, "default_workflow_permissions")
 
     @default_workflow_permissions.setter
-    def default_workflow_permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_workflow_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_workflow_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationSlug")
-    def organization_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The slug of the organization.
         """
         return pulumi.get(self, "organization_slug")
 
     @organization_slug.setter
-    def organization_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_slug", value)
 
 
@@ -135,9 +135,9 @@ class ActionsOrganizationWorkflowPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 can_approve_pull_request_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_workflow_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 can_approve_pull_request_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_workflow_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to manage GitHub Actions workflow permissions for a GitHub Organization account. This controls the default permissions granted to the GITHUB_TOKEN when running workflows and whether GitHub Actions can approve pull request reviews.
@@ -248,9 +248,9 @@ class ActionsOrganizationWorkflowPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 can_approve_pull_request_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_workflow_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 can_approve_pull_request_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_workflow_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,9 +275,9 @@ class ActionsOrganizationWorkflowPermissions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            can_approve_pull_request_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-            default_workflow_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_slug: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsOrganizationWorkflowPermissions':
+            can_approve_pull_request_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_workflow_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionsOrganizationWorkflowPermissions':
         """
         Get an existing ActionsOrganizationWorkflowPermissions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

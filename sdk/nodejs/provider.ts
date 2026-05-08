@@ -94,57 +94,57 @@ export interface ProviderArgs {
     /**
      * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      */
-    appAuth?: pulumi.Input<inputs.ProviderAppAuth>;
+    appAuth?: pulumi.Input<inputs.ProviderAppAuth | undefined>;
     /**
      * The GitHub Base API URL
      */
-    baseUrl?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable `insecure` mode for testing purposes
      */
-    insecure?: pulumi.Input<boolean>;
+    insecure?: pulumi.Input<boolean | undefined>;
     /**
      * Number of items per page for paginationDefaults to 100
      */
-    maxPerPage?: pulumi.Input<number>;
+    maxPerPage?: pulumi.Input<number | undefined>;
     /**
      * Number of times to retry a request after receiving an error status codeDefaults to 3
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
      *
      * @deprecated Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
      */
-    parallelRequests?: pulumi.Input<boolean>;
+    parallelRequests?: pulumi.Input<boolean | undefined>;
     /**
      * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
      */
-    readDelayMs?: pulumi.Input<number>;
+    readDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
      */
-    retryDelayMs?: pulumi.Input<number>;
+    retryDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
      */
-    retryableErrors?: pulumi.Input<pulumi.Input<number>[]>;
+    retryableErrors?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
      */
-    writeDelayMs?: pulumi.Input<number>;
+    writeDelayMs?: pulumi.Input<number | undefined>;
 }
 
 export namespace Provider {

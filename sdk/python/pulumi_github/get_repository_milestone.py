@@ -163,9 +163,9 @@ def get_repository_milestone(number: Optional[_builtins.int] = None,
         repository=pulumi.get(__ret__, 'repository'),
         state=pulumi.get(__ret__, 'state'),
         title=pulumi.get(__ret__, 'title'))
-def get_repository_milestone_output(number: Optional[pulumi.Input[_builtins.int]] = None,
-                                    owner: Optional[pulumi.Input[_builtins.str]] = None,
-                                    repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_milestone_output(number: pulumi.Input[Optional[_builtins.int]] = None,
+                                    owner: pulumi.Input[Optional[_builtins.str]] = None,
+                                    repository: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryMilestoneResult]:
     """
     Use this data source to retrieve information about a specific GitHub milestone in a repository.

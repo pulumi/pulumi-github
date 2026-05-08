@@ -129,23 +129,23 @@ export interface ActionsRepositoryPermissionsState {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    allowedActions?: pulumi.Input<string>;
+    allowedActions?: pulumi.Input<string | undefined>;
     /**
      * Sets the actions that are allowed in an repository. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    allowedActionsConfig?: pulumi.Input<inputs.ActionsRepositoryPermissionsAllowedActionsConfig>;
+    allowedActionsConfig?: pulumi.Input<inputs.ActionsRepositoryPermissionsAllowedActionsConfig | undefined>;
     /**
      * Should GitHub actions be enabled on this repository?
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The GitHub repository
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
      */
-    shaPinningRequired?: pulumi.Input<boolean>;
+    shaPinningRequired?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -155,15 +155,15 @@ export interface ActionsRepositoryPermissionsArgs {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    allowedActions?: pulumi.Input<string>;
+    allowedActions?: pulumi.Input<string | undefined>;
     /**
      * Sets the actions that are allowed in an repository. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    allowedActionsConfig?: pulumi.Input<inputs.ActionsRepositoryPermissionsAllowedActionsConfig>;
+    allowedActionsConfig?: pulumi.Input<inputs.ActionsRepositoryPermissionsAllowedActionsConfig | undefined>;
     /**
      * Should GitHub actions be enabled on this repository?
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The GitHub repository
      */
@@ -171,5 +171,5 @@ export interface ActionsRepositoryPermissionsArgs {
     /**
      * Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
      */
-    shaPinningRequired?: pulumi.Input<boolean>;
+    shaPinningRequired?: pulumi.Input<boolean | undefined>;
 }

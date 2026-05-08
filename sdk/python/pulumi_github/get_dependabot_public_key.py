@@ -110,7 +110,7 @@ def get_dependabot_public_key(repository: Optional[_builtins.str] = None,
         key=pulumi.get(__ret__, 'key'),
         key_id=pulumi.get(__ret__, 'key_id'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_dependabot_public_key_output(repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dependabot_public_key_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDependabotPublicKeyResult]:
     """
     Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.

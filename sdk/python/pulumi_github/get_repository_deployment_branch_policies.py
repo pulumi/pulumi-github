@@ -113,8 +113,8 @@ def get_repository_deployment_branch_policies(environment_name: Optional[_builti
         environment_name=pulumi.get(__ret__, 'environment_name'),
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_repository_deployment_branch_policies_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_deployment_branch_policies_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     repository: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryDeploymentBranchPoliciesResult]:
     """
     > **Note:** This data source is deprecated, please use the `get_repository_environment_deployment_policies` data source instead.

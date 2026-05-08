@@ -165,10 +165,10 @@ def get_repositories(include_repo_id: Optional[_builtins.bool] = None,
         repo_ids=pulumi.get(__ret__, 'repo_ids'),
         results_per_page=pulumi.get(__ret__, 'results_per_page'),
         sort=pulumi.get(__ret__, 'sort'))
-def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                            query: Optional[pulumi.Input[_builtins.str]] = None,
-                            results_per_page: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                            sort: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repositories_output(include_repo_id: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                            query: pulumi.Input[Optional[_builtins.str]] = None,
+                            results_per_page: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                            sort: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     > **Note:** The data source will return a maximum of `1000` repositories

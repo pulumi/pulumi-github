@@ -121,19 +121,19 @@ export interface RepositoryDeploymentBranchPolicyState {
     /**
      * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * An etag representing the Branch object.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name pattern that branches must match in order to deploy to the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The repository to create the policy in.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,11 +147,11 @@ export interface RepositoryDeploymentBranchPolicyArgs {
     /**
      * An etag representing the Branch object.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name pattern that branches must match in order to deploy to the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The repository to create the policy in.
      */

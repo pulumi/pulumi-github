@@ -20,19 +20,19 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 app_auth: Optional[pulumi.Input['ProviderAppAuthArgs']] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_per_page: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 retryable_errors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_delay_ms: Optional[pulumi.Input[_builtins.int]] = None):
+                 app_auth: pulumi.Input[Optional['ProviderAppAuthArgs']] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_per_page: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 retryable_errors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_delay_ms: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -86,159 +86,159 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="appAuth")
-    def app_auth(self) -> Optional[pulumi.Input['ProviderAppAuthArgs']]:
+    def app_auth(self) -> pulumi.Input[Optional['ProviderAppAuthArgs']]:
         """
         The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
         return pulumi.get(self, "app_auth")
 
     @app_auth.setter
-    def app_auth(self, value: Optional[pulumi.Input['ProviderAppAuthArgs']]):
+    def app_auth(self, value: pulumi.Input[Optional['ProviderAppAuthArgs']]):
         pulumi.set(self, "app_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="baseUrl")
-    def base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub Base API URL
         """
         return pulumi.get(self, "base_url")
 
     @base_url.setter
-    def base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def insecure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable `insecure` mode for testing purposes
         """
         return pulumi.get(self, "insecure")
 
     @insecure.setter
-    def insecure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPerPage")
-    def max_per_page(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_per_page(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of items per page for paginationDefaults to 100
         """
         return pulumi.get(self, "max_per_page")
 
     @max_per_page.setter
-    def max_per_page(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_per_page(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_per_page", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of times to retry a request after receiving an error status codeDefaults to 3
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelRequests")
-    def parallel_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def parallel_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
         """
         return pulumi.get(self, "parallel_requests")
 
     @parallel_requests.setter
-    def parallel_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def parallel_requests(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "parallel_requests", value)
 
     @_builtins.property
     @pulumi.getter(name="readDelayMs")
-    def read_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         """
         return pulumi.get(self, "read_delay_ms")
 
     @read_delay_ms.setter
-    def read_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_delay_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="retryDelayMs")
-    def retry_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
         """
         return pulumi.get(self, "retry_delay_ms")
 
     @retry_delay_ms.setter
-    def retry_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_delay_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="retryableErrors")
-    def retryable_errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def retryable_errors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
         """
         return pulumi.get(self, "retryable_errors")
 
     @retryable_errors.setter
-    def retryable_errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def retryable_errors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "retryable_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
     @_builtins.property
     @pulumi.getter(name="writeDelayMs")
-    def write_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """
         return pulumi.get(self, "write_delay_ms")
 
     @write_delay_ms.setter
-    def write_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_delay_ms", value)
 
 
@@ -248,19 +248,19 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_auth: Optional[pulumi.Input[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_per_page: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 retryable_errors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 app_auth: pulumi.Input[Optional[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_per_page: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 retryable_errors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         The provider type for the github package. By default, resources use package-wide configuration
@@ -313,19 +313,19 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_auth: Optional[pulumi.Input[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_per_page: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 retryable_errors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 app_auth: pulumi.Input[Optional[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_per_page: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 retryable_errors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

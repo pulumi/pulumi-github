@@ -22,11 +22,11 @@ __all__ = ['RepositoryPagesInitArgs', 'RepositoryPages']
 class RepositoryPagesInitArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input['RepositoryPagesSourceArgs']] = None):
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional['RepositoryPagesSourceArgs']] = None):
         """
         The set of arguments for constructing a RepositoryPages resource.
 
@@ -63,79 +63,79 @@ class RepositoryPagesInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildType")
-    def build_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of GitHub Pages site to build. Can be `legacy` or `workflow`. Defaults to `legacy`.
         """
         return pulumi.get(self, "build_type")
 
     @build_type.setter
-    def build_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom domain for the repository.
         """
         return pulumi.get(self, "cname")
 
     @cname.setter
-    def cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsEnforced")
-    def https_enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTPS is enforced for the GitHub Pages site. GitHub Pages sites serve over HTTPS by default; this setting only applies when a custom domain (`cname`) is configured. Requires `cname` to be set.
         """
         return pulumi.get(self, "https_enforced")
 
     @https_enforced.setter
-    def https_enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_enforced", value)
 
     @_builtins.property
     @pulumi.getter
-    def public(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the GitHub Pages site is public.
         """
         return pulumi.get(self, "public")
 
     @public.setter
-    def public(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RepositoryPagesSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['RepositoryPagesSourceArgs']]:
         """
         The source branch and directory for the rendered Pages site. Required when `build_type` is `legacy`. See Source below for details.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RepositoryPagesSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['RepositoryPagesSourceArgs']]):
         pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
 class _RepositoryPagesState:
     def __init__(__self__, *,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom404: Optional[pulumi.Input[_builtins.bool]] = None,
-                 html_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 source: Optional[pulumi.Input['RepositoryPagesSourceArgs']] = None):
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom404: pulumi.Input[Optional[_builtins.bool]] = None,
+                 html_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 source: pulumi.Input[Optional['RepositoryPagesSourceArgs']] = None):
         """
         Input properties used for looking up and filtering RepositoryPages resources.
 
@@ -176,134 +176,134 @@ class _RepositoryPagesState:
 
     @_builtins.property
     @pulumi.getter(name="apiUrl")
-    def api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API URL of the GitHub Pages resource.
         """
         return pulumi.get(self, "api_url")
 
     @api_url.setter
-    def api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_url", value)
 
     @_builtins.property
     @pulumi.getter(name="buildStatus")
-    def build_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub Pages site's build status (e.g., `building` or `built`).
         """
         return pulumi.get(self, "build_status")
 
     @build_status.setter
-    def build_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_status", value)
 
     @_builtins.property
     @pulumi.getter(name="buildType")
-    def build_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of GitHub Pages site to build. Can be `legacy` or `workflow`. Defaults to `legacy`.
         """
         return pulumi.get(self, "build_type")
 
     @build_type.setter
-    def build_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom domain for the repository.
         """
         return pulumi.get(self, "cname")
 
     @cname.setter
-    def cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname", value)
 
     @_builtins.property
     @pulumi.getter
-    def custom404(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom404(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the rendered GitHub Pages site has a custom 404 page.
         """
         return pulumi.get(self, "custom404")
 
     @custom404.setter
-    def custom404(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom404(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom404", value)
 
     @_builtins.property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute URL (with scheme) to the rendered GitHub Pages site.
         """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
-    def html_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_url", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsEnforced")
-    def https_enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTPS is enforced for the GitHub Pages site. GitHub Pages sites serve over HTTPS by default; this setting only applies when a custom domain (`cname`) is configured. Requires `cname` to be set.
         """
         return pulumi.get(self, "https_enforced")
 
     @https_enforced.setter
-    def https_enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_enforced", value)
 
     @_builtins.property
     @pulumi.getter
-    def public(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the GitHub Pages site is public.
         """
         return pulumi.get(self, "public")
 
     @public.setter
-    def public(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository name to configure GitHub Pages for.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the repository.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RepositoryPagesSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['RepositoryPagesSourceArgs']]:
         """
         The source branch and directory for the rendered Pages site. Required when `build_type` is `legacy`. See Source below for details.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RepositoryPagesSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['RepositoryPagesSourceArgs']]):
         pulumi.set(self, "source", value)
 
 
@@ -313,12 +313,12 @@ class RepositoryPages(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None,
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None,
                  __props__=None):
         """
         This resource allows you to manage GitHub Pages for a repository. See the
@@ -496,12 +496,12 @@ class RepositoryPages(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None,
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -534,17 +534,17 @@ class RepositoryPages(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_url: Optional[pulumi.Input[_builtins.str]] = None,
-            build_status: Optional[pulumi.Input[_builtins.str]] = None,
-            build_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cname: Optional[pulumi.Input[_builtins.str]] = None,
-            custom404: Optional[pulumi.Input[_builtins.bool]] = None,
-            html_url: Optional[pulumi.Input[_builtins.str]] = None,
-            https_enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-            public: Optional[pulumi.Input[_builtins.bool]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-            source: Optional[pulumi.Input[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None) -> 'RepositoryPages':
+            api_url: pulumi.Input[Optional[_builtins.str]] = None,
+            build_status: pulumi.Input[Optional[_builtins.str]] = None,
+            build_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cname: pulumi.Input[Optional[_builtins.str]] = None,
+            custom404: pulumi.Input[Optional[_builtins.bool]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+            public: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None) -> 'RepositoryPages':
         """
         Get an existing RepositoryPages resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

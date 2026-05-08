@@ -168,51 +168,51 @@ export interface TeamState {
      *
      * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      */
-    createDefaultMaintainer?: pulumi.Input<boolean>;
+    createDefaultMaintainer?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the team.
      */
-    description?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
-    ldapDn?: pulumi.Input<string>;
-    membersCount?: pulumi.Input<number>;
+    ldapDn?: pulumi.Input<string | undefined>;
+    membersCount?: pulumi.Input<number | undefined>;
     /**
      * The name of the team.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Node ID of the created team.
      */
-    nodeId?: pulumi.Input<string>;
+    nodeId?: pulumi.Input<string | undefined>;
     /**
      * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
      */
-    notificationSetting?: pulumi.Input<string>;
+    notificationSetting?: pulumi.Input<string | undefined>;
     /**
      * The ID or slug of the parent team, if this is a nested team.
      */
-    parentTeamId?: pulumi.Input<string>;
+    parentTeamId?: pulumi.Input<string | undefined>;
     /**
      * The id of the parent team read in Github.
      */
-    parentTeamReadId?: pulumi.Input<string>;
+    parentTeamReadId?: pulumi.Input<string | undefined>;
     /**
      * The id of the parent team read in Github.
      */
-    parentTeamReadSlug?: pulumi.Input<string>;
+    parentTeamReadSlug?: pulumi.Input<string | undefined>;
     /**
      * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      */
-    privacy?: pulumi.Input<string>;
+    privacy?: pulumi.Input<string | undefined>;
     /**
      * The slug of the created team, which may or may not differ from `name`,
      * depending on whether `name` contains "URL-unsafe" characters.
      * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
      */
-    slug?: pulumi.Input<string>;
+    slug?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -224,37 +224,37 @@ export interface TeamArgs {
      *
      * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      */
-    createDefaultMaintainer?: pulumi.Input<boolean>;
+    createDefaultMaintainer?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the team.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
-    ldapDn?: pulumi.Input<string>;
+    ldapDn?: pulumi.Input<string | undefined>;
     /**
      * The name of the team.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
      */
-    notificationSetting?: pulumi.Input<string>;
+    notificationSetting?: pulumi.Input<string | undefined>;
     /**
      * The ID or slug of the parent team, if this is a nested team.
      */
-    parentTeamId?: pulumi.Input<string>;
+    parentTeamId?: pulumi.Input<string | undefined>;
     /**
      * The id of the parent team read in Github.
      */
-    parentTeamReadId?: pulumi.Input<string>;
+    parentTeamReadId?: pulumi.Input<string | undefined>;
     /**
      * The id of the parent team read in Github.
      */
-    parentTeamReadSlug?: pulumi.Input<string>;
+    parentTeamReadSlug?: pulumi.Input<string | undefined>;
     /**
      * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      */
-    privacy?: pulumi.Input<string>;
+    privacy?: pulumi.Input<string | undefined>;
 }

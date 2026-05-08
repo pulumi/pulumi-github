@@ -99,7 +99,7 @@ export interface GetRefOutputArgs {
     /**
      * Owner of the repository.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
      */

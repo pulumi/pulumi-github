@@ -182,13 +182,13 @@ def get_organization_custom_properties(allowed_values: Optional[Sequence[_builti
         required=pulumi.get(__ret__, 'required'),
         value_type=pulumi.get(__ret__, 'value_type'),
         values_editable_by=pulumi.get(__ret__, 'values_editable_by'))
-def get_organization_custom_properties_output(allowed_values: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                              default_value: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              required: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                              value_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              values_editable_by: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_organization_custom_properties_output(allowed_values: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                              default_value: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              required: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                              value_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              values_editable_by: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationCustomPropertiesResult]:
     """
     Use this data source to retrieve information about a GitHub organization custom property.

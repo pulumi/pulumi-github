@@ -187,67 +187,67 @@ export interface RepositoryPullRequestState {
     /**
      * Name of the branch serving as the base of the Pull Request.
      */
-    baseRef?: pulumi.Input<string>;
+    baseRef?: pulumi.Input<string | undefined>;
     /**
      * Name of the base repository to retrieve the Pull Requests from.
      */
-    baseRepository?: pulumi.Input<string>;
+    baseRepository?: pulumi.Input<string | undefined>;
     /**
      * Head commit SHA of the Pull Request base.
      */
-    baseSha?: pulumi.Input<string>;
+    baseSha?: pulumi.Input<string | undefined>;
     /**
      * Body of the Pull Request.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * Indicates Whether this Pull Request is a draft.
      */
-    draft?: pulumi.Input<boolean>;
+    draft?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the branch serving as the head of the Pull Request.
      */
-    headRef?: pulumi.Input<string>;
+    headRef?: pulumi.Input<string | undefined>;
     /**
      * Head commit SHA of the Pull Request head.
      */
-    headSha?: pulumi.Input<string>;
+    headSha?: pulumi.Input<string | undefined>;
     /**
      * List of label names set on the Pull Request.
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
      */
-    maintainerCanModify?: pulumi.Input<boolean>;
+    maintainerCanModify?: pulumi.Input<boolean | undefined>;
     /**
      * The number of the Pull Request within the repository.
      */
-    number?: pulumi.Input<number>;
+    number?: pulumi.Input<number | undefined>;
     /**
      * Unix timestamp indicating the Pull Request creation time.
      */
-    openedAt?: pulumi.Input<number>;
+    openedAt?: pulumi.Input<number | undefined>;
     /**
      * GitHub login of the user who opened the Pull Request.
      */
-    openedBy?: pulumi.Input<string>;
+    openedBy?: pulumi.Input<string | undefined>;
     /**
      * Owner of the repository. If not provided, the provider's default owner is used.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * the current Pull Request state - can be "open", "closed" or "merged".
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The title of the Pull Request.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The timestamp of the last Pull Request update.
      */
-    updatedAt?: pulumi.Input<number>;
+    updatedAt?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface RepositoryPullRequestArgs {
     /**
      * Body of the Pull Request.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * Name of the branch serving as the head of the Pull Request.
      */
@@ -273,11 +273,11 @@ export interface RepositoryPullRequestArgs {
     /**
      * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
      */
-    maintainerCanModify?: pulumi.Input<boolean>;
+    maintainerCanModify?: pulumi.Input<boolean | undefined>;
     /**
      * Owner of the repository. If not provided, the provider's default owner is used.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The title of the Pull Request.
      */

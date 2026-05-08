@@ -188,36 +188,36 @@ export interface IssueState {
     /**
      * List of Logins to assign the to the issue
      */
-    assignees?: pulumi.Input<pulumi.Input<string>[]>;
+    assignees?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Body of the issue
      */
-    body?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * (Computed) - The issue id
      */
-    issueId?: pulumi.Input<number>;
+    issueId?: pulumi.Input<number | undefined>;
     /**
      * List of labels to attach to the issue
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Milestone number to assign to the issue
      */
-    milestoneNumber?: pulumi.Input<number>;
+    milestoneNumber?: pulumi.Input<number | undefined>;
     /**
      * (Computed) - The issue number
      */
-    number?: pulumi.Input<number>;
+    number?: pulumi.Input<number | undefined>;
     /**
      * The GitHub repository name
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Title of the issue
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,19 +227,19 @@ export interface IssueArgs {
     /**
      * List of Logins to assign the to the issue
      */
-    assignees?: pulumi.Input<pulumi.Input<string>[]>;
+    assignees?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Body of the issue
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * List of labels to attach to the issue
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Milestone number to assign to the issue
      */
-    milestoneNumber?: pulumi.Input<number>;
+    milestoneNumber?: pulumi.Input<number | undefined>;
     /**
      * The GitHub repository name
      */

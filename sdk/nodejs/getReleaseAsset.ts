@@ -224,7 +224,7 @@ export interface GetReleaseAssetOutputArgs {
     /**
      * Whether to download the asset file content into the `fileContents` attribute (defaults to `false`)
      */
-    downloadFileContents?: pulumi.Input<boolean>;
+    downloadFileContents?: pulumi.Input<boolean | undefined>;
     /**
      * Owner of the repository
      */

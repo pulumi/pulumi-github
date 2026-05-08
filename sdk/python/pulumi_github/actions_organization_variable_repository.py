@@ -58,8 +58,8 @@ class ActionsOrganizationVariableRepositoryArgs:
 @pulumi.input_type
 class _ActionsOrganizationVariableRepositoryState:
     def __init__(__self__, *,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationVariableRepository resources.
 
@@ -73,26 +73,26 @@ class _ActionsOrganizationVariableRepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the repository that should be able to access the variable.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="variableName")
-    def variable_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the actions organization variable.
         """
         return pulumi.get(self, "variable_name")
 
     @variable_name.setter
-    def variable_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_name", value)
 
 
@@ -102,8 +102,8 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource adds permission for a repository to use an actions variables within your GitHub organization.
@@ -205,8 +205,8 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,8 +232,8 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-            variable_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsOrganizationVariableRepository':
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            variable_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionsOrganizationVariableRepository':
         """
         Get an existing ActionsOrganizationVariableRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

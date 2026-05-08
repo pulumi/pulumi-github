@@ -196,11 +196,11 @@ class ActionsHostedRunnerImageArgsDict(TypedDict):
     """
     The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
     """
-    size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size of the image in gigabytes.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
     """
@@ -209,8 +209,8 @@ class ActionsHostedRunnerImageArgsDict(TypedDict):
 class ActionsHostedRunnerImageArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
         :param pulumi.Input[_builtins.int] size_gb: The size of the image in gigabytes.
@@ -236,43 +236,43 @@ class ActionsHostedRunnerImageArgs:
 
     @_builtins.property
     @pulumi.getter(name="sizeGb")
-    def size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the image in gigabytes.
         """
         return pulumi.get(self, "size_gb")
 
     @size_gb.setter
-    def size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
 class ActionsHostedRunnerMachineSizeDetailArgsDict(TypedDict):
-    cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
+    cpu_cores: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of CPU cores.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Machine size identifier.
     """
-    memory_gb: NotRequired[pulumi.Input[_builtins.int]]
+    memory_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Amount of memory in gigabytes.
     """
-    storage_gb: NotRequired[pulumi.Input[_builtins.int]]
+    storage_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Amount of storage in gigabytes.
     """
@@ -280,10 +280,10 @@ class ActionsHostedRunnerMachineSizeDetailArgsDict(TypedDict):
 @pulumi.input_type
 class ActionsHostedRunnerMachineSizeDetailArgs:
     def __init__(__self__, *,
-                 cpu_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_gb: Optional[pulumi.Input[_builtins.int]] = None):
+                 cpu_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_gb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] cpu_cores: Number of CPU cores.
         :param pulumi.Input[_builtins.str] id: Machine size identifier.
@@ -301,63 +301,63 @@ class ActionsHostedRunnerMachineSizeDetailArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpuCores")
-    def cpu_cores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_cores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of CPU cores.
         """
         return pulumi.get(self, "cpu_cores")
 
     @cpu_cores.setter
-    def cpu_cores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_cores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_cores", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Machine size identifier.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryGb")
-    def memory_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of memory in gigabytes.
         """
         return pulumi.get(self, "memory_gb")
 
     @memory_gb.setter
-    def memory_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="storageGb")
-    def storage_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of storage in gigabytes.
         """
         return pulumi.get(self, "storage_gb")
 
     @storage_gb.setter
-    def storage_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_gb", value)
 
 
 class ActionsHostedRunnerPublicIpArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether this IP range is enabled.
     """
-    length: NotRequired[pulumi.Input[_builtins.int]]
+    length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Subnet length.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP address prefix.
     """
@@ -365,9 +365,9 @@ class ActionsHostedRunnerPublicIpArgsDict(TypedDict):
 @pulumi.input_type
 class ActionsHostedRunnerPublicIpArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 length: Optional[pulumi.Input[_builtins.int]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 length: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether this IP range is enabled.
         :param pulumi.Input[_builtins.int] length: Subnet length.
@@ -382,38 +382,38 @@ class ActionsHostedRunnerPublicIpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this IP range is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Subnet length.
         """
         return pulumi.get(self, "length")
 
     @length.setter
-    def length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "length", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address prefix.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -422,11 +422,11 @@ class ActionsOrganizationPermissionsAllowedActionsConfigArgsDict(TypedDict):
     """
     Whether GitHub-owned actions are allowed in the organization.
     """
-    patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    patterns_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
     """
-    verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    verified_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
     """
@@ -435,8 +435,8 @@ class ActionsOrganizationPermissionsAllowedActionsConfigArgsDict(TypedDict):
 class ActionsOrganizationPermissionsAllowedActionsConfigArgs:
     def __init__(__self__, *,
                  github_owned_allowed: pulumi.Input[_builtins.bool],
-                 patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verified_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 patterns_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verified_allowed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] github_owned_allowed: Whether GitHub-owned actions are allowed in the organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
@@ -462,26 +462,26 @@ class ActionsOrganizationPermissionsAllowedActionsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="patternsAlloweds")
-    def patterns_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def patterns_alloweds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
         """
         return pulumi.get(self, "patterns_alloweds")
 
     @patterns_alloweds.setter
-    def patterns_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def patterns_alloweds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "patterns_alloweds", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAllowed")
-    def verified_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verified_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
         """
         return pulumi.get(self, "verified_allowed")
 
     @verified_allowed.setter
-    def verified_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verified_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verified_allowed", value)
 
 
@@ -518,11 +518,11 @@ class ActionsRepositoryPermissionsAllowedActionsConfigArgsDict(TypedDict):
     """
     Whether GitHub-owned actions are allowed in the repository.
     """
-    patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    patterns_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
     """
-    verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    verified_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
     """
@@ -531,8 +531,8 @@ class ActionsRepositoryPermissionsAllowedActionsConfigArgsDict(TypedDict):
 class ActionsRepositoryPermissionsAllowedActionsConfigArgs:
     def __init__(__self__, *,
                  github_owned_allowed: pulumi.Input[_builtins.bool],
-                 patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verified_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 patterns_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verified_allowed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] github_owned_allowed: Whether GitHub-owned actions are allowed in the repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
@@ -558,56 +558,56 @@ class ActionsRepositoryPermissionsAllowedActionsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="patternsAlloweds")
-    def patterns_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def patterns_alloweds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
         """
         return pulumi.get(self, "patterns_alloweds")
 
     @patterns_alloweds.setter
-    def patterns_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def patterns_alloweds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "patterns_alloweds", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAllowed")
-    def verified_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verified_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
         """
         return pulumi.get(self, "verified_allowed")
 
     @verified_allowed.setter
-    def verified_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verified_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verified_allowed", value)
 
 
 class BranchProtectionRequiredPullRequestReviewArgsDict(TypedDict):
-    dismiss_stale_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    dismiss_stale_reviews: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
     """
-    dismissal_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dismissal_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
     """
-    pull_request_bypassers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    pull_request_bypassers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
     """
-    require_code_owner_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    require_code_owner_reviews: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
     """
-    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    require_last_push_approval: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
     """
-    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    required_approving_review_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
     (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
     """
-    restrict_dismissals: NotRequired[pulumi.Input[_builtins.bool]]
+    restrict_dismissals: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Restrict pull request review dismissals.
     """
@@ -615,13 +615,13 @@ class BranchProtectionRequiredPullRequestReviewArgsDict(TypedDict):
 @pulumi.input_type
 class BranchProtectionRequiredPullRequestReviewArgs:
     def __init__(__self__, *,
-                 dismiss_stale_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dismissal_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pull_request_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 require_code_owner_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_last_push_approval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_approving_review_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 restrict_dismissals: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dismiss_stale_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dismissal_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pull_request_bypassers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 require_code_owner_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_last_push_approval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_approving_review_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 restrict_dismissals: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dismissal_restrictions: The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
@@ -649,67 +649,67 @@ class BranchProtectionRequiredPullRequestReviewArgs:
 
     @_builtins.property
     @pulumi.getter(name="dismissStaleReviews")
-    def dismiss_stale_reviews(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dismiss_stale_reviews(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         """
         return pulumi.get(self, "dismiss_stale_reviews")
 
     @dismiss_stale_reviews.setter
-    def dismiss_stale_reviews(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dismiss_stale_reviews(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dismiss_stale_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissalRestrictions")
-    def dismissal_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dismissal_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
         """
         return pulumi.get(self, "dismissal_restrictions")
 
     @dismissal_restrictions.setter
-    def dismissal_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dismissal_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dismissal_restrictions", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestBypassers")
-    def pull_request_bypassers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def pull_request_bypassers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
         """
         return pulumi.get(self, "pull_request_bypassers")
 
     @pull_request_bypassers.setter
-    def pull_request_bypassers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def pull_request_bypassers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "pull_request_bypassers", value)
 
     @_builtins.property
     @pulumi.getter(name="requireCodeOwnerReviews")
-    def require_code_owner_reviews(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_code_owner_reviews(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
         """
         return pulumi.get(self, "require_code_owner_reviews")
 
     @require_code_owner_reviews.setter
-    def require_code_owner_reviews(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_code_owner_reviews(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_code_owner_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="requireLastPushApproval")
-    def require_last_push_approval(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_last_push_approval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
         """
         return pulumi.get(self, "require_last_push_approval")
 
     @require_last_push_approval.setter
-    def require_last_push_approval(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_last_push_approval(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_last_push_approval", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredApprovingReviewCount")
-    def required_approving_review_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def required_approving_review_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
@@ -717,24 +717,24 @@ class BranchProtectionRequiredPullRequestReviewArgs:
         return pulumi.get(self, "required_approving_review_count")
 
     @required_approving_review_count.setter
-    def required_approving_review_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def required_approving_review_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "required_approving_review_count", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictDismissals")
-    def restrict_dismissals(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restrict_dismissals(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Restrict pull request review dismissals.
         """
         return pulumi.get(self, "restrict_dismissals")
 
     @restrict_dismissals.setter
-    def restrict_dismissals(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restrict_dismissals(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restrict_dismissals", value)
 
 
 class BranchProtectionRequiredStatusCheckArgsDict(TypedDict):
-    contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contexts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
@@ -743,7 +743,7 @@ class BranchProtectionRequiredStatusCheckArgsDict(TypedDict):
     For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
     For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
     """
-    strict: NotRequired[pulumi.Input[_builtins.bool]]
+    strict: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require branches to be up to date before merging. Defaults to `false`.
     """
@@ -751,8 +751,8 @@ class BranchProtectionRequiredStatusCheckArgsDict(TypedDict):
 @pulumi.input_type
 class BranchProtectionRequiredStatusCheckArgs:
     def __init__(__self__, *,
-                 contexts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 strict: Optional[pulumi.Input[_builtins.bool]] = None):
+                 contexts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 strict: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
                
@@ -769,7 +769,7 @@ class BranchProtectionRequiredStatusCheckArgs:
 
     @_builtins.property
     @pulumi.getter
-    def contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contexts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
@@ -781,28 +781,28 @@ class BranchProtectionRequiredStatusCheckArgs:
         return pulumi.get(self, "contexts")
 
     @contexts.setter
-    def contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contexts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contexts", value)
 
     @_builtins.property
     @pulumi.getter
-    def strict(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require branches to be up to date before merging. Defaults to `false`.
         """
         return pulumi.get(self, "strict")
 
     @strict.setter
-    def strict(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict", value)
 
 
 class BranchProtectionRestrictPushArgsDict(TypedDict):
-    blocks_creations: NotRequired[pulumi.Input[_builtins.bool]]
+    blocks_creations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
     """
-    push_allowances: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    push_allowances: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
     """
@@ -810,8 +810,8 @@ class BranchProtectionRestrictPushArgsDict(TypedDict):
 @pulumi.input_type
 class BranchProtectionRestrictPushArgs:
     def __init__(__self__, *,
-                 blocks_creations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 push_allowances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 blocks_creations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 push_allowances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.bool] blocks_creations: Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] push_allowances: A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
@@ -823,61 +823,61 @@ class BranchProtectionRestrictPushArgs:
 
     @_builtins.property
     @pulumi.getter(name="blocksCreations")
-    def blocks_creations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blocks_creations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
         """
         return pulumi.get(self, "blocks_creations")
 
     @blocks_creations.setter
-    def blocks_creations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blocks_creations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blocks_creations", value)
 
     @_builtins.property
     @pulumi.getter(name="pushAllowances")
-    def push_allowances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def push_allowances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
         """
         return pulumi.get(self, "push_allowances")
 
     @push_allowances.setter
-    def push_allowances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def push_allowances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "push_allowances", value)
 
 
 class BranchProtectionV3RequiredPullRequestReviewsArgsDict(TypedDict):
-    bypass_pull_request_allowances: NotRequired[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict']]
+    bypass_pull_request_allowances: NotRequired[pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]]
     """
     Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
     """
-    dismiss_stale_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    dismiss_stale_reviews: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
     """
-    dismissal_apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dismissal_apps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of app slugs with dismissal access.
     """
-    dismissal_teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dismissal_teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of team slugs with dismissal access.
     Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
     """
-    dismissal_users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dismissal_users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user logins with dismissal access
     """
-    include_admins: NotRequired[pulumi.Input[_builtins.bool]]
-    require_code_owner_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    include_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_code_owner_reviews: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
     """
-    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    require_last_push_approval: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
     """
-    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    required_approving_review_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
     """
@@ -885,15 +885,15 @@ class BranchProtectionV3RequiredPullRequestReviewsArgsDict(TypedDict):
 @pulumi.input_type
 class BranchProtectionV3RequiredPullRequestReviewsArgs:
     def __init__(__self__, *,
-                 bypass_pull_request_allowances: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']] = None,
-                 dismiss_stale_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dismissal_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dismissal_teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dismissal_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_code_owner_reviews: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_last_push_approval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_approving_review_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 bypass_pull_request_allowances: pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']] = None,
+                 dismiss_stale_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dismissal_apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dismissal_teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dismissal_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_code_owner_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_last_push_approval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_approving_review_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs'] bypass_pull_request_allowances: Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
         :param pulumi.Input[_builtins.bool] dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
@@ -929,43 +929,43 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassPullRequestAllowances")
-    def bypass_pull_request_allowances(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]:
+    def bypass_pull_request_allowances(self) -> pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]:
         """
         Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
         """
         return pulumi.get(self, "bypass_pull_request_allowances")
 
     @bypass_pull_request_allowances.setter
-    def bypass_pull_request_allowances(self, value: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]):
+    def bypass_pull_request_allowances(self, value: pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]):
         pulumi.set(self, "bypass_pull_request_allowances", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissStaleReviews")
-    def dismiss_stale_reviews(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dismiss_stale_reviews(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         """
         return pulumi.get(self, "dismiss_stale_reviews")
 
     @dismiss_stale_reviews.setter
-    def dismiss_stale_reviews(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dismiss_stale_reviews(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dismiss_stale_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissalApps")
-    def dismissal_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dismissal_apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of app slugs with dismissal access.
         """
         return pulumi.get(self, "dismissal_apps")
 
     @dismissal_apps.setter
-    def dismissal_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dismissal_apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dismissal_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissalTeams")
-    def dismissal_teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dismissal_teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of team slugs with dismissal access.
         Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
@@ -973,78 +973,78 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
         return pulumi.get(self, "dismissal_teams")
 
     @dismissal_teams.setter
-    def dismissal_teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dismissal_teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dismissal_teams", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissalUsers")
-    def dismissal_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dismissal_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user logins with dismissal access
         """
         return pulumi.get(self, "dismissal_users")
 
     @dismissal_users.setter
-    def dismissal_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dismissal_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dismissal_users", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAdmins")
     @_utilities.deprecated("""Use enforce_admins instead""")
-    def include_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_admins")
 
     @include_admins.setter
-    def include_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="requireCodeOwnerReviews")
-    def require_code_owner_reviews(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_code_owner_reviews(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
         """
         return pulumi.get(self, "require_code_owner_reviews")
 
     @require_code_owner_reviews.setter
-    def require_code_owner_reviews(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_code_owner_reviews(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_code_owner_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="requireLastPushApproval")
-    def require_last_push_approval(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_last_push_approval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
         """
         return pulumi.get(self, "require_last_push_approval")
 
     @require_last_push_approval.setter
-    def require_last_push_approval(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_last_push_approval(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_last_push_approval", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredApprovingReviewCount")
-    def required_approving_review_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def required_approving_review_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         """
         return pulumi.get(self, "required_approving_review_count")
 
     @required_approving_review_count.setter
-    def required_approving_review_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def required_approving_review_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "required_approving_review_count", value)
 
 
 class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict(TypedDict):
-    apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    apps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of app slugs allowed to bypass pull request requirements.
     """
-    teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of team slugs allowed to bypass pull request requirements.
     """
-    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user logins allowed to bypass pull request requirements.
     """
@@ -1052,9 +1052,9 @@ class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArg
 @pulumi.input_type
 class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs:
     def __init__(__self__, *,
-                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: The list of app slugs allowed to bypass pull request requirements.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The list of team slugs allowed to bypass pull request requirements.
@@ -1069,47 +1069,47 @@ class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArg
 
     @_builtins.property
     @pulumi.getter
-    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of app slugs allowed to bypass pull request requirements.
         """
         return pulumi.get(self, "apps")
 
     @apps.setter
-    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "apps", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of team slugs allowed to bypass pull request requirements.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user logins allowed to bypass pull request requirements.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users", value)
 
 
 class BranchProtectionV3RequiredStatusChecksArgsDict(TypedDict):
-    checks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    checks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
     """
-    contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contexts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
@@ -1118,8 +1118,8 @@ class BranchProtectionV3RequiredStatusChecksArgsDict(TypedDict):
     For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
     For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
     """
-    include_admins: NotRequired[pulumi.Input[_builtins.bool]]
-    strict: NotRequired[pulumi.Input[_builtins.bool]]
+    include_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    strict: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require branches to be up to date before merging. Defaults to `false`.
     """
@@ -1127,10 +1127,10 @@ class BranchProtectionV3RequiredStatusChecksArgsDict(TypedDict):
 @pulumi.input_type
 class BranchProtectionV3RequiredStatusChecksArgs:
     def __init__(__self__, *,
-                 checks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 contexts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strict: Optional[pulumi.Input[_builtins.bool]] = None):
+                 checks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contexts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strict: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] checks: The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contexts: [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
@@ -1158,20 +1158,20 @@ class BranchProtectionV3RequiredStatusChecksArgs:
 
     @_builtins.property
     @pulumi.getter
-    def checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def checks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
         """
         return pulumi.get(self, "checks")
 
     @checks.setter
-    def checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def checks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "checks", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""")
-    def contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contexts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
@@ -1183,45 +1183,45 @@ class BranchProtectionV3RequiredStatusChecksArgs:
         return pulumi.get(self, "contexts")
 
     @contexts.setter
-    def contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contexts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contexts", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAdmins")
     @_utilities.deprecated("""Use enforce_admins instead""")
-    def include_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_admins")
 
     @include_admins.setter
-    def include_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def strict(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require branches to be up to date before merging. Defaults to `false`.
         """
         return pulumi.get(self, "strict")
 
     @strict.setter
-    def strict(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict", value)
 
 
 class BranchProtectionV3RestrictionsArgsDict(TypedDict):
-    apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    apps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of app slugs with push access.
 
     `restrictions` is only available for organization-owned repositories.
     """
-    teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of team slugs with push access.
     Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
     """
-    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user logins with push access.
     """
@@ -1229,9 +1229,9 @@ class BranchProtectionV3RestrictionsArgsDict(TypedDict):
 @pulumi.input_type
 class BranchProtectionV3RestrictionsArgs:
     def __init__(__self__, *,
-                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: The list of app slugs with push access.
                
@@ -1249,7 +1249,7 @@ class BranchProtectionV3RestrictionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of app slugs with push access.
 
@@ -1258,12 +1258,12 @@ class BranchProtectionV3RestrictionsArgs:
         return pulumi.get(self, "apps")
 
     @apps.setter
-    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "apps", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of team slugs with push access.
         Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
@@ -1271,19 +1271,19 @@ class BranchProtectionV3RestrictionsArgs:
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user logins with push access.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users", value)
 
 
@@ -1292,11 +1292,11 @@ class EnterpriseActionsPermissionsAllowedActionsConfigArgsDict(TypedDict):
     """
     Whether GitHub-owned actions are allowed in the organization.
     """
-    patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    patterns_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
     """
-    verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    verified_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
     """
@@ -1305,8 +1305,8 @@ class EnterpriseActionsPermissionsAllowedActionsConfigArgsDict(TypedDict):
 class EnterpriseActionsPermissionsAllowedActionsConfigArgs:
     def __init__(__self__, *,
                  github_owned_allowed: pulumi.Input[_builtins.bool],
-                 patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verified_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 patterns_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verified_allowed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] github_owned_allowed: Whether GitHub-owned actions are allowed in the organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
@@ -1332,26 +1332,26 @@ class EnterpriseActionsPermissionsAllowedActionsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="patternsAlloweds")
-    def patterns_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def patterns_alloweds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
         """
         return pulumi.get(self, "patterns_alloweds")
 
     @patterns_alloweds.setter
-    def patterns_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def patterns_alloweds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "patterns_alloweds", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAllowed")
-    def verified_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verified_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
         """
         return pulumi.get(self, "verified_allowed")
 
     @verified_allowed.setter
-    def verified_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verified_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verified_allowed", value)
 
 
@@ -1392,11 +1392,11 @@ class IssueLabelsLabelArgsDict(TypedDict):
     """
     The name of the label.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A short description of the label.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to the issue label
     """
@@ -1406,8 +1406,8 @@ class IssueLabelsLabelArgs:
     def __init__(__self__, *,
                  color: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
         :param pulumi.Input[_builtins.str] name: The name of the label.
@@ -1447,26 +1447,26 @@ class IssueLabelsLabelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short description of the label.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to the issue label
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -1484,7 +1484,7 @@ class OrganizationRulesetBypassActorArgsDict(TypedDict):
     - `OrganizationAdmin` > `1`
     - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
     """
-    actor_id: NotRequired[pulumi.Input[_builtins.int]]
+    actor_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
     """
@@ -1494,7 +1494,7 @@ class OrganizationRulesetBypassActorArgs:
     def __init__(__self__, *,
                  actor_type: pulumi.Input[_builtins.str],
                  bypass_mode: pulumi.Input[_builtins.str],
-                 actor_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 actor_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
@@ -1541,31 +1541,31 @@ class OrganizationRulesetBypassActorArgs:
 
     @_builtins.property
     @pulumi.getter(name="actorId")
-    def actor_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def actor_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
         """
         return pulumi.get(self, "actor_id")
 
     @actor_id.setter
-    def actor_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def actor_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "actor_id", value)
 
 
 class OrganizationRulesetConditionsArgsDict(TypedDict):
-    ref_name: NotRequired[pulumi.Input['OrganizationRulesetConditionsRefNameArgsDict']]
+    ref_name: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRefNameArgs']]]
     """
     (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
     """
-    repository_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    repository_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
     """
-    repository_name: NotRequired[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgsDict']]
+    repository_name: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryNameArgs']]]
     """
     Targets repositories that match the specified name patterns. (see below for nested schema)
     """
-    repository_property: NotRequired[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgsDict']]
+    repository_property: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryPropertyArgs']]]
     """
     Targets repositories by custom or system properties. (see below for nested schema)
 
@@ -1577,10 +1577,10 @@ class OrganizationRulesetConditionsArgsDict(TypedDict):
 @pulumi.input_type
 class OrganizationRulesetConditionsArgs:
     def __init__(__self__, *,
-                 ref_name: Optional[pulumi.Input['OrganizationRulesetConditionsRefNameArgs']] = None,
-                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 repository_name: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']] = None,
-                 repository_property: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgs']] = None):
+                 ref_name: pulumi.Input[Optional['OrganizationRulesetConditionsRefNameArgs']] = None,
+                 repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 repository_name: pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryNameArgs']] = None,
+                 repository_property: pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryPropertyArgs']] = None):
         """
         :param pulumi.Input['OrganizationRulesetConditionsRefNameArgs'] ref_name: (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] repository_ids: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
@@ -1602,43 +1602,43 @@ class OrganizationRulesetConditionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="refName")
-    def ref_name(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsRefNameArgs']]:
+    def ref_name(self) -> pulumi.Input[Optional['OrganizationRulesetConditionsRefNameArgs']]:
         """
         (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
         """
         return pulumi.get(self, "ref_name")
 
     @ref_name.setter
-    def ref_name(self, value: Optional[pulumi.Input['OrganizationRulesetConditionsRefNameArgs']]):
+    def ref_name(self, value: pulumi.Input[Optional['OrganizationRulesetConditionsRefNameArgs']]):
         pulumi.set(self, "ref_name", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryIds")
-    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def repository_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
         """
         return pulumi.get(self, "repository_ids")
 
     @repository_ids.setter
-    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def repository_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "repository_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']]:
+    def repository_name(self) -> pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryNameArgs']]:
         """
         Targets repositories that match the specified name patterns. (see below for nested schema)
         """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
-    def repository_name(self, value: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']]):
+    def repository_name(self, value: pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryNameArgs']]):
         pulumi.set(self, "repository_name", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryProperty")
-    def repository_property(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgs']]:
+    def repository_property(self) -> pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryPropertyArgs']]:
         """
         Targets repositories by custom or system properties. (see below for nested schema)
 
@@ -1649,7 +1649,7 @@ class OrganizationRulesetConditionsArgs:
         return pulumi.get(self, "repository_property")
 
     @repository_property.setter
-    def repository_property(self, value: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgs']]):
+    def repository_property(self, value: pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryPropertyArgs']]):
         pulumi.set(self, "repository_property", value)
 
 
@@ -1709,7 +1709,7 @@ class OrganizationRulesetConditionsRepositoryNameArgsDict(TypedDict):
     """
     Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
     """
-    protected: NotRequired[pulumi.Input[_builtins.bool]]
+    protected: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether renaming of target repositories is prevented.
     """
@@ -1719,7 +1719,7 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
     def __init__(__self__, *,
                  excludes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  includes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 protected: Optional[pulumi.Input[_builtins.bool]] = None):
+                 protected: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
@@ -1756,23 +1756,23 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protected(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protected(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether renaming of target repositories is prevented.
         """
         return pulumi.get(self, "protected")
 
     @protected.setter
-    def protected(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protected(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protected", value)
 
 
 class OrganizationRulesetConditionsRepositoryPropertyArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgsDict']]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]]
     """
     The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgsDict']]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]]
     """
     The repository properties and values to include. All of these properties must match for the condition to pass.
     """
@@ -1780,8 +1780,8 @@ class OrganizationRulesetConditionsRepositoryPropertyArgsDict(TypedDict):
 @pulumi.input_type
 class OrganizationRulesetConditionsRepositoryPropertyArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]] excludes: The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]] includes: The repository properties and values to include. All of these properties must match for the condition to pass.
@@ -1793,26 +1793,26 @@ class OrganizationRulesetConditionsRepositoryPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]:
         """
         The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]:
         """
         The repository properties and values to include. All of these properties must match for the condition to pass.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]):
         pulumi.set(self, "includes", value)
 
 
@@ -1825,7 +1825,7 @@ class OrganizationRulesetConditionsRepositoryPropertyExcludeArgsDict(TypedDict):
     """
     The values to match for the repository property.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
     """
@@ -1835,7 +1835,7 @@ class OrganizationRulesetConditionsRepositoryPropertyExcludeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  property_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: The values to match for the repository property.
@@ -1872,14 +1872,14 @@ class OrganizationRulesetConditionsRepositoryPropertyExcludeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1892,7 +1892,7 @@ class OrganizationRulesetConditionsRepositoryPropertyIncludeArgsDict(TypedDict):
     """
     The values to match for the repository property.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
     """
@@ -1902,7 +1902,7 @@ class OrganizationRulesetConditionsRepositoryPropertyIncludeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  property_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: The values to match for the repository property.
@@ -1939,95 +1939,95 @@ class OrganizationRulesetConditionsRepositoryPropertyIncludeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
 class OrganizationRulesetRulesArgsDict(TypedDict):
-    branch_name_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgsDict']]
+    branch_name_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesBranchNamePatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
     """
-    commit_author_email_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict']]
+    commit_author_email_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    commit_message_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgsDict']]
+    commit_message_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitMessagePatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    committer_email_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgsDict']]
+    committer_email_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitterEmailPatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    copilot_code_review: NotRequired[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgsDict']]
+    copilot_code_review: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCopilotCodeReviewArgs']]]
     """
     (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
     """
-    creation: NotRequired[pulumi.Input[_builtins.bool]]
+    creation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Only allow users with bypass permission to create matching refs.
     """
-    deletion: NotRequired[pulumi.Input[_builtins.bool]]
+    deletion: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Only allow users with bypass permissions to delete matching refs.
     """
-    file_extension_restriction: NotRequired[pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgsDict']]
+    file_extension_restriction: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesFileExtensionRestrictionArgs']]]
     """
     (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
     """
-    file_path_restriction: NotRequired[pulumi.Input['OrganizationRulesetRulesFilePathRestrictionArgsDict']]
+    file_path_restriction: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesFilePathRestrictionArgs']]]
     """
     (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
     """
-    max_file_path_length: NotRequired[pulumi.Input['OrganizationRulesetRulesMaxFilePathLengthArgsDict']]
+    max_file_path_length: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesMaxFilePathLengthArgs']]]
     """
     (Integer) The maximum number of characters allowed in file paths.
     """
-    max_file_size: NotRequired[pulumi.Input['OrganizationRulesetRulesMaxFileSizeArgsDict']]
+    max_file_size: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesMaxFileSizeArgs']]]
     """
     (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
     """
-    non_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    non_fast_forward: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Prevent users with push access from force pushing to branches.
     """
-    pull_request: NotRequired[pulumi.Input['OrganizationRulesetRulesPullRequestArgsDict']]
+    pull_request: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesPullRequestArgs']]]
     """
     (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
     """
-    required_code_scanning: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningArgsDict']]
+    required_code_scanning: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredCodeScanningArgs']]]
     """
     (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
     """
-    required_linear_history: NotRequired[pulumi.Input[_builtins.bool]]
+    required_linear_history: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Prevent merge commits from being pushed to matching branches.
     """
-    required_signatures: NotRequired[pulumi.Input[_builtins.bool]]
+    required_signatures: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Commits pushed to matching branches must have verified signatures.
     """
-    required_status_checks: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgsDict']]
+    required_status_checks: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredStatusChecksArgs']]]
     """
     (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
     """
-    required_workflows: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgsDict']]
+    required_workflows: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredWorkflowsArgs']]]
     """
     (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
     """
-    tag_name_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgsDict']]
+    tag_name_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesTagNamePatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
     """
-    update: NotRequired[pulumi.Input[_builtins.bool]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Only allow users with bypass permission to update matching refs.
     """
@@ -2035,26 +2035,26 @@ class OrganizationRulesetRulesArgsDict(TypedDict):
 @pulumi.input_type
 class OrganizationRulesetRulesArgs:
     def __init__(__self__, *,
-                 branch_name_pattern: Optional[pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgs']] = None,
-                 commit_author_email_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']] = None,
-                 commit_message_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgs']] = None,
-                 committer_email_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgs']] = None,
-                 copilot_code_review: Optional[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgs']] = None,
-                 creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_extension_restriction: Optional[pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgs']] = None,
-                 file_path_restriction: Optional[pulumi.Input['OrganizationRulesetRulesFilePathRestrictionArgs']] = None,
-                 max_file_path_length: Optional[pulumi.Input['OrganizationRulesetRulesMaxFilePathLengthArgs']] = None,
-                 max_file_size: Optional[pulumi.Input['OrganizationRulesetRulesMaxFileSizeArgs']] = None,
-                 non_fast_forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pull_request: Optional[pulumi.Input['OrganizationRulesetRulesPullRequestArgs']] = None,
-                 required_code_scanning: Optional[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningArgs']] = None,
-                 required_linear_history: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_signatures: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_status_checks: Optional[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgs']] = None,
-                 required_workflows: Optional[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgs']] = None,
-                 tag_name_pattern: Optional[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgs']] = None,
-                 update: Optional[pulumi.Input[_builtins.bool]] = None):
+                 branch_name_pattern: pulumi.Input[Optional['OrganizationRulesetRulesBranchNamePatternArgs']] = None,
+                 commit_author_email_pattern: pulumi.Input[Optional['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']] = None,
+                 commit_message_pattern: pulumi.Input[Optional['OrganizationRulesetRulesCommitMessagePatternArgs']] = None,
+                 committer_email_pattern: pulumi.Input[Optional['OrganizationRulesetRulesCommitterEmailPatternArgs']] = None,
+                 copilot_code_review: pulumi.Input[Optional['OrganizationRulesetRulesCopilotCodeReviewArgs']] = None,
+                 creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_extension_restriction: pulumi.Input[Optional['OrganizationRulesetRulesFileExtensionRestrictionArgs']] = None,
+                 file_path_restriction: pulumi.Input[Optional['OrganizationRulesetRulesFilePathRestrictionArgs']] = None,
+                 max_file_path_length: pulumi.Input[Optional['OrganizationRulesetRulesMaxFilePathLengthArgs']] = None,
+                 max_file_size: pulumi.Input[Optional['OrganizationRulesetRulesMaxFileSizeArgs']] = None,
+                 non_fast_forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pull_request: pulumi.Input[Optional['OrganizationRulesetRulesPullRequestArgs']] = None,
+                 required_code_scanning: pulumi.Input[Optional['OrganizationRulesetRulesRequiredCodeScanningArgs']] = None,
+                 required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_signatures: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_status_checks: pulumi.Input[Optional['OrganizationRulesetRulesRequiredStatusChecksArgs']] = None,
+                 required_workflows: pulumi.Input[Optional['OrganizationRulesetRulesRequiredWorkflowsArgs']] = None,
+                 tag_name_pattern: pulumi.Input[Optional['OrganizationRulesetRulesTagNamePatternArgs']] = None,
+                 update: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgs'] branch_name_pattern: (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
         :param pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgs'] commit_author_email_pattern: (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
@@ -2120,242 +2120,242 @@ class OrganizationRulesetRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchNamePattern")
-    def branch_name_pattern(self) -> Optional[pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgs']]:
+    def branch_name_pattern(self) -> pulumi.Input[Optional['OrganizationRulesetRulesBranchNamePatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
         """
         return pulumi.get(self, "branch_name_pattern")
 
     @branch_name_pattern.setter
-    def branch_name_pattern(self, value: Optional[pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgs']]):
+    def branch_name_pattern(self, value: pulumi.Input[Optional['OrganizationRulesetRulesBranchNamePatternArgs']]):
         pulumi.set(self, "branch_name_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="commitAuthorEmailPattern")
-    def commit_author_email_pattern(self) -> Optional[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']]:
+    def commit_author_email_pattern(self) -> pulumi.Input[Optional['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
         return pulumi.get(self, "commit_author_email_pattern")
 
     @commit_author_email_pattern.setter
-    def commit_author_email_pattern(self, value: Optional[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']]):
+    def commit_author_email_pattern(self, value: pulumi.Input[Optional['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']]):
         pulumi.set(self, "commit_author_email_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="commitMessagePattern")
-    def commit_message_pattern(self) -> Optional[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgs']]:
+    def commit_message_pattern(self) -> pulumi.Input[Optional['OrganizationRulesetRulesCommitMessagePatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
         return pulumi.get(self, "commit_message_pattern")
 
     @commit_message_pattern.setter
-    def commit_message_pattern(self, value: Optional[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgs']]):
+    def commit_message_pattern(self, value: pulumi.Input[Optional['OrganizationRulesetRulesCommitMessagePatternArgs']]):
         pulumi.set(self, "commit_message_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="committerEmailPattern")
-    def committer_email_pattern(self) -> Optional[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgs']]:
+    def committer_email_pattern(self) -> pulumi.Input[Optional['OrganizationRulesetRulesCommitterEmailPatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
         return pulumi.get(self, "committer_email_pattern")
 
     @committer_email_pattern.setter
-    def committer_email_pattern(self, value: Optional[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgs']]):
+    def committer_email_pattern(self, value: pulumi.Input[Optional['OrganizationRulesetRulesCommitterEmailPatternArgs']]):
         pulumi.set(self, "committer_email_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="copilotCodeReview")
-    def copilot_code_review(self) -> Optional[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgs']]:
+    def copilot_code_review(self) -> pulumi.Input[Optional['OrganizationRulesetRulesCopilotCodeReviewArgs']]:
         """
         (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
         """
         return pulumi.get(self, "copilot_code_review")
 
     @copilot_code_review.setter
-    def copilot_code_review(self, value: Optional[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgs']]):
+    def copilot_code_review(self, value: pulumi.Input[Optional['OrganizationRulesetRulesCopilotCodeReviewArgs']]):
         pulumi.set(self, "copilot_code_review", value)
 
     @_builtins.property
     @pulumi.getter
-    def creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Only allow users with bypass permission to create matching refs.
         """
         return pulumi.get(self, "creation")
 
     @creation.setter
-    def creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "creation", value)
 
     @_builtins.property
     @pulumi.getter
-    def deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Only allow users with bypass permissions to delete matching refs.
         """
         return pulumi.get(self, "deletion")
 
     @deletion.setter
-    def deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="fileExtensionRestriction")
-    def file_extension_restriction(self) -> Optional[pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgs']]:
+    def file_extension_restriction(self) -> pulumi.Input[Optional['OrganizationRulesetRulesFileExtensionRestrictionArgs']]:
         """
         (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
         """
         return pulumi.get(self, "file_extension_restriction")
 
     @file_extension_restriction.setter
-    def file_extension_restriction(self, value: Optional[pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgs']]):
+    def file_extension_restriction(self, value: pulumi.Input[Optional['OrganizationRulesetRulesFileExtensionRestrictionArgs']]):
         pulumi.set(self, "file_extension_restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="filePathRestriction")
-    def file_path_restriction(self) -> Optional[pulumi.Input['OrganizationRulesetRulesFilePathRestrictionArgs']]:
+    def file_path_restriction(self) -> pulumi.Input[Optional['OrganizationRulesetRulesFilePathRestrictionArgs']]:
         """
         (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
         """
         return pulumi.get(self, "file_path_restriction")
 
     @file_path_restriction.setter
-    def file_path_restriction(self, value: Optional[pulumi.Input['OrganizationRulesetRulesFilePathRestrictionArgs']]):
+    def file_path_restriction(self, value: pulumi.Input[Optional['OrganizationRulesetRulesFilePathRestrictionArgs']]):
         pulumi.set(self, "file_path_restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="maxFilePathLength")
-    def max_file_path_length(self) -> Optional[pulumi.Input['OrganizationRulesetRulesMaxFilePathLengthArgs']]:
+    def max_file_path_length(self) -> pulumi.Input[Optional['OrganizationRulesetRulesMaxFilePathLengthArgs']]:
         """
         (Integer) The maximum number of characters allowed in file paths.
         """
         return pulumi.get(self, "max_file_path_length")
 
     @max_file_path_length.setter
-    def max_file_path_length(self, value: Optional[pulumi.Input['OrganizationRulesetRulesMaxFilePathLengthArgs']]):
+    def max_file_path_length(self, value: pulumi.Input[Optional['OrganizationRulesetRulesMaxFilePathLengthArgs']]):
         pulumi.set(self, "max_file_path_length", value)
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
-    def max_file_size(self) -> Optional[pulumi.Input['OrganizationRulesetRulesMaxFileSizeArgs']]:
+    def max_file_size(self) -> pulumi.Input[Optional['OrganizationRulesetRulesMaxFileSizeArgs']]:
         """
         (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         """
         return pulumi.get(self, "max_file_size")
 
     @max_file_size.setter
-    def max_file_size(self, value: Optional[pulumi.Input['OrganizationRulesetRulesMaxFileSizeArgs']]):
+    def max_file_size(self, value: pulumi.Input[Optional['OrganizationRulesetRulesMaxFileSizeArgs']]):
         pulumi.set(self, "max_file_size", value)
 
     @_builtins.property
     @pulumi.getter(name="nonFastForward")
-    def non_fast_forward(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def non_fast_forward(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Prevent users with push access from force pushing to branches.
         """
         return pulumi.get(self, "non_fast_forward")
 
     @non_fast_forward.setter
-    def non_fast_forward(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def non_fast_forward(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "non_fast_forward", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequest")
-    def pull_request(self) -> Optional[pulumi.Input['OrganizationRulesetRulesPullRequestArgs']]:
+    def pull_request(self) -> pulumi.Input[Optional['OrganizationRulesetRulesPullRequestArgs']]:
         """
         (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         """
         return pulumi.get(self, "pull_request")
 
     @pull_request.setter
-    def pull_request(self, value: Optional[pulumi.Input['OrganizationRulesetRulesPullRequestArgs']]):
+    def pull_request(self, value: pulumi.Input[Optional['OrganizationRulesetRulesPullRequestArgs']]):
         pulumi.set(self, "pull_request", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredCodeScanning")
-    def required_code_scanning(self) -> Optional[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningArgs']]:
+    def required_code_scanning(self) -> pulumi.Input[Optional['OrganizationRulesetRulesRequiredCodeScanningArgs']]:
         """
         (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
         """
         return pulumi.get(self, "required_code_scanning")
 
     @required_code_scanning.setter
-    def required_code_scanning(self, value: Optional[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningArgs']]):
+    def required_code_scanning(self, value: pulumi.Input[Optional['OrganizationRulesetRulesRequiredCodeScanningArgs']]):
         pulumi.set(self, "required_code_scanning", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredLinearHistory")
-    def required_linear_history(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_linear_history(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Prevent merge commits from being pushed to matching branches.
         """
         return pulumi.get(self, "required_linear_history")
 
     @required_linear_history.setter
-    def required_linear_history(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_linear_history(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_linear_history", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredSignatures")
-    def required_signatures(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_signatures(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Commits pushed to matching branches must have verified signatures.
         """
         return pulumi.get(self, "required_signatures")
 
     @required_signatures.setter
-    def required_signatures(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_signatures(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_signatures", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredStatusChecks")
-    def required_status_checks(self) -> Optional[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgs']]:
+    def required_status_checks(self) -> pulumi.Input[Optional['OrganizationRulesetRulesRequiredStatusChecksArgs']]:
         """
         (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
         """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
-    def required_status_checks(self, value: Optional[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgs']]):
+    def required_status_checks(self, value: pulumi.Input[Optional['OrganizationRulesetRulesRequiredStatusChecksArgs']]):
         pulumi.set(self, "required_status_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredWorkflows")
-    def required_workflows(self) -> Optional[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgs']]:
+    def required_workflows(self) -> pulumi.Input[Optional['OrganizationRulesetRulesRequiredWorkflowsArgs']]:
         """
         (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
         """
         return pulumi.get(self, "required_workflows")
 
     @required_workflows.setter
-    def required_workflows(self, value: Optional[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgs']]):
+    def required_workflows(self, value: pulumi.Input[Optional['OrganizationRulesetRulesRequiredWorkflowsArgs']]):
         pulumi.set(self, "required_workflows", value)
 
     @_builtins.property
     @pulumi.getter(name="tagNamePattern")
-    def tag_name_pattern(self) -> Optional[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgs']]:
+    def tag_name_pattern(self) -> pulumi.Input[Optional['OrganizationRulesetRulesTagNamePatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
         """
         return pulumi.get(self, "tag_name_pattern")
 
     @tag_name_pattern.setter
-    def tag_name_pattern(self, value: Optional[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgs']]):
+    def tag_name_pattern(self, value: pulumi.Input[Optional['OrganizationRulesetRulesTagNamePatternArgs']]):
         pulumi.set(self, "tag_name_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Only allow users with bypass permission to update matching refs.
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "update", value)
 
 
@@ -2368,11 +2368,11 @@ class OrganizationRulesetRulesBranchNamePatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -2382,8 +2382,8 @@ class OrganizationRulesetRulesBranchNamePatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -2423,26 +2423,26 @@ class OrganizationRulesetRulesBranchNamePatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -2455,11 +2455,11 @@ class OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -2469,8 +2469,8 @@ class OrganizationRulesetRulesCommitAuthorEmailPatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -2510,26 +2510,26 @@ class OrganizationRulesetRulesCommitAuthorEmailPatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -2542,11 +2542,11 @@ class OrganizationRulesetRulesCommitMessagePatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -2556,8 +2556,8 @@ class OrganizationRulesetRulesCommitMessagePatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -2597,26 +2597,26 @@ class OrganizationRulesetRulesCommitMessagePatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -2629,11 +2629,11 @@ class OrganizationRulesetRulesCommitterEmailPatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -2643,8 +2643,8 @@ class OrganizationRulesetRulesCommitterEmailPatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -2684,35 +2684,35 @@ class OrganizationRulesetRulesCommitterEmailPatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
 class OrganizationRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
-    review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
+    review_draft_pull_requests: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
     """
-    review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    review_on_push: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Copilot automatically reviews each new push to the pull request. Defaults to `false`.
     """
@@ -2720,8 +2720,8 @@ class OrganizationRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
 @pulumi.input_type
 class OrganizationRulesetRulesCopilotCodeReviewArgs:
     def __init__(__self__, *,
-                 review_draft_pull_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 review_on_push: Optional[pulumi.Input[_builtins.bool]] = None):
+                 review_draft_pull_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 review_on_push: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] review_draft_pull_requests: Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] review_on_push: Copilot automatically reviews each new push to the pull request. Defaults to `false`.
@@ -2733,26 +2733,26 @@ class OrganizationRulesetRulesCopilotCodeReviewArgs:
 
     @_builtins.property
     @pulumi.getter(name="reviewDraftPullRequests")
-    def review_draft_pull_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def review_draft_pull_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
         """
         return pulumi.get(self, "review_draft_pull_requests")
 
     @review_draft_pull_requests.setter
-    def review_draft_pull_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def review_draft_pull_requests(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "review_draft_pull_requests", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewOnPush")
-    def review_on_push(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def review_on_push(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Copilot automatically reviews each new push to the pull request. Defaults to `false`.
         """
         return pulumi.get(self, "review_on_push")
 
     @review_on_push.setter
-    def review_on_push(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def review_on_push(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "review_on_push", value)
 
 
@@ -2869,31 +2869,31 @@ class OrganizationRulesetRulesMaxFileSizeArgs:
 
 
 class OrganizationRulesetRulesPullRequestArgsDict(TypedDict):
-    allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_merge_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
     """
-    dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
     """
-    require_code_owner_review: NotRequired[pulumi.Input[_builtins.bool]]
+    require_code_owner_review: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
     """
-    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    require_last_push_approval: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
     """
-    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    required_approving_review_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
     """
-    required_review_thread_resolution: NotRequired[pulumi.Input[_builtins.bool]]
+    required_review_thread_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
     """
-    required_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgsDict']]]]
+    required_reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]]]
     """
     Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
     """
@@ -2901,13 +2901,13 @@ class OrganizationRulesetRulesPullRequestArgsDict(TypedDict):
 @pulumi.input_type
 class OrganizationRulesetRulesPullRequestArgs:
     def __init__(__self__, *,
-                 allowed_merge_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dismiss_stale_reviews_on_push: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_code_owner_review: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_last_push_approval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_approving_review_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 required_review_thread_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]] = None):
+                 allowed_merge_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dismiss_stale_reviews_on_push: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_code_owner_review: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_last_push_approval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_approving_review_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 required_review_thread_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_merge_methods: Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         :param pulumi.Input[_builtins.bool] dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -2934,86 +2934,86 @@ class OrganizationRulesetRulesPullRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedMergeMethods")
-    def allowed_merge_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_merge_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         """
         return pulumi.get(self, "allowed_merge_methods")
 
     @allowed_merge_methods.setter
-    def allowed_merge_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_merge_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_merge_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissStaleReviewsOnPush")
-    def dismiss_stale_reviews_on_push(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dismiss_stale_reviews_on_push(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
         """
         return pulumi.get(self, "dismiss_stale_reviews_on_push")
 
     @dismiss_stale_reviews_on_push.setter
-    def dismiss_stale_reviews_on_push(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dismiss_stale_reviews_on_push(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dismiss_stale_reviews_on_push", value)
 
     @_builtins.property
     @pulumi.getter(name="requireCodeOwnerReview")
-    def require_code_owner_review(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_code_owner_review(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
         """
         return pulumi.get(self, "require_code_owner_review")
 
     @require_code_owner_review.setter
-    def require_code_owner_review(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_code_owner_review(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_code_owner_review", value)
 
     @_builtins.property
     @pulumi.getter(name="requireLastPushApproval")
-    def require_last_push_approval(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_last_push_approval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         """
         return pulumi.get(self, "require_last_push_approval")
 
     @require_last_push_approval.setter
-    def require_last_push_approval(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_last_push_approval(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_last_push_approval", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredApprovingReviewCount")
-    def required_approving_review_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def required_approving_review_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         """
         return pulumi.get(self, "required_approving_review_count")
 
     @required_approving_review_count.setter
-    def required_approving_review_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def required_approving_review_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "required_approving_review_count", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredReviewThreadResolution")
-    def required_review_thread_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_review_thread_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
 
     @required_review_thread_resolution.setter
-    def required_review_thread_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_review_thread_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_review_thread_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredReviewers")
-    def required_reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]]:
+    def required_reviewers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]]:
         """
         Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
         """
         return pulumi.get(self, "required_reviewers")
 
     @required_reviewers.setter
-    def required_reviewers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]]):
+    def required_reviewers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]]):
         pulumi.set(self, "required_reviewers", value)
 
 
@@ -3229,11 +3229,11 @@ class OrganizationRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
     """
     Status checks that are required. Several can be defined.
     """
-    do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+    do_not_enforce_on_create: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
     """
-    strict_required_status_checks_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    strict_required_status_checks_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
     """
@@ -3242,8 +3242,8 @@ class OrganizationRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
 class OrganizationRulesetRulesRequiredStatusChecksArgs:
     def __init__(__self__, *,
                  required_checks: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]],
-                 do_not_enforce_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strict_required_status_checks_policy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 do_not_enforce_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strict_required_status_checks_policy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]] required_checks: Status checks that are required. Several can be defined.
         :param pulumi.Input[_builtins.bool] do_not_enforce_on_create: (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
@@ -3269,26 +3269,26 @@ class OrganizationRulesetRulesRequiredStatusChecksArgs:
 
     @_builtins.property
     @pulumi.getter(name="doNotEnforceOnCreate")
-    def do_not_enforce_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_enforce_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
         """
         return pulumi.get(self, "do_not_enforce_on_create")
 
     @do_not_enforce_on_create.setter
-    def do_not_enforce_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_enforce_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_enforce_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="strictRequiredStatusChecksPolicy")
-    def strict_required_status_checks_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict_required_status_checks_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "strict_required_status_checks_policy")
 
     @strict_required_status_checks_policy.setter
-    def strict_required_status_checks_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict_required_status_checks_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict_required_status_checks_policy", value)
 
 
@@ -3297,7 +3297,7 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDic
     """
     The status check context name that must be present on the commit.
     """
-    integration_id: NotRequired[pulumi.Input[_builtins.int]]
+    integration_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The optional integration ID that this status check must originate from.
     """
@@ -3306,7 +3306,7 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDic
 class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs:
     def __init__(__self__, *,
                  context: pulumi.Input[_builtins.str],
-                 integration_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 integration_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] context: The status check context name that must be present on the commit.
         :param pulumi.Input[_builtins.int] integration_id: The optional integration ID that this status check must originate from.
@@ -3329,14 +3329,14 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs:
 
     @_builtins.property
     @pulumi.getter(name="integrationId")
-    def integration_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def integration_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The optional integration ID that this status check must originate from.
         """
         return pulumi.get(self, "integration_id")
 
     @integration_id.setter
-    def integration_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def integration_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "integration_id", value)
 
 
@@ -3345,7 +3345,7 @@ class OrganizationRulesetRulesRequiredWorkflowsArgsDict(TypedDict):
     """
     Actions workflows that are required. Several can be defined.
     """
-    do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+    do_not_enforce_on_create: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow repositories and branches to be created if a check would otherwise prohibit it.
     """
@@ -3354,7 +3354,7 @@ class OrganizationRulesetRulesRequiredWorkflowsArgsDict(TypedDict):
 class OrganizationRulesetRulesRequiredWorkflowsArgs:
     def __init__(__self__, *,
                  required_workflows: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]],
-                 do_not_enforce_on_create: Optional[pulumi.Input[_builtins.bool]] = None):
+                 do_not_enforce_on_create: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]] required_workflows: Actions workflows that are required. Several can be defined.
         :param pulumi.Input[_builtins.bool] do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
@@ -3377,14 +3377,14 @@ class OrganizationRulesetRulesRequiredWorkflowsArgs:
 
     @_builtins.property
     @pulumi.getter(name="doNotEnforceOnCreate")
-    def do_not_enforce_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_enforce_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow repositories and branches to be created if a check would otherwise prohibit it.
         """
         return pulumi.get(self, "do_not_enforce_on_create")
 
     @do_not_enforce_on_create.setter
-    def do_not_enforce_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_enforce_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_enforce_on_create", value)
 
 
@@ -3397,7 +3397,7 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgsDict(TypedDic
     """
     The repository in which the workflow is defined.
     """
-    ref: NotRequired[pulumi.Input[_builtins.str]]
+    ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref (branch or tag) of the workflow file to use.
     """
@@ -3407,7 +3407,7 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
                  repository_id: pulumi.Input[_builtins.int],
-                 ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] path: The path to the workflow YAML definition file.
         :param pulumi.Input[_builtins.int] repository_id: The repository in which the workflow is defined.
@@ -3444,14 +3444,14 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref (branch or tag) of the workflow file to use.
         """
         return pulumi.get(self, "ref")
 
     @ref.setter
-    def ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref", value)
 
 
@@ -3464,11 +3464,11 @@ class OrganizationRulesetRulesTagNamePatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -3478,8 +3478,8 @@ class OrganizationRulesetRulesTagNamePatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -3519,26 +3519,26 @@ class OrganizationRulesetRulesTagNamePatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -3547,15 +3547,15 @@ class OrganizationWebhookConfigurationArgsDict(TypedDict):
     """
     URL of the webhook
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content type for the payload. Valid values are either 'form' or 'json'.
     """
-    insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
+    insecure_ssl: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Insecure SSL boolean toggle. Defaults to 'false'.
     """
-    secret: NotRequired[pulumi.Input[_builtins.str]]
+    secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The shared secret for the webhook
     """
@@ -3564,9 +3564,9 @@ class OrganizationWebhookConfigurationArgsDict(TypedDict):
 class OrganizationWebhookConfigurationArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] url: URL of the webhook
         :param pulumi.Input[_builtins.str] content_type: The content type for the payload. Valid values are either 'form' or 'json'.
@@ -3595,38 +3595,38 @@ class OrganizationWebhookConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type for the payload. Valid values are either 'form' or 'json'.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="insecureSsl")
-    def insecure_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Insecure SSL boolean toggle. Defaults to 'false'.
         """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
-    def insecure_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure_ssl", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared secret for the webhook
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret", value)
 
 
@@ -3729,7 +3729,7 @@ class RepositoryCollaboratorsTeamArgsDict(TypedDict):
     """
     The GitHub team id or the GitHub team slug.
     """
-    permission: NotRequired[pulumi.Input[_builtins.str]]
+    permission: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The permission of the outside collaborators for the repository.
     Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
@@ -3740,7 +3740,7 @@ class RepositoryCollaboratorsTeamArgsDict(TypedDict):
 class RepositoryCollaboratorsTeamArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[_builtins.str],
-                 permission: Optional[pulumi.Input[_builtins.str]] = None):
+                 permission: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug.
         :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborators for the repository.
@@ -3765,7 +3765,7 @@ class RepositoryCollaboratorsTeamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission of the outside collaborators for the repository.
         Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
@@ -3774,7 +3774,7 @@ class RepositoryCollaboratorsTeamArgs:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission", value)
 
 
@@ -3783,7 +3783,7 @@ class RepositoryCollaboratorsUserArgsDict(TypedDict):
     """
     The user to add to the repository as a collaborator.
     """
-    permission: NotRequired[pulumi.Input[_builtins.str]]
+    permission: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The permission of the outside collaborators for the repository.
     Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
@@ -3794,7 +3794,7 @@ class RepositoryCollaboratorsUserArgsDict(TypedDict):
 class RepositoryCollaboratorsUserArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
-                 permission: Optional[pulumi.Input[_builtins.str]] = None):
+                 permission: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The user to add to the repository as a collaborator.
         :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborators for the repository.
@@ -3819,7 +3819,7 @@ class RepositoryCollaboratorsUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission of the outside collaborators for the repository.
         Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
@@ -3828,7 +3828,7 @@ class RepositoryCollaboratorsUserArgs:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission", value)
 
 
@@ -3880,11 +3880,11 @@ class RepositoryEnvironmentDeploymentBranchPolicyArgs:
 
 
 class RepositoryEnvironmentReviewerArgsDict(TypedDict):
-    teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
     """
-    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
     """
@@ -3892,8 +3892,8 @@ class RepositoryEnvironmentReviewerArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryEnvironmentReviewerArgs:
     def __init__(__self__, *,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] teams: Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
@@ -3905,66 +3905,66 @@ class RepositoryEnvironmentReviewerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "teams", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "users", value)
 
 
 class RepositoryPagesArgsDict(TypedDict):
-    build_type: NotRequired[pulumi.Input[_builtins.str]]
+    build_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
     """
-    cname: NotRequired[pulumi.Input[_builtins.str]]
+    cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The custom domain for the repository. This can only be set after the repository has been created.
     """
-    custom404: NotRequired[pulumi.Input[_builtins.bool]]
+    custom404: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the rendered GitHub Pages site has a custom 404 page.
     """
-    html_url: NotRequired[pulumi.Input[_builtins.str]]
+    html_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
     """
-    source: NotRequired[pulumi.Input['RepositoryPagesSourceArgsDict']]
+    source: NotRequired[pulumi.Input[Optional['RepositoryPagesSourceArgs']]]
     """
     The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The GitHub Pages site's build status e.g. `building` or `built`.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RepositoryPagesArgs:
     def __init__(__self__, *,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom404: Optional[pulumi.Input[_builtins.bool]] = None,
-                 html_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input['RepositoryPagesSourceArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom404: pulumi.Input[Optional[_builtins.bool]] = None,
+                 html_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional['RepositoryPagesSourceArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] build_type: The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
         :param pulumi.Input[_builtins.str] cname: The custom domain for the repository. This can only be set after the repository has been created.
@@ -3990,83 +3990,83 @@ class RepositoryPagesArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildType")
-    def build_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
         """
         return pulumi.get(self, "build_type")
 
     @build_type.setter
-    def build_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom domain for the repository. This can only be set after the repository has been created.
         """
         return pulumi.get(self, "cname")
 
     @cname.setter
-    def cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname", value)
 
     @_builtins.property
     @pulumi.getter
-    def custom404(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom404(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the rendered GitHub Pages site has a custom 404 page.
         """
         return pulumi.get(self, "custom404")
 
     @custom404.setter
-    def custom404(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom404(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom404", value)
 
     @_builtins.property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
-    def html_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RepositoryPagesSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['RepositoryPagesSourceArgs']]:
         """
         The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RepositoryPagesSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['RepositoryPagesSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub Pages site's build status e.g. `building` or `built`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -4075,7 +4075,7 @@ class RepositoryPagesSourceArgsDict(TypedDict):
     """
     The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
     """
@@ -4084,7 +4084,7 @@ class RepositoryPagesSourceArgsDict(TypedDict):
 class RepositoryPagesSourceArgs:
     def __init__(__self__, *,
                  branch: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] branch: The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
         :param pulumi.Input[_builtins.str] path: The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
@@ -4107,14 +4107,14 @@ class RepositoryPagesSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -4132,7 +4132,7 @@ class RepositoryRulesetBypassActorArgsDict(TypedDict):
     - `OrganizationAdmin` > `1`
     - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
     """
-    actor_id: NotRequired[pulumi.Input[_builtins.int]]
+    actor_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
     """
@@ -4142,7 +4142,7 @@ class RepositoryRulesetBypassActorArgs:
     def __init__(__self__, *,
                  actor_type: pulumi.Input[_builtins.str],
                  bypass_mode: pulumi.Input[_builtins.str],
-                 actor_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 actor_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
         :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
@@ -4189,14 +4189,14 @@ class RepositoryRulesetBypassActorArgs:
 
     @_builtins.property
     @pulumi.getter(name="actorId")
-    def actor_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def actor_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
         """
         return pulumi.get(self, "actor_id")
 
     @actor_id.setter
-    def actor_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def actor_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "actor_id", value)
 
 
@@ -4282,91 +4282,91 @@ class RepositoryRulesetConditionsRefNameArgs:
 
 
 class RepositoryRulesetRulesArgsDict(TypedDict):
-    branch_name_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgsDict']]
+    branch_name_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesBranchNamePatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
     """
-    commit_author_email_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict']]
+    commit_author_email_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    commit_message_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgsDict']]
+    commit_message_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitMessagePatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    committer_email_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgsDict']]
+    committer_email_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitterEmailPatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    copilot_code_review: NotRequired[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgsDict']]
+    copilot_code_review: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCopilotCodeReviewArgs']]]
     """
     (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
     """
-    creation: NotRequired[pulumi.Input[_builtins.bool]]
+    creation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Only allow users with bypass permission to create matching refs.
     """
-    deletion: NotRequired[pulumi.Input[_builtins.bool]]
+    deletion: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Only allow users with bypass permissions to delete matching refs.
     """
-    file_extension_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgsDict']]
+    file_extension_restriction: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesFileExtensionRestrictionArgs']]]
     """
     (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
     """
-    file_path_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgsDict']]
+    file_path_restriction: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesFilePathRestrictionArgs']]]
     """
     (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
     """
-    max_file_path_length: NotRequired[pulumi.Input['RepositoryRulesetRulesMaxFilePathLengthArgsDict']]
+    max_file_path_length: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMaxFilePathLengthArgs']]]
     """
     (Integer) The maximum number of characters allowed in file paths.
     """
-    max_file_size: NotRequired[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgsDict']]
+    max_file_size: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMaxFileSizeArgs']]]
     """
     (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
     """
-    merge_queue: NotRequired[pulumi.Input['RepositoryRulesetRulesMergeQueueArgsDict']]
+    merge_queue: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMergeQueueArgs']]]
     """
     (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
     """
-    non_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    non_fast_forward: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Prevent users with push access from force pushing to branches.
     """
-    pull_request: NotRequired[pulumi.Input['RepositoryRulesetRulesPullRequestArgsDict']]
+    pull_request: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesPullRequestArgs']]]
     """
     (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
     """
-    required_code_scanning: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningArgsDict']]
+    required_code_scanning: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredCodeScanningArgs']]]
     """
     (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
     """
-    required_deployments: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredDeploymentsArgsDict']]
+    required_deployments: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredDeploymentsArgs']]]
     """
     (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
     """
-    required_linear_history: NotRequired[pulumi.Input[_builtins.bool]]
+    required_linear_history: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Prevent merge commits from being pushed to matching branches.
     """
-    required_signatures: NotRequired[pulumi.Input[_builtins.bool]]
+    required_signatures: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Commits pushed to matching branches must have verified signatures.
     """
-    required_status_checks: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksArgsDict']]
+    required_status_checks: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredStatusChecksArgs']]]
     """
     (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
     """
-    tag_name_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesTagNamePatternArgsDict']]
+    tag_name_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesTagNamePatternArgs']]]
     """
     (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
     """
-    update: NotRequired[pulumi.Input[_builtins.bool]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Only allow users with bypass permission to update matching refs.
     """
-    update_allows_fetch_and_merge: NotRequired[pulumi.Input[_builtins.bool]]
+    update_allows_fetch_and_merge: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
     """
@@ -4374,28 +4374,28 @@ class RepositoryRulesetRulesArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryRulesetRulesArgs:
     def __init__(__self__, *,
-                 branch_name_pattern: Optional[pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgs']] = None,
-                 commit_author_email_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']] = None,
-                 commit_message_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgs']] = None,
-                 committer_email_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs']] = None,
-                 copilot_code_review: Optional[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgs']] = None,
-                 creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_extension_restriction: Optional[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs']] = None,
-                 file_path_restriction: Optional[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs']] = None,
-                 max_file_path_length: Optional[pulumi.Input['RepositoryRulesetRulesMaxFilePathLengthArgs']] = None,
-                 max_file_size: Optional[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs']] = None,
-                 merge_queue: Optional[pulumi.Input['RepositoryRulesetRulesMergeQueueArgs']] = None,
-                 non_fast_forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pull_request: Optional[pulumi.Input['RepositoryRulesetRulesPullRequestArgs']] = None,
-                 required_code_scanning: Optional[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningArgs']] = None,
-                 required_deployments: Optional[pulumi.Input['RepositoryRulesetRulesRequiredDeploymentsArgs']] = None,
-                 required_linear_history: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_signatures: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_status_checks: Optional[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksArgs']] = None,
-                 tag_name_pattern: Optional[pulumi.Input['RepositoryRulesetRulesTagNamePatternArgs']] = None,
-                 update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 update_allows_fetch_and_merge: Optional[pulumi.Input[_builtins.bool]] = None):
+                 branch_name_pattern: pulumi.Input[Optional['RepositoryRulesetRulesBranchNamePatternArgs']] = None,
+                 commit_author_email_pattern: pulumi.Input[Optional['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']] = None,
+                 commit_message_pattern: pulumi.Input[Optional['RepositoryRulesetRulesCommitMessagePatternArgs']] = None,
+                 committer_email_pattern: pulumi.Input[Optional['RepositoryRulesetRulesCommitterEmailPatternArgs']] = None,
+                 copilot_code_review: pulumi.Input[Optional['RepositoryRulesetRulesCopilotCodeReviewArgs']] = None,
+                 creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_extension_restriction: pulumi.Input[Optional['RepositoryRulesetRulesFileExtensionRestrictionArgs']] = None,
+                 file_path_restriction: pulumi.Input[Optional['RepositoryRulesetRulesFilePathRestrictionArgs']] = None,
+                 max_file_path_length: pulumi.Input[Optional['RepositoryRulesetRulesMaxFilePathLengthArgs']] = None,
+                 max_file_size: pulumi.Input[Optional['RepositoryRulesetRulesMaxFileSizeArgs']] = None,
+                 merge_queue: pulumi.Input[Optional['RepositoryRulesetRulesMergeQueueArgs']] = None,
+                 non_fast_forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pull_request: pulumi.Input[Optional['RepositoryRulesetRulesPullRequestArgs']] = None,
+                 required_code_scanning: pulumi.Input[Optional['RepositoryRulesetRulesRequiredCodeScanningArgs']] = None,
+                 required_deployments: pulumi.Input[Optional['RepositoryRulesetRulesRequiredDeploymentsArgs']] = None,
+                 required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_signatures: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_status_checks: pulumi.Input[Optional['RepositoryRulesetRulesRequiredStatusChecksArgs']] = None,
+                 tag_name_pattern: pulumi.Input[Optional['RepositoryRulesetRulesTagNamePatternArgs']] = None,
+                 update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 update_allows_fetch_and_merge: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgs'] branch_name_pattern: (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
         :param pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgs'] commit_author_email_pattern: (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
@@ -4467,266 +4467,266 @@ class RepositoryRulesetRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchNamePattern")
-    def branch_name_pattern(self) -> Optional[pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgs']]:
+    def branch_name_pattern(self) -> pulumi.Input[Optional['RepositoryRulesetRulesBranchNamePatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
         """
         return pulumi.get(self, "branch_name_pattern")
 
     @branch_name_pattern.setter
-    def branch_name_pattern(self, value: Optional[pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgs']]):
+    def branch_name_pattern(self, value: pulumi.Input[Optional['RepositoryRulesetRulesBranchNamePatternArgs']]):
         pulumi.set(self, "branch_name_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="commitAuthorEmailPattern")
-    def commit_author_email_pattern(self) -> Optional[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']]:
+    def commit_author_email_pattern(self) -> pulumi.Input[Optional['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
         return pulumi.get(self, "commit_author_email_pattern")
 
     @commit_author_email_pattern.setter
-    def commit_author_email_pattern(self, value: Optional[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']]):
+    def commit_author_email_pattern(self, value: pulumi.Input[Optional['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']]):
         pulumi.set(self, "commit_author_email_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="commitMessagePattern")
-    def commit_message_pattern(self) -> Optional[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgs']]:
+    def commit_message_pattern(self) -> pulumi.Input[Optional['RepositoryRulesetRulesCommitMessagePatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
         return pulumi.get(self, "commit_message_pattern")
 
     @commit_message_pattern.setter
-    def commit_message_pattern(self, value: Optional[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgs']]):
+    def commit_message_pattern(self, value: pulumi.Input[Optional['RepositoryRulesetRulesCommitMessagePatternArgs']]):
         pulumi.set(self, "commit_message_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="committerEmailPattern")
-    def committer_email_pattern(self) -> Optional[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs']]:
+    def committer_email_pattern(self) -> pulumi.Input[Optional['RepositoryRulesetRulesCommitterEmailPatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
         return pulumi.get(self, "committer_email_pattern")
 
     @committer_email_pattern.setter
-    def committer_email_pattern(self, value: Optional[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs']]):
+    def committer_email_pattern(self, value: pulumi.Input[Optional['RepositoryRulesetRulesCommitterEmailPatternArgs']]):
         pulumi.set(self, "committer_email_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="copilotCodeReview")
-    def copilot_code_review(self) -> Optional[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgs']]:
+    def copilot_code_review(self) -> pulumi.Input[Optional['RepositoryRulesetRulesCopilotCodeReviewArgs']]:
         """
         (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
         """
         return pulumi.get(self, "copilot_code_review")
 
     @copilot_code_review.setter
-    def copilot_code_review(self, value: Optional[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgs']]):
+    def copilot_code_review(self, value: pulumi.Input[Optional['RepositoryRulesetRulesCopilotCodeReviewArgs']]):
         pulumi.set(self, "copilot_code_review", value)
 
     @_builtins.property
     @pulumi.getter
-    def creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Only allow users with bypass permission to create matching refs.
         """
         return pulumi.get(self, "creation")
 
     @creation.setter
-    def creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "creation", value)
 
     @_builtins.property
     @pulumi.getter
-    def deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Only allow users with bypass permissions to delete matching refs.
         """
         return pulumi.get(self, "deletion")
 
     @deletion.setter
-    def deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="fileExtensionRestriction")
-    def file_extension_restriction(self) -> Optional[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs']]:
+    def file_extension_restriction(self) -> pulumi.Input[Optional['RepositoryRulesetRulesFileExtensionRestrictionArgs']]:
         """
         (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
         """
         return pulumi.get(self, "file_extension_restriction")
 
     @file_extension_restriction.setter
-    def file_extension_restriction(self, value: Optional[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs']]):
+    def file_extension_restriction(self, value: pulumi.Input[Optional['RepositoryRulesetRulesFileExtensionRestrictionArgs']]):
         pulumi.set(self, "file_extension_restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="filePathRestriction")
-    def file_path_restriction(self) -> Optional[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs']]:
+    def file_path_restriction(self) -> pulumi.Input[Optional['RepositoryRulesetRulesFilePathRestrictionArgs']]:
         """
         (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
         """
         return pulumi.get(self, "file_path_restriction")
 
     @file_path_restriction.setter
-    def file_path_restriction(self, value: Optional[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs']]):
+    def file_path_restriction(self, value: pulumi.Input[Optional['RepositoryRulesetRulesFilePathRestrictionArgs']]):
         pulumi.set(self, "file_path_restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="maxFilePathLength")
-    def max_file_path_length(self) -> Optional[pulumi.Input['RepositoryRulesetRulesMaxFilePathLengthArgs']]:
+    def max_file_path_length(self) -> pulumi.Input[Optional['RepositoryRulesetRulesMaxFilePathLengthArgs']]:
         """
         (Integer) The maximum number of characters allowed in file paths.
         """
         return pulumi.get(self, "max_file_path_length")
 
     @max_file_path_length.setter
-    def max_file_path_length(self, value: Optional[pulumi.Input['RepositoryRulesetRulesMaxFilePathLengthArgs']]):
+    def max_file_path_length(self, value: pulumi.Input[Optional['RepositoryRulesetRulesMaxFilePathLengthArgs']]):
         pulumi.set(self, "max_file_path_length", value)
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
-    def max_file_size(self) -> Optional[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs']]:
+    def max_file_size(self) -> pulumi.Input[Optional['RepositoryRulesetRulesMaxFileSizeArgs']]:
         """
         (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         """
         return pulumi.get(self, "max_file_size")
 
     @max_file_size.setter
-    def max_file_size(self, value: Optional[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs']]):
+    def max_file_size(self, value: pulumi.Input[Optional['RepositoryRulesetRulesMaxFileSizeArgs']]):
         pulumi.set(self, "max_file_size", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeQueue")
-    def merge_queue(self) -> Optional[pulumi.Input['RepositoryRulesetRulesMergeQueueArgs']]:
+    def merge_queue(self) -> pulumi.Input[Optional['RepositoryRulesetRulesMergeQueueArgs']]:
         """
         (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
         """
         return pulumi.get(self, "merge_queue")
 
     @merge_queue.setter
-    def merge_queue(self, value: Optional[pulumi.Input['RepositoryRulesetRulesMergeQueueArgs']]):
+    def merge_queue(self, value: pulumi.Input[Optional['RepositoryRulesetRulesMergeQueueArgs']]):
         pulumi.set(self, "merge_queue", value)
 
     @_builtins.property
     @pulumi.getter(name="nonFastForward")
-    def non_fast_forward(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def non_fast_forward(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Prevent users with push access from force pushing to branches.
         """
         return pulumi.get(self, "non_fast_forward")
 
     @non_fast_forward.setter
-    def non_fast_forward(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def non_fast_forward(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "non_fast_forward", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequest")
-    def pull_request(self) -> Optional[pulumi.Input['RepositoryRulesetRulesPullRequestArgs']]:
+    def pull_request(self) -> pulumi.Input[Optional['RepositoryRulesetRulesPullRequestArgs']]:
         """
         (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         """
         return pulumi.get(self, "pull_request")
 
     @pull_request.setter
-    def pull_request(self, value: Optional[pulumi.Input['RepositoryRulesetRulesPullRequestArgs']]):
+    def pull_request(self, value: pulumi.Input[Optional['RepositoryRulesetRulesPullRequestArgs']]):
         pulumi.set(self, "pull_request", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredCodeScanning")
-    def required_code_scanning(self) -> Optional[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningArgs']]:
+    def required_code_scanning(self) -> pulumi.Input[Optional['RepositoryRulesetRulesRequiredCodeScanningArgs']]:
         """
         (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
         """
         return pulumi.get(self, "required_code_scanning")
 
     @required_code_scanning.setter
-    def required_code_scanning(self, value: Optional[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningArgs']]):
+    def required_code_scanning(self, value: pulumi.Input[Optional['RepositoryRulesetRulesRequiredCodeScanningArgs']]):
         pulumi.set(self, "required_code_scanning", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredDeployments")
-    def required_deployments(self) -> Optional[pulumi.Input['RepositoryRulesetRulesRequiredDeploymentsArgs']]:
+    def required_deployments(self) -> pulumi.Input[Optional['RepositoryRulesetRulesRequiredDeploymentsArgs']]:
         """
         (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
         """
         return pulumi.get(self, "required_deployments")
 
     @required_deployments.setter
-    def required_deployments(self, value: Optional[pulumi.Input['RepositoryRulesetRulesRequiredDeploymentsArgs']]):
+    def required_deployments(self, value: pulumi.Input[Optional['RepositoryRulesetRulesRequiredDeploymentsArgs']]):
         pulumi.set(self, "required_deployments", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredLinearHistory")
-    def required_linear_history(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_linear_history(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Prevent merge commits from being pushed to matching branches.
         """
         return pulumi.get(self, "required_linear_history")
 
     @required_linear_history.setter
-    def required_linear_history(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_linear_history(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_linear_history", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredSignatures")
-    def required_signatures(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_signatures(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Commits pushed to matching branches must have verified signatures.
         """
         return pulumi.get(self, "required_signatures")
 
     @required_signatures.setter
-    def required_signatures(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_signatures(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_signatures", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredStatusChecks")
-    def required_status_checks(self) -> Optional[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksArgs']]:
+    def required_status_checks(self) -> pulumi.Input[Optional['RepositoryRulesetRulesRequiredStatusChecksArgs']]:
         """
         (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
         """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
-    def required_status_checks(self, value: Optional[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksArgs']]):
+    def required_status_checks(self, value: pulumi.Input[Optional['RepositoryRulesetRulesRequiredStatusChecksArgs']]):
         pulumi.set(self, "required_status_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="tagNamePattern")
-    def tag_name_pattern(self) -> Optional[pulumi.Input['RepositoryRulesetRulesTagNamePatternArgs']]:
+    def tag_name_pattern(self) -> pulumi.Input[Optional['RepositoryRulesetRulesTagNamePatternArgs']]:
         """
         (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
         """
         return pulumi.get(self, "tag_name_pattern")
 
     @tag_name_pattern.setter
-    def tag_name_pattern(self, value: Optional[pulumi.Input['RepositoryRulesetRulesTagNamePatternArgs']]):
+    def tag_name_pattern(self, value: pulumi.Input[Optional['RepositoryRulesetRulesTagNamePatternArgs']]):
         pulumi.set(self, "tag_name_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Only allow users with bypass permission to update matching refs.
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "update", value)
 
     @_builtins.property
     @pulumi.getter(name="updateAllowsFetchAndMerge")
-    def update_allows_fetch_and_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def update_allows_fetch_and_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
         """
         return pulumi.get(self, "update_allows_fetch_and_merge")
 
     @update_allows_fetch_and_merge.setter
-    def update_allows_fetch_and_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def update_allows_fetch_and_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "update_allows_fetch_and_merge", value)
 
 
@@ -4739,11 +4739,11 @@ class RepositoryRulesetRulesBranchNamePatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -4753,8 +4753,8 @@ class RepositoryRulesetRulesBranchNamePatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -4794,26 +4794,26 @@ class RepositoryRulesetRulesBranchNamePatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -4826,11 +4826,11 @@ class RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -4840,8 +4840,8 @@ class RepositoryRulesetRulesCommitAuthorEmailPatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -4881,26 +4881,26 @@ class RepositoryRulesetRulesCommitAuthorEmailPatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -4913,11 +4913,11 @@ class RepositoryRulesetRulesCommitMessagePatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -4927,8 +4927,8 @@ class RepositoryRulesetRulesCommitMessagePatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -4968,26 +4968,26 @@ class RepositoryRulesetRulesCommitMessagePatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -5000,11 +5000,11 @@ class RepositoryRulesetRulesCommitterEmailPatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -5014,8 +5014,8 @@ class RepositoryRulesetRulesCommitterEmailPatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -5055,35 +5055,35 @@ class RepositoryRulesetRulesCommitterEmailPatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
 class RepositoryRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
-    review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
+    review_draft_pull_requests: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
     """
-    review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    review_on_push: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Copilot automatically reviews each new push to the pull request. Defaults to `false`.
     """
@@ -5091,8 +5091,8 @@ class RepositoryRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryRulesetRulesCopilotCodeReviewArgs:
     def __init__(__self__, *,
-                 review_draft_pull_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 review_on_push: Optional[pulumi.Input[_builtins.bool]] = None):
+                 review_draft_pull_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 review_on_push: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] review_draft_pull_requests: Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] review_on_push: Copilot automatically reviews each new push to the pull request. Defaults to `false`.
@@ -5104,26 +5104,26 @@ class RepositoryRulesetRulesCopilotCodeReviewArgs:
 
     @_builtins.property
     @pulumi.getter(name="reviewDraftPullRequests")
-    def review_draft_pull_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def review_draft_pull_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
         """
         return pulumi.get(self, "review_draft_pull_requests")
 
     @review_draft_pull_requests.setter
-    def review_draft_pull_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def review_draft_pull_requests(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "review_draft_pull_requests", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewOnPush")
-    def review_on_push(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def review_on_push(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Copilot automatically reviews each new push to the pull request. Defaults to `false`.
         """
         return pulumi.get(self, "review_on_push")
 
     @review_on_push.setter
-    def review_on_push(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def review_on_push(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "review_on_push", value)
 
 
@@ -5240,31 +5240,31 @@ class RepositoryRulesetRulesMaxFileSizeArgs:
 
 
 class RepositoryRulesetRulesMergeQueueArgsDict(TypedDict):
-    check_response_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    check_response_timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
     """
-    grouping_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    grouping_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
     """
-    max_entries_to_build: NotRequired[pulumi.Input[_builtins.int]]
+    max_entries_to_build: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
     """
-    max_entries_to_merge: NotRequired[pulumi.Input[_builtins.int]]
+    max_entries_to_merge: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of PRs that will be merged together in a group. Defaults to `5`.
     """
-    merge_method: NotRequired[pulumi.Input[_builtins.str]]
+    merge_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
     """
-    min_entries_to_merge: NotRequired[pulumi.Input[_builtins.int]]
+    min_entries_to_merge: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of PRs that will be merged together in a group. Defaults to `1`.
     """
-    min_entries_to_merge_wait_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    min_entries_to_merge_wait_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
     """
@@ -5272,13 +5272,13 @@ class RepositoryRulesetRulesMergeQueueArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryRulesetRulesMergeQueueArgs:
     def __init__(__self__, *,
-                 check_response_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 grouping_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_entries_to_build: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_entries_to_merge: Optional[pulumi.Input[_builtins.int]] = None,
-                 merge_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_entries_to_merge: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_entries_to_merge_wait_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 check_response_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 grouping_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_entries_to_build: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_entries_to_merge: pulumi.Input[Optional[_builtins.int]] = None,
+                 merge_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_entries_to_merge: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_entries_to_merge_wait_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] check_response_timeout_minutes: Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
         :param pulumi.Input[_builtins.str] grouping_strategy: When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
@@ -5305,115 +5305,115 @@ class RepositoryRulesetRulesMergeQueueArgs:
 
     @_builtins.property
     @pulumi.getter(name="checkResponseTimeoutMinutes")
-    def check_response_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def check_response_timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
         """
         return pulumi.get(self, "check_response_timeout_minutes")
 
     @check_response_timeout_minutes.setter
-    def check_response_timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def check_response_timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "check_response_timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingStrategy")
-    def grouping_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grouping_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
         """
         return pulumi.get(self, "grouping_strategy")
 
     @grouping_strategy.setter
-    def grouping_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grouping_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grouping_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="maxEntriesToBuild")
-    def max_entries_to_build(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_entries_to_build(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
         """
         return pulumi.get(self, "max_entries_to_build")
 
     @max_entries_to_build.setter
-    def max_entries_to_build(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_entries_to_build(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_entries_to_build", value)
 
     @_builtins.property
     @pulumi.getter(name="maxEntriesToMerge")
-    def max_entries_to_merge(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_entries_to_merge(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of PRs that will be merged together in a group. Defaults to `5`.
         """
         return pulumi.get(self, "max_entries_to_merge")
 
     @max_entries_to_merge.setter
-    def max_entries_to_merge(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_entries_to_merge(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_entries_to_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeMethod")
-    def merge_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merge_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
         """
         return pulumi.get(self, "merge_method")
 
     @merge_method.setter
-    def merge_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merge_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merge_method", value)
 
     @_builtins.property
     @pulumi.getter(name="minEntriesToMerge")
-    def min_entries_to_merge(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_entries_to_merge(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of PRs that will be merged together in a group. Defaults to `1`.
         """
         return pulumi.get(self, "min_entries_to_merge")
 
     @min_entries_to_merge.setter
-    def min_entries_to_merge(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_entries_to_merge(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_entries_to_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="minEntriesToMergeWaitMinutes")
-    def min_entries_to_merge_wait_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_entries_to_merge_wait_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
         """
         return pulumi.get(self, "min_entries_to_merge_wait_minutes")
 
     @min_entries_to_merge_wait_minutes.setter
-    def min_entries_to_merge_wait_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_entries_to_merge_wait_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_entries_to_merge_wait_minutes", value)
 
 
 class RepositoryRulesetRulesPullRequestArgsDict(TypedDict):
-    allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_merge_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
     """
-    dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
     """
-    require_code_owner_review: NotRequired[pulumi.Input[_builtins.bool]]
+    require_code_owner_review: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
     """
-    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    require_last_push_approval: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
     """
-    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    required_approving_review_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
     """
-    required_review_thread_resolution: NotRequired[pulumi.Input[_builtins.bool]]
+    required_review_thread_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
     """
-    required_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgsDict']]]]
+    required_reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]]]
     """
     Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
     """
@@ -5421,13 +5421,13 @@ class RepositoryRulesetRulesPullRequestArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryRulesetRulesPullRequestArgs:
     def __init__(__self__, *,
-                 allowed_merge_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dismiss_stale_reviews_on_push: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_code_owner_review: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_last_push_approval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_approving_review_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 required_review_thread_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]] = None):
+                 allowed_merge_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dismiss_stale_reviews_on_push: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_code_owner_review: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_last_push_approval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_approving_review_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 required_review_thread_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_merge_methods: Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         :param pulumi.Input[_builtins.bool] dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -5454,86 +5454,86 @@ class RepositoryRulesetRulesPullRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedMergeMethods")
-    def allowed_merge_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_merge_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         """
         return pulumi.get(self, "allowed_merge_methods")
 
     @allowed_merge_methods.setter
-    def allowed_merge_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_merge_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_merge_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissStaleReviewsOnPush")
-    def dismiss_stale_reviews_on_push(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dismiss_stale_reviews_on_push(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
         """
         return pulumi.get(self, "dismiss_stale_reviews_on_push")
 
     @dismiss_stale_reviews_on_push.setter
-    def dismiss_stale_reviews_on_push(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dismiss_stale_reviews_on_push(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dismiss_stale_reviews_on_push", value)
 
     @_builtins.property
     @pulumi.getter(name="requireCodeOwnerReview")
-    def require_code_owner_review(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_code_owner_review(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
         """
         return pulumi.get(self, "require_code_owner_review")
 
     @require_code_owner_review.setter
-    def require_code_owner_review(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_code_owner_review(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_code_owner_review", value)
 
     @_builtins.property
     @pulumi.getter(name="requireLastPushApproval")
-    def require_last_push_approval(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_last_push_approval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         """
         return pulumi.get(self, "require_last_push_approval")
 
     @require_last_push_approval.setter
-    def require_last_push_approval(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_last_push_approval(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_last_push_approval", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredApprovingReviewCount")
-    def required_approving_review_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def required_approving_review_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         """
         return pulumi.get(self, "required_approving_review_count")
 
     @required_approving_review_count.setter
-    def required_approving_review_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def required_approving_review_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "required_approving_review_count", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredReviewThreadResolution")
-    def required_review_thread_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_review_thread_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
 
     @required_review_thread_resolution.setter
-    def required_review_thread_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_review_thread_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_review_thread_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredReviewers")
-    def required_reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]]:
+    def required_reviewers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]]:
         """
         Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
         """
         return pulumi.get(self, "required_reviewers")
 
     @required_reviewers.setter
-    def required_reviewers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]]):
+    def required_reviewers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]]):
         pulumi.set(self, "required_reviewers", value)
 
 
@@ -5777,11 +5777,11 @@ class RepositoryRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
     """
     Status checks that are required. Several can be defined.
     """
-    do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+    do_not_enforce_on_create: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow repositories and branches to be created if a check would otherwise prohibit it.
     """
-    strict_required_status_checks_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    strict_required_status_checks_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
     """
@@ -5790,8 +5790,8 @@ class RepositoryRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
 class RepositoryRulesetRulesRequiredStatusChecksArgs:
     def __init__(__self__, *,
                  required_checks: pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs']]],
-                 do_not_enforce_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strict_required_status_checks_policy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 do_not_enforce_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strict_required_status_checks_policy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs']]] required_checks: Status checks that are required. Several can be defined.
         :param pulumi.Input[_builtins.bool] do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
@@ -5817,26 +5817,26 @@ class RepositoryRulesetRulesRequiredStatusChecksArgs:
 
     @_builtins.property
     @pulumi.getter(name="doNotEnforceOnCreate")
-    def do_not_enforce_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_enforce_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow repositories and branches to be created if a check would otherwise prohibit it.
         """
         return pulumi.get(self, "do_not_enforce_on_create")
 
     @do_not_enforce_on_create.setter
-    def do_not_enforce_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_enforce_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_enforce_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="strictRequiredStatusChecksPolicy")
-    def strict_required_status_checks_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict_required_status_checks_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "strict_required_status_checks_policy")
 
     @strict_required_status_checks_policy.setter
-    def strict_required_status_checks_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict_required_status_checks_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict_required_status_checks_policy", value)
 
 
@@ -5845,7 +5845,7 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDict)
     """
     The status check context name that must be present on the commit.
     """
-    integration_id: NotRequired[pulumi.Input[_builtins.int]]
+    integration_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The optional integration ID that this status check must originate from.
     """
@@ -5854,7 +5854,7 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDict)
 class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs:
     def __init__(__self__, *,
                  context: pulumi.Input[_builtins.str],
-                 integration_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 integration_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] context: The status check context name that must be present on the commit.
         :param pulumi.Input[_builtins.int] integration_id: The optional integration ID that this status check must originate from.
@@ -5877,14 +5877,14 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs:
 
     @_builtins.property
     @pulumi.getter(name="integrationId")
-    def integration_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def integration_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The optional integration ID that this status check must originate from.
         """
         return pulumi.get(self, "integration_id")
 
     @integration_id.setter
-    def integration_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def integration_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "integration_id", value)
 
 
@@ -5897,11 +5897,11 @@ class RepositoryRulesetRulesTagNamePatternArgsDict(TypedDict):
     """
     The pattern to match with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) The name of the ruleset.
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, the rule will fail if the pattern matches.
     """
@@ -5911,8 +5911,8 @@ class RepositoryRulesetRulesTagNamePatternArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         :param pulumi.Input[_builtins.str] pattern: The pattern to match with.
@@ -5952,51 +5952,51 @@ class RepositoryRulesetRulesTagNamePatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
 class RepositorySecurityAndAnalysisArgsDict(TypedDict):
-    advanced_security: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgsDict']]
+    advanced_security: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]]
     """
     The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
     """
-    code_security: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisCodeSecurityArgsDict']]
+    code_security: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisCodeSecurityArgs']]]
     """
     The code security configuration for the repository. See Code Security below for details.
     """
-    secret_scanning: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgsDict']]
+    secret_scanning: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningArgs']]]
     """
     The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
     """
-    secret_scanning_ai_detection: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict']]
+    secret_scanning_ai_detection: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']]]
     """
     The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
     """
-    secret_scanning_non_provider_patterns: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgsDict']]
+    secret_scanning_non_provider_patterns: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']]]
     """
     The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
     """
-    secret_scanning_push_protection: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgsDict']]
+    secret_scanning_push_protection: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]]
     """
     The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
     """
@@ -6004,12 +6004,12 @@ class RepositorySecurityAndAnalysisArgsDict(TypedDict):
 @pulumi.input_type
 class RepositorySecurityAndAnalysisArgs:
     def __init__(__self__, *,
-                 advanced_security: Optional[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']] = None,
-                 code_security: Optional[pulumi.Input['RepositorySecurityAndAnalysisCodeSecurityArgs']] = None,
-                 secret_scanning: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']] = None,
-                 secret_scanning_ai_detection: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']] = None,
-                 secret_scanning_non_provider_patterns: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']] = None,
-                 secret_scanning_push_protection: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']] = None):
+                 advanced_security: pulumi.Input[Optional['RepositorySecurityAndAnalysisAdvancedSecurityArgs']] = None,
+                 code_security: pulumi.Input[Optional['RepositorySecurityAndAnalysisCodeSecurityArgs']] = None,
+                 secret_scanning: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningArgs']] = None,
+                 secret_scanning_ai_detection: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']] = None,
+                 secret_scanning_non_provider_patterns: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']] = None,
+                 secret_scanning_push_protection: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']] = None):
         """
         :param pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs'] advanced_security: The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         :param pulumi.Input['RepositorySecurityAndAnalysisCodeSecurityArgs'] code_security: The code security configuration for the repository. See Code Security below for details.
@@ -6033,74 +6033,74 @@ class RepositorySecurityAndAnalysisArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurity")
-    def advanced_security(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]:
+    def advanced_security(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]:
         """
         The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         """
         return pulumi.get(self, "advanced_security")
 
     @advanced_security.setter
-    def advanced_security(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]):
+    def advanced_security(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]):
         pulumi.set(self, "advanced_security", value)
 
     @_builtins.property
     @pulumi.getter(name="codeSecurity")
-    def code_security(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisCodeSecurityArgs']]:
+    def code_security(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisCodeSecurityArgs']]:
         """
         The code security configuration for the repository. See Code Security below for details.
         """
         return pulumi.get(self, "code_security")
 
     @code_security.setter
-    def code_security(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisCodeSecurityArgs']]):
+    def code_security(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisCodeSecurityArgs']]):
         pulumi.set(self, "code_security", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanning")
-    def secret_scanning(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']]:
+    def secret_scanning(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningArgs']]:
         """
         The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         """
         return pulumi.get(self, "secret_scanning")
 
     @secret_scanning.setter
-    def secret_scanning(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']]):
+    def secret_scanning(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningArgs']]):
         pulumi.set(self, "secret_scanning", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningAiDetection")
-    def secret_scanning_ai_detection(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']]:
+    def secret_scanning_ai_detection(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']]:
         """
         The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
         """
         return pulumi.get(self, "secret_scanning_ai_detection")
 
     @secret_scanning_ai_detection.setter
-    def secret_scanning_ai_detection(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']]):
+    def secret_scanning_ai_detection(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']]):
         pulumi.set(self, "secret_scanning_ai_detection", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningNonProviderPatterns")
-    def secret_scanning_non_provider_patterns(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']]:
+    def secret_scanning_non_provider_patterns(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']]:
         """
         The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
         """
         return pulumi.get(self, "secret_scanning_non_provider_patterns")
 
     @secret_scanning_non_provider_patterns.setter
-    def secret_scanning_non_provider_patterns(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']]):
+    def secret_scanning_non_provider_patterns(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']]):
         pulumi.set(self, "secret_scanning_non_provider_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtection")
-    def secret_scanning_push_protection(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]:
+    def secret_scanning_push_protection(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]:
         """
         The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         """
         return pulumi.get(self, "secret_scanning_push_protection")
 
     @secret_scanning_push_protection.setter
-    def secret_scanning_push_protection(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]):
+    def secret_scanning_push_protection(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]):
         pulumi.set(self, "secret_scanning_push_protection", value)
 
 
@@ -6281,7 +6281,7 @@ class RepositoryTemplateArgsDict(TypedDict):
     """
     The name of the template repository.
     """
-    include_all_branches: NotRequired[pulumi.Input[_builtins.bool]]
+    include_all_branches: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
 
@@ -6293,7 +6293,7 @@ class RepositoryTemplateArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 include_all_branches: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_all_branches: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] owner: The GitHub organization or user the template repository is owned by.
         :param pulumi.Input[_builtins.str] repository: The name of the template repository.
@@ -6332,7 +6332,7 @@ class RepositoryTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeAllBranches")
-    def include_all_branches(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_all_branches(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
 
@@ -6341,7 +6341,7 @@ class RepositoryTemplateArgs:
         return pulumi.get(self, "include_all_branches")
 
     @include_all_branches.setter
-    def include_all_branches(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_all_branches(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_all_branches", value)
 
 
@@ -6350,15 +6350,15 @@ class RepositoryWebhookConfigurationArgsDict(TypedDict):
     """
     The URL of the webhook.
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content type for the payload. Valid values are either `form` or `json`.
     """
-    insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
+    insecure_ssl: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Insecure SSL boolean toggle. Defaults to `false`.
     """
-    secret: NotRequired[pulumi.Input[_builtins.str]]
+    secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
     """
@@ -6367,9 +6367,9 @@ class RepositoryWebhookConfigurationArgsDict(TypedDict):
 class RepositoryWebhookConfigurationArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] url: The URL of the webhook.
         :param pulumi.Input[_builtins.str] content_type: The content type for the payload. Valid values are either `form` or `json`.
@@ -6398,38 +6398,38 @@ class RepositoryWebhookConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content type for the payload. Valid values are either `form` or `json`.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="insecureSsl")
-    def insecure_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Insecure SSL boolean toggle. Defaults to `false`.
         """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
-    def insecure_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure_ssl", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret", value)
 
 
@@ -6438,7 +6438,7 @@ class TeamMembersMemberArgsDict(TypedDict):
     """
     The user to add to the team.
     """
-    role: NotRequired[pulumi.Input[_builtins.str]]
+    role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The role of the user within the team.
     Must be one of `member` or `maintainer`. Defaults to `member`.
@@ -6448,7 +6448,7 @@ class TeamMembersMemberArgsDict(TypedDict):
 class TeamMembersMemberArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username: The user to add to the team.
         :param pulumi.Input[_builtins.str] role: The role of the user within the team.
@@ -6472,7 +6472,7 @@ class TeamMembersMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role of the user within the team.
         Must be one of `member` or `maintainer`. Defaults to `member`.
@@ -6480,20 +6480,20 @@ class TeamMembersMemberArgs:
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
 class TeamSettingsReviewRequestDelegationArgsDict(TypedDict):
-    algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    algorithm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
     """
-    member_count: NotRequired[pulumi.Input[_builtins.int]]
+    member_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of team members to assign to a pull request.
     """
-    notify: NotRequired[pulumi.Input[_builtins.bool]]
+    notify: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
     """
@@ -6501,9 +6501,9 @@ class TeamSettingsReviewRequestDelegationArgsDict(TypedDict):
 @pulumi.input_type
 class TeamSettingsReviewRequestDelegationArgs:
     def __init__(__self__, *,
-                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None):
+                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] algorithm: The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
         :param pulumi.Input[_builtins.int] member_count: The number of team members to assign to a pull request.
@@ -6521,39 +6521,39 @@ class TeamSettingsReviewRequestDelegationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="memberCount")
-    def member_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def member_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of team members to assign to a pull request.
         """
         return pulumi.get(self, "member_count")
 
     @member_count.setter
-    def member_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def member_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "member_count", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the top-level notify attribute instead.""")
-    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify", value)
 
 

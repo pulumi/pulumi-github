@@ -19,15 +19,15 @@ __all__ = ['TeamArgs', 'Team']
 @pulumi.input_type
 class TeamArgs:
     def __init__(__self__, *,
-                 create_default_maintainer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_default_maintainer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Team resource.
 
@@ -66,129 +66,129 @@ class TeamArgs:
     @_builtins.property
     @pulumi.getter(name="createDefaultMaintainer")
     @_utilities.deprecated("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")
-    def create_default_maintainer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_default_maintainer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
     @create_default_maintainer.setter
-    def create_default_maintainer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_default_maintainer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_default_maintainer", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the team.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapDn")
-    def ldap_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ldap_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         """
         return pulumi.get(self, "ldap_dn")
 
     @ldap_dn.setter
-    def ldap_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ldap_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ldap_dn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the team.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSetting")
-    def notification_setting(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_setting(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
         """
         return pulumi.get(self, "notification_setting")
 
     @notification_setting.setter
-    def notification_setting(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_setting(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTeamId")
-    def parent_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or slug of the parent team, if this is a nested team.
         """
         return pulumi.get(self, "parent_team_id")
 
     @parent_team_id.setter
-    def parent_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTeamReadId")
-    def parent_team_read_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_team_read_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the parent team read in Github.
         """
         return pulumi.get(self, "parent_team_read_id")
 
     @parent_team_read_id.setter
-    def parent_team_read_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_team_read_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_team_read_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTeamReadSlug")
-    def parent_team_read_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_team_read_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the parent team read in Github.
         """
         return pulumi.get(self, "parent_team_read_slug")
 
     @parent_team_read_slug.setter
-    def parent_team_read_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_team_read_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_team_read_slug", value)
 
     @_builtins.property
     @pulumi.getter
-    def privacy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         """
         return pulumi.get(self, "privacy")
 
     @privacy.setter
-    def privacy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy", value)
 
 
 @pulumi.input_type
 class _TeamState:
     def __init__(__self__, *,
-                 create_default_maintainer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 members_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy: Optional[pulumi.Input[_builtins.str]] = None,
-                 slug: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_default_maintainer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 members_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy: pulumi.Input[Optional[_builtins.str]] = None,
+                 slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
 
@@ -239,145 +239,145 @@ class _TeamState:
     @_builtins.property
     @pulumi.getter(name="createDefaultMaintainer")
     @_utilities.deprecated("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")
-    def create_default_maintainer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_default_maintainer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
     @create_default_maintainer.setter
-    def create_default_maintainer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_default_maintainer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_default_maintainer", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the team.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapDn")
-    def ldap_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ldap_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         """
         return pulumi.get(self, "ldap_dn")
 
     @ldap_dn.setter
-    def ldap_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ldap_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ldap_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCount")
-    def members_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def members_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "members_count")
 
     @members_count.setter
-    def members_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def members_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "members_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the team.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeId")
-    def node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Node ID of the created team.
         """
         return pulumi.get(self, "node_id")
 
     @node_id.setter
-    def node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_id", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSetting")
-    def notification_setting(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_setting(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
         """
         return pulumi.get(self, "notification_setting")
 
     @notification_setting.setter
-    def notification_setting(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_setting(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTeamId")
-    def parent_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or slug of the parent team, if this is a nested team.
         """
         return pulumi.get(self, "parent_team_id")
 
     @parent_team_id.setter
-    def parent_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTeamReadId")
-    def parent_team_read_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_team_read_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the parent team read in Github.
         """
         return pulumi.get(self, "parent_team_read_id")
 
     @parent_team_read_id.setter
-    def parent_team_read_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_team_read_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_team_read_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTeamReadSlug")
-    def parent_team_read_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_team_read_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the parent team read in Github.
         """
         return pulumi.get(self, "parent_team_read_slug")
 
     @parent_team_read_slug.setter
-    def parent_team_read_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_team_read_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_team_read_slug", value)
 
     @_builtins.property
     @pulumi.getter
-    def privacy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         """
         return pulumi.get(self, "privacy")
 
     @privacy.setter
-    def privacy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy", value)
 
     @_builtins.property
     @pulumi.getter
-    def slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The slug of the created team, which may or may not differ from `name`,
         depending on whether `name` contains "URL-unsafe" characters.
@@ -386,7 +386,7 @@ class _TeamState:
         return pulumi.get(self, "slug")
 
     @slug.setter
-    def slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slug", value)
 
 
@@ -396,15 +396,15 @@ class Team(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_default_maintainer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_default_maintainer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a GitHub team resource.
@@ -497,15 +497,15 @@ class Team(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_default_maintainer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_default_maintainer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_read_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -538,19 +538,19 @@ class Team(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_default_maintainer: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
-            members_count: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_id: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
-            privacy: Optional[pulumi.Input[_builtins.str]] = None,
-            slug: Optional[pulumi.Input[_builtins.str]] = None) -> 'Team':
+            create_default_maintainer: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            ldap_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            members_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_setting: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_read_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_read_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy: pulumi.Input[Optional[_builtins.str]] = None,
+            slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'Team':
         """
         Get an existing Team resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,11 +20,11 @@ __all__ = ['EnterpriseSecurityAnalysisSettingsArgs', 'EnterpriseSecurityAnalysis
 class EnterpriseSecurityAnalysisSettingsArgs:
     def __init__(__self__, *,
                  enterprise_slug: pulumi.Input[_builtins.str],
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_custom_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_validity_checks_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_custom_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_validity_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EnterpriseSecurityAnalysisSettings resource.
 
@@ -61,74 +61,74 @@ class EnterpriseSecurityAnalysisSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityEnabledForNewRepositories")
-    def advanced_security_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def advanced_security_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
         """
         return pulumi.get(self, "advanced_security_enabled_for_new_repositories")
 
     @advanced_security_enabled_for_new_repositories.setter
-    def advanced_security_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def advanced_security_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "advanced_security_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningEnabledForNewRepositories")
-    def secret_scanning_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether secret scanning is automatically enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_enabled_for_new_repositories")
 
     @secret_scanning_enabled_for_new_repositories.setter
-    def secret_scanning_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtectionCustomLink")
-    def secret_scanning_push_protection_custom_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_scanning_push_protection_custom_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom URL for secret scanning push protection bypass instructions.
         """
         return pulumi.get(self, "secret_scanning_push_protection_custom_link")
 
     @secret_scanning_push_protection_custom_link.setter
-    def secret_scanning_push_protection_custom_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_scanning_push_protection_custom_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_scanning_push_protection_custom_link", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtectionEnabledForNewRepositories")
-    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether secret scanning push protection is automatically enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_push_protection_enabled_for_new_repositories")
 
     @secret_scanning_push_protection_enabled_for_new_repositories.setter
-    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_push_protection_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningValidityChecksEnabled")
-    def secret_scanning_validity_checks_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_validity_checks_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether secret scanning validity checks are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_validity_checks_enabled")
 
     @secret_scanning_validity_checks_enabled.setter
-    def secret_scanning_validity_checks_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_validity_checks_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_validity_checks_enabled", value)
 
 
 @pulumi.input_type
 class _EnterpriseSecurityAnalysisSettingsState:
     def __init__(__self__, *,
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_custom_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_validity_checks_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_custom_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_validity_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EnterpriseSecurityAnalysisSettings resources.
 
@@ -154,74 +154,74 @@ class _EnterpriseSecurityAnalysisSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityEnabledForNewRepositories")
-    def advanced_security_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def advanced_security_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
         """
         return pulumi.get(self, "advanced_security_enabled_for_new_repositories")
 
     @advanced_security_enabled_for_new_repositories.setter
-    def advanced_security_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def advanced_security_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "advanced_security_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseSlug")
-    def enterprise_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The slug of the enterprise.
         """
         return pulumi.get(self, "enterprise_slug")
 
     @enterprise_slug.setter
-    def enterprise_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_slug", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningEnabledForNewRepositories")
-    def secret_scanning_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether secret scanning is automatically enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_enabled_for_new_repositories")
 
     @secret_scanning_enabled_for_new_repositories.setter
-    def secret_scanning_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtectionCustomLink")
-    def secret_scanning_push_protection_custom_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_scanning_push_protection_custom_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom URL for secret scanning push protection bypass instructions.
         """
         return pulumi.get(self, "secret_scanning_push_protection_custom_link")
 
     @secret_scanning_push_protection_custom_link.setter
-    def secret_scanning_push_protection_custom_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_scanning_push_protection_custom_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_scanning_push_protection_custom_link", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtectionEnabledForNewRepositories")
-    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether secret scanning push protection is automatically enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_push_protection_enabled_for_new_repositories")
 
     @secret_scanning_push_protection_enabled_for_new_repositories.setter
-    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_push_protection_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningValidityChecksEnabled")
-    def secret_scanning_validity_checks_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_validity_checks_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether secret scanning validity checks are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_validity_checks_enabled")
 
     @secret_scanning_validity_checks_enabled.setter
-    def secret_scanning_validity_checks_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_validity_checks_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_validity_checks_enabled", value)
 
 
@@ -231,12 +231,12 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_custom_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_validity_checks_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_custom_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_validity_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource allows you to manage code security and analysis settings for a GitHub Enterprise account. This controls Advanced Security, Secret Scanning, and related security features that are automatically enabled for new repositories in the enterprise.
@@ -374,12 +374,12 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_custom_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_validity_checks_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_custom_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_validity_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,12 +407,12 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            secret_scanning_push_protection_custom_link: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            secret_scanning_validity_checks_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'EnterpriseSecurityAnalysisSettings':
+            advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            secret_scanning_push_protection_custom_link: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            secret_scanning_validity_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'EnterpriseSecurityAnalysisSettings':
         """
         Get an existing EnterpriseSecurityAnalysisSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

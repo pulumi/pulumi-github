@@ -90,11 +90,11 @@ export class OrganizationBlock extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationBlock resources.
  */
 export interface OrganizationBlockState {
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the user to block.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**

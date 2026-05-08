@@ -123,23 +123,23 @@ export interface OrganizationRoleState {
     /**
      * The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      */
-    baseRole?: pulumi.Input<string>;
+    baseRole?: pulumi.Input<string | undefined>;
     /**
      * The description of the organization role.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the organization role.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
      */
-    permissions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the organization role.
      */
-    roleId?: pulumi.Input<number>;
+    roleId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -149,15 +149,15 @@ export interface OrganizationRoleArgs {
     /**
      * The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      */
-    baseRole?: pulumi.Input<string>;
+    baseRole?: pulumi.Input<string | undefined>;
     /**
      * The description of the organization role.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the organization role.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
      */

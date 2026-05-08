@@ -102,11 +102,11 @@ export interface OrganizationRoleTeamState {
     /**
      * The ID of the organization role.
      */
-    roleId?: pulumi.Input<number>;
+    roleId?: pulumi.Input<number | undefined>;
     /**
      * The slug of the team name.
      */
-    teamSlug?: pulumi.Input<string>;
+    teamSlug?: pulumi.Input<string | undefined>;
 }
 
 /**

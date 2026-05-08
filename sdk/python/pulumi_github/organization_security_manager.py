@@ -43,7 +43,7 @@ class OrganizationSecurityManagerArgs:
 @pulumi.input_type
 class _OrganizationSecurityManagerState:
     def __init__(__self__, *,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None):
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationSecurityManager resources.
 
@@ -54,14 +54,14 @@ class _OrganizationSecurityManagerState:
 
     @_builtins.property
     @pulumi.getter(name="teamSlug")
-    def team_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The slug of the team to manage.
         """
         return pulumi.get(self, "team_slug")
 
     @team_slug.setter
-    def team_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_slug", value)
 
 
@@ -71,7 +71,7 @@ class OrganizationSecurityManager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** This resource is deprecated, please use the `OrganizationRoleTeam` resource instead.
@@ -138,7 +138,7 @@ class OrganizationSecurityManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,7 +161,7 @@ class OrganizationSecurityManager(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            team_slug: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrganizationSecurityManager':
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrganizationSecurityManager':
         """
         Get an existing OrganizationSecurityManager resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

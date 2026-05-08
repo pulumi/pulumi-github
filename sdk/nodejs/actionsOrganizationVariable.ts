@@ -150,27 +150,27 @@ export interface ActionsOrganizationVariableState {
     /**
      * Date the variable was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      */
-    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Date the variable was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
     /**
      * Value of the variable.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * Name of the variable.
      */
-    variableName?: pulumi.Input<string>;
+    variableName?: pulumi.Input<string | undefined>;
     /**
      * Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface ActionsOrganizationVariableArgs {
     /**
      * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      */
-    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Value of the variable.
      */

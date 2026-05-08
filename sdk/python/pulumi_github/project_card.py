@@ -20,9 +20,9 @@ __all__ = ['ProjectCardArgs', 'ProjectCard']
 class ProjectCardArgs:
     def __init__(__self__, *,
                  column_id: pulumi.Input[_builtins.str],
-                 content_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectCard resource.
 
@@ -56,19 +56,19 @@ class ProjectCardArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentId")
-    def content_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def content_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         `github_issue.issue_id`.
         """
         return pulumi.get(self, "content_id")
 
     @content_id.setter
-    def content_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def content_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "content_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Must be either `Issue` or `PullRequest`
 
@@ -78,31 +78,31 @@ class ProjectCardArgs:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The note contents of the card. Markdown supported.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
 
 @pulumi.input_type
 class _ProjectCardState:
     def __init__(__self__, *,
-                 card_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 column_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None):
+                 card_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 column_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProjectCard resources.
 
@@ -130,43 +130,43 @@ class _ProjectCardState:
 
     @_builtins.property
     @pulumi.getter(name="cardId")
-    def card_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def card_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the card.
         """
         return pulumi.get(self, "card_id")
 
     @card_id.setter
-    def card_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def card_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "card_id", value)
 
     @_builtins.property
     @pulumi.getter(name="columnId")
-    def column_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the card.
         """
         return pulumi.get(self, "column_id")
 
     @column_id.setter
-    def column_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contentId")
-    def content_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def content_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         `github_issue.issue_id`.
         """
         return pulumi.get(self, "content_id")
 
     @content_id.setter
-    def content_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def content_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "content_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Must be either `Issue` or `PullRequest`
 
@@ -176,28 +176,28 @@ class _ProjectCardState:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The note contents of the card. Markdown supported.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
 
@@ -207,10 +207,10 @@ class ProjectCard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
+                 column_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Warning:** This resource no longer works as the [Projects (classic) REST API](https://docs.github.com/en/rest/projects/projects?apiVersion=2022-11-28) has been [removed](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) and as such has been deprecated. It will be removed in a future release.
@@ -230,7 +230,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=project.id,
             name="Backlog")
         card = github.ProjectCard("card",
-            column_id=column.column_id,
+            column_id=column.column_id.apply(lambda x: str(x)),
             note="## Unaccepted 👇")
         ```
 
@@ -256,7 +256,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=test_repository_project.id,
             name="Backlog")
         test_project_card = github.ProjectCard("test",
-            column_id=test_project_column.column_id,
+            column_id=test_project_column.column_id.apply(lambda x: str(x)),
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```
@@ -304,7 +304,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=project.id,
             name="Backlog")
         card = github.ProjectCard("card",
-            column_id=column.column_id,
+            column_id=column.column_id.apply(lambda x: str(x)),
             note="## Unaccepted 👇")
         ```
 
@@ -330,7 +330,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=test_repository_project.id,
             name="Backlog")
         test_project_card = github.ProjectCard("test",
-            column_id=test_project_column.column_id,
+            column_id=test_project_column.column_id.apply(lambda x: str(x)),
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```
@@ -359,10 +359,10 @@ class ProjectCard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
+                 column_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -390,12 +390,12 @@ class ProjectCard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            card_id: Optional[pulumi.Input[_builtins.int]] = None,
-            column_id: Optional[pulumi.Input[_builtins.str]] = None,
-            content_id: Optional[pulumi.Input[_builtins.int]] = None,
-            content_type: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            note: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProjectCard':
+            card_id: pulumi.Input[Optional[_builtins.int]] = None,
+            column_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_id: pulumi.Input[Optional[_builtins.int]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            note: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProjectCard':
         """
         Get an existing ProjectCard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

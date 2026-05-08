@@ -58,8 +58,8 @@ class OrganizationRoleUserArgs:
 @pulumi.input_type
 class _OrganizationRoleUserState:
     def __init__(__self__, *,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering OrganizationRoleUser resources.
 
@@ -73,26 +73,26 @@ class _OrganizationRoleUserState:
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The login for the GitHub user account.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter(name="roleId")
-    def role_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def role_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the organization role.
         """
         return pulumi.get(self, "role_id")
 
     @role_id.setter
-    def role_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def role_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "role_id", value)
 
 
@@ -102,8 +102,8 @@ class OrganizationRoleUser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manage an association between an organization role and a user.
@@ -177,8 +177,8 @@ class OrganizationRoleUser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,8 +204,8 @@ class OrganizationRoleUser(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            login: Optional[pulumi.Input[_builtins.str]] = None,
-            role_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'OrganizationRoleUser':
+            login: pulumi.Input[Optional[_builtins.str]] = None,
+            role_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'OrganizationRoleUser':
         """
         Get an existing OrganizationRoleUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

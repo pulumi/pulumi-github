@@ -149,23 +149,23 @@ export interface TeamSettingsState {
     /**
      * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
      */
-    notify?: pulumi.Input<boolean>;
+    notify?: pulumi.Input<boolean | undefined>;
     /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      */
-    reviewRequestDelegation?: pulumi.Input<inputs.TeamSettingsReviewRequestDelegation>;
+    reviewRequestDelegation?: pulumi.Input<inputs.TeamSettingsReviewRequestDelegation | undefined>;
     /**
      * The GitHub team id or the GitHub team slug
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * The slug of the Team.
      */
-    teamSlug?: pulumi.Input<string>;
+    teamSlug?: pulumi.Input<string | undefined>;
     /**
      * The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
      */
-    teamUid?: pulumi.Input<string>;
+    teamUid?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,11 +175,11 @@ export interface TeamSettingsArgs {
     /**
      * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
      */
-    notify?: pulumi.Input<boolean>;
+    notify?: pulumi.Input<boolean | undefined>;
     /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      */
-    reviewRequestDelegation?: pulumi.Input<inputs.TeamSettingsReviewRequestDelegation>;
+    reviewRequestDelegation?: pulumi.Input<inputs.TeamSettingsReviewRequestDelegation | undefined>;
     /**
      * The GitHub team id or the GitHub team slug
      */

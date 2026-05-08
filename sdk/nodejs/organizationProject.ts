@@ -99,16 +99,16 @@ export interface OrganizationProjectState {
     /**
      * The body of the project.
      */
-    body?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the project.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * URL of the project
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -118,9 +118,9 @@ export interface OrganizationProjectArgs {
     /**
      * The body of the project.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * The name of the project.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

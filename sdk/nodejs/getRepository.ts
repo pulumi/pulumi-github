@@ -241,17 +241,17 @@ export interface GetRepositoryOutputArgs {
     /**
      * A description of the license.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Full name of the repository (in `org/name` format).
      */
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * URL of a page describing the project.
      */
-    homepageUrl?: pulumi.Input<string>;
+    homepageUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

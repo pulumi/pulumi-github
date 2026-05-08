@@ -113,19 +113,19 @@ export class UserSshKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserSshKey resources.
  */
 export interface UserSshKeyState {
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The public SSH key to add to your GitHub account.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * A descriptive name for the new key. e.g. `Personal MacBook Air`
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The URL of the SSH key
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**

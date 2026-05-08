@@ -118,11 +118,11 @@ export interface DependabotOrganizationSecretRepositoryState {
     /**
      * ID of the repository that should be able to access the secret.
      */
-    repositoryId?: pulumi.Input<number>;
+    repositoryId?: pulumi.Input<number | undefined>;
     /**
      * Name of the Dependabot organization secret.
      */
-    secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
 }
 
 /**

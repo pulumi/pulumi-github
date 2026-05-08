@@ -570,10 +570,10 @@ def get_repository(description: Optional[_builtins.str] = None,
         templates=pulumi.get(__ret__, 'templates'),
         topics=pulumi.get(__ret__, 'topics'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_repository_output(description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          full_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          homepage_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repository_output(description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          full_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          homepage_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     Use this data source to retrieve information about a GitHub repository.

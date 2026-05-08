@@ -23,12 +23,12 @@ class BranchProtectionV3Args:
     def __init__(__self__, *,
                  branch: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
-                 required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
-                 restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None):
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
+                 required_status_checks: pulumi.Input[Optional['BranchProtectionV3RequiredStatusChecksArgs']] = None,
+                 restrictions: pulumi.Input[Optional['BranchProtectionV3RestrictionsArgs']] = None):
         """
         The set of arguments for constructing a BranchProtectionV3 resource.
 
@@ -82,89 +82,89 @@ class BranchProtectionV3Args:
 
     @_builtins.property
     @pulumi.getter(name="enforceAdmins")
-    def enforce_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` enforces status checks for repository administrators.
         """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
-    def enforce_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="requireConversationResolution")
-    def require_conversation_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_conversation_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
-    def require_conversation_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_conversation_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_conversation_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSignedCommits")
-    def require_signed_commits(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_signed_commits(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all commits to be signed with GPG.
         """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
-    def require_signed_commits(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_signed_commits(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_signed_commits", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredPullRequestReviews")
-    def required_pull_request_reviews(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']]:
+    def required_pull_request_reviews(self) -> pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsArgs']]:
         """
         Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
-    def required_pull_request_reviews(self, value: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']]):
+    def required_pull_request_reviews(self, value: pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsArgs']]):
         pulumi.set(self, "required_pull_request_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredStatusChecks")
-    def required_status_checks(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']]:
+    def required_status_checks(self) -> pulumi.Input[Optional['BranchProtectionV3RequiredStatusChecksArgs']]:
         """
         Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
-    def required_status_checks(self, value: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']]):
+    def required_status_checks(self, value: pulumi.Input[Optional['BranchProtectionV3RequiredStatusChecksArgs']]):
         pulumi.set(self, "required_status_checks", value)
 
     @_builtins.property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']]:
+    def restrictions(self) -> pulumi.Input[Optional['BranchProtectionV3RestrictionsArgs']]:
         """
         Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']]):
+    def restrictions(self, value: pulumi.Input[Optional['BranchProtectionV3RestrictionsArgs']]):
         pulumi.set(self, "restrictions", value)
 
 
 @pulumi.input_type
 class _BranchProtectionV3State:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
-                 required_status_checks: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']] = None,
-                 restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsArgs']] = None,
+                 required_status_checks: pulumi.Input[Optional['BranchProtectionV3RequiredStatusChecksArgs']] = None,
+                 restrictions: pulumi.Input[Optional['BranchProtectionV3RestrictionsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchProtectionV3 resources.
 
@@ -198,107 +198,107 @@ class _BranchProtectionV3State:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Git branch to protect.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceAdmins")
-    def enforce_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` enforces status checks for repository administrators.
         """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
-    def enforce_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub repository name.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="requireConversationResolution")
-    def require_conversation_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_conversation_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
-    def require_conversation_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_conversation_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_conversation_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSignedCommits")
-    def require_signed_commits(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_signed_commits(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all commits to be signed with GPG.
         """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
-    def require_signed_commits(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_signed_commits(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_signed_commits", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredPullRequestReviews")
-    def required_pull_request_reviews(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']]:
+    def required_pull_request_reviews(self) -> pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsArgs']]:
         """
         Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
-    def required_pull_request_reviews(self, value: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsArgs']]):
+    def required_pull_request_reviews(self, value: pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsArgs']]):
         pulumi.set(self, "required_pull_request_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredStatusChecks")
-    def required_status_checks(self) -> Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']]:
+    def required_status_checks(self) -> pulumi.Input[Optional['BranchProtectionV3RequiredStatusChecksArgs']]:
         """
         Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
-    def required_status_checks(self, value: Optional[pulumi.Input['BranchProtectionV3RequiredStatusChecksArgs']]):
+    def required_status_checks(self, value: pulumi.Input[Optional['BranchProtectionV3RequiredStatusChecksArgs']]):
         pulumi.set(self, "required_status_checks", value)
 
     @_builtins.property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']]:
+    def restrictions(self) -> pulumi.Input[Optional['BranchProtectionV3RestrictionsArgs']]:
         """
         Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
         """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']]):
+    def restrictions(self, value: pulumi.Input[Optional['BranchProtectionV3RestrictionsArgs']]):
         pulumi.set(self, "restrictions", value)
 
 
@@ -308,14 +308,14 @@ class BranchProtectionV3(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Union['BranchProtectionV3RequiredPullRequestReviewsArgs', 'BranchProtectionV3RequiredPullRequestReviewsArgsDict']]] = None,
-                 required_status_checks: Optional[pulumi.Input[Union['BranchProtectionV3RequiredStatusChecksArgs', 'BranchProtectionV3RequiredStatusChecksArgsDict']]] = None,
-                 restrictions: Optional[pulumi.Input[Union['BranchProtectionV3RestrictionsArgs', 'BranchProtectionV3RestrictionsArgsDict']]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Union['BranchProtectionV3RequiredPullRequestReviewsArgs', 'BranchProtectionV3RequiredPullRequestReviewsArgsDict']]] = None,
+                 required_status_checks: pulumi.Input[Optional[Union['BranchProtectionV3RequiredStatusChecksArgs', 'BranchProtectionV3RequiredStatusChecksArgsDict']]] = None,
+                 restrictions: pulumi.Input[Optional[Union['BranchProtectionV3RestrictionsArgs', 'BranchProtectionV3RestrictionsArgsDict']]] = None,
                  __props__=None):
         """
         Protects a GitHub branch.
@@ -489,14 +489,14 @@ class BranchProtectionV3(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Union['BranchProtectionV3RequiredPullRequestReviewsArgs', 'BranchProtectionV3RequiredPullRequestReviewsArgsDict']]] = None,
-                 required_status_checks: Optional[pulumi.Input[Union['BranchProtectionV3RequiredStatusChecksArgs', 'BranchProtectionV3RequiredStatusChecksArgsDict']]] = None,
-                 restrictions: Optional[pulumi.Input[Union['BranchProtectionV3RestrictionsArgs', 'BranchProtectionV3RestrictionsArgsDict']]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Union['BranchProtectionV3RequiredPullRequestReviewsArgs', 'BranchProtectionV3RequiredPullRequestReviewsArgsDict']]] = None,
+                 required_status_checks: pulumi.Input[Optional[Union['BranchProtectionV3RequiredStatusChecksArgs', 'BranchProtectionV3RequiredStatusChecksArgsDict']]] = None,
+                 restrictions: pulumi.Input[Optional[Union['BranchProtectionV3RestrictionsArgs', 'BranchProtectionV3RestrictionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -529,15 +529,15 @@ class BranchProtectionV3(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            branch: Optional[pulumi.Input[_builtins.str]] = None,
-            enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-            require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-            required_pull_request_reviews: Optional[pulumi.Input[Union['BranchProtectionV3RequiredPullRequestReviewsArgs', 'BranchProtectionV3RequiredPullRequestReviewsArgsDict']]] = None,
-            required_status_checks: Optional[pulumi.Input[Union['BranchProtectionV3RequiredStatusChecksArgs', 'BranchProtectionV3RequiredStatusChecksArgsDict']]] = None,
-            restrictions: Optional[pulumi.Input[Union['BranchProtectionV3RestrictionsArgs', 'BranchProtectionV3RestrictionsArgsDict']]] = None) -> 'BranchProtectionV3':
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+            required_pull_request_reviews: pulumi.Input[Optional[Union['BranchProtectionV3RequiredPullRequestReviewsArgs', 'BranchProtectionV3RequiredPullRequestReviewsArgsDict']]] = None,
+            required_status_checks: pulumi.Input[Optional[Union['BranchProtectionV3RequiredStatusChecksArgs', 'BranchProtectionV3RequiredStatusChecksArgsDict']]] = None,
+            restrictions: pulumi.Input[Optional[Union['BranchProtectionV3RestrictionsArgs', 'BranchProtectionV3RestrictionsArgsDict']]] = None) -> 'BranchProtectionV3':
         """
         Get an existing BranchProtectionV3 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

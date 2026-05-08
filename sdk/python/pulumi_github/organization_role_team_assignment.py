@@ -58,8 +58,8 @@ class OrganizationRoleTeamAssignmentArgs:
 @pulumi.input_type
 class _OrganizationRoleTeamAssignmentState:
     def __init__(__self__, *,
-                 role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None):
+                 role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationRoleTeamAssignment resources.
 
@@ -73,26 +73,26 @@ class _OrganizationRoleTeamAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="roleId")
-    def role_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub organization role id
         """
         return pulumi.get(self, "role_id")
 
     @role_id.setter
-    def role_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_id", value)
 
     @_builtins.property
     @pulumi.getter(name="teamSlug")
-    def team_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub team slug
         """
         return pulumi.get(self, "team_slug")
 
     @team_slug.setter
-    def team_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_slug", value)
 
 
@@ -102,8 +102,8 @@ class OrganizationRoleTeamAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** This resource is deprecated, please use the `OrganizationRoleTeam` resource instead.
@@ -187,8 +187,8 @@ class OrganizationRoleTeamAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,8 +214,8 @@ class OrganizationRoleTeamAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            role_id: Optional[pulumi.Input[_builtins.str]] = None,
-            team_slug: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrganizationRoleTeamAssignment':
+            role_id: pulumi.Input[Optional[_builtins.str]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrganizationRoleTeamAssignment':
         """
         Get an existing OrganizationRoleTeamAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

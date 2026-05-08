@@ -347,7 +347,7 @@ def get_user(username: Optional[_builtins.str] = None,
         suspended_at=pulumi.get(__ret__, 'suspended_at'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         username=pulumi.get(__ret__, 'username'))
-def get_user_output(username: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(username: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve information about a GitHub user.

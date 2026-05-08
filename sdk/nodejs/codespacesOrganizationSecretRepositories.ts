@@ -109,11 +109,11 @@ export interface CodespacesOrganizationSecretRepositoriesState {
     /**
      * Name of the existing secret
      */
-    secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
     /**
      * An array of repository ids that can access the organization secret.
      */
-    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 /**

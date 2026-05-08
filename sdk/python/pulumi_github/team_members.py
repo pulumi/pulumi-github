@@ -64,8 +64,8 @@ class TeamMembersArgs:
 @pulumi.input_type
 class _TeamMembersState:
     def __init__(__self__, *,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['TeamMembersMemberArgs']]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamMembers resources.
 
@@ -81,19 +81,19 @@ class _TeamMembersState:
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamMembersMemberArgs']]]]:
         """
         List of team members. See Members below for details.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamMembersMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The team id or the team slug
 
@@ -102,7 +102,7 @@ class _TeamMembersState:
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
 
 
@@ -112,8 +112,8 @@ class TeamMembers(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a GitHub team members resource.
@@ -257,8 +257,8 @@ class TeamMembers(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,8 +284,8 @@ class TeamMembers(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
-            team_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'TeamMembers':
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamMembers':
         """
         Get an existing TeamMembers resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

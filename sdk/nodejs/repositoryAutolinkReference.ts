@@ -139,23 +139,23 @@ export interface RepositoryAutolinkReferenceState {
     /**
      * An etag representing the autolink reference object.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      */
-    isAlphanumeric?: pulumi.Input<boolean>;
+    isAlphanumeric?: pulumi.Input<boolean | undefined>;
     /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      */
-    keyPrefix?: pulumi.Input<string>;
+    keyPrefix?: pulumi.Input<string | undefined>;
     /**
      * The repository of the autolink reference.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
      */
-    targetUrlTemplate?: pulumi.Input<string>;
+    targetUrlTemplate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -165,7 +165,7 @@ export interface RepositoryAutolinkReferenceArgs {
     /**
      * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      */
-    isAlphanumeric?: pulumi.Input<boolean>;
+    isAlphanumeric?: pulumi.Input<boolean | undefined>;
     /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      */

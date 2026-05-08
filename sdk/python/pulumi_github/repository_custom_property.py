@@ -88,10 +88,10 @@ class RepositoryCustomPropertyArgs:
 @pulumi.input_type
 class _RepositoryCustomPropertyState:
     def __init__(__self__, *,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None):
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryCustomProperty resources.
 
@@ -111,50 +111,50 @@ class _RepositoryCustomPropertyState:
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
-    def property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
         """
         return pulumi.get(self, "property_name")
 
     @property_name.setter
-    def property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_name", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyType")
-    def property_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
         """
         return pulumi.get(self, "property_type")
 
     @property_type.setter
-    def property_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_type", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyValues")
-    def property_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
         """
         return pulumi.get(self, "property_values")
 
     @property_values.setter
-    def property_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository of the environment.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
 
@@ -164,10 +164,10 @@ class RepositoryCustomProperty(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage a specific custom property for a GitHub repository.
@@ -257,10 +257,10 @@ class RepositoryCustomProperty(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,10 +292,10 @@ class RepositoryCustomProperty(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            property_name: Optional[pulumi.Input[_builtins.str]] = None,
-            property_type: Optional[pulumi.Input[_builtins.str]] = None,
-            property_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryCustomProperty':
+            property_name: pulumi.Input[Optional[_builtins.str]] = None,
+            property_type: pulumi.Input[Optional[_builtins.str]] = None,
+            property_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryCustomProperty':
         """
         Get an existing RepositoryCustomProperty resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

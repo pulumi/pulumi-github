@@ -28,14 +28,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Index.Repository("example", new()
+    ///     var example = new Github.Repository("example", new()
     ///     {
     ///         Name = "my-repo",
     ///         Visibility = "public",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var exampleRepositoryPages = new Github.Index.RepositoryPages("example", new()
+    ///     var exampleRepositoryPages = new Github.RepositoryPages("example", new()
     ///     {
     ///         Repository = example.Name,
     ///         BuildType = "legacy",
@@ -59,14 +59,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Index.Repository("example", new()
+    ///     var example = new Github.Repository("example", new()
     ///     {
     ///         Name = "my-repo",
     ///         Visibility = "public",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var exampleRepositoryPages = new Github.Index.RepositoryPages("example", new()
+    ///     var exampleRepositoryPages = new Github.RepositoryPages("example", new()
     ///     {
     ///         Repository = example.Name,
     ///         BuildType = "workflow",
@@ -85,14 +85,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Index.Repository("example", new()
+    ///     var example = new Github.Repository("example", new()
     ///     {
     ///         Name = "my-repo",
     ///         Visibility = "public",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var exampleRepositoryPages = new Github.Index.RepositoryPages("example", new()
+    ///     var exampleRepositoryPages = new Github.RepositoryPages("example", new()
     ///     {
     ///         Repository = example.Name,
     ///         BuildType = "legacy",

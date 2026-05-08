@@ -108,15 +108,15 @@ export interface WorkflowRepositoryPermissionsState {
     /**
      * Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.
      */
-    canApprovePullRequestReviews?: pulumi.Input<boolean>;
+    canApprovePullRequestReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be one of: `read` or `write`.
      */
-    defaultWorkflowPermissions?: pulumi.Input<string>;
+    defaultWorkflowPermissions?: pulumi.Input<string | undefined>;
     /**
      * The GitHub repository
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -126,11 +126,11 @@ export interface WorkflowRepositoryPermissionsArgs {
     /**
      * Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.
      */
-    canApprovePullRequestReviews?: pulumi.Input<boolean>;
+    canApprovePullRequestReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be one of: `read` or `write`.
      */
-    defaultWorkflowPermissions?: pulumi.Input<string>;
+    defaultWorkflowPermissions?: pulumi.Input<string | undefined>;
     /**
      * The GitHub repository
      */

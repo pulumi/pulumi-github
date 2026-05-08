@@ -21,45 +21,45 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
-                 allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_update_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archived: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_init: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.str]] = None,
-                 gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_issues: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_wiki: Optional[pulumi.Input[_builtins.bool]] = None,
-                 homepage_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_template: Optional[pulumi.Input[_builtins.bool]] = None,
-                 license_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
-                 private: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
-                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_alerts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_auto_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_forking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_merge_commit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_rebase_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_squash_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_update_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archived: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_init: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_branch_on_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 fork: pulumi.Input[Optional[_builtins.str]] = None,
+                 gitignore_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_discussions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_downloads: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_issues: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_wiki: pulumi.Input[Optional[_builtins.bool]] = None,
+                 homepage_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_vulnerability_alerts_during_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_template: pulumi.Input[Optional[_builtins.bool]] = None,
+                 license_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional['RepositoryPagesArgs']] = None,
+                 private: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_and_analysis: pulumi.Input[Optional['RepositorySecurityAndAnalysisArgs']] = None,
+                 source_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional['RepositoryTemplateArgs']] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Repository resource.
 
@@ -208,116 +208,116 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAutoMerge")
-    def allow_auto_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_auto_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to allow auto-merging pull requests on the repository.
         """
         return pulumi.get(self, "allow_auto_merge")
 
     @allow_auto_merge.setter
-    def allow_auto_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_auto_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_auto_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="allowForking")
-    def allow_forking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_forking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "allow_forking")
 
     @allow_forking.setter
-    def allow_forking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_forking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_forking", value)
 
     @_builtins.property
     @pulumi.getter(name="allowMergeCommit")
-    def allow_merge_commit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_merge_commit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to disable merge commits on the repository.
         """
         return pulumi.get(self, "allow_merge_commit")
 
     @allow_merge_commit.setter
-    def allow_merge_commit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_merge_commit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_merge_commit", value)
 
     @_builtins.property
     @pulumi.getter(name="allowRebaseMerge")
-    def allow_rebase_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_rebase_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to disable rebase merges on the repository.
         """
         return pulumi.get(self, "allow_rebase_merge")
 
     @allow_rebase_merge.setter
-    def allow_rebase_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_rebase_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_rebase_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="allowSquashMerge")
-    def allow_squash_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_squash_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to disable squash merges on the repository.
         """
         return pulumi.get(self, "allow_squash_merge")
 
     @allow_squash_merge.setter
-    def allow_squash_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_squash_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_squash_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="allowUpdateBranch")
-    def allow_update_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_update_branch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to always suggest updating pull request branches.
         """
         return pulumi.get(self, "allow_update_branch")
 
     @allow_update_branch.setter
-    def allow_update_branch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_update_branch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_update_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="archiveOnDestroy")
-    def archive_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to archive the repository instead of deleting on destroy.
         """
         return pulumi.get(self, "archive_on_destroy")
 
     @archive_on_destroy.setter
-    def archive_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def archived(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archived(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         """
         return pulumi.get(self, "archived")
 
     @archived.setter
-    def archived(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archived(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archived", value)
 
     @_builtins.property
     @pulumi.getter(name="autoInit")
-    def auto_init(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_init(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to produce an initial commit in the repository.
         """
         return pulumi.get(self, "auto_init")
 
     @auto_init.setter
-    def auto_init(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_init(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_init", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultBranch")
     @_utilities.deprecated("""Use the BranchDefault resource instead""")
-    def default_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
@@ -326,94 +326,94 @@ class RepositoryArgs:
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
-    def default_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteBranchOnMerge")
-    def delete_branch_on_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_branch_on_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatically delete head branch after a pull request is merged. Defaults to `false`.
         """
         return pulumi.get(self, "delete_branch_on_merge")
 
     @delete_branch_on_merge.setter
-    def delete_branch_on_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_branch_on_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_branch_on_merge", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the repository.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def fork(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fork(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         """
         return pulumi.get(self, "fork")
 
     @fork.setter
-    def fork(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fork(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fork", value)
 
     @_builtins.property
     @pulumi.getter(name="gitignoreTemplate")
-    def gitignore_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gitignore_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         """
         return pulumi.get(self, "gitignore_template")
 
     @gitignore_template.setter
-    def gitignore_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gitignore_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gitignore_template", value)
 
     @_builtins.property
     @pulumi.getter(name="hasDiscussions")
-    def has_discussions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_discussions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         """
         return pulumi.get(self, "has_discussions")
 
     @has_discussions.setter
-    def has_discussions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_discussions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_discussions", value)
 
     @_builtins.property
     @pulumi.getter(name="hasDownloads")
     @_utilities.deprecated("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
-    def has_downloads(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_downloads(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         """
         return pulumi.get(self, "has_downloads")
 
     @has_downloads.setter
-    def has_downloads(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_downloads(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_downloads", value)
 
     @_builtins.property
     @pulumi.getter(name="hasIssues")
-    def has_issues(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_issues(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable the GitHub Issues features
         on the repository.
@@ -421,24 +421,24 @@ class RepositoryArgs:
         return pulumi.get(self, "has_issues")
 
     @has_issues.setter
-    def has_issues(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_issues(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_issues", value)
 
     @_builtins.property
     @pulumi.getter(name="hasProjects")
-    def has_projects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_projects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
         """
         return pulumi.get(self, "has_projects")
 
     @has_projects.setter
-    def has_projects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_projects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_projects", value)
 
     @_builtins.property
     @pulumi.getter(name="hasWiki")
-    def has_wiki(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_wiki(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable the GitHub Wiki features on
         the repository.
@@ -446,111 +446,111 @@ class RepositoryArgs:
         return pulumi.get(self, "has_wiki")
 
     @has_wiki.setter
-    def has_wiki(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_wiki(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_wiki", value)
 
     @_builtins.property
     @pulumi.getter(name="homepageUrl")
-    def homepage_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def homepage_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of a page describing the project.
         """
         return pulumi.get(self, "homepage_url")
 
     @homepage_url.setter
-    def homepage_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def homepage_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "homepage_url", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
     @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""")
-    def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_vulnerability_alerts_during_read(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
     @ignore_vulnerability_alerts_during_read.setter
-    def ignore_vulnerability_alerts_during_read(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_vulnerability_alerts_during_read(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_vulnerability_alerts_during_read", value)
 
     @_builtins.property
     @pulumi.getter(name="isTemplate")
-    def is_template(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_template(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to tell GitHub that this is a template repository.
         """
         return pulumi.get(self, "is_template")
 
     @is_template.setter
-    def is_template(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_template(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_template", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseTemplate")
-    def license_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         """
         return pulumi.get(self, "license_template")
 
     @license_template.setter
-    def license_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_template", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeCommitMessage")
-    def merge_commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merge_commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_message")
 
     @merge_commit_message.setter
-    def merge_commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merge_commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merge_commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeCommitTitle")
-    def merge_commit_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merge_commit_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_title")
 
     @merge_commit_title.setter
-    def merge_commit_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merge_commit_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merge_commit_title", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the RepositoryPages resource instead. This field will be removed in a future version.""")
-    def pages(self) -> Optional[pulumi.Input['RepositoryPagesArgs']]:
+    def pages(self) -> pulumi.Input[Optional['RepositoryPagesArgs']]:
         """
         (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input['RepositoryPagesArgs']]):
+    def pages(self, value: pulumi.Input[Optional['RepositoryPagesArgs']]):
         pulumi.set(self, "pages", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""use visibility instead""")
-    def private(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
@@ -558,84 +558,84 @@ class RepositoryArgs:
         return pulumi.get(self, "private")
 
     @private.setter
-    def private(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private", value)
 
     @_builtins.property
     @pulumi.getter(name="securityAndAnalysis")
-    def security_and_analysis(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]:
+    def security_and_analysis(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisArgs']]:
         """
         The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         """
         return pulumi.get(self, "security_and_analysis")
 
     @security_and_analysis.setter
-    def security_and_analysis(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]):
+    def security_and_analysis(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisArgs']]):
         pulumi.set(self, "security_and_analysis", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceOwner")
-    def source_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
         """
         return pulumi.get(self, "source_owner")
 
     @source_owner.setter
-    def source_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRepo")
-    def source_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_repo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository to fork. Required when `fork` is `true`.
         """
         return pulumi.get(self, "source_repo")
 
     @source_repo.setter
-    def source_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_repo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_repo", value)
 
     @_builtins.property
     @pulumi.getter(name="squashMergeCommitMessage")
-    def squash_merge_commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def squash_merge_commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_message")
 
     @squash_merge_commit_message.setter
-    def squash_merge_commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def squash_merge_commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "squash_merge_commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="squashMergeCommitTitle")
-    def squash_merge_commit_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def squash_merge_commit_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_title")
 
     @squash_merge_commit_title.setter
-    def squash_merge_commit_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def squash_merge_commit_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "squash_merge_commit_title", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input['RepositoryTemplateArgs']]:
+    def template(self) -> pulumi.Input[Optional['RepositoryTemplateArgs']]:
         """
         Use a template repository to create this resource. See Template Repositories below for details.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input['RepositoryTemplateArgs']]):
+    def template(self, value: pulumi.Input[Optional['RepositoryTemplateArgs']]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter
-    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def topics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of topics of the repository.
 
@@ -644,98 +644,98 @@ class RepositoryArgs:
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def topics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "topics", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityAlerts")
     @_utilities.deprecated("""Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""")
-    def vulnerability_alerts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vulnerability_alerts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
     @vulnerability_alerts.setter
-    def vulnerability_alerts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vulnerability_alerts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vulnerability_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="webCommitSignoffRequired")
-    def web_commit_signoff_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def web_commit_signoff_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         return pulumi.get(self, "web_commit_signoff_required")
 
     @web_commit_signoff_required.setter
-    def web_commit_signoff_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def web_commit_signoff_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "web_commit_signoff_required", value)
 
 
 @pulumi.input_type
 class _RepositoryState:
     def __init__(__self__, *,
-                 allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_update_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archived: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_init: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_issues: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_wiki: Optional[pulumi.Input[_builtins.bool]] = None,
-                 homepage_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 html_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_template: Optional[pulumi.Input[_builtins.bool]] = None,
-                 license_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
-                 primary_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 private: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repo_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
-                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 svn_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_alerts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_auto_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_forking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_merge_commit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_rebase_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_squash_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_update_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archived: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_init: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_branch_on_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 fork: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_clone_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 gitignore_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_discussions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_downloads: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_issues: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_wiki: pulumi.Input[Optional[_builtins.bool]] = None,
+                 homepage_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 html_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_clone_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_vulnerability_alerts_during_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_template: pulumi.Input[Optional[_builtins.bool]] = None,
+                 license_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional['RepositoryPagesArgs']] = None,
+                 primary_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 private: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repo_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_and_analysis: pulumi.Input[Optional['RepositorySecurityAndAnalysisArgs']] = None,
+                 source_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_clone_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 svn_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional['RepositoryTemplateArgs']] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
 
@@ -911,116 +911,116 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="allowAutoMerge")
-    def allow_auto_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_auto_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to allow auto-merging pull requests on the repository.
         """
         return pulumi.get(self, "allow_auto_merge")
 
     @allow_auto_merge.setter
-    def allow_auto_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_auto_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_auto_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="allowForking")
-    def allow_forking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_forking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "allow_forking")
 
     @allow_forking.setter
-    def allow_forking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_forking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_forking", value)
 
     @_builtins.property
     @pulumi.getter(name="allowMergeCommit")
-    def allow_merge_commit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_merge_commit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to disable merge commits on the repository.
         """
         return pulumi.get(self, "allow_merge_commit")
 
     @allow_merge_commit.setter
-    def allow_merge_commit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_merge_commit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_merge_commit", value)
 
     @_builtins.property
     @pulumi.getter(name="allowRebaseMerge")
-    def allow_rebase_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_rebase_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to disable rebase merges on the repository.
         """
         return pulumi.get(self, "allow_rebase_merge")
 
     @allow_rebase_merge.setter
-    def allow_rebase_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_rebase_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_rebase_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="allowSquashMerge")
-    def allow_squash_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_squash_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `false` to disable squash merges on the repository.
         """
         return pulumi.get(self, "allow_squash_merge")
 
     @allow_squash_merge.setter
-    def allow_squash_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_squash_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_squash_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="allowUpdateBranch")
-    def allow_update_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_update_branch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to always suggest updating pull request branches.
         """
         return pulumi.get(self, "allow_update_branch")
 
     @allow_update_branch.setter
-    def allow_update_branch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_update_branch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_update_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="archiveOnDestroy")
-    def archive_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to archive the repository instead of deleting on destroy.
         """
         return pulumi.get(self, "archive_on_destroy")
 
     @archive_on_destroy.setter
-    def archive_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def archived(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archived(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         """
         return pulumi.get(self, "archived")
 
     @archived.setter
-    def archived(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archived(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archived", value)
 
     @_builtins.property
     @pulumi.getter(name="autoInit")
-    def auto_init(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_init(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to produce an initial commit in the repository.
         """
         return pulumi.get(self, "auto_init")
 
     @auto_init.setter
-    def auto_init(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_init(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_init", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultBranch")
     @_utilities.deprecated("""Use the BranchDefault resource instead""")
-    def default_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
@@ -1029,118 +1029,118 @@ class _RepositoryState:
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
-    def default_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteBranchOnMerge")
-    def delete_branch_on_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_branch_on_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatically delete head branch after a pull request is merged. Defaults to `false`.
         """
         return pulumi.get(self, "delete_branch_on_merge")
 
     @delete_branch_on_merge.setter
-    def delete_branch_on_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_branch_on_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_branch_on_merge", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the repository.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def fork(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fork(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         """
         return pulumi.get(self, "fork")
 
     @fork.setter
-    def fork(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fork(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fork", value)
 
     @_builtins.property
     @pulumi.getter(name="fullName")
-    def full_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string of the form "orgname/reponame".
         """
         return pulumi.get(self, "full_name")
 
     @full_name.setter
-    def full_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gitCloneUrl")
-    def git_clone_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def git_clone_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         """
         return pulumi.get(self, "git_clone_url")
 
     @git_clone_url.setter
-    def git_clone_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def git_clone_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "git_clone_url", value)
 
     @_builtins.property
     @pulumi.getter(name="gitignoreTemplate")
-    def gitignore_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gitignore_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         """
         return pulumi.get(self, "gitignore_template")
 
     @gitignore_template.setter
-    def gitignore_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gitignore_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gitignore_template", value)
 
     @_builtins.property
     @pulumi.getter(name="hasDiscussions")
-    def has_discussions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_discussions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         """
         return pulumi.get(self, "has_discussions")
 
     @has_discussions.setter
-    def has_discussions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_discussions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_discussions", value)
 
     @_builtins.property
     @pulumi.getter(name="hasDownloads")
     @_utilities.deprecated("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
-    def has_downloads(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_downloads(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         """
         return pulumi.get(self, "has_downloads")
 
     @has_downloads.setter
-    def has_downloads(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_downloads(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_downloads", value)
 
     @_builtins.property
     @pulumi.getter(name="hasIssues")
-    def has_issues(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_issues(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable the GitHub Issues features
         on the repository.
@@ -1148,24 +1148,24 @@ class _RepositoryState:
         return pulumi.get(self, "has_issues")
 
     @has_issues.setter
-    def has_issues(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_issues(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_issues", value)
 
     @_builtins.property
     @pulumi.getter(name="hasProjects")
-    def has_projects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_projects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
         """
         return pulumi.get(self, "has_projects")
 
     @has_projects.setter
-    def has_projects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_projects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_projects", value)
 
     @_builtins.property
     @pulumi.getter(name="hasWiki")
-    def has_wiki(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_wiki(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable the GitHub Wiki features on
         the repository.
@@ -1173,159 +1173,159 @@ class _RepositoryState:
         return pulumi.get(self, "has_wiki")
 
     @has_wiki.setter
-    def has_wiki(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_wiki(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_wiki", value)
 
     @_builtins.property
     @pulumi.getter(name="homepageUrl")
-    def homepage_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def homepage_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of a page describing the project.
         """
         return pulumi.get(self, "homepage_url")
 
     @homepage_url.setter
-    def homepage_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def homepage_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "homepage_url", value)
 
     @_builtins.property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
-    def html_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_url", value)
 
     @_builtins.property
     @pulumi.getter(name="httpCloneUrl")
-    def http_clone_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_clone_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to `git clone` to clone the repository via HTTPS.
         """
         return pulumi.get(self, "http_clone_url")
 
     @http_clone_url.setter
-    def http_clone_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_clone_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_clone_url", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
     @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""")
-    def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_vulnerability_alerts_during_read(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
     @ignore_vulnerability_alerts_during_read.setter
-    def ignore_vulnerability_alerts_during_read(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_vulnerability_alerts_during_read(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_vulnerability_alerts_during_read", value)
 
     @_builtins.property
     @pulumi.getter(name="isTemplate")
-    def is_template(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_template(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to tell GitHub that this is a template repository.
         """
         return pulumi.get(self, "is_template")
 
     @is_template.setter
-    def is_template(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_template(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_template", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseTemplate")
-    def license_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         """
         return pulumi.get(self, "license_template")
 
     @license_template.setter
-    def license_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_template", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeCommitMessage")
-    def merge_commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merge_commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_message")
 
     @merge_commit_message.setter
-    def merge_commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merge_commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merge_commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeCommitTitle")
-    def merge_commit_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merge_commit_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         """
         return pulumi.get(self, "merge_commit_title")
 
     @merge_commit_title.setter
-    def merge_commit_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merge_commit_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merge_commit_title", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeId")
-    def node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GraphQL global node id for use with v4 API
         """
         return pulumi.get(self, "node_id")
 
     @node_id.setter
-    def node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_id", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the RepositoryPages resource instead. This field will be removed in a future version.""")
-    def pages(self) -> Optional[pulumi.Input['RepositoryPagesArgs']]:
+    def pages(self) -> pulumi.Input[Optional['RepositoryPagesArgs']]:
         """
         (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input['RepositoryPagesArgs']]):
+    def pages(self, value: pulumi.Input[Optional['RepositoryPagesArgs']]):
         pulumi.set(self, "pages", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryLanguage")
-    def primary_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary language used in the repository.
         """
         return pulumi.get(self, "primary_language")
 
     @primary_language.setter
-    def primary_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_language", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""use visibility instead""")
-    def private(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
@@ -1333,120 +1333,120 @@ class _RepositoryState:
         return pulumi.get(self, "private")
 
     @private.setter
-    def private(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private", value)
 
     @_builtins.property
     @pulumi.getter(name="repoId")
-    def repo_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def repo_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         GitHub ID for the repository
         """
         return pulumi.get(self, "repo_id")
 
     @repo_id.setter
-    def repo_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def repo_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "repo_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityAndAnalysis")
-    def security_and_analysis(self) -> Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]:
+    def security_and_analysis(self) -> pulumi.Input[Optional['RepositorySecurityAndAnalysisArgs']]:
         """
         The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         """
         return pulumi.get(self, "security_and_analysis")
 
     @security_and_analysis.setter
-    def security_and_analysis(self, value: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']]):
+    def security_and_analysis(self, value: pulumi.Input[Optional['RepositorySecurityAndAnalysisArgs']]):
         pulumi.set(self, "security_and_analysis", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceOwner")
-    def source_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
         """
         return pulumi.get(self, "source_owner")
 
     @source_owner.setter
-    def source_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRepo")
-    def source_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_repo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository to fork. Required when `fork` is `true`.
         """
         return pulumi.get(self, "source_repo")
 
     @source_repo.setter
-    def source_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_repo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_repo", value)
 
     @_builtins.property
     @pulumi.getter(name="squashMergeCommitMessage")
-    def squash_merge_commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def squash_merge_commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_message")
 
     @squash_merge_commit_message.setter
-    def squash_merge_commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def squash_merge_commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "squash_merge_commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="squashMergeCommitTitle")
-    def squash_merge_commit_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def squash_merge_commit_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         """
         return pulumi.get(self, "squash_merge_commit_title")
 
     @squash_merge_commit_title.setter
-    def squash_merge_commit_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def squash_merge_commit_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "squash_merge_commit_title", value)
 
     @_builtins.property
     @pulumi.getter(name="sshCloneUrl")
-    def ssh_clone_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_clone_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to `git clone` to clone the repository via SSH.
         """
         return pulumi.get(self, "ssh_clone_url")
 
     @ssh_clone_url.setter
-    def ssh_clone_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_clone_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_clone_url", value)
 
     @_builtins.property
     @pulumi.getter(name="svnUrl")
-    def svn_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def svn_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         """
         return pulumi.get(self, "svn_url")
 
     @svn_url.setter
-    def svn_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def svn_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "svn_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input['RepositoryTemplateArgs']]:
+    def template(self) -> pulumi.Input[Optional['RepositoryTemplateArgs']]:
         """
         Use a template repository to create this resource. See Template Repositories below for details.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input['RepositoryTemplateArgs']]):
+    def template(self, value: pulumi.Input[Optional['RepositoryTemplateArgs']]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter
-    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def topics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of topics of the repository.
 
@@ -1455,44 +1455,44 @@ class _RepositoryState:
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def topics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "topics", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityAlerts")
     @_utilities.deprecated("""Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""")
-    def vulnerability_alerts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vulnerability_alerts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
     @vulnerability_alerts.setter
-    def vulnerability_alerts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vulnerability_alerts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vulnerability_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="webCommitSignoffRequired")
-    def web_commit_signoff_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def web_commit_signoff_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         return pulumi.get(self, "web_commit_signoff_required")
 
     @web_commit_signoff_required.setter
-    def web_commit_signoff_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def web_commit_signoff_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "web_commit_signoff_required", value)
 
 
@@ -1502,45 +1502,45 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_update_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archived: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_init: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.str]] = None,
-                 gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_issues: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_wiki: Optional[pulumi.Input[_builtins.bool]] = None,
-                 homepage_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_template: Optional[pulumi.Input[_builtins.bool]] = None,
-                 license_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
-                 private: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
-                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_alerts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_auto_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_forking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_merge_commit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_rebase_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_squash_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_update_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archived: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_init: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_branch_on_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 fork: pulumi.Input[Optional[_builtins.str]] = None,
+                 gitignore_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_discussions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_downloads: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_issues: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_wiki: pulumi.Input[Optional[_builtins.bool]] = None,
+                 homepage_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_vulnerability_alerts_during_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_template: pulumi.Input[Optional[_builtins.bool]] = None,
+                 license_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
+                 private: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+                 source_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage repositories within your
@@ -1703,45 +1703,45 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_update_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archived: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_init: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.str]] = None,
-                 gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_issues: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_wiki: Optional[pulumi.Input[_builtins.bool]] = None,
-                 homepage_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_template: Optional[pulumi.Input[_builtins.bool]] = None,
-                 license_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
-                 private: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
-                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_alerts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_auto_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_forking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_merge_commit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_rebase_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_squash_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_update_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archived: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_init: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_branch_on_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 fork: pulumi.Input[Optional[_builtins.str]] = None,
+                 gitignore_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_discussions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_downloads: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_issues: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_wiki: pulumi.Input[Optional[_builtins.bool]] = None,
+                 homepage_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_vulnerability_alerts_during_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_template: pulumi.Input[Optional[_builtins.bool]] = None,
+                 license_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
+                 private: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+                 source_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1809,54 +1809,54 @@ class Repository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_update_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-            archive_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            archived: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_init: Optional[pulumi.Input[_builtins.bool]] = None,
-            default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            fork: Optional[pulumi.Input[_builtins.str]] = None,
-            full_name: Optional[pulumi.Input[_builtins.str]] = None,
-            git_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
-            gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
-            has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
-            has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
-            has_issues: Optional[pulumi.Input[_builtins.bool]] = None,
-            has_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-            has_wiki: Optional[pulumi.Input[_builtins.bool]] = None,
-            homepage_url: Optional[pulumi.Input[_builtins.str]] = None,
-            html_url: Optional[pulumi.Input[_builtins.str]] = None,
-            http_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_template: Optional[pulumi.Input[_builtins.bool]] = None,
-            license_template: Optional[pulumi.Input[_builtins.str]] = None,
-            merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-            merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_id: Optional[pulumi.Input[_builtins.str]] = None,
-            pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
-            primary_language: Optional[pulumi.Input[_builtins.str]] = None,
-            private: Optional[pulumi.Input[_builtins.bool]] = None,
-            repo_id: Optional[pulumi.Input[_builtins.int]] = None,
-            security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
-            source_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            source_repo: Optional[pulumi.Input[_builtins.str]] = None,
-            squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-            squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
-            ssh_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
-            svn_url: Optional[pulumi.Input[_builtins.str]] = None,
-            template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
-            topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            visibility: Optional[pulumi.Input[_builtins.str]] = None,
-            vulnerability_alerts: Optional[pulumi.Input[_builtins.bool]] = None,
-            web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Repository':
+            allow_auto_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_forking: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_merge_commit: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_rebase_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_squash_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_update_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+            archive_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            archived: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_init: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_branch_on_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            fork: pulumi.Input[Optional[_builtins.str]] = None,
+            full_name: pulumi.Input[Optional[_builtins.str]] = None,
+            git_clone_url: pulumi.Input[Optional[_builtins.str]] = None,
+            gitignore_template: pulumi.Input[Optional[_builtins.str]] = None,
+            has_discussions: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_downloads: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_issues: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_wiki: pulumi.Input[Optional[_builtins.bool]] = None,
+            homepage_url: pulumi.Input[Optional[_builtins.str]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            http_clone_url: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_vulnerability_alerts_during_read: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_template: pulumi.Input[Optional[_builtins.bool]] = None,
+            license_template: pulumi.Input[Optional[_builtins.str]] = None,
+            merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+            merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
+            primary_language: pulumi.Input[Optional[_builtins.str]] = None,
+            private: pulumi.Input[Optional[_builtins.bool]] = None,
+            repo_id: pulumi.Input[Optional[_builtins.int]] = None,
+            security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+            source_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+            squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+            squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_clone_url: pulumi.Input[Optional[_builtins.str]] = None,
+            svn_url: pulumi.Input[Optional[_builtins.str]] = None,
+            template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
+            topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None,
+            vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
+            web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -93,11 +93,11 @@ export interface GetRepositoryBranchesOutputArgs {
     /**
      * . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
      */
-    onlyNonProtectedBranches?: pulumi.Input<boolean>;
+    onlyNonProtectedBranches?: pulumi.Input<boolean | undefined>;
     /**
      * . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
      */
-    onlyProtectedBranches?: pulumi.Input<boolean>;
+    onlyProtectedBranches?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the repository to retrieve the branches from.
      */

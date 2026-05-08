@@ -22,8 +22,8 @@ __all__ = ['OrganizationWebhookArgs', 'OrganizationWebhook']
 class OrganizationWebhookArgs:
     def __init__(__self__, *,
                  events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 configuration: pulumi.Input[Optional['OrganizationWebhookConfigurationArgs']] = None):
         """
         The set of arguments for constructing a OrganizationWebhook resource.
 
@@ -51,37 +51,37 @@ class OrganizationWebhookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicate of the webhook should receive events. Defaults to `true`.
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['OrganizationWebhookConfigurationArgs']]:
         """
         key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['OrganizationWebhookConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
 
 @pulumi.input_type
 class _OrganizationWebhookState:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 configuration: pulumi.Input[Optional['OrganizationWebhookConfigurationArgs']] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationWebhook resources.
 
@@ -103,59 +103,59 @@ class _OrganizationWebhookState:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicate of the webhook should receive events. Defaults to `true`.
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['OrganizationWebhookConfigurationArgs']]:
         """
         key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['OrganizationWebhookConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the webhook
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -165,9 +165,9 @@ class OrganizationWebhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 configuration: Optional[pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 configuration: pulumi.Input[Optional[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage webhooks for GitHub organization.
@@ -260,9 +260,9 @@ class OrganizationWebhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 configuration: Optional[pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 configuration: pulumi.Input[Optional[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -289,11 +289,11 @@ class OrganizationWebhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active: Optional[pulumi.Input[_builtins.bool]] = None,
-            configuration: Optional[pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrganizationWebhook':
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            configuration: pulumi.Input[Optional[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrganizationWebhook':
         """
         Get an existing OrganizationWebhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

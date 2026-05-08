@@ -103,11 +103,11 @@ export interface UserInvitationAccepterState {
     /**
      * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
      */
-    allowEmptyId?: pulumi.Input<boolean>;
+    allowEmptyId?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      */
-    invitationId?: pulumi.Input<string>;
+    invitationId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -117,9 +117,9 @@ export interface UserInvitationAccepterArgs {
     /**
      * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
      */
-    allowEmptyId?: pulumi.Input<boolean>;
+    allowEmptyId?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      */
-    invitationId?: pulumi.Input<string>;
+    invitationId?: pulumi.Input<string | undefined>;
 }

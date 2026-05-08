@@ -24,9 +24,9 @@ class OrganizationRulesetArgs:
                  enforcement: pulumi.Input[_builtins.str],
                  rules: pulumi.Input['OrganizationRulesetRulesArgs'],
                  target: pulumi.Input[_builtins.str],
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]] = None,
-                 conditions: Optional[pulumi.Input['OrganizationRulesetConditionsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]] = None,
+                 conditions: pulumi.Input[Optional['OrganizationRulesetConditionsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationRuleset resource.
 
@@ -85,53 +85,53 @@ class OrganizationRulesetArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassActors")
-    def bypass_actors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]:
+    def bypass_actors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]:
         """
         (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         """
         return pulumi.get(self, "bypass_actors")
 
     @bypass_actors.setter
-    def bypass_actors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]):
+    def bypass_actors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]):
         pulumi.set(self, "bypass_actors", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['OrganizationRulesetConditionsArgs']]:
         """
         (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['OrganizationRulesetConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['OrganizationRulesetConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _OrganizationRulesetState:
     def __init__(__self__, *,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]] = None,
-                 conditions: Optional[pulumi.Input['OrganizationRulesetConditionsArgs']] = None,
-                 enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input['OrganizationRulesetRulesArgs']] = None,
-                 ruleset_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]] = None,
+                 conditions: pulumi.Input[Optional['OrganizationRulesetConditionsArgs']] = None,
+                 enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional['OrganizationRulesetRulesArgs']] = None,
+                 ruleset_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationRuleset resources.
 
@@ -166,110 +166,110 @@ class _OrganizationRulesetState:
 
     @_builtins.property
     @pulumi.getter(name="bypassActors")
-    def bypass_actors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]:
+    def bypass_actors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]:
         """
         (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         """
         return pulumi.get(self, "bypass_actors")
 
     @bypass_actors.setter
-    def bypass_actors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]):
+    def bypass_actors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]]):
         pulumi.set(self, "bypass_actors", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['OrganizationRulesetConditionsArgs']]:
         """
         (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['OrganizationRulesetConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['OrganizationRulesetConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def enforcement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforcement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         """
         return pulumi.get(self, "enforcement")
 
     @enforcement.setter
-    def enforcement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforcement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforcement", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String)
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeId")
-    def node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) GraphQL global node id for use with v4 API.
         """
         return pulumi.get(self, "node_id")
 
     @node_id.setter
-    def node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input['OrganizationRulesetRulesArgs']]:
+    def rules(self) -> pulumi.Input[Optional['OrganizationRulesetRulesArgs']]:
         """
         (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input['OrganizationRulesetRulesArgs']]):
+    def rules(self, value: pulumi.Input[Optional['OrganizationRulesetRulesArgs']]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesetId")
-    def ruleset_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ruleset_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Number) GitHub ID for the ruleset.
         """
         return pulumi.get(self, "ruleset_id")
 
     @ruleset_id.setter
-    def ruleset_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ruleset_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ruleset_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) Possible values are `branch`, `tag` and `push`.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
@@ -279,12 +279,12 @@ class OrganizationRuleset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
-                 enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
+                 enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a GitHub organization ruleset.
@@ -582,12 +582,12 @@ class OrganizationRuleset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
-                 enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
+                 enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -622,15 +622,15 @@ class OrganizationRuleset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
-            conditions: Optional[pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
-            enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_id: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
-            ruleset_id: Optional[pulumi.Input[_builtins.int]] = None,
-            target: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrganizationRuleset':
+            bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
+            conditions: pulumi.Input[Optional[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
+            enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
+            ruleset_id: pulumi.Input[Optional[_builtins.int]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrganizationRuleset':
         """
         Get an existing OrganizationRuleset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

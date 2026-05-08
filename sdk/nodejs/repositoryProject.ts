@@ -114,20 +114,20 @@ export interface RepositoryProjectState {
     /**
      * The body of the project.
      */
-    body?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the project.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The repository of the project.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * URL of the project
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,12 +137,12 @@ export interface RepositoryProjectArgs {
     /**
      * The body of the project.
      */
-    body?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the project.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The repository of the project.
      */

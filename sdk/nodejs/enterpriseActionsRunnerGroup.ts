@@ -171,47 +171,47 @@ export interface EnterpriseActionsRunnerGroupState {
     /**
      * Whether public repositories can be added to the runner group. Defaults to false.
      */
-    allowsPublicRepositories?: pulumi.Input<boolean>;
+    allowsPublicRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether this is the default runner group
      */
-    default?: pulumi.Input<boolean>;
+    default?: pulumi.Input<boolean | undefined>;
     /**
      * The slug of the enterprise.
      */
-    enterpriseSlug?: pulumi.Input<string>;
+    enterpriseSlug?: pulumi.Input<string | undefined>;
     /**
      * An etag representing the runner group object
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Name of the runner group
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      */
-    restrictedToWorkflows?: pulumi.Input<boolean>;
+    restrictedToWorkflows?: pulumi.Input<boolean | undefined>;
     /**
      * The GitHub API URL for the runner group's runners
      */
-    runnersUrl?: pulumi.Input<string>;
+    runnersUrl?: pulumi.Input<string | undefined>;
     /**
      * IDs of the organizations which should be added to the runner group
      */
-    selectedOrganizationIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedOrganizationIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The GitHub API URL for the runner group's selected organizations
      */
-    selectedOrganizationsUrl?: pulumi.Input<string>;
+    selectedOrganizationsUrl?: pulumi.Input<string | undefined>;
     /**
      * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      */
-    selectedWorkflows?: pulumi.Input<pulumi.Input<string>[]>;
+    selectedWorkflows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,7 +221,7 @@ export interface EnterpriseActionsRunnerGroupArgs {
     /**
      * Whether public repositories can be added to the runner group. Defaults to false.
      */
-    allowsPublicRepositories?: pulumi.Input<boolean>;
+    allowsPublicRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The slug of the enterprise.
      */
@@ -229,19 +229,19 @@ export interface EnterpriseActionsRunnerGroupArgs {
     /**
      * Name of the runner group
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      */
-    restrictedToWorkflows?: pulumi.Input<boolean>;
+    restrictedToWorkflows?: pulumi.Input<boolean | undefined>;
     /**
      * IDs of the organizations which should be added to the runner group
      */
-    selectedOrganizationIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedOrganizationIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      */
-    selectedWorkflows?: pulumi.Input<pulumi.Input<string>[]>;
+    selectedWorkflows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
      */

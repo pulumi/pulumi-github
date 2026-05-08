@@ -22,14 +22,14 @@ class RepositoryFileArgs:
                  content: pulumi.Input[_builtins.str],
                  file: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 autocreate_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 autocreate_branch_source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 autocreate_branch_source_sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_author: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None):
+                 autocreate_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 autocreate_branch_source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 autocreate_branch_source_sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_author: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RepositoryFile resource.
 
@@ -114,45 +114,45 @@ class RepositoryFileArgs:
     @_builtins.property
     @pulumi.getter(name="autocreateBranch")
     @_utilities.deprecated("""Use `Branch` resource instead""")
-    def autocreate_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def autocreate_branch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch")
 
     @autocreate_branch.setter
-    def autocreate_branch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def autocreate_branch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "autocreate_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceBranch")
     @_utilities.deprecated("""Use `Branch` resource instead""")
-    def autocreate_branch_source_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autocreate_branch_source_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_branch")
 
     @autocreate_branch_source_branch.setter
-    def autocreate_branch_source_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autocreate_branch_source_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autocreate_branch_source_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceSha")
     @_utilities.deprecated("""Use `Branch` resource instead""")
-    def autocreate_branch_source_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autocreate_branch_source_sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_sha")
 
     @autocreate_branch_source_sha.setter
-    def autocreate_branch_source_sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autocreate_branch_source_sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autocreate_branch_source_sha", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git branch (defaults to the repository's default branch).
         The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
@@ -160,76 +160,76 @@ class RepositoryFileArgs:
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="commitAuthor")
-    def commit_author(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_author(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         """
         return pulumi.get(self, "commit_author")
 
     @commit_author.setter
-    def commit_author(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_author(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_author", value)
 
     @_builtins.property
     @pulumi.getter(name="commitEmail")
-    def commit_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         """
         return pulumi.get(self, "commit_email")
 
     @commit_email.setter
-    def commit_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_email", value)
 
     @_builtins.property
     @pulumi.getter(name="commitMessage")
-    def commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit message when creating, updating or deleting the managed file.
         """
         return pulumi.get(self, "commit_message")
 
     @commit_message.setter
-    def commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteOnCreate")
-    def overwrite_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         """
         return pulumi.get(self, "overwrite_on_create")
 
     @overwrite_on_create.setter
-    def overwrite_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_on_create", value)
 
 
 @pulumi.input_type
 class _RepositoryFileState:
     def __init__(__self__, *,
-                 autocreate_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 autocreate_branch_source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 autocreate_branch_source_sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_author: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 sha: Optional[pulumi.Input[_builtins.str]] = None):
+                 autocreate_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 autocreate_branch_source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 autocreate_branch_source_sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_author: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 sha: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryFile resources.
 
@@ -293,45 +293,45 @@ class _RepositoryFileState:
     @_builtins.property
     @pulumi.getter(name="autocreateBranch")
     @_utilities.deprecated("""Use `Branch` resource instead""")
-    def autocreate_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def autocreate_branch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch")
 
     @autocreate_branch.setter
-    def autocreate_branch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def autocreate_branch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "autocreate_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceBranch")
     @_utilities.deprecated("""Use `Branch` resource instead""")
-    def autocreate_branch_source_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autocreate_branch_source_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_branch")
 
     @autocreate_branch_source_branch.setter
-    def autocreate_branch_source_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autocreate_branch_source_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autocreate_branch_source_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceSha")
     @_utilities.deprecated("""Use `Branch` resource instead""")
-    def autocreate_branch_source_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autocreate_branch_source_sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_sha")
 
     @autocreate_branch_source_sha.setter
-    def autocreate_branch_source_sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autocreate_branch_source_sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autocreate_branch_source_sha", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git branch (defaults to the repository's default branch).
         The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
@@ -339,139 +339,139 @@ class _RepositoryFileState:
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="commitAuthor")
-    def commit_author(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_author(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         """
         return pulumi.get(self, "commit_author")
 
     @commit_author.setter
-    def commit_author(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_author(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_author", value)
 
     @_builtins.property
     @pulumi.getter(name="commitEmail")
-    def commit_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         """
         return pulumi.get(self, "commit_email")
 
     @commit_email.setter
-    def commit_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_email", value)
 
     @_builtins.property
     @pulumi.getter(name="commitMessage")
-    def commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit message when creating, updating or deleting the managed file.
         """
         return pulumi.get(self, "commit_message")
 
     @commit_message.setter
-    def commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="commitSha")
-    def commit_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SHA of the commit that modified the file.
         """
         return pulumi.get(self, "commit_sha")
 
     @commit_sha.setter
-    def commit_sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_sha", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file content.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the file to manage.
         """
         return pulumi.get(self, "file")
 
     @file.setter
-    def file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteOnCreate")
-    def overwrite_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         """
         return pulumi.get(self, "overwrite_on_create")
 
     @overwrite_on_create.setter
-    def overwrite_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_on_create", value)
 
     @_builtins.property
     @pulumi.getter
-    def ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the commit/branch/tag.
         """
         return pulumi.get(self, "ref")
 
     @ref.setter
-    def ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository to create the file in.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the repository.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SHA blob of the file.
         """
         return pulumi.get(self, "sha")
 
     @sha.setter
-    def sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sha", value)
 
 
@@ -481,17 +481,17 @@ class RepositoryFile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autocreate_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 autocreate_branch_source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 autocreate_branch_source_sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_author: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 autocreate_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 autocreate_branch_source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 autocreate_branch_source_sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_author: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage files within a
@@ -657,17 +657,17 @@ class RepositoryFile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autocreate_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 autocreate_branch_source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 autocreate_branch_source_sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_author: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 autocreate_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 autocreate_branch_source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 autocreate_branch_source_sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_author: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -708,21 +708,21 @@ class RepositoryFile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            autocreate_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-            autocreate_branch_source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-            autocreate_branch_source_sha: Optional[pulumi.Input[_builtins.str]] = None,
-            branch: Optional[pulumi.Input[_builtins.str]] = None,
-            commit_author: Optional[pulumi.Input[_builtins.str]] = None,
-            commit_email: Optional[pulumi.Input[_builtins.str]] = None,
-            commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-            commit_sha: Optional[pulumi.Input[_builtins.str]] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            file: Optional[pulumi.Input[_builtins.str]] = None,
-            overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-            ref: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-            sha: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryFile':
+            autocreate_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+            autocreate_branch_source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            autocreate_branch_source_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_author: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_email: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            file: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            ref: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            sha: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryFile':
         """
         Get an existing RepositoryFile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -118,12 +118,12 @@ export interface AppInstallationRepositoryState {
     /**
      * The GitHub app installation id.
      */
-    installationId?: pulumi.Input<string>;
-    repoId?: pulumi.Input<number>;
+    installationId?: pulumi.Input<string | undefined>;
+    repoId?: pulumi.Input<number | undefined>;
     /**
      * The repository to install the app on.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
 }
 
 /**

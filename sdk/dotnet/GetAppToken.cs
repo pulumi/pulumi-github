@@ -25,11 +25,11 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Github.Index.GetAppToken.Invoke(new()
+        ///     var @this = Github.GetAppToken.Invoke(new()
         ///     {
         ///         AppId = "123456",
         ///         InstallationId = "78910",
-        ///         PemFile = Std.Index.File.Invoke(new()
+        ///         PemFile = Std.File.Invoke(new()
         ///         {
         ///             Input = "foo/bar.pem",
         ///         }).Result,
@@ -55,11 +55,11 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Github.Index.GetAppToken.Invoke(new()
+        ///     var @this = Github.GetAppToken.Invoke(new()
         ///     {
         ///         AppId = "123456",
         ///         InstallationId = "78910",
-        ///         PemFile = Std.Index.File.Invoke(new()
+        ///         PemFile = Std.File.Invoke(new()
         ///         {
         ///             Input = "foo/bar.pem",
         ///         }).Result,
@@ -85,11 +85,11 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Github.Index.GetAppToken.Invoke(new()
+        ///     var @this = Github.GetAppToken.Invoke(new()
         ///     {
         ///         AppId = "123456",
         ///         InstallationId = "78910",
-        ///         PemFile = Std.Index.File.Invoke(new()
+        ///         PemFile = Std.File.Invoke(new()
         ///         {
         ///             Input = "foo/bar.pem",
         ///         }).Result,

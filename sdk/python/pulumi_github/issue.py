@@ -21,10 +21,10 @@ class IssueArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
-                 assignees: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 milestone_number: Optional[pulumi.Input[_builtins.int]] = None):
+                 assignees: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 milestone_number: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Issue resource.
 
@@ -72,65 +72,65 @@ class IssueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def assignees(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def assignees(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Logins to assign the to the issue
         """
         return pulumi.get(self, "assignees")
 
     @assignees.setter
-    def assignees(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def assignees(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "assignees", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Body of the issue
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of labels to attach to the issue
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="milestoneNumber")
-    def milestone_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def milestone_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Milestone number to assign to the issue
         """
         return pulumi.get(self, "milestone_number")
 
     @milestone_number.setter
-    def milestone_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def milestone_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "milestone_number", value)
 
 
 @pulumi.input_type
 class _IssueState:
     def __init__(__self__, *,
-                 assignees: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 issue_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 milestone_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 number: Optional[pulumi.Input[_builtins.int]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 assignees: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 issue_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 milestone_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 number: pulumi.Input[Optional[_builtins.int]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Issue resources.
 
@@ -164,107 +164,107 @@ class _IssueState:
 
     @_builtins.property
     @pulumi.getter
-    def assignees(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def assignees(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Logins to assign the to the issue
         """
         return pulumi.get(self, "assignees")
 
     @assignees.setter
-    def assignees(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def assignees(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "assignees", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Body of the issue
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="issueId")
-    def issue_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def issue_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Computed) - The issue id
         """
         return pulumi.get(self, "issue_id")
 
     @issue_id.setter
-    def issue_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def issue_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "issue_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of labels to attach to the issue
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="milestoneNumber")
-    def milestone_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def milestone_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Milestone number to assign to the issue
         """
         return pulumi.get(self, "milestone_number")
 
     @milestone_number.setter
-    def milestone_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def milestone_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "milestone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Computed) - The issue number
         """
         return pulumi.get(self, "number")
 
     @number.setter
-    def number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub repository name
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title of the issue
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -274,12 +274,12 @@ class Issue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignees: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 milestone_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignees: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 milestone_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a GitHub issue resource.
@@ -439,12 +439,12 @@ class Issue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignees: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 milestone_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignees: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 milestone_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -477,15 +477,15 @@ class Issue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assignees: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            issue_id: Optional[pulumi.Input[_builtins.int]] = None,
-            labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            milestone_number: Optional[pulumi.Input[_builtins.int]] = None,
-            number: Optional[pulumi.Input[_builtins.int]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None) -> 'Issue':
+            assignees: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            issue_id: pulumi.Input[Optional[_builtins.int]] = None,
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            milestone_number: pulumi.Input[Optional[_builtins.int]] = None,
+            number: pulumi.Input[Optional[_builtins.int]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> 'Issue':
         """
         Get an existing Issue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

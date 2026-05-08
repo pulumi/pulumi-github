@@ -109,7 +109,7 @@ def get_organization_role_teams(role_id: Optional[_builtins.int] = None,
         id=pulumi.get(__ret__, 'id'),
         role_id=pulumi.get(__ret__, 'role_id'),
         teams=pulumi.get(__ret__, 'teams'))
-def get_organization_role_teams_output(role_id: Optional[pulumi.Input[_builtins.int]] = None,
+def get_organization_role_teams_output(role_id: pulumi.Input[Optional[_builtins.int]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationRoleTeamsResult]:
     """
     Lookup all teams assigned to a custom organization role.

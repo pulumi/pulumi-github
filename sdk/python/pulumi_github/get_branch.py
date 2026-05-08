@@ -136,8 +136,8 @@ def get_branch(branch: Optional[_builtins.str] = None,
         ref=pulumi.get(__ret__, 'ref'),
         repository=pulumi.get(__ret__, 'repository'),
         sha=pulumi.get(__ret__, 'sha'))
-def get_branch_output(branch: Optional[pulumi.Input[_builtins.str]] = None,
-                      repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_branch_output(branch: pulumi.Input[Optional[_builtins.str]] = None,
+                      repository: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBranchResult]:
     """
     Use this data source to retrieve information about a repository branch.

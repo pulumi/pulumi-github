@@ -113,8 +113,8 @@ def get_repository_teams(full_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         teams=pulumi.get(__ret__, 'teams'))
-def get_repository_teams_output(full_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repository_teams_output(full_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryTeamsResult]:
     """
     Use this data source to retrieve the list of teams which have access to a GitHub repository.

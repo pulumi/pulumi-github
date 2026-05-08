@@ -111,11 +111,11 @@ export interface RepositoryTopicsState {
     /**
      * The repository name.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * A list of topics to add to the repository.
      */
-    topics?: pulumi.Input<pulumi.Input<string>[]>;
+    topics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

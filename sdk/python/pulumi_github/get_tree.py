@@ -129,9 +129,9 @@ def get_tree(recursive: Optional[_builtins.bool] = None,
         recursive=pulumi.get(__ret__, 'recursive'),
         repository=pulumi.get(__ret__, 'repository'),
         tree_sha=pulumi.get(__ret__, 'tree_sha'))
-def get_tree_output(recursive: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    repository: Optional[pulumi.Input[_builtins.str]] = None,
-                    tree_sha: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tree_output(recursive: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    repository: pulumi.Input[Optional[_builtins.str]] = None,
+                    tree_sha: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTreeResult]:
     """
     Use this data source to retrieve information about a single tree.

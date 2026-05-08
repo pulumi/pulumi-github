@@ -21,8 +21,8 @@ class RepositoryCollaboratorArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_diff_suppression: Optional[pulumi.Input[_builtins.bool]] = None):
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_diff_suppression: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RepositoryCollaborator resource.
 
@@ -70,7 +70,7 @@ class RepositoryCollaboratorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission of the outside collaborator for the repository.
         Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
@@ -79,30 +79,30 @@ class RepositoryCollaboratorArgs:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionDiffSuppression")
-    def permission_diff_suppression(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def permission_diff_suppression(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
         """
         return pulumi.get(self, "permission_diff_suppression")
 
     @permission_diff_suppression.setter
-    def permission_diff_suppression(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def permission_diff_suppression(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "permission_diff_suppression", value)
 
 
 @pulumi.input_type
 class _RepositoryCollaboratorState:
     def __init__(__self__, *,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_diff_suppression: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_diff_suppression: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryCollaborator resources.
 
@@ -129,19 +129,19 @@ class _RepositoryCollaboratorState:
 
     @_builtins.property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the invitation to be used in `UserInvitationAccepter`
         """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
-    def invitation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission of the outside collaborator for the repository.
         Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
@@ -150,24 +150,24 @@ class _RepositoryCollaboratorState:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionDiffSuppression")
-    def permission_diff_suppression(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def permission_diff_suppression(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
         """
         return pulumi.get(self, "permission_diff_suppression")
 
     @permission_diff_suppression.setter
-    def permission_diff_suppression(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def permission_diff_suppression(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "permission_diff_suppression", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub repository
 
@@ -176,19 +176,19 @@ class _RepositoryCollaboratorState:
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user to add to the repository as a collaborator.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -198,10 +198,10 @@ class RepositoryCollaborator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_diff_suppression: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_diff_suppression: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a GitHub repository collaborator resource.
@@ -335,10 +335,10 @@ class RepositoryCollaborator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_diff_suppression: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_diff_suppression: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -367,11 +367,11 @@ class RepositoryCollaborator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            permission: Optional[pulumi.Input[_builtins.str]] = None,
-            permission_diff_suppression: Optional[pulumi.Input[_builtins.bool]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryCollaborator':
+            invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            permission: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_diff_suppression: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryCollaborator':
         """
         Get an existing RepositoryCollaborator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

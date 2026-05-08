@@ -105,7 +105,7 @@ export interface GetCollaboratorsOutputArgs {
     /**
      * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
      */
-    affiliation?: pulumi.Input<string>;
+    affiliation?: pulumi.Input<string | undefined>;
     /**
      * The organization that owns the repository.
      */
@@ -113,7 +113,7 @@ export interface GetCollaboratorsOutputArgs {
     /**
      * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
      */
-    permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository.
      */

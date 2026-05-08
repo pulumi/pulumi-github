@@ -79,7 +79,7 @@ using Github = Pulumi.Github;
 return await Deployment.RunAsync(() =>
 {
     // Add a user to the organization
-    var membershipForUserX = new Github.Index.Membership("membership_for_user_x");
+    var membershipForUserX = new Github.Membership("membership_for_user_x");
 
 });
 
@@ -147,8 +147,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.github.Membership;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -224,7 +224,7 @@ using Github = Pulumi.Github;
 return await Deployment.RunAsync(() =>
 {
     // Add a user to the organization
-    var membershipForUserX = new Github.Index.Membership("membership_for_user_x");
+    var membershipForUserX = new Github.Membership("membership_for_user_x");
 
 });
 
@@ -292,8 +292,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.github.Membership;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

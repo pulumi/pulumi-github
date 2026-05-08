@@ -58,8 +58,8 @@ class CodespacesOrganizationSecretRepositoriesArgs:
 @pulumi.input_type
 class _CodespacesOrganizationSecretRepositoriesState:
     def __init__(__self__, *,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         Input properties used for looking up and filtering CodespacesOrganizationSecretRepositories resources.
 
@@ -73,26 +73,26 @@ class _CodespacesOrganizationSecretRepositoriesState:
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the existing secret
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedRepositoryIds")
-    def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def selected_repository_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         An array of repository ids that can access the organization secret.
         """
         return pulumi.get(self, "selected_repository_ids")
 
     @selected_repository_ids.setter
-    def selected_repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def selected_repository_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "selected_repository_ids", value)
 
 
@@ -102,8 +102,8 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         """
         This resource allows you to manage repository allow list for existing GitHub Codespaces secrets within your GitHub organization.
@@ -187,8 +187,8 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,8 +214,8 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-            selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None) -> 'CodespacesOrganizationSecretRepositories':
+            secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None) -> 'CodespacesOrganizationSecretRepositories':
         """
         Get an existing CodespacesOrganizationSecretRepositories resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

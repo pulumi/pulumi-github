@@ -19,8 +19,8 @@ __all__ = ['UserInvitationAccepterArgs', 'UserInvitationAccepter']
 @pulumi.input_type
 class UserInvitationAccepterArgs:
     def __init__(__self__, *,
-                 allow_empty_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_empty_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserInvitationAccepter resource.
 
@@ -34,34 +34,34 @@ class UserInvitationAccepterArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowEmptyId")
-    def allow_empty_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_empty_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
         """
         return pulumi.get(self, "allow_empty_id")
 
     @allow_empty_id.setter
-    def allow_empty_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_empty_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_empty_id", value)
 
     @_builtins.property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
-    def invitation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_id", value)
 
 
 @pulumi.input_type
 class _UserInvitationAccepterState:
     def __init__(__self__, *,
-                 allow_empty_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_empty_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserInvitationAccepter resources.
 
@@ -75,26 +75,26 @@ class _UserInvitationAccepterState:
 
     @_builtins.property
     @pulumi.getter(name="allowEmptyId")
-    def allow_empty_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_empty_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
         """
         return pulumi.get(self, "allow_empty_id")
 
     @allow_empty_id.setter
-    def allow_empty_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_empty_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_empty_id", value)
 
     @_builtins.property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
-    def invitation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_id", value)
 
 
@@ -104,8 +104,8 @@ class UserInvitationAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_empty_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_empty_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage GitHub repository collaborator invitations.
@@ -193,8 +193,8 @@ class UserInvitationAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_empty_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_empty_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -216,8 +216,8 @@ class UserInvitationAccepter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_empty_id: Optional[pulumi.Input[_builtins.bool]] = None,
-            invitation_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserInvitationAccepter':
+            allow_empty_id: pulumi.Input[Optional[_builtins.bool]] = None,
+            invitation_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserInvitationAccepter':
         """
         Get an existing UserInvitationAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

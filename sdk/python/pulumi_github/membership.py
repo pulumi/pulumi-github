@@ -20,8 +20,8 @@ __all__ = ['MembershipArgs', 'Membership']
 class MembershipArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
-                 downgrade_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 downgrade_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Membership resource.
 
@@ -54,7 +54,7 @@ class MembershipArgs:
 
     @_builtins.property
     @pulumi.getter(name="downgradeOnDestroy")
-    def downgrade_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def downgrade_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defaults to `false`. If set to true,
         when this resource is destroyed, the member will not be removed
@@ -64,12 +64,12 @@ class MembershipArgs:
         return pulumi.get(self, "downgrade_on_destroy")
 
     @downgrade_on_destroy.setter
-    def downgrade_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def downgrade_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "downgrade_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role of the user within the organization.
         Must be one of `member` or `admin`. Defaults to `member`.
@@ -78,17 +78,17 @@ class MembershipArgs:
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
 @pulumi.input_type
 class _MembershipState:
     def __init__(__self__, *,
-                 downgrade_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 downgrade_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Membership resources.
 
@@ -112,7 +112,7 @@ class _MembershipState:
 
     @_builtins.property
     @pulumi.getter(name="downgradeOnDestroy")
-    def downgrade_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def downgrade_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defaults to `false`. If set to true,
         when this resource is destroyed, the member will not be removed
@@ -122,21 +122,21 @@ class _MembershipState:
         return pulumi.get(self, "downgrade_on_destroy")
 
     @downgrade_on_destroy.setter
-    def downgrade_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def downgrade_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "downgrade_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role of the user within the organization.
         Must be one of `member` or `admin`. Defaults to `member`.
@@ -145,19 +145,19 @@ class _MembershipState:
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user to add to the organization.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -167,9 +167,9 @@ class Membership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 downgrade_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 downgrade_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a GitHub membership resource.
@@ -259,9 +259,9 @@ class Membership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 downgrade_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 downgrade_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -287,10 +287,10 @@ class Membership(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            downgrade_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            role: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'Membership':
+            downgrade_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'Membership':
         """
         Get an existing Membership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

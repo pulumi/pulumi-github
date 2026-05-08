@@ -193,21 +193,21 @@ export interface ActionsEnvironmentSecretState {
     /**
      * Date the secret was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Please use `valueEncrypted`.
      *
      * @deprecated Use valueEncrypted and key_id.
      */
-    encryptedValue?: pulumi.Input<string>;
+    encryptedValue?: pulumi.Input<string | undefined>;
     /**
      * Name of the environment.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Please use `value`.
      *
@@ -215,35 +215,35 @@ export interface ActionsEnvironmentSecretState {
      *
      * @deprecated Use value.
      */
-    plaintextValue?: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string | undefined>;
     /**
      * Date the secret was last updated in GitHub.
      */
-    remoteUpdatedAt?: pulumi.Input<string>;
+    remoteUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * ID of the repository.
      */
-    repositoryId?: pulumi.Input<number>;
+    repositoryId?: pulumi.Input<number | undefined>;
     /**
      * Name of the secret.
      */
-    secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
     /**
      * Date the secret was last updated by the provider.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
     /**
      * Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
      */
-    valueEncrypted?: pulumi.Input<string>;
+    valueEncrypted?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,7 +255,7 @@ export interface ActionsEnvironmentSecretArgs {
      *
      * @deprecated Use valueEncrypted and key_id.
      */
-    encryptedValue?: pulumi.Input<string>;
+    encryptedValue?: pulumi.Input<string | undefined>;
     /**
      * Name of the environment.
      */
@@ -263,7 +263,7 @@ export interface ActionsEnvironmentSecretArgs {
     /**
      * ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Please use `value`.
      *
@@ -271,7 +271,7 @@ export interface ActionsEnvironmentSecretArgs {
      *
      * @deprecated Use value.
      */
-    plaintextValue?: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository.
      */
@@ -283,9 +283,9 @@ export interface ActionsEnvironmentSecretArgs {
     /**
      * Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
      */
-    valueEncrypted?: pulumi.Input<string>;
+    valueEncrypted?: pulumi.Input<string | undefined>;
 }
