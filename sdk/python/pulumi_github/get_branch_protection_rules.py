@@ -97,7 +97,7 @@ def get_branch_protection_rules(repository: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'),
         rules=pulumi.get(__ret__, 'rules'))
-def get_branch_protection_rules_output(repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_branch_protection_rules_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBranchProtectionRulesResult]:
     """
     Use this data source to retrieve a list of repository branch protection rules.

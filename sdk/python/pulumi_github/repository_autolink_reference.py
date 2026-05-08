@@ -22,7 +22,7 @@ class RepositoryAutolinkReferenceArgs:
                  key_prefix: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
                  target_url_template: pulumi.Input[_builtins.str],
-                 is_alphanumeric: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_alphanumeric: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RepositoryAutolinkReference resource.
 
@@ -75,25 +75,25 @@ class RepositoryAutolinkReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="isAlphanumeric")
-    def is_alphanumeric(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_alphanumeric(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
         """
         return pulumi.get(self, "is_alphanumeric")
 
     @is_alphanumeric.setter
-    def is_alphanumeric(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_alphanumeric(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_alphanumeric", value)
 
 
 @pulumi.input_type
 class _RepositoryAutolinkReferenceState:
     def __init__(__self__, *,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_alphanumeric: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_url_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_alphanumeric: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryAutolinkReference resources.
 
@@ -116,62 +116,62 @@ class _RepositoryAutolinkReferenceState:
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An etag representing the autolink reference object.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="isAlphanumeric")
-    def is_alphanumeric(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_alphanumeric(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
         """
         return pulumi.get(self, "is_alphanumeric")
 
     @is_alphanumeric.setter
-    def is_alphanumeric(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_alphanumeric(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_alphanumeric", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
         """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository of the autolink reference.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="targetUrlTemplate")
-    def target_url_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_url_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
         """
         return pulumi.get(self, "target_url_template")
 
     @target_url_template.setter
-    def target_url_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_url_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_url_template", value)
 
 
@@ -181,10 +181,10 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_alphanumeric: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_url_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_alphanumeric: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage an autolink reference for a single repository.
@@ -290,10 +290,10 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_alphanumeric: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_url_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_alphanumeric: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,11 +324,11 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            is_alphanumeric: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            target_url_template: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryAutolinkReference':
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            is_alphanumeric: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            target_url_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryAutolinkReference':
         """
         Get an existing RepositoryAutolinkReference resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

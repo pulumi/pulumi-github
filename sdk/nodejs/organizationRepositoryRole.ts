@@ -126,23 +126,23 @@ export interface OrganizationRepositoryRoleState {
     /**
      * The system role from which this role inherits permissions.
      */
-    baseRole?: pulumi.Input<string>;
+    baseRole?: pulumi.Input<string | undefined>;
     /**
      * The description of the organization repository role.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the organization repository role.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The permissions included in this role.
      */
-    permissions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the organization repository role.
      */
-    roleId?: pulumi.Input<number>;
+    roleId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -156,11 +156,11 @@ export interface OrganizationRepositoryRoleArgs {
     /**
      * The description of the organization repository role.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the organization repository role.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The permissions included in this role.
      */

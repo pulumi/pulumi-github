@@ -139,31 +139,31 @@ export interface RepositoryMilestoneState {
     /**
      * A description of the milestone.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The milestone due date. In `yyyy-mm-dd` format.
      */
-    dueDate?: pulumi.Input<string>;
+    dueDate?: pulumi.Input<string | undefined>;
     /**
      * The number of the milestone.
      */
-    number?: pulumi.Input<number>;
+    number?: pulumi.Input<number | undefined>;
     /**
      * The owner of the GitHub Repository.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The name of the GitHub Repository.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The state of the milestone. Either `open` or `closed`. Default: `open`
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The title of the milestone.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,11 +173,11 @@ export interface RepositoryMilestoneArgs {
     /**
      * A description of the milestone.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The milestone due date. In `yyyy-mm-dd` format.
      */
-    dueDate?: pulumi.Input<string>;
+    dueDate?: pulumi.Input<string | undefined>;
     /**
      * The owner of the GitHub Repository.
      */
@@ -189,7 +189,7 @@ export interface RepositoryMilestoneArgs {
     /**
      * The state of the milestone. Either `open` or `closed`. Default: `open`
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The title of the milestone.
      */

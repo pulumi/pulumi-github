@@ -22,7 +22,7 @@ __all__ = ['IssueLabelsArgs', 'IssueLabels']
 class IssueLabelsArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]] = None):
         """
         The set of arguments for constructing a IssueLabels resource.
 
@@ -47,22 +47,22 @@ class IssueLabelsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]:
         """
         List of labels
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
 
 @pulumi.input_type
 class _IssueLabelsState:
     def __init__(__self__, *,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IssueLabels resources.
 
@@ -76,26 +76,26 @@ class _IssueLabelsState:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]:
         """
         List of labels
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub repository
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
 
@@ -105,8 +105,8 @@ class IssueLabels(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides GitHub issue labels resource.
@@ -222,8 +222,8 @@ class IssueLabels(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,8 +247,8 @@ class IssueLabels(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None) -> 'IssueLabels':
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None) -> 'IssueLabels':
         """
         Get an existing IssueLabels resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

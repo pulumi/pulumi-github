@@ -62,8 +62,8 @@ class AppInstallationRepositoriesArgs:
 @pulumi.input_type
 class _AppInstallationRepositoriesState:
     def __init__(__self__, *,
-                 installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppInstallationRepositories resources.
 
@@ -79,19 +79,19 @@ class _AppInstallationRepositoriesState:
 
     @_builtins.property
     @pulumi.getter(name="installationId")
-    def installation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def installation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub app installation id.
         """
         return pulumi.get(self, "installation_id")
 
     @installation_id.setter
-    def installation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def installation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "installation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedRepositories")
-    def selected_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def selected_repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of repository names to install the app on.
 
@@ -100,7 +100,7 @@ class _AppInstallationRepositoriesState:
         return pulumi.get(self, "selected_repositories")
 
     @selected_repositories.setter
-    def selected_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def selected_repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "selected_repositories", value)
 
 
@@ -110,8 +110,8 @@ class AppInstallationRepositories(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
@@ -187,8 +187,8 @@ class AppInstallationRepositories(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,8 +214,8 @@ class AppInstallationRepositories(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AppInstallationRepositories':
+            installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AppInstallationRepositories':
         """
         Get an existing AppInstallationRepositories resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -23,9 +23,9 @@ class RepositoryPullRequestArgs:
                  base_repository: pulumi.Input[_builtins.str],
                  head_ref: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintainer_can_modify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintainer_can_modify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPullRequest resource.
 
@@ -98,60 +98,60 @@ class RepositoryPullRequestArgs:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Body of the Pull Request.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="maintainerCanModify")
-    def maintainer_can_modify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def maintainer_can_modify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether the base repository maintainers can modify the Pull Request. Default: false.
         """
         return pulumi.get(self, "maintainer_can_modify")
 
     @maintainer_can_modify.setter
-    def maintainer_can_modify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def maintainer_can_modify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "maintainer_can_modify", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the repository. If not provided, the provider's default owner is used.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
 
 @pulumi.input_type
 class _RepositoryPullRequestState:
     def __init__(__self__, *,
-                 base_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft: Optional[pulumi.Input[_builtins.bool]] = None,
-                 head_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 head_sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 maintainer_can_modify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 number: Optional[pulumi.Input[_builtins.int]] = None,
-                 opened_at: Optional[pulumi.Input[_builtins.int]] = None,
-                 opened_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.int]] = None):
+                 base_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft: pulumi.Input[Optional[_builtins.bool]] = None,
+                 head_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 head_sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 maintainer_can_modify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number: pulumi.Input[Optional[_builtins.int]] = None,
+                 opened_at: pulumi.Input[Optional[_builtins.int]] = None,
+                 opened_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RepositoryPullRequest resources.
 
@@ -207,194 +207,194 @@ class _RepositoryPullRequestState:
 
     @_builtins.property
     @pulumi.getter(name="baseRef")
-    def base_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the branch serving as the base of the Pull Request.
         """
         return pulumi.get(self, "base_ref")
 
     @base_ref.setter
-    def base_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="baseRepository")
-    def base_repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the base repository to retrieve the Pull Requests from.
         """
         return pulumi.get(self, "base_repository")
 
     @base_repository.setter
-    def base_repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_repository", value)
 
     @_builtins.property
     @pulumi.getter(name="baseSha")
-    def base_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Head commit SHA of the Pull Request base.
         """
         return pulumi.get(self, "base_sha")
 
     @base_sha.setter
-    def base_sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_sha", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Body of the Pull Request.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter
-    def draft(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def draft(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates Whether this Pull Request is a draft.
         """
         return pulumi.get(self, "draft")
 
     @draft.setter
-    def draft(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def draft(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "draft", value)
 
     @_builtins.property
     @pulumi.getter(name="headRef")
-    def head_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def head_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the branch serving as the head of the Pull Request.
         """
         return pulumi.get(self, "head_ref")
 
     @head_ref.setter
-    def head_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def head_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "head_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="headSha")
-    def head_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def head_sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Head commit SHA of the Pull Request head.
         """
         return pulumi.get(self, "head_sha")
 
     @head_sha.setter
-    def head_sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def head_sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "head_sha", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of label names set on the Pull Request.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="maintainerCanModify")
-    def maintainer_can_modify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def maintainer_can_modify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether the base repository maintainers can modify the Pull Request. Default: false.
         """
         return pulumi.get(self, "maintainer_can_modify")
 
     @maintainer_can_modify.setter
-    def maintainer_can_modify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def maintainer_can_modify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "maintainer_can_modify", value)
 
     @_builtins.property
     @pulumi.getter
-    def number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of the Pull Request within the repository.
         """
         return pulumi.get(self, "number")
 
     @number.setter
-    def number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number", value)
 
     @_builtins.property
     @pulumi.getter(name="openedAt")
-    def opened_at(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def opened_at(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Unix timestamp indicating the Pull Request creation time.
         """
         return pulumi.get(self, "opened_at")
 
     @opened_at.setter
-    def opened_at(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def opened_at(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "opened_at", value)
 
     @_builtins.property
     @pulumi.getter(name="openedBy")
-    def opened_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opened_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GitHub login of the user who opened the Pull Request.
         """
         return pulumi.get(self, "opened_by")
 
     @opened_by.setter
-    def opened_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opened_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opened_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the repository. If not provided, the provider's default owner is used.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the current Pull Request state - can be "open", "closed" or "merged".
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the Pull Request.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timestamp of the last Pull Request update.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -404,13 +404,13 @@ class RepositoryPullRequest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 head_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintainer_can_modify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 base_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 head_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintainer_can_modify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
@@ -479,13 +479,13 @@ class RepositoryPullRequest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 head_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintainer_can_modify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 base_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 head_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintainer_can_modify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -529,22 +529,22 @@ class RepositoryPullRequest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            base_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            base_repository: Optional[pulumi.Input[_builtins.str]] = None,
-            base_sha: Optional[pulumi.Input[_builtins.str]] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            draft: Optional[pulumi.Input[_builtins.bool]] = None,
-            head_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            head_sha: Optional[pulumi.Input[_builtins.str]] = None,
-            labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            maintainer_can_modify: Optional[pulumi.Input[_builtins.bool]] = None,
-            number: Optional[pulumi.Input[_builtins.int]] = None,
-            opened_at: Optional[pulumi.Input[_builtins.int]] = None,
-            opened_by: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.int]] = None) -> 'RepositoryPullRequest':
+            base_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            base_repository: pulumi.Input[Optional[_builtins.str]] = None,
+            base_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            draft: pulumi.Input[Optional[_builtins.bool]] = None,
+            head_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            head_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            maintainer_can_modify: pulumi.Input[Optional[_builtins.bool]] = None,
+            number: pulumi.Input[Optional[_builtins.int]] = None,
+            opened_at: pulumi.Input[Optional[_builtins.int]] = None,
+            opened_by: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.int]] = None) -> 'RepositoryPullRequest':
         """
         Get an existing RepositoryPullRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

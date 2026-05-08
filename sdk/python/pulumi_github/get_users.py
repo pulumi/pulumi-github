@@ -142,7 +142,7 @@ def get_users(usernames: Optional[Sequence[_builtins.str]] = None,
         node_ids=pulumi.get(__ret__, 'node_ids'),
         unknown_logins=pulumi.get(__ret__, 'unknown_logins'),
         usernames=pulumi.get(__ret__, 'usernames'))
-def get_users_output(usernames: Optional[pulumi.Input[Sequence[_builtins.str]]] = None,
+def get_users_output(usernames: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to retrieve information about multiple GitHub users at once.

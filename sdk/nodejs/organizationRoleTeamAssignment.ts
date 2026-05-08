@@ -107,11 +107,11 @@ export interface OrganizationRoleTeamAssignmentState {
     /**
      * The GitHub organization role id
      */
-    roleId?: pulumi.Input<string>;
+    roleId?: pulumi.Input<string | undefined>;
     /**
      * The GitHub team slug
      */
-    teamSlug?: pulumi.Input<string>;
+    teamSlug?: pulumi.Input<string | undefined>;
 }
 
 /**

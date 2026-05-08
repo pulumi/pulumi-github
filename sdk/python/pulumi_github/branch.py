@@ -21,9 +21,9 @@ class BranchArgs:
     def __init__(__self__, *,
                  branch: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sha: Optional[pulumi.Input[_builtins.str]] = None):
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sha: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Branch resource.
 
@@ -68,51 +68,51 @@ class BranchArgs:
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An etag representing the Branch object.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceBranch")
-    def source_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name to start from. Defaults to `main`.
         """
         return pulumi.get(self, "source_branch")
 
     @source_branch.setter
-    def source_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSha")
-    def source_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         return pulumi.get(self, "source_sha")
 
     @source_sha.setter
-    def source_sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_sha", value)
 
 
 @pulumi.input_type
 class _BranchState:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 sha: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sha: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 sha: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sha: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Branch resources.
 
@@ -141,86 +141,86 @@ class _BranchState:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository branch to create.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An etag representing the Branch object.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string representing a branch reference, in the form of `refs/heads/<branch>`.
         """
         return pulumi.get(self, "ref")
 
     @ref.setter
-    def ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub repository name.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string storing the reference's `HEAD` commit's SHA1.
         """
         return pulumi.get(self, "sha")
 
     @sha.setter
-    def sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sha", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceBranch")
-    def source_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name to start from. Defaults to `main`.
         """
         return pulumi.get(self, "source_branch")
 
     @source_branch.setter
-    def source_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSha")
-    def source_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_sha(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         return pulumi.get(self, "source_sha")
 
     @source_sha.setter
-    def source_sha(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_sha(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_sha", value)
 
 
@@ -230,11 +230,11 @@ class Branch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sha: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sha: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage branches within your repository.
@@ -343,11 +343,11 @@ class Branch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sha: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sha: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -378,13 +378,13 @@ class Branch(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            branch: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            ref: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            sha: Optional[pulumi.Input[_builtins.str]] = None,
-            source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-            source_sha: Optional[pulumi.Input[_builtins.str]] = None) -> 'Branch':
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            ref: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            sha: pulumi.Input[Optional[_builtins.str]] = None,
+            source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            source_sha: pulumi.Input[Optional[_builtins.str]] = None) -> 'Branch':
         """
         Get an existing Branch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

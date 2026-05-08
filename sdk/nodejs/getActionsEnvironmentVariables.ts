@@ -90,9 +90,9 @@ export function getActionsEnvironmentVariablesOutput(args: GetActionsEnvironment
  */
 export interface GetActionsEnvironmentVariablesOutputArgs {
     environment: pulumi.Input<string>;
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * Name of the variable
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -22,11 +22,11 @@ class ActionsEnvironmentSecretArgs:
                  environment: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
                  secret_name: pulumi.Input[_builtins.str],
-                 encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None):
+                 encrypted_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plaintext_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_encrypted: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionsEnvironmentSecret resource.
 
@@ -100,32 +100,32 @@ class ActionsEnvironmentSecretArgs:
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
     @_utilities.deprecated("""Use value_encrypted and key_id.""")
-    def encrypted_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Please use `value_encrypted`.
         """
         return pulumi.get(self, "encrypted_value")
 
     @encrypted_value.setter
-    def encrypted_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_value", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="plaintextValue")
     @_utilities.deprecated("""Use value.""")
-    def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plaintext_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Please use `value`.
 
@@ -134,49 +134,49 @@ class ActionsEnvironmentSecretArgs:
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
-    def plaintext_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plaintext_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plaintext_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueEncrypted")
-    def value_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
         """
         return pulumi.get(self, "value_encrypted")
 
     @value_encrypted.setter
-    def value_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_encrypted", value)
 
 
 @pulumi.input_type
 class _ActionsEnvironmentSecretState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plaintext_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_encrypted: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsEnvironmentSecret resources.
 
@@ -228,57 +228,57 @@ class _ActionsEnvironmentSecretState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date the secret was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
     @_utilities.deprecated("""Use value_encrypted and key_id.""")
-    def encrypted_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Please use `value_encrypted`.
         """
         return pulumi.get(self, "encrypted_value")
 
     @encrypted_value.setter
-    def encrypted_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the environment.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="plaintextValue")
     @_utilities.deprecated("""Use value.""")
-    def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plaintext_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Please use `value`.
 
@@ -287,91 +287,91 @@ class _ActionsEnvironmentSecretState:
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
-    def plaintext_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plaintext_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plaintext_value", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteUpdatedAt")
-    def remote_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date the secret was last updated in GitHub.
         """
         return pulumi.get(self, "remote_updated_at")
 
     @remote_updated_at.setter
-    def remote_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_updated_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the repository.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the repository.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the secret.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date the secret was last updated by the provider.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueEncrypted")
-    def value_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
         """
         return pulumi.get(self, "value_encrypted")
 
     @value_encrypted.setter
-    def value_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_encrypted", value)
 
 
@@ -381,14 +381,14 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
+                 encrypted_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plaintext_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage GitHub Actions secrets within your GitHub repository environments.
@@ -510,14 +510,14 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
+                 encrypted_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plaintext_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -557,18 +557,18 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[_builtins.str]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-            secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            value_encrypted: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsEnvironmentSecret':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted_value: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            plaintext_value: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_encrypted: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionsEnvironmentSecret':
         """
         Get an existing ActionsEnvironmentSecret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

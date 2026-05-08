@@ -20,31 +20,31 @@ __all__ = ['OrganizationSettingsArgs', 'OrganizationSettings']
 class OrganizationSettingsArgs:
     def __init__(__self__, *,
                  billing_email: pulumi.Input[_builtins.str],
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blog: Optional[pulumi.Input[_builtins.str]] = None,
-                 company: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_repository_permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependabot_alerts_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependabot_security_updates_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependency_graph_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_organization_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_repository_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 members_can_create_internal_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_fork_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 twitter_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blog: pulumi.Input[Optional[_builtins.str]] = None,
+                 company: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_repository_permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependabot_alerts_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependabot_security_updates_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependency_graph_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_organization_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_repository_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 members_can_create_internal_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_fork_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 twitter_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OrganizationSettings resource.
 
@@ -141,334 +141,334 @@ class OrganizationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityEnabledForNewRepositories")
-    def advanced_security_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def advanced_security_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not advanced security is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "advanced_security_enabled_for_new_repositories")
 
     @advanced_security_enabled_for_new_repositories.setter
-    def advanced_security_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def advanced_security_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "advanced_security_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter
-    def blog(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blog(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The blog URL for the organization.
         """
         return pulumi.get(self, "blog")
 
     @blog.setter
-    def blog(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blog(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blog", value)
 
     @_builtins.property
     @pulumi.getter
-    def company(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The company name for the organization.
         """
         return pulumi.get(self, "company")
 
     @company.setter
-    def company(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRepositoryPermission")
-    def default_repository_permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_repository_permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
         """
         return pulumi.get(self, "default_repository_permission")
 
     @default_repository_permission.setter
-    def default_repository_permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_repository_permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_repository_permission", value)
 
     @_builtins.property
     @pulumi.getter(name="dependabotAlertsEnabledForNewRepositories")
-    def dependabot_alerts_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dependabot_alerts_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "dependabot_alerts_enabled_for_new_repositories")
 
     @dependabot_alerts_enabled_for_new_repositories.setter
-    def dependabot_alerts_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dependabot_alerts_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dependabot_alerts_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="dependabotSecurityUpdatesEnabledForNewRepositories")
-    def dependabot_security_updates_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dependabot_security_updates_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "dependabot_security_updates_enabled_for_new_repositories")
 
     @dependabot_security_updates_enabled_for_new_repositories.setter
-    def dependabot_security_updates_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dependabot_security_updates_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dependabot_security_updates_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="dependencyGraphEnabledForNewRepositories")
-    def dependency_graph_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dependency_graph_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "dependency_graph_enabled_for_new_repositories")
 
     @dependency_graph_enabled_for_new_repositories.setter
-    def dependency_graph_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dependency_graph_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dependency_graph_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the organization.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address for the organization.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="hasOrganizationProjects")
-    def has_organization_projects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_organization_projects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization projects are enabled for the organization.
         """
         return pulumi.get(self, "has_organization_projects")
 
     @has_organization_projects.setter
-    def has_organization_projects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_organization_projects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_organization_projects", value)
 
     @_builtins.property
     @pulumi.getter(name="hasRepositoryProjects")
-    def has_repository_projects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_repository_projects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not repository projects are enabled for the organization.
         """
         return pulumi.get(self, "has_repository_projects")
 
     @has_repository_projects.setter
-    def has_repository_projects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_repository_projects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_repository_projects", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location for the organization.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreateInternalRepositories")
-    def members_can_create_internal_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_internal_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new internal repositories. For Enterprise Organizations only.
         """
         return pulumi.get(self, "members_can_create_internal_repositories")
 
     @members_can_create_internal_repositories.setter
-    def members_can_create_internal_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_internal_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_internal_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePages")
-    def members_can_create_pages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_pages(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new pages. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_pages")
 
     @members_can_create_pages.setter
-    def members_can_create_pages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_pages(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePrivatePages")
-    def members_can_create_private_pages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_private_pages(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new private pages. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_private_pages")
 
     @members_can_create_private_pages.setter
-    def members_can_create_private_pages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_private_pages(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_private_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePrivateRepositories")
-    def members_can_create_private_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_private_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new private repositories. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_private_repositories")
 
     @members_can_create_private_repositories.setter
-    def members_can_create_private_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_private_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_private_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePublicPages")
-    def members_can_create_public_pages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_public_pages(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new public pages. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_public_pages")
 
     @members_can_create_public_pages.setter
-    def members_can_create_public_pages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_public_pages(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_public_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePublicRepositories")
-    def members_can_create_public_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_public_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new public repositories. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_public_repositories")
 
     @members_can_create_public_repositories.setter
-    def members_can_create_public_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_public_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_public_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreateRepositories")
-    def members_can_create_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new repositories. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_repositories")
 
     @members_can_create_repositories.setter
-    def members_can_create_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanForkPrivateRepositories")
-    def members_can_fork_private_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_fork_private_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can fork private repositories. Defaults to `false`.
         """
         return pulumi.get(self, "members_can_fork_private_repositories")
 
     @members_can_fork_private_repositories.setter
-    def members_can_fork_private_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_fork_private_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_fork_private_repositories", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the organization.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningEnabledForNewRepositories")
-    def secret_scanning_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_enabled_for_new_repositories")
 
     @secret_scanning_enabled_for_new_repositories.setter
-    def secret_scanning_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtectionEnabledForNewRepositories")
-    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_push_protection_enabled_for_new_repositories")
 
     @secret_scanning_push_protection_enabled_for_new_repositories.setter
-    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_push_protection_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="twitterUsername")
-    def twitter_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def twitter_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Twitter username for the organization.
         """
         return pulumi.get(self, "twitter_username")
 
     @twitter_username.setter
-    def twitter_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def twitter_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "twitter_username", value)
 
     @_builtins.property
     @pulumi.getter(name="webCommitSignoffRequired")
-    def web_commit_signoff_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def web_commit_signoff_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
         """
         return pulumi.get(self, "web_commit_signoff_required")
 
     @web_commit_signoff_required.setter
-    def web_commit_signoff_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def web_commit_signoff_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "web_commit_signoff_required", value)
 
 
 @pulumi.input_type
 class _OrganizationSettingsState:
     def __init__(__self__, *,
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 billing_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 blog: Optional[pulumi.Input[_builtins.str]] = None,
-                 company: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_repository_permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependabot_alerts_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependabot_security_updates_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependency_graph_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_organization_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_repository_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 members_can_create_internal_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_fork_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 twitter_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 billing_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 blog: pulumi.Input[Optional[_builtins.str]] = None,
+                 company: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_repository_permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependabot_alerts_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependabot_security_updates_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependency_graph_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_organization_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_repository_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 members_can_create_internal_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_fork_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 twitter_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OrganizationSettings resources.
 
@@ -554,314 +554,314 @@ class _OrganizationSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityEnabledForNewRepositories")
-    def advanced_security_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def advanced_security_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not advanced security is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "advanced_security_enabled_for_new_repositories")
 
     @advanced_security_enabled_for_new_repositories.setter
-    def advanced_security_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def advanced_security_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "advanced_security_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="billingEmail")
-    def billing_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The billing email address for the organization.
         """
         return pulumi.get(self, "billing_email")
 
     @billing_email.setter
-    def billing_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_email", value)
 
     @_builtins.property
     @pulumi.getter
-    def blog(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blog(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The blog URL for the organization.
         """
         return pulumi.get(self, "blog")
 
     @blog.setter
-    def blog(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blog(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blog", value)
 
     @_builtins.property
     @pulumi.getter
-    def company(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The company name for the organization.
         """
         return pulumi.get(self, "company")
 
     @company.setter
-    def company(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRepositoryPermission")
-    def default_repository_permission(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_repository_permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
         """
         return pulumi.get(self, "default_repository_permission")
 
     @default_repository_permission.setter
-    def default_repository_permission(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_repository_permission(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_repository_permission", value)
 
     @_builtins.property
     @pulumi.getter(name="dependabotAlertsEnabledForNewRepositories")
-    def dependabot_alerts_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dependabot_alerts_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "dependabot_alerts_enabled_for_new_repositories")
 
     @dependabot_alerts_enabled_for_new_repositories.setter
-    def dependabot_alerts_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dependabot_alerts_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dependabot_alerts_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="dependabotSecurityUpdatesEnabledForNewRepositories")
-    def dependabot_security_updates_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dependabot_security_updates_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "dependabot_security_updates_enabled_for_new_repositories")
 
     @dependabot_security_updates_enabled_for_new_repositories.setter
-    def dependabot_security_updates_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dependabot_security_updates_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dependabot_security_updates_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="dependencyGraphEnabledForNewRepositories")
-    def dependency_graph_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dependency_graph_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "dependency_graph_enabled_for_new_repositories")
 
     @dependency_graph_enabled_for_new_repositories.setter
-    def dependency_graph_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dependency_graph_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dependency_graph_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the organization.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address for the organization.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="hasOrganizationProjects")
-    def has_organization_projects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_organization_projects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization projects are enabled for the organization.
         """
         return pulumi.get(self, "has_organization_projects")
 
     @has_organization_projects.setter
-    def has_organization_projects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_organization_projects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_organization_projects", value)
 
     @_builtins.property
     @pulumi.getter(name="hasRepositoryProjects")
-    def has_repository_projects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_repository_projects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not repository projects are enabled for the organization.
         """
         return pulumi.get(self, "has_repository_projects")
 
     @has_repository_projects.setter
-    def has_repository_projects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_repository_projects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_repository_projects", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location for the organization.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreateInternalRepositories")
-    def members_can_create_internal_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_internal_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new internal repositories. For Enterprise Organizations only.
         """
         return pulumi.get(self, "members_can_create_internal_repositories")
 
     @members_can_create_internal_repositories.setter
-    def members_can_create_internal_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_internal_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_internal_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePages")
-    def members_can_create_pages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_pages(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new pages. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_pages")
 
     @members_can_create_pages.setter
-    def members_can_create_pages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_pages(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePrivatePages")
-    def members_can_create_private_pages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_private_pages(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new private pages. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_private_pages")
 
     @members_can_create_private_pages.setter
-    def members_can_create_private_pages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_private_pages(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_private_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePrivateRepositories")
-    def members_can_create_private_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_private_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new private repositories. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_private_repositories")
 
     @members_can_create_private_repositories.setter
-    def members_can_create_private_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_private_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_private_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePublicPages")
-    def members_can_create_public_pages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_public_pages(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new public pages. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_public_pages")
 
     @members_can_create_public_pages.setter
-    def members_can_create_public_pages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_public_pages(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_public_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreatePublicRepositories")
-    def members_can_create_public_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_public_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new public repositories. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_public_repositories")
 
     @members_can_create_public_repositories.setter
-    def members_can_create_public_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_public_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_public_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanCreateRepositories")
-    def members_can_create_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_create_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can create new repositories. Defaults to `true`.
         """
         return pulumi.get(self, "members_can_create_repositories")
 
     @members_can_create_repositories.setter
-    def members_can_create_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_create_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_create_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="membersCanForkPrivateRepositories")
-    def members_can_fork_private_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def members_can_fork_private_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not organization members can fork private repositories. Defaults to `false`.
         """
         return pulumi.get(self, "members_can_fork_private_repositories")
 
     @members_can_fork_private_repositories.setter
-    def members_can_fork_private_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def members_can_fork_private_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "members_can_fork_private_repositories", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the organization.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningEnabledForNewRepositories")
-    def secret_scanning_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_enabled_for_new_repositories")
 
     @secret_scanning_enabled_for_new_repositories.setter
-    def secret_scanning_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtectionEnabledForNewRepositories")
-    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret_scanning_push_protection_enabled_for_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
         """
         return pulumi.get(self, "secret_scanning_push_protection_enabled_for_new_repositories")
 
     @secret_scanning_push_protection_enabled_for_new_repositories.setter
-    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret_scanning_push_protection_enabled_for_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret_scanning_push_protection_enabled_for_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="twitterUsername")
-    def twitter_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def twitter_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Twitter username for the organization.
         """
         return pulumi.get(self, "twitter_username")
 
     @twitter_username.setter
-    def twitter_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def twitter_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "twitter_username", value)
 
     @_builtins.property
     @pulumi.getter(name="webCommitSignoffRequired")
-    def web_commit_signoff_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def web_commit_signoff_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
         """
         return pulumi.get(self, "web_commit_signoff_required")
 
     @web_commit_signoff_required.setter
-    def web_commit_signoff_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def web_commit_signoff_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "web_commit_signoff_required", value)
 
 
@@ -871,32 +871,32 @@ class OrganizationSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 billing_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 blog: Optional[pulumi.Input[_builtins.str]] = None,
-                 company: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_repository_permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependabot_alerts_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependabot_security_updates_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependency_graph_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_organization_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_repository_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 members_can_create_internal_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_fork_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 twitter_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 billing_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 blog: pulumi.Input[Optional[_builtins.str]] = None,
+                 company: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_repository_permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependabot_alerts_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependabot_security_updates_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependency_graph_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_organization_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_repository_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 members_can_create_internal_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_fork_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 twitter_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage settings for a GitHub Organization.
@@ -1044,32 +1044,32 @@ class OrganizationSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 billing_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 blog: Optional[pulumi.Input[_builtins.str]] = None,
-                 company: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_repository_permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 dependabot_alerts_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependabot_security_updates_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependency_graph_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_organization_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_repository_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 members_can_create_internal_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_create_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members_can_fork_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 twitter_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 billing_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 blog: pulumi.Input[Optional[_builtins.str]] = None,
+                 company: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_repository_permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 dependabot_alerts_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependabot_security_updates_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependency_graph_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_organization_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_repository_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 members_can_create_internal_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_create_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members_can_fork_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 twitter_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1117,32 +1117,32 @@ class OrganizationSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            billing_email: Optional[pulumi.Input[_builtins.str]] = None,
-            blog: Optional[pulumi.Input[_builtins.str]] = None,
-            company: Optional[pulumi.Input[_builtins.str]] = None,
-            default_repository_permission: Optional[pulumi.Input[_builtins.str]] = None,
-            dependabot_alerts_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            dependabot_security_updates_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            dependency_graph_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            has_organization_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-            has_repository_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            members_can_create_internal_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            members_can_create_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-            members_can_create_private_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-            members_can_create_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            members_can_create_public_pages: Optional[pulumi.Input[_builtins.bool]] = None,
-            members_can_create_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            members_can_create_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            members_can_fork_private_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_scanning_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            twitter_username: Optional[pulumi.Input[_builtins.str]] = None,
-            web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None) -> 'OrganizationSettings':
+            advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            billing_email: pulumi.Input[Optional[_builtins.str]] = None,
+            blog: pulumi.Input[Optional[_builtins.str]] = None,
+            company: pulumi.Input[Optional[_builtins.str]] = None,
+            default_repository_permission: pulumi.Input[Optional[_builtins.str]] = None,
+            dependabot_alerts_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            dependabot_security_updates_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            dependency_graph_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            has_organization_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_repository_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            members_can_create_internal_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_private_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_public_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_fork_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            twitter_username: pulumi.Input[Optional[_builtins.str]] = None,
+            web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None) -> 'OrganizationSettings':
         """
         Get an existing OrganizationSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

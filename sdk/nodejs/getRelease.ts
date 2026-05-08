@@ -215,11 +215,11 @@ export interface GetReleaseOutputArgs {
     /**
      * ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
      */
-    releaseId?: pulumi.Input<number>;
+    releaseId?: pulumi.Input<number | undefined>;
     /**
      * Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
      */
-    releaseTag?: pulumi.Input<string>;
+    releaseTag?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository to retrieve the release from.
      */

@@ -43,7 +43,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs:
 @pulumi.input_type
 class _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState:
     def __init__(__self__, *,
-                 include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationOidcSubjectClaimCustomizationTemplate resources.
 
@@ -54,14 +54,14 @@ class _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState:
 
     @_builtins.property
     @pulumi.getter(name="includeClaimKeys")
-    def include_claim_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_claim_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of OpenID Connect claims.
         """
         return pulumi.get(self, "include_claim_keys")
 
     @include_claim_keys.setter
-    def include_claim_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_claim_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_claim_keys", value)
 
 
@@ -71,7 +71,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
@@ -156,7 +156,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -179,7 +179,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ActionsOrganizationOidcSubjectClaimCustomizationTemplate':
+            include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ActionsOrganizationOidcSubjectClaimCustomizationTemplate':
         """
         Get an existing ActionsOrganizationOidcSubjectClaimCustomizationTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

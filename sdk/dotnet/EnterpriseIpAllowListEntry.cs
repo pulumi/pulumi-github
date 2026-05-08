@@ -22,7 +22,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Github.Index.EnterpriseIpAllowListEntry("test", new()
+    ///     var test = new Github.EnterpriseIpAllowListEntry("test", new()
     ///     {
     ///         EnterpriseSlug = "my-enterprise",
     ///         Ip = "192.168.1.0/20",

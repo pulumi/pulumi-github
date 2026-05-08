@@ -118,11 +118,11 @@ export interface ActionsOrganizationVariableRepositoryState {
     /**
      * ID of the repository that should be able to access the variable.
      */
-    repositoryId?: pulumi.Input<number>;
+    repositoryId?: pulumi.Input<number | undefined>;
     /**
      * Name of the actions organization variable.
      */
-    variableName?: pulumi.Input<string>;
+    variableName?: pulumi.Input<string | undefined>;
 }
 
 /**

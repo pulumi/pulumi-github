@@ -118,11 +118,11 @@ export interface ActionsOrganizationSecretRepositoriesState {
     /**
      * Name of the actions organization secret.
      */
-    secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
     /**
      * List of IDs for the repositories that should be able to access the secret.
      */
-    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
+    selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 /**

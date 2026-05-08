@@ -58,8 +58,8 @@ class RepositoryTopicsArgs:
 @pulumi.input_type
 class _RepositoryTopicsState:
     def __init__(__self__, *,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryTopics resources.
 
@@ -73,26 +73,26 @@ class _RepositoryTopicsState:
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository name.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def topics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of topics to add to the repository.
         """
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def topics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "topics", value)
 
 
@@ -102,8 +102,8 @@ class RepositoryTopics(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage topics for repositories within your GitHub organization or personal account.
@@ -191,8 +191,8 @@ class RepositoryTopics(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -218,8 +218,8 @@ class RepositoryTopics(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RepositoryTopics':
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RepositoryTopics':
         """
         Get an existing RepositoryTopics resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

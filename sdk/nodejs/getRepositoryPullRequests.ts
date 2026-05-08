@@ -138,7 +138,7 @@ export interface GetRepositoryPullRequestsOutputArgs {
     /**
      * If set, filters Pull Requests by base branch name.
      */
-    baseRef?: pulumi.Input<string>;
+    baseRef?: pulumi.Input<string | undefined>;
     /**
      * Name of the base repository to retrieve the Pull Requests from.
      */
@@ -146,21 +146,21 @@ export interface GetRepositoryPullRequestsOutputArgs {
     /**
      * If set, filters Pull Requests by head user or head organization and branch name in the format of "user:ref-name" or "organization:ref-name". For example: "github:new-script-format" or "octocat:test-branch".
      */
-    headRef?: pulumi.Input<string>;
+    headRef?: pulumi.Input<string | undefined>;
     /**
      * Owner of the repository. If not provided, the provider's default owner is used.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * If set, indicates what to sort results by. Can be either "created", "updated", "popularity" (comment count) or "long-running" (age, filtering by pulls updated in the last month). Default: "created".
      */
-    sortBy?: pulumi.Input<string>;
+    sortBy?: pulumi.Input<string | undefined>;
     /**
      * If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
      */
-    sortDirection?: pulumi.Input<string>;
+    sortDirection?: pulumi.Input<string | undefined>;
     /**
      * If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }

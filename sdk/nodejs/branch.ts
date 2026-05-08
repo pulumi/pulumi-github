@@ -148,31 +148,31 @@ export interface BranchState {
     /**
      * The repository branch to create.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * An etag representing the Branch object.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A string representing a branch reference, in the form of `refs/heads/<branch>`.
      */
-    ref?: pulumi.Input<string>;
+    ref?: pulumi.Input<string | undefined>;
     /**
      * The GitHub repository name.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * A string storing the reference's `HEAD` commit's SHA1.
      */
-    sha?: pulumi.Input<string>;
+    sha?: pulumi.Input<string | undefined>;
     /**
      * The branch name to start from. Defaults to `main`.
      */
-    sourceBranch?: pulumi.Input<string>;
+    sourceBranch?: pulumi.Input<string | undefined>;
     /**
      * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
      */
-    sourceSha?: pulumi.Input<string>;
+    sourceSha?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,7 +186,7 @@ export interface BranchArgs {
     /**
      * An etag representing the Branch object.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The GitHub repository name.
      */
@@ -194,9 +194,9 @@ export interface BranchArgs {
     /**
      * The branch name to start from. Defaults to `main`.
      */
-    sourceBranch?: pulumi.Input<string>;
+    sourceBranch?: pulumi.Input<string | undefined>;
     /**
      * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
      */
-    sourceSha?: pulumi.Input<string>;
+    sourceSha?: pulumi.Input<string | undefined>;
 }

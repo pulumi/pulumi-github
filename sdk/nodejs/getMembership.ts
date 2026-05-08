@@ -101,7 +101,7 @@ export interface GetMembershipOutputArgs {
     /**
      * The organization to check for the above username.
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * The username to lookup in the organization.
      */

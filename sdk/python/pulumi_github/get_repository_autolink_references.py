@@ -97,7 +97,7 @@ def get_repository_autolink_references(repository: Optional[_builtins.str] = Non
         autolink_references=pulumi.get(__ret__, 'autolink_references'),
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_repository_autolink_references_output(repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_autolink_references_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryAutolinkReferencesResult]:
     """
     Use this data source to retrieve autolink references for a repository.

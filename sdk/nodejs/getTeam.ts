@@ -141,13 +141,13 @@ export interface GetTeamOutputArgs {
     /**
      * Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
      */
-    membershipType?: pulumi.Input<string>;
+    membershipType?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
      *
      * @deprecated This is deprecated and will be removed in a future release.
      */
-    resultsPerPage?: pulumi.Input<number>;
+    resultsPerPage?: pulumi.Input<number | undefined>;
     /**
      * The team slug.
      */
@@ -155,5 +155,5 @@ export interface GetTeamOutputArgs {
     /**
      * Exclude the members and repositories of the team from the returned result. Defaults to `false`.
      */
-    summaryOnly?: pulumi.Input<boolean>;
+    summaryOnly?: pulumi.Input<boolean | undefined>;
 }

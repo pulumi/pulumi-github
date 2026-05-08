@@ -97,7 +97,7 @@ def get_repository_webhooks(repository: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'),
         webhooks=pulumi.get(__ret__, 'webhooks'))
-def get_repository_webhooks_output(repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_webhooks_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryWebhooksResult]:
     """
     Use this data source to retrieve webhooks for a given repository.

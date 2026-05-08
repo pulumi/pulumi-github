@@ -136,15 +136,15 @@ export interface GetOrganizationCustomPropertiesOutputArgs {
     /**
      * List of allowed values for the custom property. Only populated when `valueType` is `singleSelect` or `multiSelect`.
      */
-    allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The default value of the custom property.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The description of the custom property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the custom property to retrieve.
      */
@@ -152,13 +152,13 @@ export interface GetOrganizationCustomPropertiesOutputArgs {
     /**
      * Whether the custom property is required.
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
      */
-    valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string | undefined>;
     /**
      * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
      */
-    valuesEditableBy?: pulumi.Input<string>;
+    valuesEditableBy?: pulumi.Input<string | undefined>;
 }

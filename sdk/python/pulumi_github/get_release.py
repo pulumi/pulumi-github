@@ -356,11 +356,11 @@ def get_release(owner: Optional[_builtins.str] = None,
         upload_url=pulumi.get(__ret__, 'upload_url'),
         url=pulumi.get(__ret__, 'url'),
         zipball_url=pulumi.get(__ret__, 'zipball_url'))
-def get_release_output(owner: Optional[pulumi.Input[_builtins.str]] = None,
-                       release_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                       release_tag: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       repository: Optional[pulumi.Input[_builtins.str]] = None,
-                       retrieve_by: Optional[pulumi.Input[_builtins.str]] = None,
+def get_release_output(owner: pulumi.Input[Optional[_builtins.str]] = None,
+                       release_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                       release_tag: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       repository: pulumi.Input[Optional[_builtins.str]] = None,
+                       retrieve_by: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReleaseResult]:
     """
     Use this data source to retrieve information about a GitHub release in a specific repository.

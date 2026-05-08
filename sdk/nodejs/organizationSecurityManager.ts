@@ -90,7 +90,7 @@ export interface OrganizationSecurityManagerState {
     /**
      * The slug of the team to manage.
      */
-    teamSlug?: pulumi.Input<string>;
+    teamSlug?: pulumi.Input<string | undefined>;
 }
 
 /**

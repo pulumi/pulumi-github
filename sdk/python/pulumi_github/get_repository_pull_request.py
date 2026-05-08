@@ -302,9 +302,9 @@ def get_repository_pull_request(base_repository: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         title=pulumi.get(__ret__, 'title'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                                       number: Optional[pulumi.Input[_builtins.int]] = None,
-                                       owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repository_pull_request_output(base_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                                       number: pulumi.Input[Optional[_builtins.int]] = None,
+                                       owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryPullRequestResult]:
     """
     Use this data source to retrieve information about a specific GitHub Pull Request in a repository.

@@ -58,8 +58,8 @@ class ActionsOrganizationVariableRepositoriesArgs:
 @pulumi.input_type
 class _ActionsOrganizationVariableRepositoriesState:
     def __init__(__self__, *,
-                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationVariableRepositories resources.
 
@@ -73,26 +73,26 @@ class _ActionsOrganizationVariableRepositoriesState:
 
     @_builtins.property
     @pulumi.getter(name="selectedRepositoryIds")
-    def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def selected_repository_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of IDs for the repositories that should be able to access the variable.
         """
         return pulumi.get(self, "selected_repository_ids")
 
     @selected_repository_ids.setter
-    def selected_repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def selected_repository_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "selected_repository_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="variableName")
-    def variable_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the actions organization variable.
         """
         return pulumi.get(self, "variable_name")
 
     @variable_name.setter
-    def variable_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_name", value)
 
 
@@ -102,8 +102,8 @@ class ActionsOrganizationVariableRepositories(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to manage the repositories allowed to access an actions variable within your GitHub organization.
@@ -205,8 +205,8 @@ class ActionsOrganizationVariableRepositories(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,8 +232,8 @@ class ActionsOrganizationVariableRepositories(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            variable_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsOrganizationVariableRepositories':
+            selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            variable_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionsOrganizationVariableRepositories':
         """
         Get an existing ActionsOrganizationVariableRepositories resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

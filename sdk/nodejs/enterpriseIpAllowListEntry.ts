@@ -128,27 +128,27 @@ export interface EnterpriseIpAllowListEntryState {
     /**
      * Timestamp of when the entry was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The slug of the enterprise.
      */
-    enterpriseSlug?: pulumi.Input<string>;
+    enterpriseSlug?: pulumi.Input<string | undefined>;
     /**
      * An IP address or range of IP addresses in CIDR notation.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * Whether the entry is currently active. Default: true.
      */
-    isActive?: pulumi.Input<boolean>;
+    isActive?: pulumi.Input<boolean | undefined>;
     /**
      * A descriptive name for the IP allow list entry.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Timestamp of when the entry was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,9 +166,9 @@ export interface EnterpriseIpAllowListEntryArgs {
     /**
      * Whether the entry is currently active. Default: true.
      */
-    isActive?: pulumi.Input<boolean>;
+    isActive?: pulumi.Input<boolean | undefined>;
     /**
      * A descriptive name for the IP allow list entry.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

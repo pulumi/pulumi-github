@@ -106,16 +106,16 @@ export interface ProjectColumnState {
     /**
      * The ID of the column.
      */
-    columnId?: pulumi.Input<number>;
-    etag?: pulumi.Input<string>;
+    columnId?: pulumi.Input<number | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the column.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing project that the column will be created in.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -125,7 +125,7 @@ export interface ProjectColumnArgs {
     /**
      * The name of the column.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing project that the column will be created in.
      */

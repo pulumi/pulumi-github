@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     environment: "environment/test",
  *     waitTimer: 10000,
  *     reviewers: [{
- *         users: [current.then(current => current.id)],
+ *         users: [output(current.then(current => current.id)).apply(x =>Number(x))],
  *     }],
  *     deploymentBranchPolicy: {
  *         protectedBranches: false,
@@ -53,7 +53,7 @@ import * as utilities from "./utilities";
  *     environment: "environment/test",
  *     waitTimer: 10000,
  *     reviewers: [{
- *         users: [current.then(current => current.id)],
+ *         users: [output(current.then(current => current.id)).apply(x =>Number(x))],
  *     }],
  *     deploymentBranchPolicy: {
  *         protectedBranches: false,
@@ -178,27 +178,27 @@ export interface RepositoryEnvironmentDeploymentPolicyState {
     /**
      * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      */
-    branchPattern?: pulumi.Input<string>;
+    branchPattern?: pulumi.Input<string | undefined>;
     /**
      * The name of the environment.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * The ID of the deployment policy.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number | undefined>;
     /**
      * The repository of the environment.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository.
      */
-    repositoryId?: pulumi.Input<number>;
+    repositoryId?: pulumi.Input<number | undefined>;
     /**
      * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      */
-    tagPattern?: pulumi.Input<string>;
+    tagPattern?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface RepositoryEnvironmentDeploymentPolicyArgs {
     /**
      * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      */
-    branchPattern?: pulumi.Input<string>;
+    branchPattern?: pulumi.Input<string | undefined>;
     /**
      * The name of the environment.
      */
@@ -220,5 +220,5 @@ export interface RepositoryEnvironmentDeploymentPolicyArgs {
     /**
      * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      */
-    tagPattern?: pulumi.Input<string>;
+    tagPattern?: pulumi.Input<string | undefined>;
 }

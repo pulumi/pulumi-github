@@ -21,11 +21,11 @@ class EnterpriseActionsRunnerGroupArgs:
     def __init__(__self__, *,
                  enterprise_slug: pulumi.Input[_builtins.str],
                  visibility: pulumi.Input[_builtins.str],
-                 allows_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restricted_to_workflows: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selected_organization_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allows_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restricted_to_workflows: pulumi.Input[Optional[_builtins.bool]] = None,
+                 selected_organization_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 selected_workflows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnterpriseActionsRunnerGroup resource.
 
@@ -76,79 +76,79 @@ class EnterpriseActionsRunnerGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowsPublicRepositories")
-    def allows_public_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allows_public_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public repositories can be added to the runner group. Defaults to false.
         """
         return pulumi.get(self, "allows_public_repositories")
 
     @allows_public_repositories.setter
-    def allows_public_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allows_public_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allows_public_repositories", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the runner group
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedToWorkflows")
-    def restricted_to_workflows(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restricted_to_workflows(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         """
         return pulumi.get(self, "restricted_to_workflows")
 
     @restricted_to_workflows.setter
-    def restricted_to_workflows(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restricted_to_workflows(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restricted_to_workflows", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedOrganizationIds")
-    def selected_organization_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def selected_organization_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         IDs of the organizations which should be added to the runner group
         """
         return pulumi.get(self, "selected_organization_ids")
 
     @selected_organization_ids.setter
-    def selected_organization_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def selected_organization_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "selected_organization_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedWorkflows")
-    def selected_workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def selected_workflows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         """
         return pulumi.get(self, "selected_workflows")
 
     @selected_workflows.setter
-    def selected_workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def selected_workflows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "selected_workflows", value)
 
 
 @pulumi.input_type
 class _EnterpriseActionsRunnerGroupState:
     def __init__(__self__, *,
-                 allows_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restricted_to_workflows: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runners_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_organization_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 selected_organizations_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None):
+                 allows_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restricted_to_workflows: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runners_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_organization_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 selected_organizations_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 selected_workflows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseActionsRunnerGroup resources.
 
@@ -189,134 +189,134 @@ class _EnterpriseActionsRunnerGroupState:
 
     @_builtins.property
     @pulumi.getter(name="allowsPublicRepositories")
-    def allows_public_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allows_public_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public repositories can be added to the runner group. Defaults to false.
         """
         return pulumi.get(self, "allows_public_repositories")
 
     @allows_public_repositories.setter
-    def allows_public_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allows_public_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allows_public_repositories", value)
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this is the default runner group
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseSlug")
-    def enterprise_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The slug of the enterprise.
         """
         return pulumi.get(self, "enterprise_slug")
 
     @enterprise_slug.setter
-    def enterprise_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_slug", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An etag representing the runner group object
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the runner group
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedToWorkflows")
-    def restricted_to_workflows(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restricted_to_workflows(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
         """
         return pulumi.get(self, "restricted_to_workflows")
 
     @restricted_to_workflows.setter
-    def restricted_to_workflows(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restricted_to_workflows(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restricted_to_workflows", value)
 
     @_builtins.property
     @pulumi.getter(name="runnersUrl")
-    def runners_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runners_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub API URL for the runner group's runners
         """
         return pulumi.get(self, "runners_url")
 
     @runners_url.setter
-    def runners_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runners_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runners_url", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedOrganizationIds")
-    def selected_organization_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def selected_organization_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         IDs of the organizations which should be added to the runner group
         """
         return pulumi.get(self, "selected_organization_ids")
 
     @selected_organization_ids.setter
-    def selected_organization_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def selected_organization_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "selected_organization_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedOrganizationsUrl")
-    def selected_organizations_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selected_organizations_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub API URL for the runner group's selected organizations
         """
         return pulumi.get(self, "selected_organizations_url")
 
     @selected_organizations_url.setter
-    def selected_organizations_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selected_organizations_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selected_organizations_url", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedWorkflows")
-    def selected_workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def selected_workflows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         """
         return pulumi.get(self, "selected_workflows")
 
     @selected_workflows.setter
-    def selected_workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def selected_workflows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "selected_workflows", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -326,13 +326,13 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allows_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restricted_to_workflows: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selected_organization_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
+                 allows_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restricted_to_workflows: pulumi.Input[Optional[_builtins.bool]] = None,
+                 selected_organization_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 selected_workflows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise.
@@ -435,13 +435,13 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allows_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restricted_to_workflows: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selected_organization_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
+                 allows_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restricted_to_workflows: pulumi.Input[Optional[_builtins.bool]] = None,
+                 selected_organization_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 selected_workflows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -476,17 +476,17 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allows_public_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            default: Optional[pulumi.Input[_builtins.bool]] = None,
-            enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            restricted_to_workflows: Optional[pulumi.Input[_builtins.bool]] = None,
-            runners_url: Optional[pulumi.Input[_builtins.str]] = None,
-            selected_organization_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            selected_organizations_url: Optional[pulumi.Input[_builtins.str]] = None,
-            selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            visibility: Optional[pulumi.Input[_builtins.str]] = None) -> 'EnterpriseActionsRunnerGroup':
+            allows_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            default: pulumi.Input[Optional[_builtins.bool]] = None,
+            enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            restricted_to_workflows: pulumi.Input[Optional[_builtins.bool]] = None,
+            runners_url: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_organization_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            selected_organizations_url: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_workflows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnterpriseActionsRunnerGroup':
         """
         Get an existing EnterpriseActionsRunnerGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

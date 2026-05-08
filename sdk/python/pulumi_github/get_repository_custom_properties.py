@@ -97,7 +97,7 @@ def get_repository_custom_properties(repository: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         properties=pulumi.get(__ret__, 'properties'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_repository_custom_properties_output(repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_custom_properties_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCustomPropertiesResult]:
     """
     Use this data source to retrieve all custom properties of a repository.

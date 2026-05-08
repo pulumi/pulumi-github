@@ -135,7 +135,7 @@ def get_rest_api(endpoint: Optional[_builtins.str] = None,
         headers=pulumi.get(__ret__, 'headers'),
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
-def get_rest_api_output(endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rest_api_output(endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
     """
     Use this data source to retrieve information about a GitHub resource through REST API.

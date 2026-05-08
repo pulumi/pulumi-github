@@ -22,10 +22,10 @@ __all__ = ['ActionsOrganizationPermissionsArgs', 'ActionsOrganizationPermissions
 class ActionsOrganizationPermissionsArgs:
     def __init__(__self__, *,
                  enabled_repositories: pulumi.Input[_builtins.str],
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
-                 enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
-                 sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
+                 enabled_repositories_config: pulumi.Input[Optional['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
+                 sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationPermissions resource.
 
@@ -59,61 +59,61 @@ class ActionsOrganizationPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_actions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
-    def allowed_actions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_actions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedActionsConfig")
-    def allowed_actions_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]:
+    def allowed_actions_config(self) -> pulumi.Input[Optional['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]:
         """
         Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         """
         return pulumi.get(self, "allowed_actions_config")
 
     @allowed_actions_config.setter
-    def allowed_actions_config(self, value: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]):
+    def allowed_actions_config(self, value: pulumi.Input[Optional['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]):
         pulumi.set(self, "allowed_actions_config", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledRepositoriesConfig")
-    def enabled_repositories_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]:
+    def enabled_repositories_config(self) -> pulumi.Input[Optional['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]:
         """
         Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
         """
         return pulumi.get(self, "enabled_repositories_config")
 
     @enabled_repositories_config.setter
-    def enabled_repositories_config(self, value: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]):
+    def enabled_repositories_config(self, value: pulumi.Input[Optional['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]):
         pulumi.set(self, "enabled_repositories_config", value)
 
     @_builtins.property
     @pulumi.getter(name="shaPinningRequired")
-    def sha_pinning_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sha_pinning_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
         """
         return pulumi.get(self, "sha_pinning_required")
 
     @sha_pinning_required.setter
-    def sha_pinning_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sha_pinning_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sha_pinning_required", value)
 
 
 @pulumi.input_type
 class _ActionsOrganizationPermissionsState:
     def __init__(__self__, *,
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
-                 enabled_repositories: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
-                 sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
+                 enabled_repositories: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_repositories_config: pulumi.Input[Optional['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
+                 sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationPermissions resources.
 
@@ -136,62 +136,62 @@ class _ActionsOrganizationPermissionsState:
 
     @_builtins.property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_actions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
-    def allowed_actions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_actions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedActionsConfig")
-    def allowed_actions_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]:
+    def allowed_actions_config(self) -> pulumi.Input[Optional['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]:
         """
         Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         """
         return pulumi.get(self, "allowed_actions_config")
 
     @allowed_actions_config.setter
-    def allowed_actions_config(self, value: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]):
+    def allowed_actions_config(self, value: pulumi.Input[Optional['ActionsOrganizationPermissionsAllowedActionsConfigArgs']]):
         pulumi.set(self, "allowed_actions_config", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledRepositories")
-    def enabled_repositories(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled_repositories(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
         """
         return pulumi.get(self, "enabled_repositories")
 
     @enabled_repositories.setter
-    def enabled_repositories(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled_repositories(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledRepositoriesConfig")
-    def enabled_repositories_config(self) -> Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]:
+    def enabled_repositories_config(self) -> pulumi.Input[Optional['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]:
         """
         Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
         """
         return pulumi.get(self, "enabled_repositories_config")
 
     @enabled_repositories_config.setter
-    def enabled_repositories_config(self, value: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]):
+    def enabled_repositories_config(self, value: pulumi.Input[Optional['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']]):
         pulumi.set(self, "enabled_repositories_config", value)
 
     @_builtins.property
     @pulumi.getter(name="shaPinningRequired")
-    def sha_pinning_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sha_pinning_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
         """
         return pulumi.get(self, "sha_pinning_required")
 
     @sha_pinning_required.setter
-    def sha_pinning_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sha_pinning_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sha_pinning_required", value)
 
 
@@ -201,11 +201,11 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input[Union['ActionsOrganizationPermissionsAllowedActionsConfigArgs', 'ActionsOrganizationPermissionsAllowedActionsConfigArgsDict']]] = None,
-                 enabled_repositories: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_repositories_config: Optional[pulumi.Input[Union['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs', 'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict']]] = None,
-                 sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsAllowedActionsConfigArgs', 'ActionsOrganizationPermissionsAllowedActionsConfigArgsDict']]] = None,
+                 enabled_repositories: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_repositories_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs', 'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict']]] = None,
+                 sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
@@ -308,11 +308,11 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input[Union['ActionsOrganizationPermissionsAllowedActionsConfigArgs', 'ActionsOrganizationPermissionsAllowedActionsConfigArgsDict']]] = None,
-                 enabled_repositories: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_repositories_config: Optional[pulumi.Input[Union['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs', 'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict']]] = None,
-                 sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsAllowedActionsConfigArgs', 'ActionsOrganizationPermissionsAllowedActionsConfigArgsDict']]] = None,
+                 enabled_repositories: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_repositories_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs', 'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict']]] = None,
+                 sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -339,11 +339,11 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-            allowed_actions_config: Optional[pulumi.Input[Union['ActionsOrganizationPermissionsAllowedActionsConfigArgs', 'ActionsOrganizationPermissionsAllowedActionsConfigArgsDict']]] = None,
-            enabled_repositories: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled_repositories_config: Optional[pulumi.Input[Union['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs', 'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict']]] = None,
-            sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ActionsOrganizationPermissions':
+            allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_actions_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsAllowedActionsConfigArgs', 'ActionsOrganizationPermissionsAllowedActionsConfigArgsDict']]] = None,
+            enabled_repositories: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_repositories_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs', 'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict']]] = None,
+            sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ActionsOrganizationPermissions':
         """
         Get an existing ActionsOrganizationPermissions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -151,7 +151,7 @@ def get_organization_role(role_id: Optional[_builtins.int] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         role_id=pulumi.get(__ret__, 'role_id'),
         source=pulumi.get(__ret__, 'source'))
-def get_organization_role_output(role_id: Optional[pulumi.Input[_builtins.int]] = None,
+def get_organization_role_output(role_id: pulumi.Input[Optional[_builtins.int]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationRoleResult]:
     """
     Lookup a custom organization role.

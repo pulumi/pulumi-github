@@ -268,107 +268,107 @@ export interface OrganizationSettingsState {
     /**
      * Whether or not advanced security is enabled for new repositories. Defaults to `false`.
      */
-    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean>;
+    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The billing email address for the organization.
      */
-    billingEmail?: pulumi.Input<string>;
+    billingEmail?: pulumi.Input<string | undefined>;
     /**
      * The blog URL for the organization.
      */
-    blog?: pulumi.Input<string>;
+    blog?: pulumi.Input<string | undefined>;
     /**
      * The company name for the organization.
      */
-    company?: pulumi.Input<string>;
+    company?: pulumi.Input<string | undefined>;
     /**
      * The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
      */
-    defaultRepositoryPermission?: pulumi.Input<string>;
+    defaultRepositoryPermission?: pulumi.Input<string | undefined>;
     /**
      * Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
      */
-    dependabotAlertsEnabledForNewRepositories?: pulumi.Input<boolean>;
+    dependabotAlertsEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
      */
-    dependabotSecurityUpdatesEnabledForNewRepositories?: pulumi.Input<boolean>;
+    dependabotSecurityUpdatesEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
      */
-    dependencyGraphEnabledForNewRepositories?: pulumi.Input<boolean>;
+    dependencyGraphEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The description for the organization.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The email address for the organization.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Whether or not organization projects are enabled for the organization.
      */
-    hasOrganizationProjects?: pulumi.Input<boolean>;
+    hasOrganizationProjects?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not repository projects are enabled for the organization.
      */
-    hasRepositoryProjects?: pulumi.Input<boolean>;
+    hasRepositoryProjects?: pulumi.Input<boolean | undefined>;
     /**
      * The location for the organization.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Whether or not organization members can create new internal repositories. For Enterprise Organizations only.
      */
-    membersCanCreateInternalRepositories?: pulumi.Input<boolean>;
+    membersCanCreateInternalRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new pages. Defaults to `true`.
      */
-    membersCanCreatePages?: pulumi.Input<boolean>;
+    membersCanCreatePages?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new private pages. Defaults to `true`.
      */
-    membersCanCreatePrivatePages?: pulumi.Input<boolean>;
+    membersCanCreatePrivatePages?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new private repositories. Defaults to `true`.
      */
-    membersCanCreatePrivateRepositories?: pulumi.Input<boolean>;
+    membersCanCreatePrivateRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new public pages. Defaults to `true`.
      */
-    membersCanCreatePublicPages?: pulumi.Input<boolean>;
+    membersCanCreatePublicPages?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new public repositories. Defaults to `true`.
      */
-    membersCanCreatePublicRepositories?: pulumi.Input<boolean>;
+    membersCanCreatePublicRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new repositories. Defaults to `true`.
      */
-    membersCanCreateRepositories?: pulumi.Input<boolean>;
+    membersCanCreateRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can fork private repositories. Defaults to `false`.
      */
-    membersCanForkPrivateRepositories?: pulumi.Input<boolean>;
+    membersCanForkPrivateRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The name for the organization.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
      */
-    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
      */
-    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The Twitter username for the organization.
      */
-    twitterUsername?: pulumi.Input<string>;
+    twitterUsername?: pulumi.Input<string | undefined>;
     /**
      * Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
      */
-    webCommitSignoffRequired?: pulumi.Input<boolean>;
+    webCommitSignoffRequired?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -378,7 +378,7 @@ export interface OrganizationSettingsArgs {
     /**
      * Whether or not advanced security is enabled for new repositories. Defaults to `false`.
      */
-    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean>;
+    advancedSecurityEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The billing email address for the organization.
      */
@@ -386,97 +386,97 @@ export interface OrganizationSettingsArgs {
     /**
      * The blog URL for the organization.
      */
-    blog?: pulumi.Input<string>;
+    blog?: pulumi.Input<string | undefined>;
     /**
      * The company name for the organization.
      */
-    company?: pulumi.Input<string>;
+    company?: pulumi.Input<string | undefined>;
     /**
      * The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
      */
-    defaultRepositoryPermission?: pulumi.Input<string>;
+    defaultRepositoryPermission?: pulumi.Input<string | undefined>;
     /**
      * Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
      */
-    dependabotAlertsEnabledForNewRepositories?: pulumi.Input<boolean>;
+    dependabotAlertsEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
      */
-    dependabotSecurityUpdatesEnabledForNewRepositories?: pulumi.Input<boolean>;
+    dependabotSecurityUpdatesEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
      */
-    dependencyGraphEnabledForNewRepositories?: pulumi.Input<boolean>;
+    dependencyGraphEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The description for the organization.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The email address for the organization.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Whether or not organization projects are enabled for the organization.
      */
-    hasOrganizationProjects?: pulumi.Input<boolean>;
+    hasOrganizationProjects?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not repository projects are enabled for the organization.
      */
-    hasRepositoryProjects?: pulumi.Input<boolean>;
+    hasRepositoryProjects?: pulumi.Input<boolean | undefined>;
     /**
      * The location for the organization.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Whether or not organization members can create new internal repositories. For Enterprise Organizations only.
      */
-    membersCanCreateInternalRepositories?: pulumi.Input<boolean>;
+    membersCanCreateInternalRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new pages. Defaults to `true`.
      */
-    membersCanCreatePages?: pulumi.Input<boolean>;
+    membersCanCreatePages?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new private pages. Defaults to `true`.
      */
-    membersCanCreatePrivatePages?: pulumi.Input<boolean>;
+    membersCanCreatePrivatePages?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new private repositories. Defaults to `true`.
      */
-    membersCanCreatePrivateRepositories?: pulumi.Input<boolean>;
+    membersCanCreatePrivateRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new public pages. Defaults to `true`.
      */
-    membersCanCreatePublicPages?: pulumi.Input<boolean>;
+    membersCanCreatePublicPages?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new public repositories. Defaults to `true`.
      */
-    membersCanCreatePublicRepositories?: pulumi.Input<boolean>;
+    membersCanCreatePublicRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can create new repositories. Defaults to `true`.
      */
-    membersCanCreateRepositories?: pulumi.Input<boolean>;
+    membersCanCreateRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not organization members can fork private repositories. Defaults to `false`.
      */
-    membersCanForkPrivateRepositories?: pulumi.Input<boolean>;
+    membersCanForkPrivateRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The name for the organization.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
      */
-    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
      */
-    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean>;
+    secretScanningPushProtectionEnabledForNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * The Twitter username for the organization.
      */
-    twitterUsername?: pulumi.Input<string>;
+    twitterUsername?: pulumi.Input<string | undefined>;
     /**
      * Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
      */
-    webCommitSignoffRequired?: pulumi.Input<boolean>;
+    webCommitSignoffRequired?: pulumi.Input<boolean | undefined>;
 }

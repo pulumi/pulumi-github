@@ -23,17 +23,17 @@ class BranchProtectionArgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[_builtins.str],
                  repository_id: pulumi.Input[_builtins.str],
-                 allows_deletions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allows_force_pushes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_push_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_linear_history: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
-                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
-                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]] = None):
+                 allows_deletions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allows_force_pushes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_push_bypassers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
+                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
+                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]] = None):
         """
         The set of arguments for constructing a BranchProtection resource.
 
@@ -102,153 +102,153 @@ class BranchProtectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowsDeletions")
-    def allows_deletions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allows_deletions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` to allow the branch to be deleted.
         """
         return pulumi.get(self, "allows_deletions")
 
     @allows_deletions.setter
-    def allows_deletions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allows_deletions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allows_deletions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowsForcePushes")
-    def allows_force_pushes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allows_force_pushes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
         """
         return pulumi.get(self, "allows_force_pushes")
 
     @allows_force_pushes.setter
-    def allows_force_pushes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allows_force_pushes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allows_force_pushes", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceAdmins")
-    def enforce_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` enforces status checks for repository administrators.
         """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
-    def enforce_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="forcePushBypassers")
-    def force_push_bypassers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def force_push_bypassers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
         """
         return pulumi.get(self, "force_push_bypassers")
 
     @force_push_bypassers.setter
-    def force_push_bypassers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def force_push_bypassers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "force_push_bypassers", value)
 
     @_builtins.property
     @pulumi.getter(name="lockBranch")
-    def lock_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def lock_branch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
         """
         return pulumi.get(self, "lock_branch")
 
     @lock_branch.setter
-    def lock_branch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def lock_branch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "lock_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="requireConversationResolution")
-    def require_conversation_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_conversation_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
-    def require_conversation_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_conversation_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_conversation_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSignedCommits")
-    def require_signed_commits(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_signed_commits(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all commits to be signed with GPG.
         """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
-    def require_signed_commits(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_signed_commits(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_signed_commits", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredLinearHistory")
-    def required_linear_history(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_linear_history(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         """
         return pulumi.get(self, "required_linear_history")
 
     @required_linear_history.setter
-    def required_linear_history(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_linear_history(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_linear_history", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredPullRequestReviews")
-    def required_pull_request_reviews(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
+    def required_pull_request_reviews(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
         """
         Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
-    def required_pull_request_reviews(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]):
+    def required_pull_request_reviews(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]):
         pulumi.set(self, "required_pull_request_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredStatusChecks")
-    def required_status_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]:
+    def required_status_checks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]:
         """
         Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
-    def required_status_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]):
+    def required_status_checks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]):
         pulumi.set(self, "required_status_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictPushes")
-    def restrict_pushes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]:
+    def restrict_pushes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]:
         """
         Restrict pushes to matching branches. See Restrict Pushes below for details.
         """
         return pulumi.get(self, "restrict_pushes")
 
     @restrict_pushes.setter
-    def restrict_pushes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]):
+    def restrict_pushes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]):
         pulumi.set(self, "restrict_pushes", value)
 
 
 @pulumi.input_type
 class _BranchProtectionState:
     def __init__(__self__, *,
-                 allows_deletions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allows_force_pushes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_push_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_linear_history: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
-                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
-                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]] = None):
+                 allows_deletions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allows_force_pushes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_push_bypassers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
+                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
+                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]] = None):
         """
         Input properties used for looking up and filtering BranchProtection resources.
 
@@ -295,158 +295,158 @@ class _BranchProtectionState:
 
     @_builtins.property
     @pulumi.getter(name="allowsDeletions")
-    def allows_deletions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allows_deletions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` to allow the branch to be deleted.
         """
         return pulumi.get(self, "allows_deletions")
 
     @allows_deletions.setter
-    def allows_deletions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allows_deletions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allows_deletions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowsForcePushes")
-    def allows_force_pushes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allows_force_pushes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
         """
         return pulumi.get(self, "allows_force_pushes")
 
     @allows_force_pushes.setter
-    def allows_force_pushes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allows_force_pushes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allows_force_pushes", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceAdmins")
-    def enforce_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` enforces status checks for repository administrators.
         """
         return pulumi.get(self, "enforce_admins")
 
     @enforce_admins.setter
-    def enforce_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="forcePushBypassers")
-    def force_push_bypassers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def force_push_bypassers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
         """
         return pulumi.get(self, "force_push_bypassers")
 
     @force_push_bypassers.setter
-    def force_push_bypassers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def force_push_bypassers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "force_push_bypassers", value)
 
     @_builtins.property
     @pulumi.getter(name="lockBranch")
-    def lock_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def lock_branch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
         """
         return pulumi.get(self, "lock_branch")
 
     @lock_branch.setter
-    def lock_branch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def lock_branch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "lock_branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the protection rule pattern.
         """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or node ID of the repository associated with this branch protection rule.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requireConversationResolution")
-    def require_conversation_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_conversation_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         """
         return pulumi.get(self, "require_conversation_resolution")
 
     @require_conversation_resolution.setter
-    def require_conversation_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_conversation_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_conversation_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSignedCommits")
-    def require_signed_commits(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_signed_commits(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` requires all commits to be signed with GPG.
         """
         return pulumi.get(self, "require_signed_commits")
 
     @require_signed_commits.setter
-    def require_signed_commits(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_signed_commits(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_signed_commits", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredLinearHistory")
-    def required_linear_history(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_linear_history(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         """
         return pulumi.get(self, "required_linear_history")
 
     @required_linear_history.setter
-    def required_linear_history(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_linear_history(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_linear_history", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredPullRequestReviews")
-    def required_pull_request_reviews(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
+    def required_pull_request_reviews(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]:
         """
         Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
         """
         return pulumi.get(self, "required_pull_request_reviews")
 
     @required_pull_request_reviews.setter
-    def required_pull_request_reviews(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]):
+    def required_pull_request_reviews(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]]):
         pulumi.set(self, "required_pull_request_reviews", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredStatusChecks")
-    def required_status_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]:
+    def required_status_checks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]:
         """
         Enforce restrictions for required status checks. See Required Status Checks below for details.
         """
         return pulumi.get(self, "required_status_checks")
 
     @required_status_checks.setter
-    def required_status_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]):
+    def required_status_checks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]]):
         pulumi.set(self, "required_status_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictPushes")
-    def restrict_pushes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]:
+    def restrict_pushes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]:
         """
         Restrict pushes to matching branches. See Restrict Pushes below for details.
         """
         return pulumi.get(self, "restrict_pushes")
 
     @restrict_pushes.setter
-    def restrict_pushes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]):
+    def restrict_pushes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchProtectionRestrictPushArgs']]]]):
         pulumi.set(self, "restrict_pushes", value)
 
 
@@ -456,19 +456,19 @@ class BranchProtection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allows_deletions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allows_force_pushes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_push_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_linear_history: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
-                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
-                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
+                 allows_deletions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allows_force_pushes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_push_bypassers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
+                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
+                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
                  __props__=None):
         """
         Protects a GitHub branch.
@@ -637,19 +637,19 @@ class BranchProtection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allows_deletions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allows_force_pushes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_push_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_linear_history: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
-                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
-                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
+                 allows_deletions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allows_force_pushes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_push_bypassers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
+                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
+                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -686,19 +686,19 @@ class BranchProtection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allows_deletions: Optional[pulumi.Input[_builtins.bool]] = None,
-            allows_force_pushes: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforce_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-            force_push_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            lock_branch: Optional[pulumi.Input[_builtins.bool]] = None,
-            pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-            require_conversation_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-            require_signed_commits: Optional[pulumi.Input[_builtins.bool]] = None,
-            required_linear_history: Optional[pulumi.Input[_builtins.bool]] = None,
-            required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
-            required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
-            restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None) -> 'BranchProtection':
+            allows_deletions: pulumi.Input[Optional[_builtins.bool]] = None,
+            allows_force_pushes: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_push_bypassers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            lock_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+            require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+            required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+            required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
+            required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
+            restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None) -> 'BranchProtection':
         """
         Get an existing BranchProtection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

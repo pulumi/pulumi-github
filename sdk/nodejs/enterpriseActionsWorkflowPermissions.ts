@@ -123,15 +123,15 @@ export interface EnterpriseActionsWorkflowPermissionsState {
     /**
      * Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
      */
-    canApprovePullRequestReviews?: pulumi.Input<boolean>;
+    canApprovePullRequestReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
      */
-    defaultWorkflowPermissions?: pulumi.Input<string>;
+    defaultWorkflowPermissions?: pulumi.Input<string | undefined>;
     /**
      * The slug of the enterprise.
      */
-    enterpriseSlug?: pulumi.Input<string>;
+    enterpriseSlug?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -141,11 +141,11 @@ export interface EnterpriseActionsWorkflowPermissionsArgs {
     /**
      * Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
      */
-    canApprovePullRequestReviews?: pulumi.Input<boolean>;
+    canApprovePullRequestReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
      */
-    defaultWorkflowPermissions?: pulumi.Input<string>;
+    defaultWorkflowPermissions?: pulumi.Input<string | undefined>;
     /**
      * The slug of the enterprise.
      */

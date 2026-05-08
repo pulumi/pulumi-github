@@ -90,9 +90,9 @@ export function getActionsEnvironmentSecretsOutput(args: GetActionsEnvironmentSe
  */
 export interface GetActionsEnvironmentSecretsOutputArgs {
     environment: pulumi.Input<string>;
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * Name of the secret
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

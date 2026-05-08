@@ -209,8 +209,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -251,8 +251,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -293,8 +293,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -335,8 +335,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -377,8 +377,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -418,8 +418,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -459,8 +459,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -500,8 +500,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -541,8 +541,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -582,8 +582,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -623,8 +623,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -664,8 +664,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -705,8 +705,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -746,8 +746,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -787,8 +787,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -827,8 +827,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -864,8 +864,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -901,8 +901,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -938,8 +938,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -975,8 +975,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1012,8 +1012,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1049,8 +1049,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1087,8 +1087,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1125,8 +1125,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1163,8 +1163,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1201,8 +1201,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1239,8 +1239,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1277,8 +1277,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1315,8 +1315,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1352,8 +1352,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1389,8 +1389,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1426,8 +1426,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1463,8 +1463,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1500,8 +1500,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1537,8 +1537,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1574,8 +1574,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1611,8 +1611,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1648,8 +1648,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1685,8 +1685,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1722,8 +1722,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1759,8 +1759,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1796,8 +1796,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1833,8 +1833,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1870,8 +1870,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1907,8 +1907,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1944,8 +1944,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1981,8 +1981,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2018,8 +2018,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2055,8 +2055,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2092,8 +2092,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2131,8 +2131,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2172,8 +2172,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2213,8 +2213,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2254,8 +2254,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2295,8 +2295,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2335,8 +2335,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2375,8 +2375,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2415,8 +2415,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2455,8 +2455,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2495,8 +2495,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2535,8 +2535,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2575,8 +2575,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2615,8 +2615,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2655,8 +2655,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2695,8 +2695,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2735,8 +2735,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2775,8 +2775,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2815,8 +2815,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2855,8 +2855,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2895,8 +2895,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2935,8 +2935,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2975,8 +2975,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3015,8 +3015,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3055,8 +3055,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3095,8 +3095,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3135,8 +3135,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3175,8 +3175,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3215,8 +3215,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3255,8 +3255,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetActionsVariablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3297,8 +3297,8 @@ public final class GithubFunctions {
      * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3343,8 +3343,8 @@ public final class GithubFunctions {
      * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3389,8 +3389,8 @@ public final class GithubFunctions {
      * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3435,8 +3435,8 @@ public final class GithubFunctions {
      * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3481,8 +3481,8 @@ public final class GithubFunctions {
      * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3525,8 +3525,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3566,8 +3566,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3607,8 +3607,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3648,8 +3648,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3689,8 +3689,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3730,8 +3730,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3770,8 +3770,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3810,8 +3810,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3850,8 +3850,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3890,8 +3890,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3930,8 +3930,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3968,8 +3968,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4006,8 +4006,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4044,8 +4044,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4082,8 +4082,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4120,8 +4120,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4158,8 +4158,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4195,8 +4195,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4232,8 +4232,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4269,8 +4269,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4306,8 +4306,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4343,8 +4343,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4380,8 +4380,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4417,8 +4417,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4456,8 +4456,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4497,8 +4497,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4538,8 +4538,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4579,8 +4579,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4620,8 +4620,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4660,8 +4660,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4704,8 +4704,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4748,8 +4748,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4792,8 +4792,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4836,8 +4836,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4880,8 +4880,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4924,8 +4924,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4968,8 +4968,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5006,8 +5006,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5044,8 +5044,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5082,8 +5082,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5120,8 +5120,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5158,8 +5158,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5196,8 +5196,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5233,8 +5233,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5270,8 +5270,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5307,8 +5307,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5344,8 +5344,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5381,8 +5381,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5418,8 +5418,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5455,8 +5455,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5493,8 +5493,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCollaboratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5534,8 +5534,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCollaboratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5575,8 +5575,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCollaboratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5616,8 +5616,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCollaboratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5657,8 +5657,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetCollaboratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5698,8 +5698,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5736,8 +5736,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5774,8 +5774,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5812,8 +5812,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5850,8 +5850,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5888,8 +5888,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5926,8 +5926,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5963,8 +5963,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6000,8 +6000,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6037,8 +6037,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6074,8 +6074,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6111,8 +6111,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6148,8 +6148,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6185,8 +6185,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6224,8 +6224,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6265,8 +6265,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6306,8 +6306,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6347,8 +6347,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6388,8 +6388,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6428,8 +6428,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6468,8 +6468,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6508,8 +6508,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6548,8 +6548,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6588,8 +6588,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6628,8 +6628,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6668,8 +6668,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6708,8 +6708,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetEnterpriseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6748,8 +6748,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetEnterpriseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6788,8 +6788,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetEnterpriseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6828,8 +6828,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetEnterpriseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6868,8 +6868,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetEnterpriseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6907,8 +6907,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6947,8 +6947,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6987,8 +6987,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7027,8 +7027,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7067,8 +7067,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7107,8 +7107,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7147,8 +7147,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7188,8 +7188,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetGithubAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7228,8 +7228,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetGithubAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7268,8 +7268,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetGithubAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7308,8 +7308,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetGithubAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7348,8 +7348,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetGithubAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7387,8 +7387,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7424,8 +7424,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7461,8 +7461,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7498,8 +7498,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7535,8 +7535,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7572,8 +7572,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7609,8 +7609,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7685,8 +7685,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7728,8 +7728,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7771,8 +7771,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7814,8 +7814,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7857,8 +7857,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7897,8 +7897,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7937,8 +7937,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7977,8 +7977,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8017,8 +8017,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8057,8 +8057,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8098,8 +8098,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8137,8 +8137,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8176,8 +8176,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8215,8 +8215,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8254,8 +8254,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8293,8 +8293,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8332,8 +8332,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8370,8 +8370,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8410,8 +8410,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8450,8 +8450,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8490,8 +8490,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8530,8 +8530,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8574,8 +8574,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8618,8 +8618,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8662,8 +8662,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8706,8 +8706,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8750,8 +8750,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8790,8 +8790,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8828,8 +8828,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8866,8 +8866,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8904,8 +8904,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8942,8 +8942,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8980,8 +8980,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9018,8 +9018,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9057,8 +9057,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9096,8 +9096,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9135,8 +9135,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9174,8 +9174,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9213,8 +9213,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9252,8 +9252,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9291,8 +9291,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9331,8 +9331,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9373,8 +9373,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9415,8 +9415,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9457,8 +9457,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9499,8 +9499,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9540,8 +9540,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9589,8 +9589,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9638,8 +9638,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9687,8 +9687,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9736,8 +9736,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9785,8 +9785,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9834,8 +9834,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9882,8 +9882,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9922,8 +9922,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9962,8 +9962,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10002,8 +10002,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10042,8 +10042,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10082,8 +10082,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10131,8 +10131,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10180,8 +10180,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10229,8 +10229,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10278,8 +10278,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10327,8 +10327,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10374,8 +10374,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10421,8 +10421,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10468,8 +10468,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10515,8 +10515,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10561,8 +10561,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10609,8 +10609,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10657,8 +10657,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10705,8 +10705,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10753,8 +10753,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10801,8 +10801,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10849,8 +10849,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10899,8 +10899,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10938,8 +10938,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10977,8 +10977,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11016,8 +11016,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11055,8 +11055,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11094,8 +11094,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11133,8 +11133,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11170,8 +11170,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11207,8 +11207,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11244,8 +11244,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11281,8 +11281,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11318,8 +11318,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11355,8 +11355,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11392,8 +11392,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11432,8 +11432,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11464,8 +11464,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11506,8 +11506,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11538,8 +11538,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11580,8 +11580,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11612,8 +11612,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11654,8 +11654,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11686,8 +11686,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11728,8 +11728,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11760,8 +11760,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11802,8 +11802,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11834,8 +11834,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11876,8 +11876,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11908,8 +11908,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11949,8 +11949,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11988,8 +11988,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12027,8 +12027,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12066,8 +12066,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12105,8 +12105,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12144,8 +12144,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12183,8 +12183,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12221,8 +12221,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRefArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12263,8 +12263,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRefArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12305,8 +12305,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRefArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12347,8 +12347,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRefArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12389,8 +12389,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRefArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12433,8 +12433,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12470,8 +12470,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12515,8 +12515,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12552,8 +12552,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12597,8 +12597,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12634,8 +12634,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12679,8 +12679,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12716,8 +12716,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12761,8 +12761,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12798,8 +12798,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12843,8 +12843,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12882,8 +12882,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12934,8 +12934,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12973,8 +12973,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13025,8 +13025,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13064,8 +13064,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13116,8 +13116,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13155,8 +13155,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13207,8 +13207,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13246,8 +13246,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetReleaseArgs;
      * import com.pulumi.github.inputs.GetReleaseAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13299,8 +13299,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13343,8 +13343,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13387,8 +13387,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13431,8 +13431,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13475,8 +13475,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13516,8 +13516,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13556,8 +13556,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13596,8 +13596,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13636,8 +13636,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13676,8 +13676,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13716,8 +13716,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13756,8 +13756,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13796,8 +13796,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13836,8 +13836,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13876,8 +13876,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13916,8 +13916,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13956,8 +13956,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13996,8 +13996,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14036,8 +14036,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14076,8 +14076,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14116,8 +14116,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14156,8 +14156,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14196,8 +14196,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14236,8 +14236,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14276,8 +14276,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14316,8 +14316,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14356,8 +14356,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14396,8 +14396,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14436,8 +14436,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14476,8 +14476,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14516,8 +14516,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14556,8 +14556,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14598,8 +14598,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14641,8 +14641,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14684,8 +14684,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14727,8 +14727,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14770,8 +14770,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14811,8 +14811,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14852,8 +14852,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14893,8 +14893,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14934,8 +14934,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14975,8 +14975,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15016,8 +15016,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15056,8 +15056,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15096,8 +15096,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15136,8 +15136,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15176,8 +15176,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15217,8 +15217,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15260,8 +15260,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15303,8 +15303,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15346,8 +15346,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15389,8 +15389,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15431,8 +15431,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15473,8 +15473,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15515,8 +15515,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15557,8 +15557,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15599,8 +15599,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15641,8 +15641,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15681,8 +15681,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15721,8 +15721,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15761,8 +15761,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15801,8 +15801,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15841,8 +15841,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15882,8 +15882,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15923,8 +15923,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15964,8 +15964,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16005,8 +16005,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16046,8 +16046,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16090,8 +16090,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16134,8 +16134,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16178,8 +16178,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16222,8 +16222,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryPullRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16266,8 +16266,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16306,8 +16306,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16346,8 +16346,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16386,8 +16386,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16426,8 +16426,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16466,8 +16466,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16506,8 +16506,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16548,8 +16548,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16590,8 +16590,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16632,8 +16632,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16674,8 +16674,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16716,8 +16716,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16756,8 +16756,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRestApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16796,8 +16796,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRestApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16836,8 +16836,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRestApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16876,8 +16876,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRestApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16916,8 +16916,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetRestApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16955,8 +16955,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16992,8 +16992,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17029,8 +17029,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17066,8 +17066,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17103,8 +17103,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17140,8 +17140,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17177,8 +17177,8 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17215,8 +17215,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17255,8 +17255,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17295,8 +17295,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17335,8 +17335,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17375,8 +17375,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17417,8 +17417,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.inputs.GetRepositoryArgs;
      * import com.pulumi.github.inputs.GetBranchArgs;
      * import com.pulumi.github.inputs.GetTreeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17471,8 +17471,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.inputs.GetRepositoryArgs;
      * import com.pulumi.github.inputs.GetBranchArgs;
      * import com.pulumi.github.inputs.GetTreeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17525,8 +17525,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.inputs.GetRepositoryArgs;
      * import com.pulumi.github.inputs.GetBranchArgs;
      * import com.pulumi.github.inputs.GetTreeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17579,8 +17579,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.inputs.GetRepositoryArgs;
      * import com.pulumi.github.inputs.GetBranchArgs;
      * import com.pulumi.github.inputs.GetTreeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17633,8 +17633,8 @@ public final class GithubFunctions {
      * import com.pulumi.github.inputs.GetRepositoryArgs;
      * import com.pulumi.github.inputs.GetBranchArgs;
      * import com.pulumi.github.inputs.GetTreeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17685,8 +17685,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17732,8 +17732,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17779,8 +17779,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17826,8 +17826,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17873,8 +17873,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17921,8 +17921,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17962,8 +17962,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18003,8 +18003,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18044,8 +18044,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18085,8 +18085,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18125,8 +18125,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18171,8 +18171,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18217,8 +18217,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18263,8 +18263,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18309,8 +18309,8 @@ public final class GithubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

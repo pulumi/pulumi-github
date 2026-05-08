@@ -261,39 +261,39 @@ export interface OrganizationRulesetState {
     /**
      * (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
      */
-    bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[]>;
+    bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[] | undefined>;
     /**
      * (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `refName` is required alongside one of `repositoryName` or `repositoryId`. For `push` targets, `refName` must NOT be set - only `repositoryName` or `repositoryId` should be used. (see below for nested schema)
      */
-    conditions?: pulumi.Input<inputs.OrganizationRulesetConditions>;
+    conditions?: pulumi.Input<inputs.OrganizationRulesetConditions | undefined>;
     /**
      * (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
      */
-    enforcement?: pulumi.Input<string>;
+    enforcement?: pulumi.Input<string | undefined>;
     /**
      * (String)
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (String) GraphQL global node id for use with v4 API.
      */
-    nodeId?: pulumi.Input<string>;
+    nodeId?: pulumi.Input<string | undefined>;
     /**
      * (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
      */
-    rules?: pulumi.Input<inputs.OrganizationRulesetRules>;
+    rules?: pulumi.Input<inputs.OrganizationRulesetRules | undefined>;
     /**
      * (Number) GitHub ID for the ruleset.
      */
-    rulesetId?: pulumi.Input<number>;
+    rulesetId?: pulumi.Input<number | undefined>;
     /**
      * (String) Possible values are `branch`, `tag` and `push`.
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -303,11 +303,11 @@ export interface OrganizationRulesetArgs {
     /**
      * (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
      */
-    bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[]>;
+    bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[] | undefined>;
     /**
      * (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `refName` is required alongside one of `repositoryName` or `repositoryId`. For `push` targets, `refName` must NOT be set - only `repositoryName` or `repositoryId` should be used. (see below for nested schema)
      */
-    conditions?: pulumi.Input<inputs.OrganizationRulesetConditions>;
+    conditions?: pulumi.Input<inputs.OrganizationRulesetConditions | undefined>;
     /**
      * (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
      */
@@ -315,7 +315,7 @@ export interface OrganizationRulesetArgs {
     /**
      * (String) The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
      */

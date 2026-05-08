@@ -91,9 +91,9 @@ export interface GetDependabotSecretsOutputArgs {
     /**
      * Full name of the repository (in `org/name` format).
      */
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

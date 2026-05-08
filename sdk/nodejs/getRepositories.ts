@@ -114,7 +114,7 @@ export interface GetRepositoriesOutputArgs {
     /**
      * Returns a list of found repository IDs
      */
-    includeRepoId?: pulumi.Input<boolean>;
+    includeRepoId?: pulumi.Input<boolean | undefined>;
     /**
      * Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
      */
@@ -122,9 +122,9 @@ export interface GetRepositoriesOutputArgs {
     /**
      * Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
      */
-    resultsPerPage?: pulumi.Input<number>;
+    resultsPerPage?: pulumi.Input<number | undefined>;
     /**
      * Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
      */
-    sort?: pulumi.Input<string>;
+    sort?: pulumi.Input<string | undefined>;
 }

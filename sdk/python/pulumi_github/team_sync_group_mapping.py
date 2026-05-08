@@ -22,7 +22,7 @@ __all__ = ['TeamSyncGroupMappingArgs', 'TeamSyncGroupMapping']
 class TeamSyncGroupMappingArgs:
     def __init__(__self__, *,
                  team_slug: pulumi.Input[_builtins.str],
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None):
         """
         The set of arguments for constructing a TeamSyncGroupMapping resource.
 
@@ -50,7 +50,7 @@ class TeamSyncGroupMappingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
         """
         An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
         ___
@@ -60,16 +60,16 @@ class TeamSyncGroupMappingArgs:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
 
 @pulumi.input_type
 class _TeamSyncGroupMappingState:
     def __init__(__self__, *,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None):
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamSyncGroupMapping resources.
 
@@ -88,16 +88,16 @@ class _TeamSyncGroupMappingState:
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
         """
         An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
         ___
@@ -107,19 +107,19 @@ class _TeamSyncGroupMappingState:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="teamSlug")
-    def team_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Slug of the team
         """
         return pulumi.get(self, "team_slug")
 
     @team_slug.setter
-    def team_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_slug", value)
 
 
@@ -129,8 +129,8 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
@@ -147,7 +147,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         example_groups = github.get_organization_team_sync_groups()
         example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
-            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"].items()].apply(lambda entries: [github.TeamSyncGroupMappingGroupArgs(
+            groups=[{"key": k, "value": v} for k, v in sorted([g for g in example_groups.groups if g.group_name == "some_team_group"].items())].apply(lambda entries: [github.TeamSyncGroupMappingGroupArgs(
                 group_id=entry["value"].group_id,
                 group_name=entry["value"].group_name,
                 group_description=entry["value"].group_description,
@@ -193,7 +193,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         example_groups = github.get_organization_team_sync_groups()
         example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
-            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"].items()].apply(lambda entries: [github.TeamSyncGroupMappingGroupArgs(
+            groups=[{"key": k, "value": v} for k, v in sorted([g for g in example_groups.groups if g.group_name == "some_team_group"].items())].apply(lambda entries: [github.TeamSyncGroupMappingGroupArgs(
                 group_id=entry["value"].group_id,
                 group_name=entry["value"].group_name,
                 group_description=entry["value"].group_description,
@@ -225,8 +225,8 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -251,9 +251,9 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
-            team_slug: Optional[pulumi.Input[_builtins.str]] = None) -> 'TeamSyncGroupMapping':
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamSyncGroupMapping':
         """
         Get an existing TeamSyncGroupMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

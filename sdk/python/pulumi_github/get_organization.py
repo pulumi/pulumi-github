@@ -451,9 +451,9 @@ def get_organization(ignore_archived_repos: Optional[_builtins.bool] = None,
         two_factor_requirement_enabled=pulumi.get(__ret__, 'two_factor_requirement_enabled'),
         users=pulumi.get(__ret__, 'users'),
         web_commit_signoff_required=pulumi.get(__ret__, 'web_commit_signoff_required'))
-def get_organization_output(ignore_archived_repos: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                            name: Optional[pulumi.Input[_builtins.str]] = None,
-                            summary_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_organization_output(ignore_archived_repos: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                            name: pulumi.Input[Optional[_builtins.str]] = None,
+                            summary_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Use this data source to retrieve basic information about a GitHub Organization.

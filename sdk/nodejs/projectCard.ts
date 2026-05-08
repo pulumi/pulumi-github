@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     name: "Backlog",
  * });
  * const card = new github.ProjectCard("card", {
- *     columnId: column.columnId,
+ *     columnId: column.columnId.apply(x =>String(x)),
  *     note: "## Unaccepted 👇",
  * });
  * ```
@@ -55,7 +55,7 @@ import * as utilities from "./utilities";
  *     name: "Backlog",
  * });
  * const testProjectCard = new github.ProjectCard("test", {
- *     columnId: testProjectColumn.columnId,
+ *     columnId: testProjectColumn.columnId.apply(x =>String(x)),
  *     contentId: testIssue.issueId,
  *     contentType: "Issue",
  * });
@@ -165,27 +165,27 @@ export interface ProjectCardState {
     /**
      * The ID of the card.
      */
-    cardId?: pulumi.Input<number>;
+    cardId?: pulumi.Input<number | undefined>;
     /**
      * The ID of the card.
      */
-    columnId?: pulumi.Input<string>;
+    columnId?: pulumi.Input<string | undefined>;
     /**
      * `github_issue.issue_id`.
      */
-    contentId?: pulumi.Input<number>;
+    contentId?: pulumi.Input<number | undefined>;
     /**
      * Must be either `Issue` or `PullRequest`
      *
      * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
      * See note example or issue example for more information.
      */
-    contentType?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The note contents of the card. Markdown supported.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,16 +199,16 @@ export interface ProjectCardArgs {
     /**
      * `github_issue.issue_id`.
      */
-    contentId?: pulumi.Input<number>;
+    contentId?: pulumi.Input<number | undefined>;
     /**
      * Must be either `Issue` or `PullRequest`
      *
      * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
      * See note example or issue example for more information.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * The note contents of the card. Markdown supported.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
 }

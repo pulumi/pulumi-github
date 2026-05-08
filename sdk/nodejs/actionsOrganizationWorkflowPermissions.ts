@@ -124,15 +124,15 @@ export interface ActionsOrganizationWorkflowPermissionsState {
     /**
      * Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
      */
-    canApprovePullRequestReviews?: pulumi.Input<boolean>;
+    canApprovePullRequestReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
      */
-    defaultWorkflowPermissions?: pulumi.Input<string>;
+    defaultWorkflowPermissions?: pulumi.Input<string | undefined>;
     /**
      * The slug of the organization.
      */
-    organizationSlug?: pulumi.Input<string>;
+    organizationSlug?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,11 +142,11 @@ export interface ActionsOrganizationWorkflowPermissionsArgs {
     /**
      * Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
      */
-    canApprovePullRequestReviews?: pulumi.Input<boolean>;
+    canApprovePullRequestReviews?: pulumi.Input<boolean | undefined>;
     /**
      * The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
      */
-    defaultWorkflowPermissions?: pulumi.Input<string>;
+    defaultWorkflowPermissions?: pulumi.Input<string | undefined>;
     /**
      * The slug of the organization.
      */

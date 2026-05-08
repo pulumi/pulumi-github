@@ -107,7 +107,7 @@ def get_organization_role_users(role_id: Optional[_builtins.int] = None,
         id=pulumi.get(__ret__, 'id'),
         role_id=pulumi.get(__ret__, 'role_id'),
         users=pulumi.get(__ret__, 'users'))
-def get_organization_role_users_output(role_id: Optional[pulumi.Input[_builtins.int]] = None,
+def get_organization_role_users_output(role_id: pulumi.Input[Optional[_builtins.int]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationRoleUsersResult]:
     """
     Lookup all users assigned to a custom organization role.

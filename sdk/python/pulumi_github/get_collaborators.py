@@ -140,10 +140,10 @@ def get_collaborators(affiliation: Optional[_builtins.str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         permission=pulumi.get(__ret__, 'permission'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             owner: Optional[pulumi.Input[_builtins.str]] = None,
-                             permission: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_collaborators_output(affiliation: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             owner: pulumi.Input[Optional[_builtins.str]] = None,
+                             permission: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             repository: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollaboratorsResult]:
     """
     Use this data source to retrieve the collaborators for a given repository.

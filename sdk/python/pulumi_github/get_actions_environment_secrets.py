@@ -125,9 +125,9 @@ def get_actions_environment_secrets(environment: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_actions_environment_secrets_output(environment: Optional[pulumi.Input[_builtins.str]] = None,
-                                           full_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_actions_environment_secrets_output(environment: pulumi.Input[Optional[_builtins.str]] = None,
+                                           full_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsEnvironmentSecretsResult]:
     """
     Use this data source to retrieve the list of secrets of the repository environment.

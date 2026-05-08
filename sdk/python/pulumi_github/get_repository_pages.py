@@ -201,7 +201,7 @@ def get_repository_pages(repository: Optional[_builtins.str] = None,
         public=pulumi.get(__ret__, 'public'),
         repository=pulumi.get(__ret__, 'repository'),
         sources=pulumi.get(__ret__, 'sources'))
-def get_repository_pages_output(repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_pages_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryPagesResult]:
     """
     Use this data source to retrieve GitHub Pages configuration for a repository.

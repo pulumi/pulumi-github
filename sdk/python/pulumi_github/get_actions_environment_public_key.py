@@ -124,8 +124,8 @@ def get_actions_environment_public_key(environment: Optional[_builtins.str] = No
         key=pulumi.get(__ret__, 'key'),
         key_id=pulumi.get(__ret__, 'key_id'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_actions_environment_public_key_output(environment: Optional[pulumi.Input[_builtins.str]] = None,
-                                              repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_actions_environment_public_key_output(environment: pulumi.Input[Optional[_builtins.str]] = None,
+                                              repository: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsEnvironmentPublicKeyResult]:
     """
     Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.

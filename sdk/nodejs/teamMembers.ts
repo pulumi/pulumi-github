@@ -143,13 +143,13 @@ export interface TeamMembersState {
     /**
      * List of team members. See Members below for details.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[] | undefined>;
     /**
      * The team id or the team slug
      *
      * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 /**

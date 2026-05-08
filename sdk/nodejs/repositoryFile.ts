@@ -236,68 +236,68 @@ export interface RepositoryFileState {
      *
      * @deprecated Use `github.Branch` resource instead
      */
-    autocreateBranch?: pulumi.Input<boolean>;
+    autocreateBranch?: pulumi.Input<boolean | undefined>;
     /**
      * **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
      *
      * @deprecated Use `github.Branch` resource instead
      */
-    autocreateBranchSourceBranch?: pulumi.Input<string>;
+    autocreateBranchSourceBranch?: pulumi.Input<string | undefined>;
     /**
      * **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
      *
      * @deprecated Use `github.Branch` resource instead
      */
-    autocreateBranchSourceSha?: pulumi.Input<string>;
+    autocreateBranchSourceSha?: pulumi.Input<string | undefined>;
     /**
      * Git branch (defaults to the repository's default branch).
      * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      */
-    commitAuthor?: pulumi.Input<string>;
+    commitAuthor?: pulumi.Input<string | undefined>;
     /**
      * Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      */
-    commitEmail?: pulumi.Input<string>;
+    commitEmail?: pulumi.Input<string | undefined>;
     /**
      * The commit message when creating, updating or deleting the managed file.
      */
-    commitMessage?: pulumi.Input<string>;
+    commitMessage?: pulumi.Input<string | undefined>;
     /**
      * The SHA of the commit that modified the file.
      */
-    commitSha?: pulumi.Input<string>;
+    commitSha?: pulumi.Input<string | undefined>;
     /**
      * The file content.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The path of the file to manage.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
     /**
      * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      */
-    overwriteOnCreate?: pulumi.Input<boolean>;
+    overwriteOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the commit/branch/tag.
      */
-    ref?: pulumi.Input<string>;
+    ref?: pulumi.Input<string | undefined>;
     /**
      * The repository to create the file in.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository.
      */
-    repositoryId?: pulumi.Input<number>;
+    repositoryId?: pulumi.Input<number | undefined>;
     /**
      * The SHA blob of the file.
      */
-    sha?: pulumi.Input<string>;
+    sha?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -309,36 +309,36 @@ export interface RepositoryFileArgs {
      *
      * @deprecated Use `github.Branch` resource instead
      */
-    autocreateBranch?: pulumi.Input<boolean>;
+    autocreateBranch?: pulumi.Input<boolean | undefined>;
     /**
      * **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
      *
      * @deprecated Use `github.Branch` resource instead
      */
-    autocreateBranchSourceBranch?: pulumi.Input<string>;
+    autocreateBranchSourceBranch?: pulumi.Input<string | undefined>;
     /**
      * **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
      *
      * @deprecated Use `github.Branch` resource instead
      */
-    autocreateBranchSourceSha?: pulumi.Input<string>;
+    autocreateBranchSourceSha?: pulumi.Input<string | undefined>;
     /**
      * Git branch (defaults to the repository's default branch).
      * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      */
-    commitAuthor?: pulumi.Input<string>;
+    commitAuthor?: pulumi.Input<string | undefined>;
     /**
      * Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      */
-    commitEmail?: pulumi.Input<string>;
+    commitEmail?: pulumi.Input<string | undefined>;
     /**
      * The commit message when creating, updating or deleting the managed file.
      */
-    commitMessage?: pulumi.Input<string>;
+    commitMessage?: pulumi.Input<string | undefined>;
     /**
      * The file content.
      */
@@ -350,7 +350,7 @@ export interface RepositoryFileArgs {
     /**
      * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      */
-    overwriteOnCreate?: pulumi.Input<boolean>;
+    overwriteOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * The repository to create the file in.
      */

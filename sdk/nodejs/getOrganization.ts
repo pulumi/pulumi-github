@@ -196,7 +196,7 @@ export interface GetOrganizationOutputArgs {
     /**
      * Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
      */
-    ignoreArchivedRepos?: pulumi.Input<boolean>;
+    ignoreArchivedRepos?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the organization.
      */
@@ -204,5 +204,5 @@ export interface GetOrganizationOutputArgs {
     /**
      * Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
      */
-    summaryOnly?: pulumi.Input<boolean>;
+    summaryOnly?: pulumi.Input<boolean | undefined>;
 }

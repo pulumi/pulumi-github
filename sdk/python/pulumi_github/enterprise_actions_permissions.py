@@ -23,9 +23,9 @@ class EnterpriseActionsPermissionsArgs:
     def __init__(__self__, *,
                  enabled_organizations: pulumi.Input[_builtins.str],
                  enterprise_slug: pulumi.Input[_builtins.str],
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input['EnterpriseActionsPermissionsAllowedActionsConfigArgs']] = None,
-                 enabled_organizations_config: Optional[pulumi.Input['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']] = None):
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional['EnterpriseActionsPermissionsAllowedActionsConfigArgs']] = None,
+                 enabled_organizations_config: pulumi.Input[Optional['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']] = None):
         """
         The set of arguments for constructing a EnterpriseActionsPermissions resource.
 
@@ -70,49 +70,49 @@ class EnterpriseActionsPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_actions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
-    def allowed_actions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_actions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedActionsConfig")
-    def allowed_actions_config(self) -> Optional[pulumi.Input['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]:
+    def allowed_actions_config(self) -> pulumi.Input[Optional['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]:
         """
         Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         """
         return pulumi.get(self, "allowed_actions_config")
 
     @allowed_actions_config.setter
-    def allowed_actions_config(self, value: Optional[pulumi.Input['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]):
+    def allowed_actions_config(self, value: pulumi.Input[Optional['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]):
         pulumi.set(self, "allowed_actions_config", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledOrganizationsConfig")
-    def enabled_organizations_config(self) -> Optional[pulumi.Input['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]:
+    def enabled_organizations_config(self) -> pulumi.Input[Optional['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]:
         """
         Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
         """
         return pulumi.get(self, "enabled_organizations_config")
 
     @enabled_organizations_config.setter
-    def enabled_organizations_config(self, value: Optional[pulumi.Input['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]):
+    def enabled_organizations_config(self, value: pulumi.Input[Optional['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]):
         pulumi.set(self, "enabled_organizations_config", value)
 
 
 @pulumi.input_type
 class _EnterpriseActionsPermissionsState:
     def __init__(__self__, *,
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input['EnterpriseActionsPermissionsAllowedActionsConfigArgs']] = None,
-                 enabled_organizations: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_organizations_config: Optional[pulumi.Input['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional['EnterpriseActionsPermissionsAllowedActionsConfigArgs']] = None,
+                 enabled_organizations: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_organizations_config: pulumi.Input[Optional['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseActionsPermissions resources.
 
@@ -135,62 +135,62 @@ class _EnterpriseActionsPermissionsState:
 
     @_builtins.property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_actions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
-    def allowed_actions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_actions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedActionsConfig")
-    def allowed_actions_config(self) -> Optional[pulumi.Input['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]:
+    def allowed_actions_config(self) -> pulumi.Input[Optional['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]:
         """
         Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         """
         return pulumi.get(self, "allowed_actions_config")
 
     @allowed_actions_config.setter
-    def allowed_actions_config(self, value: Optional[pulumi.Input['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]):
+    def allowed_actions_config(self, value: pulumi.Input[Optional['EnterpriseActionsPermissionsAllowedActionsConfigArgs']]):
         pulumi.set(self, "allowed_actions_config", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledOrganizations")
-    def enabled_organizations(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled_organizations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
         """
         return pulumi.get(self, "enabled_organizations")
 
     @enabled_organizations.setter
-    def enabled_organizations(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled_organizations(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled_organizations", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledOrganizationsConfig")
-    def enabled_organizations_config(self) -> Optional[pulumi.Input['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]:
+    def enabled_organizations_config(self) -> pulumi.Input[Optional['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]:
         """
         Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
         """
         return pulumi.get(self, "enabled_organizations_config")
 
     @enabled_organizations_config.setter
-    def enabled_organizations_config(self, value: Optional[pulumi.Input['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]):
+    def enabled_organizations_config(self, value: pulumi.Input[Optional['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']]):
         pulumi.set(self, "enabled_organizations_config", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseSlug")
-    def enterprise_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The slug of the enterprise.
         """
         return pulumi.get(self, "enterprise_slug")
 
     @enterprise_slug.setter
-    def enterprise_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_slug", value)
 
 
@@ -200,11 +200,11 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input[Union['EnterpriseActionsPermissionsAllowedActionsConfigArgs', 'EnterpriseActionsPermissionsAllowedActionsConfigArgsDict']]] = None,
-                 enabled_organizations: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_organizations_config: Optional[pulumi.Input[Union['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs', 'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict']]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsAllowedActionsConfigArgs', 'EnterpriseActionsPermissionsAllowedActionsConfigArgsDict']]] = None,
+                 enabled_organizations: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_organizations_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs', 'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict']]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise.
@@ -230,7 +230,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 "verified_allowed": True,
             },
             enabled_organizations_config={
-                "organization_ids": [example_org.id],
+                "organization_ids": [output(example_org.id).apply(lambda x: int(x))],
             })
         ```
 
@@ -281,7 +281,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 "verified_allowed": True,
             },
             enabled_organizations_config={
-                "organization_ids": [example_org.id],
+                "organization_ids": [output(example_org.id).apply(lambda x: int(x))],
             })
         ```
 
@@ -309,11 +309,11 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input[Union['EnterpriseActionsPermissionsAllowedActionsConfigArgs', 'EnterpriseActionsPermissionsAllowedActionsConfigArgsDict']]] = None,
-                 enabled_organizations: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_organizations_config: Optional[pulumi.Input[Union['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs', 'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict']]] = None,
-                 enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_actions_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsAllowedActionsConfigArgs', 'EnterpriseActionsPermissionsAllowedActionsConfigArgsDict']]] = None,
+                 enabled_organizations: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_organizations_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs', 'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict']]] = None,
+                 enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,11 +342,11 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_actions: Optional[pulumi.Input[_builtins.str]] = None,
-            allowed_actions_config: Optional[pulumi.Input[Union['EnterpriseActionsPermissionsAllowedActionsConfigArgs', 'EnterpriseActionsPermissionsAllowedActionsConfigArgsDict']]] = None,
-            enabled_organizations: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled_organizations_config: Optional[pulumi.Input[Union['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs', 'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict']]] = None,
-            enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None) -> 'EnterpriseActionsPermissions':
+            allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_actions_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsAllowedActionsConfigArgs', 'EnterpriseActionsPermissionsAllowedActionsConfigArgsDict']]] = None,
+            enabled_organizations: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_organizations_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs', 'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict']]] = None,
+            enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnterpriseActionsPermissions':
         """
         Get an existing EnterpriseActionsPermissions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

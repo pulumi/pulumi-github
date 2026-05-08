@@ -58,8 +58,8 @@ class ActionsOrganizationSecretRepositoryArgs:
 @pulumi.input_type
 class _ActionsOrganizationSecretRepositoryState:
     def __init__(__self__, *,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationSecretRepository resources.
 
@@ -73,26 +73,26 @@ class _ActionsOrganizationSecretRepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the repository that should be able to access the secret.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the actions organization secret.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
 
@@ -102,8 +102,8 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource adds permission for a repository to use an actions secret within your GitHub organization.
@@ -205,8 +205,8 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,8 +232,8 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
-            secret_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsOrganizationSecretRepository':
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            secret_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionsOrganizationSecretRepository':
         """
         Get an existing ActionsOrganizationSecretRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

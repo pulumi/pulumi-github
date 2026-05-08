@@ -113,8 +113,8 @@ def get_dependabot_secrets(full_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_dependabot_secrets_output(full_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_dependabot_secrets_output(full_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDependabotSecretsResult]:
     """
     Use this data source to retrieve the list of dependabot secrets for a GitHub repository.

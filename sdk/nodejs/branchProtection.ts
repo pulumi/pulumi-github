@@ -215,55 +215,55 @@ export interface BranchProtectionState {
     /**
      * Boolean, setting this to `true` to allow the branch to be deleted.
      */
-    allowsDeletions?: pulumi.Input<boolean>;
+    allowsDeletions?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      */
-    allowsForcePushes?: pulumi.Input<boolean>;
+    allowsForcePushes?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    enforceAdmins?: pulumi.Input<boolean>;
+    enforceAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      */
-    forcePushBypassers?: pulumi.Input<pulumi.Input<string>[]>;
+    forcePushBypassers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      */
-    lockBranch?: pulumi.Input<boolean>;
+    lockBranch?: pulumi.Input<boolean | undefined>;
     /**
      * Identifies the protection rule pattern.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * The name or node ID of the repository associated with this branch protection rule.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      */
-    requireConversationResolution?: pulumi.Input<boolean>;
+    requireConversationResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
      */
-    requiredLinearHistory?: pulumi.Input<boolean>;
+    requiredLinearHistory?: pulumi.Input<boolean | undefined>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
+    requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[] | undefined>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
+    requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[] | undefined>;
     /**
      * Restrict pushes to matching branches. See Restrict Pushes below for details.
      */
-    restrictPushes?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRestrictPush>[]>;
+    restrictPushes?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRestrictPush>[] | undefined>;
 }
 
 /**
@@ -273,23 +273,23 @@ export interface BranchProtectionArgs {
     /**
      * Boolean, setting this to `true` to allow the branch to be deleted.
      */
-    allowsDeletions?: pulumi.Input<boolean>;
+    allowsDeletions?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      */
-    allowsForcePushes?: pulumi.Input<boolean>;
+    allowsForcePushes?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    enforceAdmins?: pulumi.Input<boolean>;
+    enforceAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      */
-    forcePushBypassers?: pulumi.Input<pulumi.Input<string>[]>;
+    forcePushBypassers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      */
-    lockBranch?: pulumi.Input<boolean>;
+    lockBranch?: pulumi.Input<boolean | undefined>;
     /**
      * Identifies the protection rule pattern.
      */
@@ -301,25 +301,25 @@ export interface BranchProtectionArgs {
     /**
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      */
-    requireConversationResolution?: pulumi.Input<boolean>;
+    requireConversationResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    requireSignedCommits?: pulumi.Input<boolean>;
+    requireSignedCommits?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
      */
-    requiredLinearHistory?: pulumi.Input<boolean>;
+    requiredLinearHistory?: pulumi.Input<boolean | undefined>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[]>;
+    requiredPullRequestReviews?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredPullRequestReview>[] | undefined>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
+    requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[] | undefined>;
     /**
      * Restrict pushes to matching branches. See Restrict Pushes below for details.
      */
-    restrictPushes?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRestrictPush>[]>;
+    restrictPushes?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRestrictPush>[] | undefined>;
 }

@@ -143,9 +143,9 @@ def get_organization_teams(results_per_page: Optional[_builtins.int] = None,
         root_teams_only=pulumi.get(__ret__, 'root_teams_only'),
         summary_only=pulumi.get(__ret__, 'summary_only'),
         teams=pulumi.get(__ret__, 'teams'))
-def get_organization_teams_output(results_per_page: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                  root_teams_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                  summary_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_organization_teams_output(results_per_page: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                  root_teams_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                  summary_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationTeamsResult]:
     """
     Use this data source to retrieve information about all GitHub teams in an organization.

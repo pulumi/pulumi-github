@@ -22,8 +22,8 @@ __all__ = ['TeamSettingsArgs', 'TeamSettings']
 class TeamSettingsArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[_builtins.str],
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None):
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 review_request_delegation: pulumi.Input[Optional['TeamSettingsReviewRequestDelegationArgs']] = None):
         """
         The set of arguments for constructing a TeamSettings resource.
 
@@ -51,37 +51,37 @@ class TeamSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewRequestDelegation")
-    def review_request_delegation(self) -> Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']]:
+    def review_request_delegation(self) -> pulumi.Input[Optional['TeamSettingsReviewRequestDelegationArgs']]:
         """
         The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         """
         return pulumi.get(self, "review_request_delegation")
 
     @review_request_delegation.setter
-    def review_request_delegation(self, value: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']]):
+    def review_request_delegation(self, value: pulumi.Input[Optional['TeamSettingsReviewRequestDelegationArgs']]):
         pulumi.set(self, "review_request_delegation", value)
 
 
 @pulumi.input_type
 class _TeamSettingsState:
     def __init__(__self__, *,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_slug: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_uid: Optional[pulumi.Input[_builtins.str]] = None):
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 review_request_delegation: pulumi.Input[Optional['TeamSettingsReviewRequestDelegationArgs']] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_uid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamSettings resources.
 
@@ -104,62 +104,62 @@ class _TeamSettingsState:
 
     @_builtins.property
     @pulumi.getter
-    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewRequestDelegation")
-    def review_request_delegation(self) -> Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']]:
+    def review_request_delegation(self) -> pulumi.Input[Optional['TeamSettingsReviewRequestDelegationArgs']]:
         """
         The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         """
         return pulumi.get(self, "review_request_delegation")
 
     @review_request_delegation.setter
-    def review_request_delegation(self, value: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']]):
+    def review_request_delegation(self, value: pulumi.Input[Optional['TeamSettingsReviewRequestDelegationArgs']]):
         pulumi.set(self, "review_request_delegation", value)
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GitHub team id or the GitHub team slug
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="teamSlug")
-    def team_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The slug of the Team.
         """
         return pulumi.get(self, "team_slug")
 
     @team_slug.setter
-    def team_slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_slug", value)
 
     @_builtins.property
     @pulumi.getter(name="teamUid")
-    def team_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_uid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
         """
         return pulumi.get(self, "team_uid")
 
     @team_uid.setter
-    def team_uid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_uid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_uid", value)
 
 
@@ -169,9 +169,9 @@ class TeamSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 review_request_delegation: Optional[pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 review_request_delegation: pulumi.Input[Optional[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource manages the team settings (in particular the request review delegation settings) within the organization
@@ -300,9 +300,9 @@ class TeamSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 review_request_delegation: Optional[pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 review_request_delegation: pulumi.Input[Optional[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -329,11 +329,11 @@ class TeamSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            notify: Optional[pulumi.Input[_builtins.bool]] = None,
-            review_request_delegation: Optional[pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
-            team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            team_slug: Optional[pulumi.Input[_builtins.str]] = None,
-            team_uid: Optional[pulumi.Input[_builtins.str]] = None) -> 'TeamSettings':
+            notify: pulumi.Input[Optional[_builtins.bool]] = None,
+            review_request_delegation: pulumi.Input[Optional[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            team_uid: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamSettings':
         """
         Get an existing TeamSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

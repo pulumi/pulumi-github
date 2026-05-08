@@ -98,7 +98,7 @@ export interface ActionsOrganizationOidcSubjectClaimCustomizationTemplateState {
     /**
      * A list of OpenID Connect claims.
      */
-    includeClaimKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    includeClaimKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

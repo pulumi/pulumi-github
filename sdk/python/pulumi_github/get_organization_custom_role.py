@@ -126,7 +126,7 @@ def get_organization_custom_role(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'))
-def get_organization_custom_role_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organization_custom_role_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationCustomRoleResult]:
     """
     > **Note:** This data source is deprecated, please use the `OrganizationRepositoryRole` data source instead.

@@ -102,11 +102,11 @@ export interface OrganizationRoleUserState {
     /**
      * The login for the GitHub user account.
      */
-    login?: pulumi.Input<string>;
+    login?: pulumi.Input<string | undefined>;
     /**
      * The ID of the organization role.
      */
-    roleId?: pulumi.Input<number>;
+    roleId?: pulumi.Input<number | undefined>;
 }
 
 /**

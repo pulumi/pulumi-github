@@ -188,13 +188,13 @@ def get_repository_pull_requests(base_ref: Optional[_builtins.str] = None,
         sort_by=pulumi.get(__ret__, 'sort_by'),
         sort_direction=pulumi.get(__ret__, 'sort_direction'),
         state=pulumi.get(__ret__, 'state'))
-def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        base_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                                        head_ref: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        sort_by: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        sort_direction: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repository_pull_requests_output(base_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        base_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                                        head_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        sort_by: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        sort_direction: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryPullRequestsResult]:
     """
     Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.

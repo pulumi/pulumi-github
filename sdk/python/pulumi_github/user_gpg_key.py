@@ -45,9 +45,9 @@ class UserGpgKeyArgs:
 @pulumi.input_type
 class _UserGpgKeyState:
     def __init__(__self__, *,
-                 armored_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 armored_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserGpgKey resources.
 
@@ -64,7 +64,7 @@ class _UserGpgKeyState:
 
     @_builtins.property
     @pulumi.getter(name="armoredPublicKey")
-    def armored_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def armored_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your public GPG key, generated in ASCII-armored format.
         See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
@@ -72,28 +72,28 @@ class _UserGpgKeyState:
         return pulumi.get(self, "armored_public_key")
 
     @armored_public_key.setter
-    def armored_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def armored_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "armored_public_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key ID of the GPG key, e.g. `3262EFF25BA0D270`
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
 
@@ -103,7 +103,7 @@ class UserGpgKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 armored_public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 armored_public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a GitHub user's GPG key resource.
@@ -175,7 +175,7 @@ class UserGpgKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 armored_public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 armored_public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,9 +200,9 @@ class UserGpgKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            armored_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserGpgKey':
+            armored_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserGpgKey':
         """
         Get an existing UserGpgKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

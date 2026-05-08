@@ -112,11 +112,11 @@ export interface RepositoryDependabotSecurityUpdatesState {
     /**
      * The state of the automated security fixes.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the GitHub repository.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
 }
 
 /**

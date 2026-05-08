@@ -287,10 +287,10 @@ def get_release_asset(asset_id: Optional[_builtins.int] = None,
         size=pulumi.get(__ret__, 'size'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         url=pulumi.get(__ret__, 'url'))
-def get_release_asset_output(asset_id: Optional[pulumi.Input[_builtins.int]] = None,
-                             download_file_contents: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                             owner: Optional[pulumi.Input[_builtins.str]] = None,
-                             repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_release_asset_output(asset_id: pulumi.Input[Optional[_builtins.int]] = None,
+                             download_file_contents: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                             owner: pulumi.Input[Optional[_builtins.str]] = None,
+                             repository: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReleaseAssetResult]:
     """
     Use this data source to retrieve information about a GitHub release asset.

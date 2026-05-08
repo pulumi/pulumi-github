@@ -113,7 +113,7 @@ export interface GetTreeOutputArgs {
     /**
      * Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
      */
-    recursive?: pulumi.Input<boolean>;
+    recursive?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the repository.
      */

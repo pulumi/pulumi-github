@@ -25,9 +25,9 @@ class RepositoryRulesetArgs:
                  repository: pulumi.Input[_builtins.str],
                  rules: pulumi.Input['RepositoryRulesetRulesArgs'],
                  target: pulumi.Input[_builtins.str],
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
-                 conditions: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
+                 conditions: pulumi.Input[Optional['RepositoryRulesetConditionsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryRuleset resource.
 
@@ -100,54 +100,54 @@ class RepositoryRulesetArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassActors")
-    def bypass_actors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]:
+    def bypass_actors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]:
         """
         (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         """
         return pulumi.get(self, "bypass_actors")
 
     @bypass_actors.setter
-    def bypass_actors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]):
+    def bypass_actors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]):
         pulumi.set(self, "bypass_actors", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['RepositoryRulesetConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['RepositoryRulesetConditionsArgs']]:
         """
         (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['RepositoryRulesetConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RepositoryRulesetState:
     def __init__(__self__, *,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
-                 conditions: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']] = None,
-                 enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input['RepositoryRulesetRulesArgs']] = None,
-                 ruleset_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
+                 conditions: pulumi.Input[Optional['RepositoryRulesetConditionsArgs']] = None,
+                 enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional['RepositoryRulesetRulesArgs']] = None,
+                 ruleset_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryRuleset resources.
 
@@ -185,122 +185,122 @@ class _RepositoryRulesetState:
 
     @_builtins.property
     @pulumi.getter(name="bypassActors")
-    def bypass_actors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]:
+    def bypass_actors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]:
         """
         (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         """
         return pulumi.get(self, "bypass_actors")
 
     @bypass_actors.setter
-    def bypass_actors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]):
+    def bypass_actors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]]):
         pulumi.set(self, "bypass_actors", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['RepositoryRulesetConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['RepositoryRulesetConditionsArgs']]:
         """
         (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['RepositoryRulesetConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def enforcement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforcement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         """
         return pulumi.get(self, "enforcement")
 
     @enforcement.setter
-    def enforcement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforcement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforcement", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String)
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) The name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeId")
-    def node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) GraphQL global node id for use with v4 API.
         """
         return pulumi.get(self, "node_id")
 
     @node_id.setter
-    def node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) Name of the repository to apply ruleset to.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input['RepositoryRulesetRulesArgs']]:
+    def rules(self) -> pulumi.Input[Optional['RepositoryRulesetRulesArgs']]:
         """
         (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input['RepositoryRulesetRulesArgs']]):
+    def rules(self, value: pulumi.Input[Optional['RepositoryRulesetRulesArgs']]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesetId")
-    def ruleset_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ruleset_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Number) GitHub ID for the ruleset.
         """
         return pulumi.get(self, "ruleset_id")
 
     @ruleset_id.setter
-    def ruleset_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ruleset_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ruleset_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) Possible values are `branch`, `tag` and `push`.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
@@ -310,13 +310,13 @@ class RepositoryRuleset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
-                 enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
+                 enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a GitHub repository ruleset.
@@ -515,13 +515,13 @@ class RepositoryRuleset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
-                 enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
+                 enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -559,16 +559,16 @@ class RepositoryRuleset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
-            conditions: Optional[pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
-            enforcement: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_id: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
-            ruleset_id: Optional[pulumi.Input[_builtins.int]] = None,
-            target: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryRuleset':
+            bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
+            conditions: pulumi.Input[Optional[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
+            enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
+            ruleset_id: pulumi.Input[Optional[_builtins.int]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryRuleset':
         """
         Get an existing RepositoryRuleset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

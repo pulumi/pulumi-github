@@ -21,7 +21,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
                  use_default: pulumi.Input[_builtins.bool],
-                 include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActionsRepositoryOidcSubjectClaimCustomizationTemplate resource.
 
@@ -62,23 +62,23 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeClaimKeys")
-    def include_claim_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_claim_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of OpenID Connect claims.
         """
         return pulumi.get(self, "include_claim_keys")
 
     @include_claim_keys.setter
-    def include_claim_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_claim_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_claim_keys", value)
 
 
 @pulumi.input_type
 class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
     def __init__(__self__, *,
-                 include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_default: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_default: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ActionsRepositoryOidcSubjectClaimCustomizationTemplate resources.
 
@@ -96,31 +96,31 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
 
     @_builtins.property
     @pulumi.getter(name="includeClaimKeys")
-    def include_claim_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_claim_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of OpenID Connect claims.
         """
         return pulumi.get(self, "include_claim_keys")
 
     @include_claim_keys.setter
-    def include_claim_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_claim_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_claim_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="useDefault")
-    def use_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use the default template or not. If `true`, `include_claim_keys` must not
         be set.
@@ -128,7 +128,7 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
         return pulumi.get(self, "use_default")
 
     @use_default.setter
-    def use_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_default", value)
 
 
@@ -138,9 +138,9 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_default: Optional[pulumi.Input[_builtins.bool]] = None,
+                 include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
@@ -252,9 +252,9 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_default: Optional[pulumi.Input[_builtins.bool]] = None,
+                 include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,9 +281,9 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            use_default: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ActionsRepositoryOidcSubjectClaimCustomizationTemplate':
+            include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            use_default: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ActionsRepositoryOidcSubjectClaimCustomizationTemplate':
         """
         Get an existing ActionsRepositoryOidcSubjectClaimCustomizationTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -128,19 +128,19 @@ export interface RepositoryCustomPropertyState {
     /**
      * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
      */
-    propertyName?: pulumi.Input<string>;
+    propertyName?: pulumi.Input<string | undefined>;
     /**
      * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
      */
-    propertyType?: pulumi.Input<string>;
+    propertyType?: pulumi.Input<string | undefined>;
     /**
      * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
      */
-    propertyValues?: pulumi.Input<pulumi.Input<string>[]>;
+    propertyValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The repository of the environment.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
 }
 
 /**

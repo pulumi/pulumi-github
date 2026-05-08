@@ -132,23 +132,23 @@ export interface ActionsOrganizationPermissionsState {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    allowedActions?: pulumi.Input<string>;
+    allowedActions?: pulumi.Input<string | undefined>;
     /**
      * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    allowedActionsConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsAllowedActionsConfig>;
+    allowedActionsConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsAllowedActionsConfig | undefined>;
     /**
      * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      */
-    enabledRepositories?: pulumi.Input<string>;
+    enabledRepositories?: pulumi.Input<string | undefined>;
     /**
      * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      */
-    enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
+    enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig | undefined>;
     /**
      * Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      */
-    shaPinningRequired?: pulumi.Input<boolean>;
+    shaPinningRequired?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -158,11 +158,11 @@ export interface ActionsOrganizationPermissionsArgs {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    allowedActions?: pulumi.Input<string>;
+    allowedActions?: pulumi.Input<string | undefined>;
     /**
      * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    allowedActionsConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsAllowedActionsConfig>;
+    allowedActionsConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsAllowedActionsConfig | undefined>;
     /**
      * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      */
@@ -170,9 +170,9 @@ export interface ActionsOrganizationPermissionsArgs {
     /**
      * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      */
-    enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
+    enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig | undefined>;
     /**
      * Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      */
-    shaPinningRequired?: pulumi.Input<boolean>;
+    shaPinningRequired?: pulumi.Input<boolean | undefined>;
 }

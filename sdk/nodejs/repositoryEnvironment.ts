@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *     repository: example.name,
  *     preventSelfReview: true,
  *     reviewers: [{
- *         users: [current.then(current => current.id)],
+ *         users: [output(current.then(current => current.id)).apply(x =>Number(x))],
  *     }],
  *     deploymentBranchPolicy: {
  *         protectedBranches: true,
@@ -159,35 +159,35 @@ export interface RepositoryEnvironmentState {
     /**
      * Can repository admins bypass the environment protections. Defaults to `true`.
      */
-    canAdminsBypass?: pulumi.Input<boolean>;
+    canAdminsBypass?: pulumi.Input<boolean | undefined>;
     /**
      * The deployment branch policy configuration
      */
-    deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy>;
+    deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy | undefined>;
     /**
      * The name of the environment.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
      */
-    preventSelfReview?: pulumi.Input<boolean>;
+    preventSelfReview?: pulumi.Input<boolean | undefined>;
     /**
      * The repository of the environment.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository.
      */
-    repositoryId?: pulumi.Input<number>;
+    repositoryId?: pulumi.Input<number | undefined>;
     /**
      * The environment reviewers configuration.
      */
-    reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[]>;
+    reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[] | undefined>;
     /**
      * Amount of time to delay a job after the job is initially triggered.
      */
-    waitTimer?: pulumi.Input<number>;
+    waitTimer?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -197,11 +197,11 @@ export interface RepositoryEnvironmentArgs {
     /**
      * Can repository admins bypass the environment protections. Defaults to `true`.
      */
-    canAdminsBypass?: pulumi.Input<boolean>;
+    canAdminsBypass?: pulumi.Input<boolean | undefined>;
     /**
      * The deployment branch policy configuration
      */
-    deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy>;
+    deploymentBranchPolicy?: pulumi.Input<inputs.RepositoryEnvironmentDeploymentBranchPolicy | undefined>;
     /**
      * The name of the environment.
      */
@@ -209,7 +209,7 @@ export interface RepositoryEnvironmentArgs {
     /**
      * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
      */
-    preventSelfReview?: pulumi.Input<boolean>;
+    preventSelfReview?: pulumi.Input<boolean | undefined>;
     /**
      * The repository of the environment.
      */
@@ -217,9 +217,9 @@ export interface RepositoryEnvironmentArgs {
     /**
      * The environment reviewers configuration.
      */
-    reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[]>;
+    reviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryEnvironmentReviewer>[] | undefined>;
     /**
      * Amount of time to delay a job after the job is initially triggered.
      */
-    waitTimer?: pulumi.Input<number>;
+    waitTimer?: pulumi.Input<number | undefined>;
 }

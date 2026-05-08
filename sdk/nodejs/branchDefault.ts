@@ -144,16 +144,16 @@ export interface BranchDefaultState {
     /**
      * The branch (e.g. `main`)
      */
-    branch?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      */
-    rename?: pulumi.Input<boolean>;
+    rename?: pulumi.Input<boolean | undefined>;
     /**
      * The GitHub repository
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,11 +164,11 @@ export interface BranchDefaultArgs {
      * The branch (e.g. `main`)
      */
     branch: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      */
-    rename?: pulumi.Input<boolean>;
+    rename?: pulumi.Input<boolean | undefined>;
     /**
      * The GitHub repository
      */

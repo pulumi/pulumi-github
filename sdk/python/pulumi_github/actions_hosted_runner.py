@@ -24,11 +24,11 @@ class ActionsHostedRunnerArgs:
                  image: pulumi.Input['ActionsHostedRunnerImageArgs'],
                  runner_group_id: pulumi.Input[_builtins.int],
                  size: pulumi.Input[_builtins.str],
-                 image_gen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_runners: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ActionsHostedRunner resource.
 
@@ -93,81 +93,81 @@ class ActionsHostedRunnerArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageGen")
-    def image_gen(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def image_gen(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this runner should be used to generate custom images. Cannot be changed after creation.
         """
         return pulumi.get(self, "image_gen")
 
     @image_gen.setter
-    def image_gen(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def image_gen(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "image_gen", value)
 
     @_builtins.property
     @pulumi.getter(name="imageVersion")
-    def image_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the runner image to deploy. This is only relevant for runners using custom images.
         """
         return pulumi.get(self, "image_version")
 
     @image_version.setter
-    def image_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_version", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumRunners")
-    def maximum_runners(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_runners(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit costs.
         """
         return pulumi.get(self, "maximum_runners")
 
     @maximum_runners.setter
-    def maximum_runners(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_runners(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_runners", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the hosted runner. Must be between 1 and 64 characters and may only contain alphanumeric characters, '.', '-', and '_'.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpEnabled")
-    def public_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable static public IP for the runner. Note there are account limits. To list limits, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/limits`. Defaults to false.
         """
         return pulumi.get(self, "public_ip_enabled")
 
     @public_ip_enabled.setter
-    def public_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_ip_enabled", value)
 
 
 @pulumi.input_type
 class _ActionsHostedRunnerState:
     def __init__(__self__, *,
-                 image: Optional[pulumi.Input['ActionsHostedRunnerImageArgs']] = None,
-                 image_gen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_active_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_size_details: Optional[pulumi.Input[Sequence[pulumi.Input['ActionsHostedRunnerMachineSizeDetailArgs']]]] = None,
-                 maximum_runners: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ActionsHostedRunnerPublicIpArgs']]]] = None,
-                 runner_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 image: pulumi.Input[Optional['ActionsHostedRunnerImageArgs']] = None,
+                 image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_active_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_size_details: pulumi.Input[Optional[Sequence[pulumi.Input['ActionsHostedRunnerMachineSizeDetailArgs']]]] = None,
+                 maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_ips: pulumi.Input[Optional[Sequence[pulumi.Input['ActionsHostedRunnerPublicIpArgs']]]] = None,
+                 runner_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsHostedRunner resources.
 
@@ -214,158 +214,158 @@ class _ActionsHostedRunnerState:
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input['ActionsHostedRunnerImageArgs']]:
+    def image(self) -> pulumi.Input[Optional['ActionsHostedRunnerImageArgs']]:
         """
         Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input['ActionsHostedRunnerImageArgs']]):
+    def image(self, value: pulumi.Input[Optional['ActionsHostedRunnerImageArgs']]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="imageGen")
-    def image_gen(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def image_gen(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this runner should be used to generate custom images. Cannot be changed after creation.
         """
         return pulumi.get(self, "image_gen")
 
     @image_gen.setter
-    def image_gen(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def image_gen(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "image_gen", value)
 
     @_builtins.property
     @pulumi.getter(name="imageVersion")
-    def image_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the runner image to deploy. This is only relevant for runners using custom images.
         """
         return pulumi.get(self, "image_version")
 
     @image_version.setter
-    def image_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_version", value)
 
     @_builtins.property
     @pulumi.getter(name="lastActiveOn")
-    def last_active_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_active_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp (RFC3339) when the runner was last active.
         """
         return pulumi.get(self, "last_active_on")
 
     @last_active_on.setter
-    def last_active_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_active_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_active_on", value)
 
     @_builtins.property
     @pulumi.getter(name="machineSizeDetails")
-    def machine_size_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionsHostedRunnerMachineSizeDetailArgs']]]]:
+    def machine_size_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionsHostedRunnerMachineSizeDetailArgs']]]]:
         """
         Detailed specifications of the machine size:
         """
         return pulumi.get(self, "machine_size_details")
 
     @machine_size_details.setter
-    def machine_size_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionsHostedRunnerMachineSizeDetailArgs']]]]):
+    def machine_size_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActionsHostedRunnerMachineSizeDetailArgs']]]]):
         pulumi.set(self, "machine_size_details", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumRunners")
-    def maximum_runners(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_runners(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit costs.
         """
         return pulumi.get(self, "maximum_runners")
 
     @maximum_runners.setter
-    def maximum_runners(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_runners(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_runners", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the hosted runner. Must be between 1 and 64 characters and may only contain alphanumeric characters, '.', '-', and '_'.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Platform of the runner (e.g., "linux-x64", "win-x64").
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpEnabled")
-    def public_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable static public IP for the runner. Note there are account limits. To list limits, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/limits`. Defaults to false.
         """
         return pulumi.get(self, "public_ip_enabled")
 
     @public_ip_enabled.setter
-    def public_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIps")
-    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionsHostedRunnerPublicIpArgs']]]]:
+    def public_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionsHostedRunnerPublicIpArgs']]]]:
         """
         List of public IP ranges assigned to this runner (only if `public_ip_enabled` is true):
         """
         return pulumi.get(self, "public_ips")
 
     @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionsHostedRunnerPublicIpArgs']]]]):
+    def public_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActionsHostedRunnerPublicIpArgs']]]]):
         pulumi.set(self, "public_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="runnerGroupId")
-    def runner_group_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def runner_group_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the runner group to assign this runner to.
         """
         return pulumi.get(self, "runner_group_id")
 
     @runner_group_id.setter
-    def runner_group_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def runner_group_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "runner_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Machine size for the hosted runner (e.g., "4-core", "8-core"). Can be updated to scale the runner. To list available sizes, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/machine-sizes`.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current status of the runner (e.g., "Ready", "Provisioning").
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -375,14 +375,14 @@ class ActionsHostedRunner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image: Optional[pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
-                 image_gen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_runners: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runner_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
+                 image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
+                 image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runner_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage GitHub-hosted runners within your GitHub organization.
@@ -408,7 +408,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="4-core",
-            runner_group_id=example.id)
+            runner_group_id=example.id.apply(lambda x: int(x)))
         ```
 
         ### Advanced Usage with Optional Parameters
@@ -427,7 +427,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="8-core",
-            runner_group_id=advanced.id,
+            runner_group_id=advanced.id.apply(lambda x: int(x)),
             maximum_runners=10,
             public_ip_enabled=True)
         ```
@@ -498,7 +498,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="4-core",
-            runner_group_id=example.id)
+            runner_group_id=example.id.apply(lambda x: int(x)))
         ```
 
         ### Advanced Usage with Optional Parameters
@@ -517,7 +517,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="8-core",
-            runner_group_id=advanced.id,
+            runner_group_id=advanced.id.apply(lambda x: int(x)),
             maximum_runners=10,
             public_ip_enabled=True)
         ```
@@ -562,14 +562,14 @@ class ActionsHostedRunner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image: Optional[pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
-                 image_gen: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_runners: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runner_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
+                 image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
+                 image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runner_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -608,19 +608,19 @@ class ActionsHostedRunner(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            image: Optional[pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
-            image_gen: Optional[pulumi.Input[_builtins.bool]] = None,
-            image_version: Optional[pulumi.Input[_builtins.str]] = None,
-            last_active_on: Optional[pulumi.Input[_builtins.str]] = None,
-            machine_size_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionsHostedRunnerMachineSizeDetailArgs', 'ActionsHostedRunnerMachineSizeDetailArgsDict']]]]] = None,
-            maximum_runners: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            platform: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionsHostedRunnerPublicIpArgs', 'ActionsHostedRunnerPublicIpArgsDict']]]]] = None,
-            runner_group_id: Optional[pulumi.Input[_builtins.int]] = None,
-            size: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsHostedRunner':
+            image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
+            image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
+            image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            last_active_on: pulumi.Input[Optional[_builtins.str]] = None,
+            machine_size_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerMachineSizeDetailArgs', 'ActionsHostedRunnerMachineSizeDetailArgsDict']]]]] = None,
+            maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerPublicIpArgs', 'ActionsHostedRunnerPublicIpArgsDict']]]]] = None,
+            runner_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+            size: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionsHostedRunner':
         """
         Get an existing ActionsHostedRunner resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

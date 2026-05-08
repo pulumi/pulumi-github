@@ -97,7 +97,7 @@ def get_repository_environments(repository: Optional[_builtins.str] = None,
         environments=pulumi.get(__ret__, 'environments'),
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_repository_environments_output(repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_environments_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEnvironmentsResult]:
     """
     Use this data source to retrieve information about environments for a repository.

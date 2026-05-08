@@ -129,27 +129,27 @@ export interface CodespacesSecretState {
     /**
      * Date of codespacesSecret creation.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
-    encryptedValue?: pulumi.Input<string>;
+    encryptedValue?: pulumi.Input<string | undefined>;
     /**
      * Plaintext value of the secret to be encrypted
      */
-    plaintextValue?: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Name of the secret
      */
-    secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
     /**
      * Date of codespacesSecret update.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,11 +159,11 @@ export interface CodespacesSecretArgs {
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
-    encryptedValue?: pulumi.Input<string>;
+    encryptedValue?: pulumi.Input<string | undefined>;
     /**
      * Plaintext value of the secret to be encrypted
      */
-    plaintextValue?: pulumi.Input<string>;
+    plaintextValue?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository
      */

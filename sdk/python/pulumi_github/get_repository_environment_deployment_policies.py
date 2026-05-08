@@ -111,8 +111,8 @@ def get_repository_environment_deployment_policies(environment: Optional[_builti
         id=pulumi.get(__ret__, 'id'),
         policies=pulumi.get(__ret__, 'policies'),
         repository=pulumi.get(__ret__, 'repository'))
-def get_repository_environment_deployment_policies_output(environment: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_environment_deployment_policies_output(environment: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          repository: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEnvironmentDeploymentPoliciesResult]:
     """
     Use this data source to retrieve deployment branch policies for a repository environment.

@@ -122,7 +122,7 @@ def get_github_app(slug: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         node_id=pulumi.get(__ret__, 'node_id'),
         slug=pulumi.get(__ret__, 'slug'))
-def get_github_app_output(slug: Optional[pulumi.Input[_builtins.str]] = None,
+def get_github_app_output(slug: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGithubAppResult]:
     """
     Use this data source to retrieve information about an app.

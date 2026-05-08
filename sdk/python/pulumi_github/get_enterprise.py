@@ -151,7 +151,7 @@ def get_enterprise(slug: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         slug=pulumi.get(__ret__, 'slug'),
         url=pulumi.get(__ret__, 'url'))
-def get_enterprise_output(slug: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enterprise_output(slug: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseResult]:
     """
     Use this data source to retrieve basic information about a GitHub enterprise.

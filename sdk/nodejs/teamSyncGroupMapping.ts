@@ -113,18 +113,18 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TeamSyncGroupMapping resources.
  */
 export interface TeamSyncGroupMappingState {
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
      * ___
      *
      * The `group` block consists of:
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[] | undefined>;
     /**
      * Slug of the team
      */
-    teamSlug?: pulumi.Input<string>;
+    teamSlug?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,7 +137,7 @@ export interface TeamSyncGroupMappingArgs {
      *
      * The `group` block consists of:
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[] | undefined>;
     /**
      * Slug of the team
      */

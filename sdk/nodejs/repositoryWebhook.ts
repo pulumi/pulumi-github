@@ -145,24 +145,24 @@ export interface RepositoryWebhookState {
     /**
      * Indicate if the webhook should receive events. Defaults to `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for the webhook. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
-    etag?: pulumi.Input<string>;
+    configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      */
-    events?: pulumi.Input<pulumi.Input<string>[]>;
+    events?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The repository of the webhook.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,12 +172,12 @@ export interface RepositoryWebhookArgs {
     /**
      * Indicate if the webhook should receive events. Defaults to `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for the webhook. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
-    etag?: pulumi.Input<string>;
+    configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      */

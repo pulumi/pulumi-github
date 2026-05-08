@@ -414,39 +414,39 @@ export interface RepositoryState {
     /**
      * Set to `true` to allow auto-merging pull requests on the repository.
      */
-    allowAutoMerge?: pulumi.Input<boolean>;
+    allowAutoMerge?: pulumi.Input<boolean | undefined>;
     /**
      * Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      */
-    allowForking?: pulumi.Input<boolean>;
+    allowForking?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `false` to disable merge commits on the repository.
      */
-    allowMergeCommit?: pulumi.Input<boolean>;
+    allowMergeCommit?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `false` to disable rebase merges on the repository.
      */
-    allowRebaseMerge?: pulumi.Input<boolean>;
+    allowRebaseMerge?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `false` to disable squash merges on the repository.
      */
-    allowSquashMerge?: pulumi.Input<boolean>;
+    allowSquashMerge?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to always suggest updating pull request branches.
      */
-    allowUpdateBranch?: pulumi.Input<boolean>;
+    allowUpdateBranch?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to archive the repository instead of deleting on destroy.
      */
-    archiveOnDestroy?: pulumi.Input<boolean>;
+    archiveOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      */
-    archived?: pulumi.Input<boolean>;
+    archived?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to produce an initial commit in the repository.
      */
-    autoInit?: pulumi.Input<boolean>;
+    autoInit?: pulumi.Input<boolean | undefined>;
     /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
@@ -454,171 +454,171 @@ export interface RepositoryState {
      *
      * @deprecated Use the github.BranchDefault resource instead
      */
-    defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string | undefined>;
     /**
      * Automatically delete head branch after a pull request is merged. Defaults to `false`.
      */
-    deleteBranchOnMerge?: pulumi.Input<boolean>;
+    deleteBranchOnMerge?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the repository.
      */
-    description?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      */
-    fork?: pulumi.Input<string>;
+    fork?: pulumi.Input<string | undefined>;
     /**
      * A string of the form "orgname/reponame".
      */
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
      */
-    gitCloneUrl?: pulumi.Input<string>;
+    gitCloneUrl?: pulumi.Input<string | undefined>;
     /**
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */
-    gitignoreTemplate?: pulumi.Input<string>;
+    gitignoreTemplate?: pulumi.Input<string | undefined>;
     /**
      * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
      */
-    hasDiscussions?: pulumi.Input<boolean>;
+    hasDiscussions?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      *
      * @deprecated This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      */
-    hasDownloads?: pulumi.Input<boolean>;
+    hasDownloads?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to enable the GitHub Issues features
      * on the repository.
      */
-    hasIssues?: pulumi.Input<boolean>;
+    hasIssues?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
      */
-    hasProjects?: pulumi.Input<boolean>;
+    hasProjects?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to enable the GitHub Wiki features on
      * the repository.
      */
-    hasWiki?: pulumi.Input<boolean>;
+    hasWiki?: pulumi.Input<boolean | undefined>;
     /**
      * URL of a page describing the project.
      */
-    homepageUrl?: pulumi.Input<string>;
+    homepageUrl?: pulumi.Input<string | undefined>;
     /**
      * The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to `git clone` to clone the repository via HTTPS.
      */
-    httpCloneUrl?: pulumi.Input<string>;
+    httpCloneUrl?: pulumi.Input<string | undefined>;
     /**
      * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      *
      * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      */
-    ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
+    ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to tell GitHub that this is a template repository.
      */
-    isTemplate?: pulumi.Input<boolean>;
+    isTemplate?: pulumi.Input<boolean | undefined>;
     /**
      * Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
      */
-    licenseTemplate?: pulumi.Input<string>;
+    licenseTemplate?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
      */
-    mergeCommitMessage?: pulumi.Input<string>;
+    mergeCommitMessage?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
      */
-    mergeCommitTitle?: pulumi.Input<string>;
+    mergeCommitTitle?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * GraphQL global node id for use with v4 API
      */
-    nodeId?: pulumi.Input<string>;
+    nodeId?: pulumi.Input<string | undefined>;
     /**
      * (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
      *
      * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      */
-    pages?: pulumi.Input<inputs.RepositoryPages>;
+    pages?: pulumi.Input<inputs.RepositoryPages | undefined>;
     /**
      * The primary language used in the repository.
      */
-    primaryLanguage?: pulumi.Input<string>;
+    primaryLanguage?: pulumi.Input<string | undefined>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
      *
      * @deprecated use visibility instead
      */
-    private?: pulumi.Input<boolean>;
+    private?: pulumi.Input<boolean | undefined>;
     /**
      * GitHub ID for the repository
      */
-    repoId?: pulumi.Input<number>;
+    repoId?: pulumi.Input<number | undefined>;
     /**
      * The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
      */
-    securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis>;
+    securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis | undefined>;
     /**
      * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
      */
-    sourceOwner?: pulumi.Input<string>;
+    sourceOwner?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository to fork. Required when `fork` is `true`.
      */
-    sourceRepo?: pulumi.Input<string>;
+    sourceRepo?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      */
-    squashMergeCommitMessage?: pulumi.Input<string>;
+    squashMergeCommitMessage?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
      */
-    squashMergeCommitTitle?: pulumi.Input<string>;
+    squashMergeCommitTitle?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to `git clone` to clone the repository via SSH.
      */
-    sshCloneUrl?: pulumi.Input<string>;
+    sshCloneUrl?: pulumi.Input<string | undefined>;
     /**
      * URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
      */
-    svnUrl?: pulumi.Input<string>;
+    svnUrl?: pulumi.Input<string | undefined>;
     /**
      * Use a template repository to create this resource. See Template Repositories below for details.
      */
-    template?: pulumi.Input<inputs.RepositoryTemplate>;
+    template?: pulumi.Input<inputs.RepositoryTemplate | undefined>;
     /**
      * The list of topics of the repository.
      *
      * > Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
      */
-    topics?: pulumi.Input<pulumi.Input<string>[]>;
+    topics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
     /**
      * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
      *
      * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      */
-    vulnerabilityAlerts?: pulumi.Input<boolean>;
+    vulnerabilityAlerts?: pulumi.Input<boolean | undefined>;
     /**
      * Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      */
-    webCommitSignoffRequired?: pulumi.Input<boolean>;
+    webCommitSignoffRequired?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -628,39 +628,39 @@ export interface RepositoryArgs {
     /**
      * Set to `true` to allow auto-merging pull requests on the repository.
      */
-    allowAutoMerge?: pulumi.Input<boolean>;
+    allowAutoMerge?: pulumi.Input<boolean | undefined>;
     /**
      * Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      */
-    allowForking?: pulumi.Input<boolean>;
+    allowForking?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `false` to disable merge commits on the repository.
      */
-    allowMergeCommit?: pulumi.Input<boolean>;
+    allowMergeCommit?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `false` to disable rebase merges on the repository.
      */
-    allowRebaseMerge?: pulumi.Input<boolean>;
+    allowRebaseMerge?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `false` to disable squash merges on the repository.
      */
-    allowSquashMerge?: pulumi.Input<boolean>;
+    allowSquashMerge?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to always suggest updating pull request branches.
      */
-    allowUpdateBranch?: pulumi.Input<boolean>;
+    allowUpdateBranch?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to archive the repository instead of deleting on destroy.
      */
-    archiveOnDestroy?: pulumi.Input<boolean>;
+    archiveOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
      */
-    archived?: pulumi.Input<boolean>;
+    archived?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to produce an initial commit in the repository.
      */
-    autoInit?: pulumi.Input<boolean>;
+    autoInit?: pulumi.Input<boolean | undefined>;
     /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
@@ -668,133 +668,133 @@ export interface RepositoryArgs {
      *
      * @deprecated Use the github.BranchDefault resource instead
      */
-    defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string | undefined>;
     /**
      * Automatically delete head branch after a pull request is merged. Defaults to `false`.
      */
-    deleteBranchOnMerge?: pulumi.Input<boolean>;
+    deleteBranchOnMerge?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the repository.
      */
-    description?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      */
-    fork?: pulumi.Input<string>;
+    fork?: pulumi.Input<string | undefined>;
     /**
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */
-    gitignoreTemplate?: pulumi.Input<string>;
+    gitignoreTemplate?: pulumi.Input<string | undefined>;
     /**
      * Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
      */
-    hasDiscussions?: pulumi.Input<boolean>;
+    hasDiscussions?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      *
      * @deprecated This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      */
-    hasDownloads?: pulumi.Input<boolean>;
+    hasDownloads?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to enable the GitHub Issues features
      * on the repository.
      */
-    hasIssues?: pulumi.Input<boolean>;
+    hasIssues?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
      */
-    hasProjects?: pulumi.Input<boolean>;
+    hasProjects?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to enable the GitHub Wiki features on
      * the repository.
      */
-    hasWiki?: pulumi.Input<boolean>;
+    hasWiki?: pulumi.Input<boolean | undefined>;
     /**
      * URL of a page describing the project.
      */
-    homepageUrl?: pulumi.Input<string>;
+    homepageUrl?: pulumi.Input<string | undefined>;
     /**
      * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      *
      * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      */
-    ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
+    ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `true` to tell GitHub that this is a template repository.
      */
-    isTemplate?: pulumi.Input<boolean>;
+    isTemplate?: pulumi.Input<boolean | undefined>;
     /**
      * Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
      */
-    licenseTemplate?: pulumi.Input<string>;
+    licenseTemplate?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
      */
-    mergeCommitMessage?: pulumi.Input<string>;
+    mergeCommitMessage?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
      */
-    mergeCommitTitle?: pulumi.Input<string>;
+    mergeCommitTitle?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
      *
      * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      */
-    pages?: pulumi.Input<inputs.RepositoryPages>;
+    pages?: pulumi.Input<inputs.RepositoryPages | undefined>;
     /**
      * Set to `true` to create a private repository.
      * Repositories are created as public (e.g. open source) by default.
      *
      * @deprecated use visibility instead
      */
-    private?: pulumi.Input<boolean>;
+    private?: pulumi.Input<boolean | undefined>;
     /**
      * The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
      */
-    securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis>;
+    securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis | undefined>;
     /**
      * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
      */
-    sourceOwner?: pulumi.Input<string>;
+    sourceOwner?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository to fork. Required when `fork` is `true`.
      */
-    sourceRepo?: pulumi.Input<string>;
+    sourceRepo?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      */
-    squashMergeCommitMessage?: pulumi.Input<string>;
+    squashMergeCommitMessage?: pulumi.Input<string | undefined>;
     /**
      * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
      */
-    squashMergeCommitTitle?: pulumi.Input<string>;
+    squashMergeCommitTitle?: pulumi.Input<string | undefined>;
     /**
      * Use a template repository to create this resource. See Template Repositories below for details.
      */
-    template?: pulumi.Input<inputs.RepositoryTemplate>;
+    template?: pulumi.Input<inputs.RepositoryTemplate | undefined>;
     /**
      * The list of topics of the repository.
      *
      * > Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
      */
-    topics?: pulumi.Input<pulumi.Input<string>[]>;
+    topics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
     /**
      * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
      *
      * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      */
-    vulnerabilityAlerts?: pulumi.Input<boolean>;
+    vulnerabilityAlerts?: pulumi.Input<boolean | undefined>;
     /**
      * Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      */
-    webCommitSignoffRequired?: pulumi.Input<boolean>;
+    webCommitSignoffRequired?: pulumi.Input<boolean | undefined>;
 }
