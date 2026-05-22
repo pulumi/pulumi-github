@@ -847,7 +847,7 @@ class BranchProtectionRestrictPushArgs:
 
 
 class BranchProtectionV3RequiredPullRequestReviewsArgsDict(TypedDict):
-    bypass_pull_request_allowances: NotRequired[pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']]]
+    bypass_pull_request_allowances: NotRequired[pulumi.Input[Optional['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict']]]
     """
     Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
     """
@@ -1553,7 +1553,7 @@ class OrganizationRulesetBypassActorArgs:
 
 
 class OrganizationRulesetConditionsArgsDict(TypedDict):
-    ref_name: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRefNameArgs']]]
+    ref_name: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRefNameArgsDict']]]
     """
     (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
     """
@@ -1561,11 +1561,11 @@ class OrganizationRulesetConditionsArgsDict(TypedDict):
     """
     The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
     """
-    repository_name: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryNameArgs']]]
+    repository_name: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryNameArgsDict']]]
     """
     Targets repositories that match the specified name patterns. (see below for nested schema)
     """
-    repository_property: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryPropertyArgs']]]
+    repository_property: NotRequired[pulumi.Input[Optional['OrganizationRulesetConditionsRepositoryPropertyArgsDict']]]
     """
     Targets repositories by custom or system properties. (see below for nested schema)
 
@@ -1768,11 +1768,11 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
 
 
 class OrganizationRulesetConditionsRepositoryPropertyArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgsDict']]]]]
     """
     The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
     """
-    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgsDict']]]]]
     """
     The repository properties and values to include. All of these properties must match for the condition to pass.
     """
@@ -1951,23 +1951,23 @@ class OrganizationRulesetConditionsRepositoryPropertyIncludeArgs:
 
 
 class OrganizationRulesetRulesArgsDict(TypedDict):
-    branch_name_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesBranchNamePatternArgs']]]
+    branch_name_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesBranchNamePatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
     """
-    commit_author_email_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']]]
+    commit_author_email_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    commit_message_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitMessagePatternArgs']]]
+    commit_message_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitMessagePatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    committer_email_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitterEmailPatternArgs']]]
+    committer_email_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCommitterEmailPatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    copilot_code_review: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCopilotCodeReviewArgs']]]
+    copilot_code_review: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesCopilotCodeReviewArgsDict']]]
     """
     (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
     """
@@ -1979,19 +1979,19 @@ class OrganizationRulesetRulesArgsDict(TypedDict):
     """
     (Boolean) Only allow users with bypass permissions to delete matching refs.
     """
-    file_extension_restriction: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesFileExtensionRestrictionArgs']]]
+    file_extension_restriction: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesFileExtensionRestrictionArgsDict']]]
     """
     (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
     """
-    file_path_restriction: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesFilePathRestrictionArgs']]]
+    file_path_restriction: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesFilePathRestrictionArgsDict']]]
     """
     (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
     """
-    max_file_path_length: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesMaxFilePathLengthArgs']]]
+    max_file_path_length: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesMaxFilePathLengthArgsDict']]]
     """
     (Integer) The maximum number of characters allowed in file paths.
     """
-    max_file_size: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesMaxFileSizeArgs']]]
+    max_file_size: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesMaxFileSizeArgsDict']]]
     """
     (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
     """
@@ -1999,11 +1999,11 @@ class OrganizationRulesetRulesArgsDict(TypedDict):
     """
     (Boolean) Prevent users with push access from force pushing to branches.
     """
-    pull_request: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesPullRequestArgs']]]
+    pull_request: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesPullRequestArgsDict']]]
     """
     (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
     """
-    required_code_scanning: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredCodeScanningArgs']]]
+    required_code_scanning: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredCodeScanningArgsDict']]]
     """
     (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
     """
@@ -2015,15 +2015,15 @@ class OrganizationRulesetRulesArgsDict(TypedDict):
     """
     (Boolean) Commits pushed to matching branches must have verified signatures.
     """
-    required_status_checks: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredStatusChecksArgs']]]
+    required_status_checks: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredStatusChecksArgsDict']]]
     """
     (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
     """
-    required_workflows: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredWorkflowsArgs']]]
+    required_workflows: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesRequiredWorkflowsArgsDict']]]
     """
     (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
     """
-    tag_name_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesTagNamePatternArgs']]]
+    tag_name_pattern: NotRequired[pulumi.Input[Optional['OrganizationRulesetRulesTagNamePatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
     """
@@ -2893,7 +2893,7 @@ class OrganizationRulesetRulesPullRequestArgsDict(TypedDict):
     """
     All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
     """
-    required_reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgs']]]]]
+    required_reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgsDict']]]]]
     """
     Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
     """
@@ -3945,7 +3945,7 @@ class RepositoryPagesArgsDict(TypedDict):
     """
     The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
     """
-    source: NotRequired[pulumi.Input[Optional['RepositoryPagesSourceArgs']]]
+    source: NotRequired[pulumi.Input[Optional['RepositoryPagesSourceArgsDict']]]
     """
     The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
     """
@@ -4282,23 +4282,23 @@ class RepositoryRulesetConditionsRefNameArgs:
 
 
 class RepositoryRulesetRulesArgsDict(TypedDict):
-    branch_name_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesBranchNamePatternArgs']]]
+    branch_name_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesBranchNamePatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
     """
-    commit_author_email_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']]]
+    commit_author_email_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    commit_message_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitMessagePatternArgs']]]
+    commit_message_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitMessagePatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    committer_email_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitterEmailPatternArgs']]]
+    committer_email_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCommitterEmailPatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
     """
-    copilot_code_review: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCopilotCodeReviewArgs']]]
+    copilot_code_review: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesCopilotCodeReviewArgsDict']]]
     """
     (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
     """
@@ -4310,23 +4310,23 @@ class RepositoryRulesetRulesArgsDict(TypedDict):
     """
     (Boolean) Only allow users with bypass permissions to delete matching refs.
     """
-    file_extension_restriction: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesFileExtensionRestrictionArgs']]]
+    file_extension_restriction: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesFileExtensionRestrictionArgsDict']]]
     """
     (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
     """
-    file_path_restriction: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesFilePathRestrictionArgs']]]
+    file_path_restriction: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesFilePathRestrictionArgsDict']]]
     """
     (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
     """
-    max_file_path_length: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMaxFilePathLengthArgs']]]
+    max_file_path_length: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMaxFilePathLengthArgsDict']]]
     """
     (Integer) The maximum number of characters allowed in file paths.
     """
-    max_file_size: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMaxFileSizeArgs']]]
+    max_file_size: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMaxFileSizeArgsDict']]]
     """
     (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
     """
-    merge_queue: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMergeQueueArgs']]]
+    merge_queue: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesMergeQueueArgsDict']]]
     """
     (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
     """
@@ -4334,15 +4334,15 @@ class RepositoryRulesetRulesArgsDict(TypedDict):
     """
     (Boolean) Prevent users with push access from force pushing to branches.
     """
-    pull_request: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesPullRequestArgs']]]
+    pull_request: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesPullRequestArgsDict']]]
     """
     (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
     """
-    required_code_scanning: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredCodeScanningArgs']]]
+    required_code_scanning: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredCodeScanningArgsDict']]]
     """
     (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
     """
-    required_deployments: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredDeploymentsArgs']]]
+    required_deployments: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredDeploymentsArgsDict']]]
     """
     (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
     """
@@ -4354,11 +4354,11 @@ class RepositoryRulesetRulesArgsDict(TypedDict):
     """
     (Boolean) Commits pushed to matching branches must have verified signatures.
     """
-    required_status_checks: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredStatusChecksArgs']]]
+    required_status_checks: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesRequiredStatusChecksArgsDict']]]
     """
     (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
     """
-    tag_name_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesTagNamePatternArgs']]]
+    tag_name_pattern: NotRequired[pulumi.Input[Optional['RepositoryRulesetRulesTagNamePatternArgsDict']]]
     """
     (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
     """
@@ -5413,7 +5413,7 @@ class RepositoryRulesetRulesPullRequestArgsDict(TypedDict):
     """
     All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
     """
-    required_reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgs']]]]]
+    required_reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgsDict']]]]]
     """
     Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
     """
@@ -5976,27 +5976,27 @@ class RepositoryRulesetRulesTagNamePatternArgs:
 
 
 class RepositorySecurityAndAnalysisArgsDict(TypedDict):
-    advanced_security: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisAdvancedSecurityArgs']]]
+    advanced_security: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisAdvancedSecurityArgsDict']]]
     """
     The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
     """
-    code_security: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisCodeSecurityArgs']]]
+    code_security: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisCodeSecurityArgsDict']]]
     """
     The code security configuration for the repository. See Code Security below for details.
     """
-    secret_scanning: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningArgs']]]
+    secret_scanning: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningArgsDict']]]
     """
     The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
     """
-    secret_scanning_ai_detection: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs']]]
+    secret_scanning_ai_detection: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict']]]
     """
     The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
     """
-    secret_scanning_non_provider_patterns: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs']]]
+    secret_scanning_non_provider_patterns: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgsDict']]]
     """
     The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
     """
-    secret_scanning_push_protection: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']]]
+    secret_scanning_push_protection: NotRequired[pulumi.Input[Optional['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgsDict']]]
     """
     The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
     """
