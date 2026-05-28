@@ -181,7 +181,7 @@ class RepositoryProject(pulumi.CustomResource):
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        !> **Warning:** This resource no longer works as the [Projects (classic) REST API](https://docs.github.com/en/rest/projects/projects?apiVersion=2022-11-28) has been [removed](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) and as such has been deprecated. It will be removed in a future release.
+        > **Warning:** This resource no longer works as the [Projects (classic) REST API](https://docs.github.com/en/rest/projects/projects?apiVersion=2022-11-28) has been [removed](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) and as such has been deprecated. It will be removed in a future release.
 
         This resource allows you to create and manage projects for GitHub repository.
 
@@ -215,7 +215,7 @@ class RepositoryProject(pulumi.CustomResource):
                  args: RepositoryProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Warning:** This resource no longer works as the [Projects (classic) REST API](https://docs.github.com/en/rest/projects/projects?apiVersion=2022-11-28) has been [removed](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) and as such has been deprecated. It will be removed in a future release.
+        > **Warning:** This resource no longer works as the [Projects (classic) REST API](https://docs.github.com/en/rest/projects/projects?apiVersion=2022-11-28) has been [removed](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) and as such has been deprecated. It will be removed in a future release.
 
         This resource allows you to create and manage projects for GitHub repository.
 
