@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredDeploymentsArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredCodeScanningArgs;
+ * import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesFilePathRestrictionArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFileSizeArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFilePathLengthArgs;
