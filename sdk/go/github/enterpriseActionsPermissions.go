@@ -49,7 +49,7 @@ import (
 //				},
 //				EnabledOrganizationsConfig: &github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{
 //					OrganizationIds: pulumi.IntArray{
-//						pulumi.Int(pulumi.String(example_org.Id)),
+//						pulumi.String(example_org.Id),
 //					},
 //				},
 //			})
