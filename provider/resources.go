@@ -42,6 +42,10 @@ const (
 	mainMod = "index" // the y module
 )
 
+// selectedRepositoryIDs is the Terraform field name shared by several
+// organization secret resources.
+const selectedRepositoryIDs = "selected_repository_ids"
+
 // makeMember manufactures a type token for the package and the given module and type.
 func makeMember(mod string, mem string) tokens.ModuleMember {
 	return tokens.ModuleMember(mainPkg + ":" + mod + ":" + mem)
@@ -106,7 +110,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_actions_environment_secret": {DeleteBeforeReplace: true},
 			"github_actions_organization_secret": {
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"selected_repository_ids": {
+					selectedRepositoryIDs: {
 						ForceNew: tfbridge.True(),
 					},
 				},
@@ -134,7 +138,7 @@ func Provider() tfbridge.ProviderInfo {
 			"github_branch_protection_v3": {Tok: makeResource(mainMod, "BranchProtectionV3")},
 			"github_codespaces_organization_secret": {
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"selected_repository_ids": {
+					selectedRepositoryIDs: {
 						ForceNew: tfbridge.True(),
 					},
 				},
@@ -143,7 +147,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(mainMod, "DependabotOrganizationSecret"),
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"selected_repository_ids": {
+					selectedRepositoryIDs: {
 						ForceNew: tfbridge.True(),
 					},
 				},
