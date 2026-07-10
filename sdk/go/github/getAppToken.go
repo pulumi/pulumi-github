@@ -28,12 +28,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "foo/bar.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err := github.GetAppToken(ctx, &github.GetAppTokenArgs{
 //				AppId:          "123456",
 //				InstallationId: "78910",
-//				PemFile: std.File(ctx, &std.FileArgs{
-//					Input: "foo/bar.pem",
-//				}, nil).Result,
+//				PemFile:        invokeFile.Result,
 //			}, nil)
 //			if err != nil {
 //				return err
