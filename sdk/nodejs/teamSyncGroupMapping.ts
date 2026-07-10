@@ -69,7 +69,7 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ___
+     * ***
      *
      * The `group` block consists of:
      */
@@ -116,7 +116,7 @@ export interface TeamSyncGroupMappingState {
     etag?: pulumi.Input<string | undefined>;
     /**
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ___
+     * ***
      *
      * The `group` block consists of:
      */
@@ -133,7 +133,7 @@ export interface TeamSyncGroupMappingState {
 export interface TeamSyncGroupMappingArgs {
     /**
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ___
+     * ***
      *
      * The `group` block consists of:
      */
