@@ -18,9 +18,9 @@ import * as utilities from "./utilities";
  * const _this = github.getRepository({
  *     name: "example",
  * });
- * const thisGetBranch = Promise.all([_this, _this]).then(([_this, _this1]) => github.getBranch({
+ * const thisGetBranch = _this.then(_this => github.getBranch({
  *     branch: _this.defaultBranch,
- *     repository: _this1.name,
+ *     repository: _this.name,
  * }));
  * const thisGetTree = Promise.all([_this, thisGetBranch]).then(([_this, thisGetBranch]) => github.getTree({
  *     recursive: false,
@@ -85,9 +85,9 @@ export interface GetTreeResult {
  * const _this = github.getRepository({
  *     name: "example",
  * });
- * const thisGetBranch = Promise.all([_this, _this]).then(([_this, _this1]) => github.getBranch({
+ * const thisGetBranch = _this.then(_this => github.getBranch({
  *     branch: _this.defaultBranch,
- *     repository: _this1.name,
+ *     repository: _this.name,
  * }));
  * const thisGetTree = Promise.all([_this, thisGetBranch]).then(([_this, thisGetBranch]) => github.getTree({
  *     recursive: false,
