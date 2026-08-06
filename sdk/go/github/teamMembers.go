@@ -63,7 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewTeamMembers(ctx, "some_team_members", &github.TeamMembersArgs{
-//				TeamId: someTeam.ID(),
+//				TeamId: someTeam.ID().ToIDOutput().ToStringOutput(),
 //				Members: github.TeamMembersMemberArray{
 //					&github.TeamMembersMemberArgs{
 //						Username: pulumi.String("SomeUser"),

@@ -26,6 +26,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -47,7 +49,7 @@ import (
 //					Source: pulumi.String("github"),
 //				},
 //				Size:          pulumi.String("4-core"),
-//				RunnerGroupId: example.ID(),
+//				RunnerGroupId: example.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -64,6 +66,8 @@ import (
 // package main
 //
 // import (
+//
+//	"strconv"
 //
 //	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -86,7 +90,7 @@ import (
 //					Source: pulumi.String("github"),
 //				},
 //				Size:            pulumi.String("8-core"),
-//				RunnerGroupId:   advanced.ID(),
+//				RunnerGroupId:   advanced.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				MaximumRunners:  pulumi.Int(10),
 //				PublicIpEnabled: pulumi.Bool(true),
 //			})
