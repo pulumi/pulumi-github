@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewTeamSettings(ctx, "code_review_settings", &github.TeamSettingsArgs{
-//				TeamId: someTeam.ID(),
+//				TeamId: someTeam.ID().ToIDOutput().ToStringOutput(),
 //				Notify: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -78,7 +78,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewTeamSettings(ctx, "code_review_settings", &github.TeamSettingsArgs{
-//				TeamId: someTeam.ID(),
+//				TeamId: someTeam.ID().ToIDOutput().ToStringOutput(),
 //				Notify: pulumi.Bool(true),
 //				ReviewRequestDelegation: &github.TeamSettingsReviewRequestDelegationArgs{
 //					Algorithm:   pulumi.String("ROUND_ROBIN"),

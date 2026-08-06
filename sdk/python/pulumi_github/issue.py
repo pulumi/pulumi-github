@@ -318,7 +318,7 @@ class Issue(pulumi.CustomResource):
             has_issues=True)
         test_repository_milestone = github.RepositoryMilestone("test",
             owner=std.split_output(separator="/",
-                text=test.full_name).apply(lambda invoke: invoke.result[0]),
+                text=test.full_name).result[0],
             repository=test.name,
             title="v1.0.0",
             description="General Availability",
@@ -397,7 +397,7 @@ class Issue(pulumi.CustomResource):
             has_issues=True)
         test_repository_milestone = github.RepositoryMilestone("test",
             owner=std.split_output(separator="/",
-                text=test.full_name).apply(lambda invoke: invoke.result[0]),
+                text=test.full_name).result[0],
             repository=test.name,
             title="v1.0.0",
             description="General Availability",
