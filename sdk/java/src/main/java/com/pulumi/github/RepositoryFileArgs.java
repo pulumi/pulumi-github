@@ -87,16 +87,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
+     * Git branch (defaults to the repository&#39;s default branch). The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
+     * @return Git branch (defaults to the repository&#39;s default branch). The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     public Optional<Output<String>> branch() {
@@ -330,8 +328,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch Git branch (defaults to the repository&#39;s default branch).
-         * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
+         * @param branch Git branch (defaults to the repository&#39;s default branch). The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
          * 
          * @return builder
          * 
@@ -342,8 +339,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch Git branch (defaults to the repository&#39;s default branch).
-         * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
+         * @param branch Git branch (defaults to the repository&#39;s default branch). The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
          * 
          * @return builder
          * 

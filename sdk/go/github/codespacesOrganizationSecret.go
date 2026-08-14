@@ -12,28 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage GitHub Codespaces secrets within your GitHub organization.
-// You must have write access to a repository to use this resource.
+// This resource allows you to create and manage GitHub Codespaces secrets within your GitHub organization. You must have write access to a repository to use this resource.
 //
-// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
-// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 //
-// For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
-// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-// It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
-// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
-// in your code. See below for an example of this abstraction.
-//
-// ## Import
-//
-// This resource can be imported using an ID made up of the secret name:
-//
-// ```sh
-// $ pulumi import github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret test_secret test_secret_name
-// ```
-//
-// NOTE: the implementation is limited in that it won't fetch the value of the
-// `plaintextValue` or `encryptedValue` fields when importing. You may need to ignore changes for these as a workaround.
+// For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform, but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always. It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue` using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible in your code. See below for an example of this abstraction.
 type CodespacesOrganizationSecret struct {
 	pulumi.CustomResourceState
 
@@ -49,8 +32,7 @@ type CodespacesOrganizationSecret struct {
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
 	// Date of codespacesSecret update.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
 
@@ -113,8 +95,7 @@ type codespacesOrganizationSecretState struct {
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 	// Date of codespacesSecret update.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility *string `pulumi:"visibility"`
 }
 
@@ -131,8 +112,7 @@ type CodespacesOrganizationSecretState struct {
 	SelectedRepositoryIds pulumi.IntArrayInput
 	// Date of codespacesSecret update.
 	UpdatedAt pulumi.StringPtrInput
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringPtrInput
 }
 
@@ -149,8 +129,7 @@ type codespacesOrganizationSecretArgs struct {
 	SecretName string `pulumi:"secretName"`
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -164,8 +143,7 @@ type CodespacesOrganizationSecretArgs struct {
 	SecretName pulumi.StringInput
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
-	// Configures the access that repositories have to the organization secret.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringInput
 }
 
@@ -286,8 +264,7 @@ func (o CodespacesOrganizationSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodespacesOrganizationSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Configures the access that repositories have to the organization secret.
-// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+// Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 func (o CodespacesOrganizationSecretOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodespacesOrganizationSecret) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
 }

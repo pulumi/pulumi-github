@@ -21,8 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage repositories within your
- * GitHub organization or personal account.
+ * This resource allows you to create and manage repositories within your GitHub organization or personal account.
  * 
  * &gt; **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `allowMergeCommit`, `allowSquashMerge`, `allowRebaseMerge`, `mergeCommitTitle`, `mergeCommitMessage`, `squashMergeCommitTitle` and `squashMergeCommitMessage`.
  * 
@@ -242,9 +241,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoInit);
     }
     /**
-     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
      * @deprecated
      * Use the github.BranchDefault resource instead
@@ -255,9 +252,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
     private Output<String> defaultBranch;
 
     /**
-     * @return (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * @return (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
      */
     public Output<String> defaultBranch() {
@@ -386,16 +381,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hasDownloads);
     }
     /**
-     * Set to `true` to enable the GitHub Issues features
-     * on the repository.
+     * Set to `true` to enable the GitHub Issues features on the repository.
      * 
      */
     @Export(name="hasIssues", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasIssues;
 
     /**
-     * @return Set to `true` to enable the GitHub Issues features
-     * on the repository.
+     * @return Set to `true` to enable the GitHub Issues features on the repository.
      * 
      */
     public Output<Optional<Boolean>> hasIssues() {
@@ -416,16 +409,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hasProjects);
     }
     /**
-     * Set to `true` to enable the GitHub Wiki features on
-     * the repository.
+     * Set to `true` to enable the GitHub Wiki features on the repository.
      * 
      */
     @Export(name="hasWiki", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasWiki;
 
     /**
-     * @return Set to `true` to enable the GitHub Wiki features on
-     * the repository.
+     * @return Set to `true` to enable the GitHub Wiki features on the repository.
      * 
      */
     public Output<Optional<Boolean>> hasWiki() {
@@ -608,8 +599,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return this.primaryLanguage;
     }
     /**
-     * Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
+     * Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      * 
      * @deprecated
      * use visibility instead
@@ -620,8 +610,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
     private Output<Boolean> private_;
 
     /**
-     * @return Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
+     * @return Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      * 
      */
     public Output<Boolean> private_() {

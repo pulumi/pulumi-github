@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to manage GitHub Pages for a repository. See the
-    /// [documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
-    /// for details on GitHub Pages.
+    /// This resource allows you to manage GitHub Pages for a repository. See the [documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) for details on GitHub Pages.
     /// 
     /// The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission. OAuth app tokens and personal access tokens (classic) need the repo scope to use this resource.
     /// 

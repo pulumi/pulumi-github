@@ -282,14 +282,6 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
 
         These settings only apply to **new repositories** created after the settings are enabled. Existing repositories are not affected and must be configured individually.
 
-        ## Import
-
-        Enterprise security analysis settings can be imported using the enterprise slug:
-
-        ```sh
-        $ pulumi import github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings example my-enterprise
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -349,14 +341,6 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
         - **Validity Checks**: Verifies that detected secrets are actually valid
 
         These settings only apply to **new repositories** created after the settings are enabled. Existing repositories are not affected and must be configured individually.
-
-        ## Import
-
-        Enterprise security analysis settings can be imported using the enterprise slug:
-
-        ```sh
-        $ pulumi import github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings example my-enterprise
-        ```
 
 
         :param str resource_name: The name of the resource.

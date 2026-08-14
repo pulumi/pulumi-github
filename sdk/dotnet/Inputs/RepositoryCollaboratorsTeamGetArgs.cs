@@ -13,15 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryCollaboratorsTeamGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permission of the outside collaborators for the repository.
-        /// Must be one of `Pull`, `Triage`, `Push`, `Maintain`, `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `Pull`.
-        /// Must be `Push` for personal repositories. Defaults to `Push`.
+        /// Permission to grant to the team. Must be one of `Pull`, `Triage`, `Push`, `Maintain`, `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `Push`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
         /// <summary>
-        /// The GitHub team id or the GitHub team slug.
+        /// ID or slug of the team to add to the repository as a collaborator.
         /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;

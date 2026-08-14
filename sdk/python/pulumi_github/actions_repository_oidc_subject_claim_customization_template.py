@@ -26,8 +26,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
         The set of arguments for constructing a ActionsRepositoryOidcSubjectClaimCustomizationTemplate resource.
 
         :param pulumi.Input[_builtins.str] repository: The name of the repository.
-        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
-               be set.
+        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not be set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
         """
         pulumi.set(__self__, "repository", repository)
@@ -51,8 +50,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
     @pulumi.getter(name="useDefault")
     def use_default(self) -> pulumi.Input[_builtins.bool]:
         """
-        Whether to use the default template or not. If `true`, `include_claim_keys` must not
-        be set.
+        Whether to use the default template or not. If `true`, `include_claim_keys` must not be set.
         """
         return pulumi.get(self, "use_default")
 
@@ -84,8 +82,7 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
         :param pulumi.Input[_builtins.str] repository: The name of the repository.
-        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
-               be set.
+        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not be set.
         """
         if include_claim_keys is not None:
             pulumi.set(__self__, "include_claim_keys", include_claim_keys)
@@ -122,8 +119,7 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
     @pulumi.getter(name="useDefault")
     def use_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to use the default template or not. If `true`, `include_claim_keys` must not
-        be set.
+        Whether to use the default template or not. If `true`, `include_claim_keys` must not be set.
         """
         return pulumi.get(self, "use_default")
 
@@ -143,11 +139,9 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
                  use_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
-        repository.
+        This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub repository.
 
-        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
-        available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
         The following table lists the behaviour of `use_default`:
 
@@ -187,8 +181,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
         :param pulumi.Input[_builtins.str] repository: The name of the repository.
-        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
-               be set.
+        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not be set.
         """
         ...
     @overload
@@ -197,11 +190,9 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
                  args: ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
-        repository.
+        This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub repository.
 
-        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
-        available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
         The following table lists the behaviour of `use_default`:
 
@@ -293,8 +284,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
         :param pulumi.Input[_builtins.str] repository: The name of the repository.
-        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
-               be set.
+        :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -325,8 +315,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
     @pulumi.getter(name="useDefault")
     def use_default(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether to use the default template or not. If `true`, `include_claim_keys` must not
-        be set.
+        Whether to use the default template or not. If `true`, `include_claim_keys` must not be set.
         """
         return pulumi.get(self, "use_default")
 

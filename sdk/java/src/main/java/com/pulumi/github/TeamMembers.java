@@ -16,19 +16,13 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Provides a GitHub team members resource.
+ * &gt; This resource is not compatible with `github.TeamMembership`; use either `github.TeamMembers` or `github.TeamMembership`.
  * 
- * This resource allows you to manage members of teams in your organization. It sets the requested team members for the team and removes all users not managed by Terraform.
+ * Resource to authoritatively manage GitHub team members.
  * 
- * When applied, if the user hasn&#39;t accepted their invitation to the organization, they won&#39;t be part of the team until they do.
+ * This resource allows you to manage members of teams in your organization; it sets the requested team members for the team and removes all users not managed by Terraform. If an organization owner is given the `member` role they will be granted `maintainer` instead which will result in a perpetual diff. If a user who hasn&#39;t accepted their invitation to the organization is added to the team, they will not be a team member until they&#39;ve accepted the invitation. When this resource is deleted all users will be removed from the team.
  * 
- * When destroyed, all users will be removed from the team.
- * 
- * &gt; **Note** This resource is not compatible with `github.TeamMembership`. Use either `github.TeamMembers` or `github.TeamMembership`.
- * 
- * &gt; **Note** You can accidentally lock yourself out of your team using this resource. Deleting a `github.TeamMembers` resource removes access from anyone without organization-level access to the team. Proceed with caution. It should generally only be used with teams fully managed by Terraform.
- * 
- * &gt; **Note** Attempting to set a user who is an organization owner to &#34;member&#34; will result in the user being granted &#34;maintainer&#34; instead; this can result in a perpetual `terraform plan` diff that changes their status back to &#34;member&#34;.
+ * &gt; If you don&#39;t have a member with the `maintainer` set then this resource may end up with a perpetual diff as the GitHub API will automatically promote a member to `maintainer` if there are no maintainers in the team. To avoid this, ensure that at least one member has the `maintainer` role.
  * 
  * ## Example Usage
  * 
@@ -39,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.github.Membership;
- * import com.pulumi.github.MembershipArgs;
  * import com.pulumi.github.Team;
  * import com.pulumi.github.TeamArgs;
  * import com.pulumi.github.TeamMembers;
@@ -59,24 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Add a user to the organization
- *         var membershipForSomeUser = new Membership("membershipForSomeUser", MembershipArgs.builder()
- *             .username("SomeUser")
- *             .role("member")
+ *         var example = new Team("example", TeamArgs.builder()
+ *             .name("my-team")
  *             .build());
  * 
- *         var membershipForAnotherUser = new Membership("membershipForAnotherUser", MembershipArgs.builder()
- *             .username("AnotherUser")
- *             .role("member")
- *             .build());
- * 
- *         var someTeam = new Team("someTeam", TeamArgs.builder()
- *             .name("SomeTeam")
- *             .description("Some cool team")
- *             .build());
- * 
- *         var someTeamMembers = new TeamMembers("someTeamMembers", TeamMembersArgs.builder()
- *             .teamId(someTeam.id())
+ *         var exampleTeamMembers = new TeamMembers("exampleTeamMembers", TeamMembersArgs.builder()
+ *             .teamSlug(example.slug())
  *             .members(            
  *                 TeamMembersMemberArgs.builder()
  *                     .username("SomeUser")
@@ -95,49 +75,62 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
+ * This resource can be imported either by the team slug or team ID; it is recommended to use the team slug in combination with the `teamSlug` resource attribute.
  * 
- * GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
- * $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
- * $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
+ * $ pulumi import github:index/teamMembers:TeamMembers example my-team
  * ```
  * 
  */
 @ResourceType(type="github:index/teamMembers:TeamMembers")
 public class TeamMembers extends com.pulumi.resources.CustomResource {
     /**
-     * List of team members. See Members below for details.
+     * List of users that should be members of the team.
      * 
      */
     @Export(name="members", refs={List.class,TeamMembersMember.class}, tree="[0,1]")
     private Output<List<TeamMembersMember>> members;
 
     /**
-     * @return List of team members. See Members below for details.
+     * @return List of users that should be members of the team.
      * 
      */
     public Output<List<TeamMembersMember>> members() {
         return this.members;
     }
     /**
-     * The team id or the team slug
+     * ID or slug of the GitHub team to manage membership for.
      * 
-     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+     * @deprecated
+     * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      * 
      */
+    @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
-     * @return The team id or the team slug
-     * 
-     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+     * @return ID or slug of the GitHub team to manage membership for.
      * 
      */
     public Output<String> teamId() {
         return this.teamId;
+    }
+    /**
+     * Slug of the GitHub team to manage membership for.
+     * 
+     */
+    @Export(name="teamSlug", refs={String.class}, tree="[0]")
+    private Output<String> teamSlug;
+
+    /**
+     * @return Slug of the GitHub team to manage membership for.
+     * 
+     */
+    public Output<String> teamSlug() {
+        return this.teamSlug;
     }
 
     /**

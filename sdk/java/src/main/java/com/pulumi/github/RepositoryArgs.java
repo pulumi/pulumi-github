@@ -156,9 +156,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
      * @deprecated
      * Use the github.BranchDefault resource instead
@@ -169,9 +167,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> defaultBranch;
 
     /**
-     * @return (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * @return (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
      * @deprecated
      * Use the github.BranchDefault resource instead
@@ -288,16 +284,14 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to `true` to enable the GitHub Issues features
-     * on the repository.
+     * Set to `true` to enable the GitHub Issues features on the repository.
      * 
      */
     @Import(name="hasIssues")
     private @Nullable Output<Boolean> hasIssues;
 
     /**
-     * @return Set to `true` to enable the GitHub Issues features
-     * on the repository.
+     * @return Set to `true` to enable the GitHub Issues features on the repository.
      * 
      */
     public Optional<Output<Boolean>> hasIssues() {
@@ -320,16 +314,14 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to `true` to enable the GitHub Wiki features on
-     * the repository.
+     * Set to `true` to enable the GitHub Wiki features on the repository.
      * 
      */
     @Import(name="hasWiki")
     private @Nullable Output<Boolean> hasWiki;
 
     /**
-     * @return Set to `true` to enable the GitHub Wiki features on
-     * the repository.
+     * @return Set to `true` to enable the GitHub Wiki features on the repository.
      * 
      */
     public Optional<Output<Boolean>> hasWiki() {
@@ -473,8 +465,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
+     * Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      * 
      * @deprecated
      * use visibility instead
@@ -485,8 +476,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> private_;
 
     /**
-     * @return Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
+     * @return Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      * 
      * @deprecated
      * use visibility instead
@@ -911,9 +901,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultBranch (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-         * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-         * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+         * @param defaultBranch (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
          * 
          * @return builder
          * 
@@ -928,9 +916,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultBranch (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-         * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-         * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+         * @param defaultBranch (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
          * 
          * @return builder
          * 
@@ -1087,8 +1073,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hasIssues Set to `true` to enable the GitHub Issues features
-         * on the repository.
+         * @param hasIssues Set to `true` to enable the GitHub Issues features on the repository.
          * 
          * @return builder
          * 
@@ -1099,8 +1084,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hasIssues Set to `true` to enable the GitHub Issues features
-         * on the repository.
+         * @param hasIssues Set to `true` to enable the GitHub Issues features on the repository.
          * 
          * @return builder
          * 
@@ -1131,8 +1115,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hasWiki Set to `true` to enable the GitHub Wiki features on
-         * the repository.
+         * @param hasWiki Set to `true` to enable the GitHub Wiki features on the repository.
          * 
          * @return builder
          * 
@@ -1143,8 +1126,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hasWiki Set to `true` to enable the GitHub Wiki features on
-         * the repository.
+         * @param hasWiki Set to `true` to enable the GitHub Wiki features on the repository.
          * 
          * @return builder
          * 
@@ -1338,8 +1320,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param private_ Set to `true` to create a private repository.
-         * Repositories are created as public (e.g. open source) by default.
+         * @param private_ Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
          * 
          * @return builder
          * 
@@ -1354,8 +1335,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param private_ Set to `true` to create a private repository.
-         * Repositories are created as public (e.g. open source) by default.
+         * @param private_ Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
          * 
          * @return builder
          * 

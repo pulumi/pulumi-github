@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to manage the repositories allowed to access a Dependabot secret within your GitHub organization.
- * You must have write access to an organization secret to use this resource.
+ * This resource allows you to manage the repositories allowed to access a Dependabot secret within your GitHub organization. You must have write access to an organization secret to use this resource.
  *
  * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
  *
@@ -18,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const example = new github.DependabotOrganizationSecret("example", {
  *     secretName: "mysecret",
- *     value: "foo",
+ *     plaintextValue: "foo",
  *     visibility: "selected",
  * });
  * const exampleRepository = new github.Repository("example", {
@@ -34,6 +33,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * This resource can be imported using the secret name as the ID.
+ *
+ * ### Import Block
+ *
+ * The following import block imports the repositories able to access the Dependabot organization secret named `mysecret` to a `github.DependabotOrganizationSecretRepositories` resource named `example`.
  *
  * ### Import Command
  *

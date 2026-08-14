@@ -141,14 +141,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// Organization custom properties can be imported using the property name:
-//
-// ```sh
-// $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
-// ```
 type OrganizationCustomProperties struct {
 	pulumi.CustomResourceState
 

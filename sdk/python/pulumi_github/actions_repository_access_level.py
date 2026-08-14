@@ -106,8 +106,7 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
-        You must have admin access to a repository to use this resource.
+        This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories. You must have admin access to a repository to use this resource.
 
         ## Example Usage
 
@@ -144,8 +143,7 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
                  args: ActionsRepositoryAccessLevelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
-        You must have admin access to a repository to use this resource.
+        This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories. You must have admin access to a repository to use this resource.
 
         ## Example Usage
 

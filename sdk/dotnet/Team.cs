@@ -12,8 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// Provides a GitHub team resource.
     /// 
-    /// This resource allows you to add/remove teams from your organization. When applied,
-    /// a new team will be created. When destroyed, that team will be removed.
+    /// This resource allows you to add/remove teams from your organization. When applied, a new team will be created. When destroyed, that team will be removed.
     /// 
     /// ## Example Usage
     /// 
@@ -85,7 +84,7 @@ namespace Pulumi.Github
         public Output<string> NodeId { get; private set; } = null!;
 
         /// <summary>
-        /// The notification setting for the team. Must be one of `NotificationsEnabled` _(default)_ or `NotificationsDisabled`.
+        /// The notification setting for the team. Must be one of `NotificationsEnabled` *(default)- or `NotificationsDisabled`.
         /// </summary>
         [Output("notificationSetting")]
         public Output<string?> NotificationSetting { get; private set; } = null!;
@@ -109,15 +108,13 @@ namespace Pulumi.Github
         public Output<string> ParentTeamReadSlug { get; private set; } = null!;
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `Secret` _(default)_ or `Closed`.
+        /// The level of privacy for the team. Must be one of `Secret` *(default)- or `Closed`.
         /// </summary>
         [Output("privacy")]
         public Output<string?> Privacy { get; private set; } = null!;
 
         /// <summary>
-        /// The slug of the created team, which may or may not differ from `Name`,
-        /// depending on whether `Name` contains "URL-unsafe" characters.
-        /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        /// The slug of the created team, which may or may not differ from `Name`, depending on whether `Name` contains "URL-unsafe" characters.
         /// </summary>
         [Output("slug")]
         public Output<string> Slug { get; private set; } = null!;
@@ -193,7 +190,7 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The notification setting for the team. Must be one of `NotificationsEnabled` _(default)_ or `NotificationsDisabled`.
+        /// The notification setting for the team. Must be one of `NotificationsEnabled` *(default)- or `NotificationsDisabled`.
         /// </summary>
         [Input("notificationSetting")]
         public Input<string>? NotificationSetting { get; set; }
@@ -217,7 +214,7 @@ namespace Pulumi.Github
         public Input<string>? ParentTeamReadSlug { get; set; }
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `Secret` _(default)_ or `Closed`.
+        /// The level of privacy for the team. Must be one of `Secret` *(default)- or `Closed`.
         /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }
@@ -267,7 +264,7 @@ namespace Pulumi.Github
         public Input<string>? NodeId { get; set; }
 
         /// <summary>
-        /// The notification setting for the team. Must be one of `NotificationsEnabled` _(default)_ or `NotificationsDisabled`.
+        /// The notification setting for the team. Must be one of `NotificationsEnabled` *(default)- or `NotificationsDisabled`.
         /// </summary>
         [Input("notificationSetting")]
         public Input<string>? NotificationSetting { get; set; }
@@ -291,15 +288,13 @@ namespace Pulumi.Github
         public Input<string>? ParentTeamReadSlug { get; set; }
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `Secret` _(default)_ or `Closed`.
+        /// The level of privacy for the team. Must be one of `Secret` *(default)- or `Closed`.
         /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }
 
         /// <summary>
-        /// The slug of the created team, which may or may not differ from `Name`,
-        /// depending on whether `Name` contains "URL-unsafe" characters.
-        /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        /// The slug of the created team, which may or may not differ from `Name`, depending on whether `Name` contains "URL-unsafe" characters.
         /// </summary>
         [Input("slug")]
         public Input<string>? Slug { get; set; }

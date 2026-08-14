@@ -16,8 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to manage the repositories allowed to access an actions variable within your GitHub organization.
- * You must have write access to an organization variable to use this resource.
+ * This resource allows you to manage the repositories allowed to access an actions variable within your GitHub organization. You must have write access to an organization variable to use this resource.
  * 
  * This resource is only applicable when `visibility` of the existing organization variable has been set to `selected`.
  * 
@@ -51,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ActionsOrganizationVariable("example", ActionsOrganizationVariableArgs.builder()
  *             .variableName("myvariable")
- *             .value("foo")
+ *             .plaintextValue("foo")
  *             .visibility("selected")
  *             .build());
  * 
@@ -73,6 +72,10 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * This resource can be imported using the variable name as the ID.
+ * 
+ * ### Import Block
+ * 
+ * The following import block imports the repositories able to access the actions organization variable named `myvariable` to a `github.ActionsOrganizationVariableRepositories` resource named `example`.
  * 
  * ### Import Command
  * 

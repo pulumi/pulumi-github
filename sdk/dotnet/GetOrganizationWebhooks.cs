@@ -16,7 +16,7 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// To retrieve *all* webhooks of the organization:
+        /// To retrieve *all- webhooks of the organization:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -39,7 +39,7 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// To retrieve *all* webhooks of the organization:
+        /// To retrieve *all- webhooks of the organization:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// To retrieve *all* webhooks of the organization:
+        /// To retrieve *all- webhooks of the organization:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -90,8 +90,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An Array of GitHub Webhooks.  Each `Webhook` block consists of the fields documented below.
-        /// ___
+        /// An Array of GitHub Webhooks. Each `Webhook` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationWebhooksWebhookResult> Webhooks;
 

@@ -14,6 +14,8 @@ import (
 
 // This resource allows you to create and manage environments for a GitHub repository.
 //
+// > Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#create-or-update-an-environment)
+//
 // ## Example Usage
 //
 // ```go
@@ -69,6 +71,10 @@ import (
 // ## Import
 //
 // This resource can be imported using an ID made of the repository name and environment name (any `:` in the environment name need to be escaped as `??`) separated by a `:`.
+//
+// ### Import Block
+//
+// The following import block imports an environment called `myenv` for the repo `myrepo` to a `RepositoryEnvironment` resource named `example`.
 //
 // ### Import Command
 //

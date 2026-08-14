@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and manage files within a
- * GitHub repository.
+ * This resource allows you to create and manage files within a GitHub repository.
  *
  * > **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
  *
@@ -40,12 +39,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const foo = new github.Repository("foo", {
- *     name: "example",
+ * const bar = new github.Repository("bar", {
+ *     name: "example2",
  *     autoInit: true,
  * });
- * const fooRepositoryFile = new github.RepositoryFile("foo", {
- *     repository: foo.name,
+ * const barBranch = new github.Branch("bar", {
+ *     branch: "does/not/exist",
+ *     repository: bar.name,
+ * });
+ * const barRepositoryFile = new github.RepositoryFile("bar", {
+ *     repository: bar.name,
  *     branch: "does/not/exist",
  *     file: ".gitignore",
  *     content: "**&#47;*.tfstate",
@@ -53,13 +56,12 @@ import * as utilities from "./utilities";
  *     commitAuthor: "Terraform User",
  *     commitEmail: "terraform@example.com",
  *     overwriteOnCreate: true,
- *     autocreateBranch: true,
  * });
  * ```
  *
  * ## Import
  *
- * Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
+ * Repository files can be imported using a combination of the `repo`, `file path` (any `:` in the file path need to be escaped as `??`) and `branch` or empty branch for the default branch, e.g.
  *
  * ```sh
  * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
@@ -118,8 +120,7 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     declare public readonly autocreateBranchSourceSha: pulumi.Output<string>;
     /**
-     * Git branch (defaults to the repository's default branch).
-     * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+     * Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
     declare public readonly branch: pulumi.Output<string>;
     /**
@@ -250,8 +251,7 @@ export interface RepositoryFileState {
      */
     autocreateBranchSourceSha?: pulumi.Input<string | undefined>;
     /**
-     * Git branch (defaults to the repository's default branch).
-     * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+     * Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
     branch?: pulumi.Input<string | undefined>;
     /**
@@ -323,8 +323,7 @@ export interface RepositoryFileArgs {
      */
     autocreateBranchSourceSha?: pulumi.Input<string | undefined>;
     /**
-     * Git branch (defaults to the repository's default branch).
-     * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+     * Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
     branch?: pulumi.Input<string | undefined>;
     /**

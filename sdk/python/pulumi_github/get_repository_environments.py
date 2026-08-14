@@ -76,6 +76,8 @@ def get_repository_environments(repository: Optional[_builtins.str] = None,
     """
     Use this data source to retrieve information about environments for a repository.
 
+    > Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
+
     ## Example Usage
 
     ```python
@@ -101,6 +103,8 @@ def get_repository_environments_output(repository: pulumi.Input[Optional[_builti
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEnvironmentsResult]:
     """
     Use this data source to retrieve information about environments for a repository.
+
+    > Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
 
     ## Example Usage
 

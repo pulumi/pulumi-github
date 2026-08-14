@@ -15,14 +15,14 @@ public final class GetRepositoryDeploymentBranchPoliciesArgs extends com.pulumi.
     public static final GetRepositoryDeploymentBranchPoliciesArgs Empty = new GetRepositoryDeploymentBranchPoliciesArgs();
 
     /**
-     * Name of the environment to retrieve the deployment branch policies  from.
+     * Name of the environment to retrieve the deployment branch policies from.
      * 
      */
     @Import(name="environmentName", required=true)
     private Output<String> environmentName;
 
     /**
-     * @return Name of the environment to retrieve the deployment branch policies  from.
+     * @return Name of the environment to retrieve the deployment branch policies from.
      * 
      */
     public Output<String> environmentName() {
@@ -70,7 +70,7 @@ public final class GetRepositoryDeploymentBranchPoliciesArgs extends com.pulumi.
         }
 
         /**
-         * @param environmentName Name of the environment to retrieve the deployment branch policies  from.
+         * @param environmentName Name of the environment to retrieve the deployment branch policies from.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetRepositoryDeploymentBranchPoliciesArgs extends com.pulumi.
         }
 
         /**
-         * @param environmentName Name of the environment to retrieve the deployment branch policies  from.
+         * @param environmentName Name of the environment to retrieve the deployment branch policies from.
          * 
          * @return builder
          * 

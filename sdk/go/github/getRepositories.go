@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** The data source will return a maximum of `1000` repositories
-//
-//	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+// > **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
 //
 // Use this data source to retrieve a list of GitHub repositories using a search query.
 //

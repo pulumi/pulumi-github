@@ -16,7 +16,7 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// To retrieve *all* teams of the organization:
+        /// To retrieve *all- teams of the organization:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -57,7 +57,7 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// To retrieve *all* teams of the organization:
+        /// To retrieve *all- teams of the organization:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -98,7 +98,7 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// To retrieve *all* teams of the organization:
+        /// To retrieve *all- teams of the organization:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -209,7 +209,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly bool? SummaryOnly;
         /// <summary>
-        /// (Required) An Array of GitHub Teams.  Each `Team` block consists of the fields documented below.
+        /// (Required) An Array of GitHub Teams. Each `Team` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationTeamsTeamResult> Teams;
 

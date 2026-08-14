@@ -12,13 +12,11 @@ namespace Pulumi.Github
     /// <summary>
     /// &gt; **Note:** This resource is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
     /// 
-    /// This resource manages relationships between teams and organization roles
-    /// in your GitHub organization. This works on predefined roles, and custom roles, where the latter is an Enterprise feature.
+    /// This resource manages relationships between teams and organization roles in your GitHub organization. This works on predefined roles, and custom roles, where the latter is an Enterprise feature.
     /// 
     /// Creating this resource assigns the role to a team.
     /// 
-    /// The organization role and team must both belong to the same organization
-    /// on GitHub.
+    /// The organization role and team must both belong to the same organization on GitHub.
     /// 
     /// ## Example Usage
     /// 
@@ -47,6 +45,10 @@ namespace Pulumi.Github
     /// ## Import
     /// 
     /// GitHub Team Organization Role Assignment can be imported using an ID made up of `team_slug:role_id`
+    /// 
+    /// ```sh
+    /// $ pulumi import github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment role_assignment test-team:8132
+    /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment")]
     public partial class OrganizationRoleTeamAssignment : global::Pulumi.CustomResource

@@ -7,9 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Provides a GitHub membership resource.
  *
- * This resource allows you to add/remove users from your organization. When applied,
- * an invitation will be sent to the user to become part of the organization. When
- * destroyed, either the invitation will be cancelled or the user will be removed.
+ * This resource allows you to add/remove users from your organization. When applied, an invitation will be sent to the user to become part of the organization. When destroyed, either the invitation will be cancelled or the user will be removed.
  *
  * ## Example Usage
  *
@@ -61,17 +59,12 @@ export class Membership extends pulumi.CustomResource {
     }
 
     /**
-     * Defaults to `false`. If set to true,
-     * when this resource is destroyed, the member will not be removed
-     * from the organization. Instead, the member's role will be
-     * downgraded to 'member'.
+     * Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
      */
     declare public readonly downgradeOnDestroy: pulumi.Output<boolean | undefined>;
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * `admin` role represents the `owner` role available via GitHub UI.
+     * The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
      */
     declare public readonly role: pulumi.Output<string | undefined>;
     /**
@@ -116,17 +109,12 @@ export class Membership extends pulumi.CustomResource {
  */
 export interface MembershipState {
     /**
-     * Defaults to `false`. If set to true,
-     * when this resource is destroyed, the member will not be removed
-     * from the organization. Instead, the member's role will be
-     * downgraded to 'member'.
+     * Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
      */
     downgradeOnDestroy?: pulumi.Input<boolean | undefined>;
     etag?: pulumi.Input<string | undefined>;
     /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * `admin` role represents the `owner` role available via GitHub UI.
+     * The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
      */
     role?: pulumi.Input<string | undefined>;
     /**
@@ -140,16 +128,11 @@ export interface MembershipState {
  */
 export interface MembershipArgs {
     /**
-     * Defaults to `false`. If set to true,
-     * when this resource is destroyed, the member will not be removed
-     * from the organization. Instead, the member's role will be
-     * downgraded to 'member'.
+     * Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
      */
     downgradeOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * `admin` role represents the `owner` role available via GitHub UI.
+     * The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
      */
     role?: pulumi.Input<string | undefined>;
     /**

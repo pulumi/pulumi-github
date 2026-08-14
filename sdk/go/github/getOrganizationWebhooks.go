@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// To retrieve *all* webhooks of the organization:
+// To retrieve *all- webhooks of the organization:
 //
 // ```go
 // package main
@@ -52,8 +52,7 @@ func GetOrganizationWebhooks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (
 type GetOrganizationWebhooksResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-	// ***
+	// An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
 	Webhooks []GetOrganizationWebhooksWebhook `pulumi:"webhooks"`
 }
 
@@ -84,8 +83,7 @@ func (o GetOrganizationWebhooksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationWebhooksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-// ***
+// An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
 func (o GetOrganizationWebhooksResultOutput) Webhooks() GetOrganizationWebhooksWebhookArrayOutput {
 	return o.ApplyT(func(v GetOrganizationWebhooksResult) []GetOrganizationWebhooksWebhook { return v.Webhooks }).(GetOrganizationWebhooksWebhookArrayOutput)
 }

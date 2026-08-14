@@ -49,10 +49,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesMaxFileSizeArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesMaxFilePathLengthArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesFileExtensionRestrictionArgs;
- * import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryPropertyArgs;
- * import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryPropertyIncludeArgs;
- * import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryPropertyExcludeArgs;
- * import com.pulumi.github.inputs.OrganizationRulesetRulesPullRequestArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -140,44 +136,6 @@ import javax.annotation.Nullable;
  *                         "*.exe",
  *                         "*.dll",
  *                         "*.so")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         // Example with repository_property targeting
- *         var exampleProperty = new OrganizationRuleset("exampleProperty", OrganizationRulesetArgs.builder()
- *             .name("example_property")
- *             .target("branch")
- *             .enforcement("active")
- *             .conditions(OrganizationRulesetConditionsArgs.builder()
- *                 .refName(OrganizationRulesetConditionsRefNameArgs.builder()
- *                     .includes("~ALL")
- *                     .excludes()
- *                     .build())
- *                 .repositoryProperty(OrganizationRulesetConditionsRepositoryPropertyArgs.builder()
- *                     .includes(                    
- *                         OrganizationRulesetConditionsRepositoryPropertyIncludeArgs.builder()
- *                             .name("environment")
- *                             .propertyValues(                            
- *                                 "production",
- *                                 "staging")
- *                             .source("custom")
- *                             .build(),
- *                         OrganizationRulesetConditionsRepositoryPropertyIncludeArgs.builder()
- *                             .name("team")
- *                             .propertyValues("backend")
- *                             .source("custom")
- *                             .build())
- *                     .excludes(OrganizationRulesetConditionsRepositoryPropertyExcludeArgs.builder()
- *                         .name("archived")
- *                         .propertyValues("true")
- *                         .source("system")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .rules(OrganizationRulesetRulesArgs.builder()
- *                 .requiredSignatures(true)
- *                 .pullRequest(OrganizationRulesetRulesPullRequestArgs.builder()
  *                     .build())
  *                 .build())
  *             .build());

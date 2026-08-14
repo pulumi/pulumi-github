@@ -17,8 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage a release in a specific
- * GitHub repository.
+ * This resource allows you to create and manage a release in a specific GitHub repository.
  * 
  * ## Example Usage
  * 

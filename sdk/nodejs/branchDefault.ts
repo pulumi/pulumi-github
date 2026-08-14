@@ -5,20 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a GitHub branch default resource.
+ * Configures the default branch for a GitHub repository.
  *
- * This resource allows you to set the default branch for a given repository.
- *
- * Note that use of this resource is incompatible with the `defaultBranch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
+ * > This resource is incompatible with the `defaultBranch` option of the `github.Repository` resource. Using both will result in plans always showing a diff.
  *
  * ## Example Usage
- *
- * Basic usage:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Basic usage 
  * const example = new github.Repository("example", {
  *     name: "example",
  *     description: "My awesome codebase",
@@ -34,12 +31,11 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * Renaming to a branch that doesn't exist:
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Renaming to a branch that doesn't exist
  * const example = new github.Repository("example", {
  *     name: "example",
  *     description: "My awesome codebase",
@@ -54,7 +50,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
  * $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
@@ -89,18 +85,29 @@ export class BranchDefault extends pulumi.CustomResource {
     }
 
     /**
-     * The branch (e.g. `main`)
+     * The name of the branch to set as the default (e.g. 'main').
      */
     declare public readonly branch: pulumi.Output<string>;
+    /**
+     * The ETag header for the repository API response.
+     */
     declare public readonly etag: pulumi.Output<string>;
     /**
-     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
      */
     declare public readonly rename: pulumi.Output<boolean | undefined>;
     /**
-     * The GitHub repository
+     * The name of the GitHub repository.
      */
     declare public readonly repository: pulumi.Output<string>;
+    /**
+     * The ID of the GitHub repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
+     * If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+     */
+    declare public readonly waitForRename: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a BranchDefault resource with the given unique name, arguments, and options.
@@ -119,6 +126,8 @@ export class BranchDefault extends pulumi.CustomResource {
             resourceInputs["etag"] = state?.etag;
             resourceInputs["rename"] = state?.rename;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
+            resourceInputs["waitForRename"] = state?.waitForRename;
         } else {
             const args = argsOrState as BranchDefaultArgs | undefined;
             if (args?.branch === undefined && !opts.urn) {
@@ -131,6 +140,8 @@ export class BranchDefault extends pulumi.CustomResource {
             resourceInputs["etag"] = args?.etag;
             resourceInputs["rename"] = args?.rename;
             resourceInputs["repository"] = args?.repository;
+            resourceInputs["waitForRename"] = args?.waitForRename;
+            resourceInputs["repositoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchDefault.__pulumiType, name, resourceInputs, opts);
@@ -142,18 +153,29 @@ export class BranchDefault extends pulumi.CustomResource {
  */
 export interface BranchDefaultState {
     /**
-     * The branch (e.g. `main`)
+     * The name of the branch to set as the default (e.g. 'main').
      */
     branch?: pulumi.Input<string | undefined>;
+    /**
+     * The ETag header for the repository API response.
+     */
     etag?: pulumi.Input<string | undefined>;
     /**
-     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
      */
     rename?: pulumi.Input<boolean | undefined>;
     /**
-     * The GitHub repository
+     * The name of the GitHub repository.
      */
     repository?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the GitHub repository.
+     */
+    repositoryId?: pulumi.Input<number | undefined>;
+    /**
+     * If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+     */
+    waitForRename?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -161,16 +183,23 @@ export interface BranchDefaultState {
  */
 export interface BranchDefaultArgs {
     /**
-     * The branch (e.g. `main`)
+     * The name of the branch to set as the default (e.g. 'main').
      */
     branch: pulumi.Input<string>;
+    /**
+     * The ETag header for the repository API response.
+     */
     etag?: pulumi.Input<string | undefined>;
     /**
-     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
      */
     rename?: pulumi.Input<boolean | undefined>;
     /**
-     * The GitHub repository
+     * The name of the GitHub repository.
      */
     repository: pulumi.Input<string>;
+    /**
+     * If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+     */
+    waitForRename?: pulumi.Input<boolean | undefined>;
 }

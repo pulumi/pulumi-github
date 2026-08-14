@@ -39,8 +39,7 @@ class RepositoryFileArgs:
         :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
-        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
-               The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_message: The commit message when creating, updating or deleting the managed file.
@@ -154,8 +153,7 @@ class RepositoryFileArgs:
     @pulumi.getter
     def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Git branch (defaults to the repository's default branch).
-        The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         """
         return pulumi.get(self, "branch")
 
@@ -236,8 +234,7 @@ class _RepositoryFileState:
         :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
-        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
-               The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_message: The commit message when creating, updating or deleting the managed file.
@@ -333,8 +330,7 @@ class _RepositoryFileState:
     @pulumi.getter
     def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Git branch (defaults to the repository's default branch).
-        The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         """
         return pulumi.get(self, "branch")
 
@@ -494,8 +490,7 @@ class RepositoryFile(pulumi.CustomResource):
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage files within a
-        GitHub repository.
+        This resource allows you to create and manage files within a GitHub repository.
 
         > **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
 
@@ -527,24 +522,26 @@ class RepositoryFile(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        foo = github.Repository("foo",
-            name="example",
+        bar = github.Repository("bar",
+            name="example2",
             auto_init=True)
-        foo_repository_file = github.RepositoryFile("foo",
-            repository=foo.name,
+        bar_branch = github.Branch("bar",
+            branch="does/not/exist",
+            repository=bar.name)
+        bar_repository_file = github.RepositoryFile("bar",
+            repository=bar.name,
             branch="does/not/exist",
             file=".gitignore",
             content="**/*.tfstate",
             commit_message="Managed by Pulumi",
             commit_author="Terraform User",
             commit_email="terraform@example.com",
-            overwrite_on_create=True,
-            autocreate_branch=True)
+            overwrite_on_create=True)
         ```
 
         ## Import
 
-        Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
+        Repository files can be imported using a combination of the `repo`, `file path` (any `:` in the file path need to be escaped as `??`) and `branch` or empty branch for the default branch, e.g.
 
         ```sh
         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
@@ -562,8 +559,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
-        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
-               The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_message: The commit message when creating, updating or deleting the managed file.
@@ -579,8 +575,7 @@ class RepositoryFile(pulumi.CustomResource):
                  args: RepositoryFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage files within a
-        GitHub repository.
+        This resource allows you to create and manage files within a GitHub repository.
 
         > **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
 
@@ -612,24 +607,26 @@ class RepositoryFile(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        foo = github.Repository("foo",
-            name="example",
+        bar = github.Repository("bar",
+            name="example2",
             auto_init=True)
-        foo_repository_file = github.RepositoryFile("foo",
-            repository=foo.name,
+        bar_branch = github.Branch("bar",
+            branch="does/not/exist",
+            repository=bar.name)
+        bar_repository_file = github.RepositoryFile("bar",
+            repository=bar.name,
             branch="does/not/exist",
             file=".gitignore",
             content="**/*.tfstate",
             commit_message="Managed by Pulumi",
             commit_author="Terraform User",
             commit_email="terraform@example.com",
-            overwrite_on_create=True,
-            autocreate_branch=True)
+            overwrite_on_create=True)
         ```
 
         ## Import
 
-        Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
+        Repository files can be imported using a combination of the `repo`, `file path` (any `:` in the file path need to be escaped as `??`) and `branch` or empty branch for the default branch, e.g.
 
         ```sh
         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
@@ -733,8 +730,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
-        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
-               The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         :param pulumi.Input[_builtins.str] commit_message: The commit message when creating, updating or deleting the managed file.
@@ -799,8 +795,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter
     def branch(self) -> pulumi.Output[_builtins.str]:
         """
-        Git branch (defaults to the repository's default branch).
-        The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         """
         return pulumi.get(self, "branch")
 

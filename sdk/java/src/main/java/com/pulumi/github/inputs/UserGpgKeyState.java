@@ -16,16 +16,14 @@ public final class UserGpgKeyState extends com.pulumi.resources.ResourceArgs {
     public static final UserGpgKeyState Empty = new UserGpgKeyState();
 
     /**
-     * Your public GPG key, generated in ASCII-armored format.
-     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      * 
      */
     @Import(name="armoredPublicKey")
     private @Nullable Output<String> armoredPublicKey;
 
     /**
-     * @return Your public GPG key, generated in ASCII-armored format.
-     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * @return Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      * 
      */
     public Optional<Output<String>> armoredPublicKey() {
@@ -81,8 +79,7 @@ public final class UserGpgKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param armoredPublicKey Your public GPG key, generated in ASCII-armored format.
-         * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+         * @param armoredPublicKey Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
          * 
          * @return builder
          * 
@@ -93,8 +90,7 @@ public final class UserGpgKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param armoredPublicKey Your public GPG key, generated in ASCII-armored format.
-         * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+         * @param armoredPublicKey Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
          * 
          * @return builder
          * 

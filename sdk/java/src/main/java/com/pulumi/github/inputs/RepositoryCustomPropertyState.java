@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,14 +18,14 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
     public static final RepositoryCustomPropertyState Empty = new RepositoryCustomPropertyState();
 
     /**
-     * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * Name of the custom property.
      * 
      */
     @Import(name="propertyName")
     private @Nullable Output<String> propertyName;
 
     /**
-     * @return Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * @return Name of the custom property.
      * 
      */
     public Optional<Output<String>> propertyName() {
@@ -32,14 +33,14 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
     }
 
     /**
-     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      * 
      */
     @Import(name="propertyType")
     private @Nullable Output<String> propertyType;
 
     /**
-     * @return Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * @return Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      * 
      */
     public Optional<Output<String>> propertyType() {
@@ -47,14 +48,14 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
     }
 
     /**
-     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      * 
      */
     @Import(name="propertyValues")
     private @Nullable Output<List<String>> propertyValues;
 
     /**
-     * @return Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * @return Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      * 
      */
     public Optional<Output<List<String>>> propertyValues() {
@@ -62,18 +63,33 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
     }
 
     /**
-     * The repository of the environment.
+     * Name of the repository.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The repository of the environment.
+     * @return Name of the repository.
      * 
      */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
+    }
+
+    /**
+     * ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
     }
 
     private RepositoryCustomPropertyState() {}
@@ -83,6 +99,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         this.propertyType = $.propertyType;
         this.propertyValues = $.propertyValues;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
     }
 
     public static Builder builder() {
@@ -104,7 +121,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyName Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+         * @param propertyName Name of the custom property.
          * 
          * @return builder
          * 
@@ -115,7 +132,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyName Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+         * @param propertyName Name of the custom property.
          * 
          * @return builder
          * 
@@ -125,7 +142,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyType Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+         * @param propertyType Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
          * 
          * @return builder
          * 
@@ -136,7 +153,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyType Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+         * @param propertyType Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
          * 
          * @return builder
          * 
@@ -146,7 +163,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
          * 
          * @return builder
          * 
@@ -157,7 +174,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
          * 
          * @return builder
          * 
@@ -167,7 +184,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
          * 
          * @return builder
          * 
@@ -177,7 +194,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param repository The repository of the environment.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -188,13 +205,34 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param repository The repository of the environment.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
         }
 
         public RepositoryCustomPropertyState build() {

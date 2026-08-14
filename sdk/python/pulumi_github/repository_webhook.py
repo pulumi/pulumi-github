@@ -117,7 +117,7 @@ class _RepositoryWebhookState:
         :param pulumi.Input['RepositoryWebhookConfigurationArgs'] configuration: Configuration block for the webhook. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[_builtins.str] repository: The repository of the webhook.
-        :param pulumi.Input[_builtins.str] url: URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        :param pulumi.Input[_builtins.str] url: URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -193,7 +193,7 @@ class _RepositoryWebhookState:
     @pulumi.getter
     def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
         """
         return pulumi.get(self, "url")
 
@@ -215,8 +215,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage webhooks for repositories within your
-        GitHub organization or personal account.
+        This resource allows you to create and manage webhooks for repositories within your GitHub organization or personal account.
 
         > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing webhook modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
@@ -244,8 +243,7 @@ class RepositoryWebhook(pulumi.CustomResource):
 
         ## Import
 
-        Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character.
-        The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
+        Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
 
         Importing uses the name of the repository, as well as the ID of the webhook, e.g.
 
@@ -270,8 +268,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  args: RepositoryWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage webhooks for repositories within your
-        GitHub organization or personal account.
+        This resource allows you to create and manage webhooks for repositories within your GitHub organization or personal account.
 
         > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing webhook modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
@@ -299,8 +296,7 @@ class RepositoryWebhook(pulumi.CustomResource):
 
         ## Import
 
-        Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character.
-        The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
+        Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
 
         Importing uses the name of the repository, as well as the ID of the webhook, e.g.
 
@@ -377,7 +373,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']] configuration: Configuration block for the webhook. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[_builtins.str] repository: The repository of the webhook.
-        :param pulumi.Input[_builtins.str] url: URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        :param pulumi.Input[_builtins.str] url: URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,7 +428,7 @@ class RepositoryWebhook(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[_builtins.str]:
         """
-        URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
         """
         return pulumi.get(self, "url")
 

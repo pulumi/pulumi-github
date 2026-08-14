@@ -86,14 +86,14 @@ public final class RepositoryWebhookState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+     * URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+     * @return URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     public Optional<Output<String>> url() {
@@ -233,7 +233,7 @@ public final class RepositoryWebhookState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+         * @param url URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class RepositoryWebhookState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+         * @param url URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
          * 
          * @return builder
          * 

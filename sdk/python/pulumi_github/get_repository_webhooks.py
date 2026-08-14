@@ -55,8 +55,7 @@ class GetRepositoryWebhooksResult:
     @pulumi.getter
     def webhooks(self) -> Sequence['outputs.GetRepositoryWebhooksWebhookResult']:
         """
-        An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-        ***
+        An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
         """
         return pulumi.get(self, "webhooks")
 

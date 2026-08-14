@@ -11,10 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to find out if a user is a member of your organization, as well
-// as what role they have within it.
-// If the user's membership in the organization is pending their acceptance of an invite,
-// the role they would have once they accept will be returned.
+// Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
 //
 // ## Example Usage
 //
@@ -68,7 +65,7 @@ type LookupMembershipResult struct {
 	Organization *string `pulumi:"organization"`
 	// `admin` or `member` -- the role the user has within the organization.
 	Role string `pulumi:"role"`
-	// `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+	// `active` or `pending` -- the state of membership within the organization. `active` if the member has accepted the invite, or `pending` if the invite is still pending.
 	State string `pulumi:"state"`
 	// The username.
 	Username string `pulumi:"username"`
@@ -129,7 +126,7 @@ func (o LookupMembershipResultOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMembershipResult) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+// `active` or `pending` -- the state of membership within the organization. `active` if the member has accepted the invite, or `pending` if the invite is still pending.
 func (o LookupMembershipResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMembershipResult) string { return v.State }).(pulumi.StringOutput)
 }

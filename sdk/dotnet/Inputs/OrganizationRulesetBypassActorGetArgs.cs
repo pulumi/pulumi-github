@@ -13,13 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class OrganizationRulesetBypassActorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+        /// (Number) The ID of the actor that can bypass a ruleset. Must be omitted for ID-less actor types: `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` — the GitHub API does not use an ID for these types and will ignore any value set.
         /// </summary>
         [Input("actorId")]
         public Input<int>? ActorId { get; set; }
 
         /// <summary>
-        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`.
         /// </summary>
         [Input("actorType", required: true)]
         public Input<string> ActorType { get; set; } = null!;
@@ -29,7 +29,6 @@ namespace Pulumi.Github.Inputs
         /// 
         /// ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// 
-        /// - `OrganizationAdmin` &gt; `1`
         /// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         /// </summary>
         [Input("bypassMode", required: true)]

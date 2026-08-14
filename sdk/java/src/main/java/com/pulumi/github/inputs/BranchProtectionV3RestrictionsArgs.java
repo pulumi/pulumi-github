@@ -36,16 +36,14 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
     }
 
     /**
-     * The list of team slugs with push access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     @Import(name="teams")
     private @Nullable Output<List<String>> teams;
 
     /**
-     * @return The list of team slugs with push access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * @return The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     public Optional<Output<List<String>>> teams() {
@@ -131,8 +129,7 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param teams The list of team slugs with push access.
-         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * @param teams The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
          * 
          * @return builder
          * 
@@ -143,8 +140,7 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param teams The list of team slugs with push access.
-         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * @param teams The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
          * 
          * @return builder
          * 
@@ -154,8 +150,7 @@ public final class BranchProtectionV3RestrictionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param teams The list of team slugs with push access.
-         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * @param teams The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
          * 
          * @return builder
          * 

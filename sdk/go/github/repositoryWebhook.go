@@ -12,8 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage webhooks for repositories within your
-// GitHub organization or personal account.
+// This resource allows you to create and manage webhooks for repositories within your GitHub organization or personal account.
 //
 // > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing webhook modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 //
@@ -63,8 +62,7 @@ import (
 //
 // ## Import
 //
-// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character.
-// The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
+// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
 //
 // Importing uses the name of the repository, as well as the ID of the webhook, e.g.
 //
@@ -85,7 +83,7 @@ type RepositoryWebhook struct {
 	Events pulumi.StringArrayOutput `pulumi:"events"`
 	// The repository of the webhook.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+	// URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -134,7 +132,7 @@ type repositoryWebhookState struct {
 	Events []string `pulumi:"events"`
 	// The repository of the webhook.
 	Repository *string `pulumi:"repository"`
-	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+	// URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
 	Url *string `pulumi:"url"`
 }
 
@@ -148,7 +146,7 @@ type RepositoryWebhookState struct {
 	Events pulumi.StringArrayInput
 	// The repository of the webhook.
 	Repository pulumi.StringPtrInput
-	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+	// URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
 	Url pulumi.StringPtrInput
 }
 
@@ -292,7 +290,7 @@ func (o RepositoryWebhookOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+// URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
 func (o RepositoryWebhookOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

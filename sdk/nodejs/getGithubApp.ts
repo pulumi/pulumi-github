@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve information about an app.
+ * Get information about an app.
  *
  * ## Example Usage
  *
@@ -44,7 +44,7 @@ export interface GetGithubAppResult {
      */
     readonly description: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the app.
      */
     readonly id: string;
     /**
@@ -55,10 +55,13 @@ export interface GetGithubAppResult {
      * The Node ID of the app.
      */
     readonly nodeId: string;
+    /**
+     * The URL-friendly name of your GitHub App.
+     */
     readonly slug: string;
 }
 /**
- * Use this data source to retrieve information about an app.
+ * Get information about an app.
  *
  * ## Example Usage
  *

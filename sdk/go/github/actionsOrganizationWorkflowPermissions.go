@@ -60,8 +60,8 @@ import (
 //
 // When this resource is destroyed, the workflow permissions will be reset to safe defaults:
 //
-// * `defaultWorkflowPermissions` = `read`
-// * `canApprovePullRequestReviews` = `false`
+// - `defaultWorkflowPermissions` = `read`
+// - `canApprovePullRequestReviews` = `false`
 //
 // ## Import
 //

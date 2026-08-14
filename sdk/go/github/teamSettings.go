@@ -36,6 +36,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Add a repository to the team
 //			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
 //				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
@@ -45,7 +46,11 @@ import (
 //			}
 //			_, err = github.NewTeamSettings(ctx, "code_review_settings", &github.TeamSettingsArgs{
 //				TeamId: someTeam.ID().ToIDOutput().ToStringOutput(),
-//				Notify: pulumi.Bool(true),
+//				ReviewRequestDelegation: &github.TeamSettingsReviewRequestDelegationArgs{
+//					Algorithm:   pulumi.String("ROUND_ROBIN"),
+//					MemberCount: pulumi.Int(1),
+//					Notify:      pulumi.Bool(true),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -93,12 +98,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
-//
-// or,
 type TeamSettings struct {
 	pulumi.CustomResourceState
 

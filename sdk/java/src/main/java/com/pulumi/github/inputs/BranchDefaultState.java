@@ -6,6 +6,7 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,36 +18,44 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
     public static final BranchDefaultState Empty = new BranchDefaultState();
 
     /**
-     * The branch (e.g. `main`)
+     * The name of the branch to set as the default (e.g. &#39;main&#39;).
      * 
      */
     @Import(name="branch")
     private @Nullable Output<String> branch;
 
     /**
-     * @return The branch (e.g. `main`)
+     * @return The name of the branch to set as the default (e.g. &#39;main&#39;).
      * 
      */
     public Optional<Output<String>> branch() {
         return Optional.ofNullable(this.branch);
     }
 
+    /**
+     * The ETag header for the repository API response.
+     * 
+     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
+    /**
+     * @return The ETag header for the repository API response.
+     * 
+     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
     /**
-     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * If `true` rename the existing branch when the `branch` input is changed. Defaults to &#39;false&#39;.
      * 
      */
     @Import(name="rename")
     private @Nullable Output<Boolean> rename;
 
     /**
-     * @return Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * @return If `true` rename the existing branch when the `branch` input is changed. Defaults to &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> rename() {
@@ -54,18 +63,48 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The GitHub repository
+     * The name of the GitHub repository.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The GitHub repository
+     * @return The name of the GitHub repository.
      * 
      */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
+    }
+
+    /**
+     * The ID of the GitHub repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the GitHub repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
+     * If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to &#39;false&#39;.
+     * 
+     */
+    @Import(name="waitForRename")
+    private @Nullable Output<Boolean> waitForRename;
+
+    /**
+     * @return If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to &#39;false&#39;.
+     * 
+     */
+    public Optional<Output<Boolean>> waitForRename() {
+        return Optional.ofNullable(this.waitForRename);
     }
 
     private BranchDefaultState() {}
@@ -75,6 +114,8 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
         this.etag = $.etag;
         this.rename = $.rename;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
+        this.waitForRename = $.waitForRename;
     }
 
     public static Builder builder() {
@@ -96,7 +137,7 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch The branch (e.g. `main`)
+         * @param branch The name of the branch to set as the default (e.g. &#39;main&#39;).
          * 
          * @return builder
          * 
@@ -107,7 +148,7 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branch The branch (e.g. `main`)
+         * @param branch The name of the branch to set as the default (e.g. &#39;main&#39;).
          * 
          * @return builder
          * 
@@ -116,17 +157,29 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
             return branch(Output.of(branch));
         }
 
+        /**
+         * @param etag The ETag header for the repository API response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
+        /**
+         * @param etag The ETag header for the repository API response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
         /**
-         * @param rename Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+         * @param rename If `true` rename the existing branch when the `branch` input is changed. Defaults to &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -137,7 +190,7 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rename Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+         * @param rename If `true` rename the existing branch when the `branch` input is changed. Defaults to &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -147,7 +200,7 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param repository The GitHub repository
+         * @param repository The name of the GitHub repository.
          * 
          * @return builder
          * 
@@ -158,13 +211,55 @@ public final class BranchDefaultState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param repository The GitHub repository
+         * @param repository The name of the GitHub repository.
          * 
          * @return builder
          * 
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param repositoryId The ID of the GitHub repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId The ID of the GitHub repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
+        }
+
+        /**
+         * @param waitForRename If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder waitForRename(@Nullable Output<Boolean> waitForRename) {
+            $.waitForRename = waitForRename;
+            return this;
+        }
+
+        /**
+         * @param waitForRename If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder waitForRename(Boolean waitForRename) {
+            return waitForRename(Output.of(waitForRename));
         }
 
         public BranchDefaultState build() {

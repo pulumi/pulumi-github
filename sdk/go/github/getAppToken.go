@@ -28,8 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "foo/bar.pem",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "foo/bar.pem",
 //			}, nil)
 //			if err != nil {
 //				return err

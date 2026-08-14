@@ -5,10 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to find out if a user is a member of your organization, as well
- * as what role they have within it.
- * If the user's membership in the organization is pending their acceptance of an invite,
- * the role they would have once they accept will be returned.
+ * Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
  *
  * ## Example Usage
  *
@@ -61,7 +58,7 @@ export interface GetMembershipResult {
      */
     readonly role: string;
     /**
-     * `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+     * `active` or `pending` -- the state of membership within the organization. `active` if the member has accepted the invite, or `pending` if the invite is still pending.
      */
     readonly state: string;
     /**
@@ -70,10 +67,7 @@ export interface GetMembershipResult {
     readonly username: string;
 }
 /**
- * Use this data source to find out if a user is a member of your organization, as well
- * as what role they have within it.
- * If the user's membership in the organization is pending their acceptance of an invite,
- * the role they would have once they accept will be returned.
+ * Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
  *
  * ## Example Usage
  *

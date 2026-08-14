@@ -23,13 +23,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Add a repository to the team
  * const someTeam = new github.Team("some_team", {
  *     name: "SomeTeam",
  *     description: "Some cool team",
  * });
  * const codeReviewSettings = new github.TeamSettings("code_review_settings", {
  *     teamId: someTeam.id,
- *     notify: true,
+ *     reviewRequestDelegation: {
+ *         algorithm: "ROUND_ROBIN",
+ *         memberCount: 1,
+ *         notify: true,
+ *     },
  * });
  * ```
  *
@@ -52,12 +57,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Import
- *
- * GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
- *
- * or,
  */
 export class TeamSettings extends pulumi.CustomResource {
     /**

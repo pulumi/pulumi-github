@@ -18,8 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
- * You must have admin access to an organization to use this resource.
+ * This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations. You must have admin access to an organization to use this resource.
  * 
  * ## Example Usage
  * 

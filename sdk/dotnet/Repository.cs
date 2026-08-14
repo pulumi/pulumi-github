@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage repositories within your
-    /// GitHub organization or personal account.
+    /// This resource allows you to create and manage repositories within your GitHub organization or personal account.
     /// 
     /// &gt; **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `AllowMergeCommit`, `AllowSquashMerge`, `AllowRebaseMerge`, `MergeCommitTitle`, `MergeCommitMessage`, `SquashMergeCommitTitle` and `SquashMergeCommitMessage`.
     /// 
@@ -129,9 +128,7 @@ namespace Pulumi.Github
         public Output<bool?> AutoInit { get; private set; } = null!;
 
         /// <summary>
-        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        /// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        /// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         /// </summary>
         [Output("defaultBranch")]
         public Output<string> DefaultBranch { get; private set; } = null!;
@@ -188,8 +185,7 @@ namespace Pulumi.Github
         public Output<bool?> HasDownloads { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `True` to enable the GitHub Issues features
-        /// on the repository.
+        /// Set to `True` to enable the GitHub Issues features on the repository.
         /// </summary>
         [Output("hasIssues")]
         public Output<bool?> HasIssues { get; private set; } = null!;
@@ -201,8 +197,7 @@ namespace Pulumi.Github
         public Output<bool?> HasProjects { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `True` to enable the GitHub Wiki features on
-        /// the repository.
+        /// Set to `True` to enable the GitHub Wiki features on the repository.
         /// </summary>
         [Output("hasWiki")]
         public Output<bool?> HasWiki { get; private set; } = null!;
@@ -280,8 +275,7 @@ namespace Pulumi.Github
         public Output<string> PrimaryLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `True` to create a private repository.
-        /// Repositories are created as public (e.g. open source) by default.
+        /// Set to `True` to create a private repository. Repositories are created as public (e.g. open source) by default.
         /// </summary>
         [Output("private")]
         public Output<bool> Private { get; private set; } = null!;
@@ -467,9 +461,7 @@ namespace Pulumi.Github
         public Input<bool>? AutoInit { get; set; }
 
         /// <summary>
-        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        /// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        /// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         /// </summary>
         [Input("defaultBranch")]
         public Input<string>? DefaultBranch { get; set; }
@@ -514,8 +506,7 @@ namespace Pulumi.Github
         public Input<bool>? HasDownloads { get; set; }
 
         /// <summary>
-        /// Set to `True` to enable the GitHub Issues features
-        /// on the repository.
+        /// Set to `True` to enable the GitHub Issues features on the repository.
         /// </summary>
         [Input("hasIssues")]
         public Input<bool>? HasIssues { get; set; }
@@ -527,8 +518,7 @@ namespace Pulumi.Github
         public Input<bool>? HasProjects { get; set; }
 
         /// <summary>
-        /// Set to `True` to enable the GitHub Wiki features on
-        /// the repository.
+        /// Set to `True` to enable the GitHub Wiki features on the repository.
         /// </summary>
         [Input("hasWiki")]
         public Input<bool>? HasWiki { get; set; }
@@ -582,8 +572,7 @@ namespace Pulumi.Github
         public Input<Inputs.RepositoryPagesArgs>? Pages { get; set; }
 
         /// <summary>
-        /// Set to `True` to create a private repository.
-        /// Repositories are created as public (e.g. open source) by default.
+        /// Set to `True` to create a private repository. Repositories are created as public (e.g. open source) by default.
         /// </summary>
         [Input("private")]
         public Input<bool>? Private { get; set; }
@@ -719,9 +708,7 @@ namespace Pulumi.Github
         public Input<bool>? AutoInit { get; set; }
 
         /// <summary>
-        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        /// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        /// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        /// (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         /// </summary>
         [Input("defaultBranch")]
         public Input<string>? DefaultBranch { get; set; }
@@ -778,8 +765,7 @@ namespace Pulumi.Github
         public Input<bool>? HasDownloads { get; set; }
 
         /// <summary>
-        /// Set to `True` to enable the GitHub Issues features
-        /// on the repository.
+        /// Set to `True` to enable the GitHub Issues features on the repository.
         /// </summary>
         [Input("hasIssues")]
         public Input<bool>? HasIssues { get; set; }
@@ -791,8 +777,7 @@ namespace Pulumi.Github
         public Input<bool>? HasProjects { get; set; }
 
         /// <summary>
-        /// Set to `True` to enable the GitHub Wiki features on
-        /// the repository.
+        /// Set to `True` to enable the GitHub Wiki features on the repository.
         /// </summary>
         [Input("hasWiki")]
         public Input<bool>? HasWiki { get; set; }
@@ -870,8 +855,7 @@ namespace Pulumi.Github
         public Input<string>? PrimaryLanguage { get; set; }
 
         /// <summary>
-        /// Set to `True` to create a private repository.
-        /// Repositories are created as public (e.g. open source) by default.
+        /// Set to `True` to create a private repository. Repositories are created as public (e.g. open source) by default.
         /// </summary>
         [Input("private")]
         public Input<bool>? Private { get; set; }

@@ -15,14 +15,14 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
     public static final ProviderAppAuthArgs Empty = new ProviderAppAuthArgs();
 
     /**
-     * The GitHub App ID.
+     * The GitHub App&#39;s identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The GitHub App ID.
+     * @return The GitHub App&#39;s identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
      * 
      */
     public Output<String> id() {
@@ -30,14 +30,14 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The GitHub App installation instance ID.
+     * The GitHub App&#39;s installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
      * 
      */
     @Import(name="installationId", required=true)
     private Output<String> installationId;
 
     /**
-     * @return The GitHub App installation instance ID.
+     * @return The GitHub App&#39;s installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
      * 
      */
     public Output<String> installationId() {
@@ -45,14 +45,14 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The GitHub App PEM file contents.
+     * The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     @Import(name="pemFile", required=true)
     private Output<String> pemFile;
 
     /**
-     * @return The GitHub App PEM file contents.
+     * @return The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     public Output<String> pemFile() {
@@ -86,7 +86,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param id The GitHub App ID.
+         * @param id The GitHub App&#39;s identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param id The GitHub App ID.
+         * @param id The GitHub App&#39;s identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param installationId The GitHub App installation instance ID.
+         * @param installationId The GitHub App&#39;s installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param installationId The GitHub App installation instance ID.
+         * @param installationId The GitHub App&#39;s installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pemFile The GitHub App PEM file contents.
+         * @param pemFile The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pemFile The GitHub App PEM file contents.
+         * @param pemFile The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
          * 
          * @return builder
          * 

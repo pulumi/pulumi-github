@@ -14,13 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryCollaboratorsTeam
     {
         /// <summary>
-        /// The permission of the outside collaborators for the repository.
-        /// Must be one of `Pull`, `Triage`, `Push`, `Maintain`, `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `Pull`.
-        /// Must be `Push` for personal repositories. Defaults to `Push`.
+        /// Permission to grant to the team. Must be one of `Pull`, `Triage`, `Push`, `Maintain`, `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `Push`.
         /// </summary>
         public readonly string? Permission;
         /// <summary>
-        /// The GitHub team id or the GitHub team slug.
+        /// ID or slug of the team to add to the repository as a collaborator.
         /// </summary>
         public readonly string TeamId;
 

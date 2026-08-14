@@ -167,16 +167,9 @@ class EnterpriseActionsWorkflowPermissions(pulumi.CustomResource):
         > **Note:** This resource requires a GitHub Enterprise account and enterprise admin permissions.
 
         When this resource is destroyed, the workflow permissions will be reset to safe defaults:
+
         - `default_workflow_permissions` = `read`
         - `can_approve_pull_request_reviews` = `false`
-
-        ## Import
-
-        Enterprise Actions workflow permissions can be imported using the enterprise slug:
-
-        ```sh
-        $ pulumi import github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions example my-enterprise
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -219,16 +212,9 @@ class EnterpriseActionsWorkflowPermissions(pulumi.CustomResource):
         > **Note:** This resource requires a GitHub Enterprise account and enterprise admin permissions.
 
         When this resource is destroyed, the workflow permissions will be reset to safe defaults:
+
         - `default_workflow_permissions` = `read`
         - `can_approve_pull_request_reviews` = `false`
-
-        ## Import
-
-        Enterprise Actions workflow permissions can be imported using the enterprise slug:
-
-        ```sh
-        $ pulumi import github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions example my-enterprise
-        ```
 
 
         :param str resource_name: The name of the resource.

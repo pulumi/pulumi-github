@@ -13,8 +13,7 @@ import (
 
 // Provides a GitHub team resource.
 //
-// This resource allows you to add/remove teams from your organization. When applied,
-// a new team will be created. When destroyed, that team will be removed.
+// This resource allows you to add/remove teams from your organization. When applied, a new team will be created. When destroyed, that team will be removed.
 //
 // ## Example Usage
 //
@@ -70,7 +69,7 @@ type Team struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Node ID of the created team.
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
-	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	// The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
 	NotificationSetting pulumi.StringPtrOutput `pulumi:"notificationSetting"`
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId pulumi.StringPtrOutput `pulumi:"parentTeamId"`
@@ -78,11 +77,9 @@ type Team struct {
 	ParentTeamReadId pulumi.StringOutput `pulumi:"parentTeamReadId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug pulumi.StringOutput `pulumi:"parentTeamReadSlug"`
-	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+	// The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
 	Privacy pulumi.StringPtrOutput `pulumi:"privacy"`
-	// The slug of the created team, which may or may not differ from `name`,
-	// depending on whether `name` contains "URL-unsafe" characters.
-	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	// The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
 	Slug pulumi.StringOutput `pulumi:"slug"`
 }
 
@@ -130,7 +127,7 @@ type teamState struct {
 	Name *string `pulumi:"name"`
 	// The Node ID of the created team.
 	NodeId *string `pulumi:"nodeId"`
-	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	// The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
 	NotificationSetting *string `pulumi:"notificationSetting"`
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId *string `pulumi:"parentTeamId"`
@@ -138,11 +135,9 @@ type teamState struct {
 	ParentTeamReadId *string `pulumi:"parentTeamReadId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug *string `pulumi:"parentTeamReadSlug"`
-	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+	// The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
 	Privacy *string `pulumi:"privacy"`
-	// The slug of the created team, which may or may not differ from `name`,
-	// depending on whether `name` contains "URL-unsafe" characters.
-	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	// The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
 	Slug *string `pulumi:"slug"`
 }
 
@@ -161,7 +156,7 @@ type TeamState struct {
 	Name pulumi.StringPtrInput
 	// The Node ID of the created team.
 	NodeId pulumi.StringPtrInput
-	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	// The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
 	NotificationSetting pulumi.StringPtrInput
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId pulumi.StringPtrInput
@@ -169,11 +164,9 @@ type TeamState struct {
 	ParentTeamReadId pulumi.StringPtrInput
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug pulumi.StringPtrInput
-	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+	// The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
 	Privacy pulumi.StringPtrInput
-	// The slug of the created team, which may or may not differ from `name`,
-	// depending on whether `name` contains "URL-unsafe" characters.
-	// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+	// The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
 	Slug pulumi.StringPtrInput
 }
 
@@ -192,7 +185,7 @@ type teamArgs struct {
 	LdapDn *string `pulumi:"ldapDn"`
 	// The name of the team.
 	Name *string `pulumi:"name"`
-	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	// The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
 	NotificationSetting *string `pulumi:"notificationSetting"`
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId *string `pulumi:"parentTeamId"`
@@ -200,7 +193,7 @@ type teamArgs struct {
 	ParentTeamReadId *string `pulumi:"parentTeamReadId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug *string `pulumi:"parentTeamReadSlug"`
-	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+	// The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
 	Privacy *string `pulumi:"privacy"`
 }
 
@@ -216,7 +209,7 @@ type TeamArgs struct {
 	LdapDn pulumi.StringPtrInput
 	// The name of the team.
 	Name pulumi.StringPtrInput
-	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	// The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
 	NotificationSetting pulumi.StringPtrInput
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId pulumi.StringPtrInput
@@ -224,7 +217,7 @@ type TeamArgs struct {
 	ParentTeamReadId pulumi.StringPtrInput
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug pulumi.StringPtrInput
-	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+	// The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
 	Privacy pulumi.StringPtrInput
 }
 
@@ -350,7 +343,7 @@ func (o TeamOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+// The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
 func (o TeamOutput) NotificationSetting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.NotificationSetting }).(pulumi.StringPtrOutput)
 }
@@ -370,14 +363,12 @@ func (o TeamOutput) ParentTeamReadSlug() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.ParentTeamReadSlug }).(pulumi.StringOutput)
 }
 
-// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+// The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
 func (o TeamOutput) Privacy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Privacy }).(pulumi.StringPtrOutput)
 }
 
-// The slug of the created team, which may or may not differ from `name`,
-// depending on whether `name` contains "URL-unsafe" characters.
-// Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+// The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
 func (o TeamOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Slug }).(pulumi.StringOutput)
 }

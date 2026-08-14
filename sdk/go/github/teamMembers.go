@@ -12,19 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a GitHub team members resource.
+// > This resource is not compatible with `TeamMembership`; use either `TeamMembers` or `TeamMembership`.
 //
-// This resource allows you to manage members of teams in your organization. It sets the requested team members for the team and removes all users not managed by Terraform.
+// Resource to authoritatively manage GitHub team members.
 //
-// When applied, if the user hasn't accepted their invitation to the organization, they won't be part of the team until they do.
+// This resource allows you to manage members of teams in your organization; it sets the requested team members for the team and removes all users not managed by Terraform. If an organization owner is given the `member` role they will be granted `maintainer` instead which will result in a perpetual diff. If a user who hasn't accepted their invitation to the organization is added to the team, they will not be a team member until they've accepted the invitation. When this resource is deleted all users will be removed from the team.
 //
-// When destroyed, all users will be removed from the team.
-//
-// > **Note** This resource is not compatible with `TeamMembership`. Use either `TeamMembers` or `TeamMembership`.
-//
-// > **Note** You can accidentally lock yourself out of your team using this resource. Deleting a `TeamMembers` resource removes access from anyone without organization-level access to the team. Proceed with caution. It should generally only be used with teams fully managed by Terraform.
-//
-// > **Note** Attempting to set a user who is an organization owner to "member" will result in the user being granted "maintainer" instead; this can result in a perpetual `terraform plan` diff that changes their status back to "member".
+// > If you don't have a member with the `maintainer` set then this resource may end up with a perpetual diff as the GitHub API will automatically promote a member to `maintainer` if there are no maintainers in the team. To avoid this, ensure that at least one member has the `maintainer` role.
 //
 // ## Example Usage
 //
@@ -40,30 +34,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Add a user to the organization
-//			_, err := github.NewMembership(ctx, "membership_for_some_user", &github.MembershipArgs{
-//				Username: pulumi.String("SomeUser"),
-//				Role:     pulumi.String("member"),
+//			example, err := github.NewTeam(ctx, "example", &github.TeamArgs{
+//				Name: pulumi.String("my-team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewMembership(ctx, "membership_for_another_user", &github.MembershipArgs{
-//				Username: pulumi.String("AnotherUser"),
-//				Role:     pulumi.String("member"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
-//				Name:        pulumi.String("SomeTeam"),
-//				Description: pulumi.String("Some cool team"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewTeamMembers(ctx, "some_team_members", &github.TeamMembersArgs{
-//				TeamId: someTeam.ID().ToIDOutput().ToStringOutput(),
+//			_, err = github.NewTeamMembers(ctx, "example", &github.TeamMembersArgs{
+//				TeamSlug: example.Slug,
 //				Members: github.TeamMembersMemberArray{
 //					&github.TeamMembersMemberArgs{
 //						Username: pulumi.String("SomeUser"),
@@ -86,23 +64,24 @@ import (
 //
 // ## Import
 //
-// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
+// This resource can be imported either by the team slug or team ID; it is recommended to use the team slug in combination with the `teamSlug` resource attribute.
 //
-// GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
+// The `pulumi import` command can be used, for example:
 //
 // ```sh
-// $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
-// $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
+// $ pulumi import github:index/teamMembers:TeamMembers example my-team
 // ```
 type TeamMembers struct {
 	pulumi.CustomResourceState
 
-	// List of team members. See Members below for details.
+	// List of users that should be members of the team.
 	Members TeamMembersMemberArrayOutput `pulumi:"members"`
-	// The team id or the team slug
+	// ID or slug of the GitHub team to manage membership for.
 	//
-	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+	// Deprecated: Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
+	// Slug of the GitHub team to manage membership for.
+	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
 }
 
 // NewTeamMembers registers a new resource with the given unique name, arguments, and options.
@@ -114,9 +93,6 @@ func NewTeamMembers(ctx *pulumi.Context,
 
 	if args.Members == nil {
 		return nil, errors.New("invalid value for required argument 'Members'")
-	}
-	if args.TeamId == nil {
-		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TeamMembers
@@ -141,21 +117,25 @@ func GetTeamMembers(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamMembers resources.
 type teamMembersState struct {
-	// List of team members. See Members below for details.
+	// List of users that should be members of the team.
 	Members []TeamMembersMember `pulumi:"members"`
-	// The team id or the team slug
+	// ID or slug of the GitHub team to manage membership for.
 	//
-	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+	// Deprecated: Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
 	TeamId *string `pulumi:"teamId"`
+	// Slug of the GitHub team to manage membership for.
+	TeamSlug *string `pulumi:"teamSlug"`
 }
 
 type TeamMembersState struct {
-	// List of team members. See Members below for details.
+	// List of users that should be members of the team.
 	Members TeamMembersMemberArrayInput
-	// The team id or the team slug
+	// ID or slug of the GitHub team to manage membership for.
 	//
-	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+	// Deprecated: Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
 	TeamId pulumi.StringPtrInput
+	// Slug of the GitHub team to manage membership for.
+	TeamSlug pulumi.StringPtrInput
 }
 
 func (TeamMembersState) ElementType() reflect.Type {
@@ -163,22 +143,26 @@ func (TeamMembersState) ElementType() reflect.Type {
 }
 
 type teamMembersArgs struct {
-	// List of team members. See Members below for details.
+	// List of users that should be members of the team.
 	Members []TeamMembersMember `pulumi:"members"`
-	// The team id or the team slug
+	// ID or slug of the GitHub team to manage membership for.
 	//
-	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
-	TeamId string `pulumi:"teamId"`
+	// Deprecated: Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+	TeamId *string `pulumi:"teamId"`
+	// Slug of the GitHub team to manage membership for.
+	TeamSlug *string `pulumi:"teamSlug"`
 }
 
 // The set of arguments for constructing a TeamMembers resource.
 type TeamMembersArgs struct {
-	// List of team members. See Members below for details.
+	// List of users that should be members of the team.
 	Members TeamMembersMemberArrayInput
-	// The team id or the team slug
+	// ID or slug of the GitHub team to manage membership for.
 	//
-	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
-	TeamId pulumi.StringInput
+	// Deprecated: Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+	TeamId pulumi.StringPtrInput
+	// Slug of the GitHub team to manage membership for.
+	TeamSlug pulumi.StringPtrInput
 }
 
 func (TeamMembersArgs) ElementType() reflect.Type {
@@ -268,16 +252,21 @@ func (o TeamMembersOutput) ToTeamMembersOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// List of team members. See Members below for details.
+// List of users that should be members of the team.
 func (o TeamMembersOutput) Members() TeamMembersMemberArrayOutput {
 	return o.ApplyT(func(v *TeamMembers) TeamMembersMemberArrayOutput { return v.Members }).(TeamMembersMemberArrayOutput)
 }
 
-// The team id or the team slug
+// ID or slug of the GitHub team to manage membership for.
 //
-// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+// Deprecated: Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
 func (o TeamMembersOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
+// Slug of the GitHub team to manage membership for.
+func (o TeamMembersOutput) TeamSlug() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.TeamSlug }).(pulumi.StringOutput)
 }
 
 type TeamMembersArrayOutput struct{ *pulumi.OutputState }

@@ -56,23 +56,20 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
- * does not return previously uploaded GPG key.
+ * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
  * 
  */
 @ResourceType(type="github:index/userGpgKey:UserGpgKey")
 public class UserGpgKey extends com.pulumi.resources.CustomResource {
     /**
-     * Your public GPG key, generated in ASCII-armored format.
-     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      * 
      */
     @Export(name="armoredPublicKey", refs={String.class}, tree="[0]")
     private Output<String> armoredPublicKey;
 
     /**
-     * @return Your public GPG key, generated in ASCII-armored format.
-     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * @return Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      * 
      */
     public Output<String> armoredPublicKey() {

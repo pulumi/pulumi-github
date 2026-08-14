@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// To retrieve *all* teams of the organization:
+// To retrieve *all- teams of the organization:
 //
 // ```go
 // package main
@@ -94,7 +94,7 @@ type GetOrganizationTeamsResult struct {
 	RootTeamsOnly *bool `pulumi:"rootTeamsOnly"`
 	// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
 	SummaryOnly *bool `pulumi:"summaryOnly"`
-	// (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+	// (Required) An Array of GitHub Teams. Each `team` block consists of the fields documented below.
 	Teams []GetOrganizationTeamsTeam `pulumi:"teams"`
 }
 
@@ -156,7 +156,7 @@ func (o GetOrganizationTeamsResultOutput) SummaryOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) *bool { return v.SummaryOnly }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+// (Required) An Array of GitHub Teams. Each `team` block consists of the fields documented below.
 func (o GetOrganizationTeamsResultOutput) Teams() GetOrganizationTeamsTeamArrayOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsResult) []GetOrganizationTeamsTeam { return v.Teams }).(GetOrganizationTeamsTeamArrayOutput)
 }

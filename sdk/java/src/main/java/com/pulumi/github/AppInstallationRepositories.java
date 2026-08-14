@@ -17,20 +17,62 @@ import javax.annotation.Nullable;
 /**
  * &gt; **Note**: This resource is not compatible with the GitHub App Installation authentication method.
  * 
- * This resource manages relationships between app installations and repositories
- * in your GitHub organization or your user account.
+ * This resource manages relationships between app installations and repositories in your GitHub organization or your user account.
  * 
  * Creating this resource installs a particular app on multiple repositories.
  * 
- * The app installation and the repositories must all belong to the same
- * organization or user account on GitHub. Note: you can review your organization&#39;s installations
- * by the following the instructions at this
- * [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+ * The app installation and the repositories must all belong to the same organization or user account on GitHub. Note: you can review your organization&#39;s installations by the following the instructions at this [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.AppInstallationRepositories;
+ * import com.pulumi.github.AppInstallationRepositoriesArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create some repositories.
+ *         var someRepo = new Repository("someRepo", RepositoryArgs.builder()
+ *             .name("some-repo")
+ *             .build());
+ * 
+ *         var anotherRepo = new Repository("anotherRepo", RepositoryArgs.builder()
+ *             .name("another-repo")
+ *             .build());
+ * 
+ *         var someAppRepos = new AppInstallationRepositories("someAppRepos", AppInstallationRepositoriesArgs.builder()
+ *             .installationId("1234567")
+ *             .selectedRepositories(            
+ *                 someRepo.name(),
+ *                 anotherRepo.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ## Import
  * 
- * GitHub App Installation Repositories can be imported
- * using an ID made up of `installationId`, e.g.
+ * GitHub App Installation Repositories can be imported using an ID made up of `installationId`, e.g.
  * 
  * ```sh
  * $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567

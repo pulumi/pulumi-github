@@ -13,30 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryCollaboratorsTeam {
     /**
-     * @return The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * @return Permission to grant to the team. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `push`.
      * 
      */
     private @Nullable String permission;
     /**
-     * @return The GitHub team id or the GitHub team slug.
+     * @return ID or slug of the team to add to the repository as a collaborator.
      * 
      */
     private String teamId;
 
     private RepositoryCollaboratorsTeam() {}
     /**
-     * @return The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * @return Permission to grant to the team. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `push`.
      * 
      */
     public Optional<String> permission() {
         return Optional.ofNullable(this.permission);
     }
     /**
-     * @return The GitHub team id or the GitHub team slug.
+     * @return ID or slug of the team to add to the repository as a collaborator.
      * 
      */
     public String teamId() {

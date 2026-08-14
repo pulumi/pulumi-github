@@ -19,25 +19,31 @@ namespace Pulumi.Github
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// The GitHub Base API URL
+        /// The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
         /// </summary>
         [Output("baseUrl")]
         public Output<string?> BaseUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub organization name to manage. Use this field instead of `Owner` when managing organization accounts.
+        /// The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+        /// </summary>
+        [Output("cachePath")]
+        public Output<string?> CachePath { get; private set; } = null!;
+
+        /// <summary>
+        /// GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
         /// </summary>
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub owner name to manage. Use this field instead of `Organization` when managing individual accounts.
+        /// GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
         /// </summary>
         [Output("owner")]
         public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
+        /// GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
         /// </summary>
         [Output("token")]
         public Output<string?> Token { get; private set; } = null!;
@@ -81,61 +87,73 @@ namespace Pulumi.Github
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The GitHub App credentials used to connect to GitHub. Conflicts with `Token`. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
+        /// Authenticate using a GitHub App.
         /// </summary>
         [Input("appAuth", json: true)]
         public Input<Inputs.ProviderAppAuthArgs>? AppAuth { get; set; }
 
         /// <summary>
-        /// The GitHub Base API URL
+        /// The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
         /// </summary>
         [Input("baseUrl")]
         public Input<string>? BaseUrl { get; set; }
 
         /// <summary>
-        /// Enable `Insecure` mode for testing purposes
+        /// The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+        /// </summary>
+        [Input("cachePath")]
+        public Input<string>? CachePath { get; set; }
+
+        /// <summary>
+        /// Allow insecure server connections when using SSL.
         /// </summary>
         [Input("insecure", json: true)]
         public Input<bool>? Insecure { get; set; }
 
         /// <summary>
-        /// Number of items per page for paginationDefaults to 100
+        /// Use the legacy GitHub client implementation; if set to `False`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+        /// </summary>
+        [Input("legacyClient", json: true)]
+        public Input<bool>? LegacyClient { get; set; }
+
+        /// <summary>
+        /// The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
         /// </summary>
         [Input("maxPerPage", json: true)]
         public Input<int>? MaxPerPage { get; set; }
 
         /// <summary>
-        /// Number of times to retry a request after receiving an error status codeDefaults to 3
+        /// The maximum number of retries for failed requests; this defaults to `3`.
         /// </summary>
         [Input("maxRetries", json: true)]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The GitHub organization name to manage. Use this field instead of `Owner` when managing organization accounts.
+        /// GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
         /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
         /// <summary>
-        /// The GitHub owner name to manage. Use this field instead of `Organization` when managing individual accounts.
+        /// GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+        /// Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation is designed to safely handle parallel requests.
         /// </summary>
         [Input("parallelRequests", json: true)]
         public Input<bool>? ParallelRequests { get; set; }
 
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+        /// The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation is GitHub rate limit aware.
         /// </summary>
         [Input("readDelayMs", json: true)]
         public Input<int>? ReadDelayMs { get; set; }
 
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the MaxRetries must be set to greater than zero.
+        /// The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `MaxRetries` is greater than `0`.
         /// </summary>
         [Input("retryDelayMs", json: true)]
         public Input<int>? RetryDelayMs { get; set; }
@@ -144,7 +162,7 @@ namespace Pulumi.Github
         private InputList<int>? _retryableErrors;
 
         /// <summary>
-        /// Allow the provider to retry after receiving an error status code, the MaxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+        /// List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `MaxRetries` is greater than `0`. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation handles the retry logic.
         /// </summary>
         public InputList<int> RetryableErrors
         {
@@ -156,7 +174,7 @@ namespace Pulumi.Github
         private Input<string>? _token;
 
         /// <summary>
-        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
+        /// GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
         /// </summary>
         public Input<string>? Token
         {
@@ -169,7 +187,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        /// The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API's abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation is GitHub rate limit aware.
         /// </summary>
         [Input("writeDelayMs", json: true)]
         public Input<int>? WriteDelayMs { get; set; }

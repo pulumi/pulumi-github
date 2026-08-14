@@ -23,6 +23,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+ *
+ * ```sh
+ * $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
+ * ```
  */
 export class OrganizationSecurityManager extends pulumi.CustomResource {
     /**

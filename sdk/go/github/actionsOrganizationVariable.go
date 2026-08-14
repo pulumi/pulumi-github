@@ -12,8 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
-// You must have write access to a repository to use this resource.
+// This resource allows you to create and manage GitHub Actions variables within your GitHub organization. You must have write access to a repository to use this resource.
 //
 // ## Example Usage
 //
@@ -81,6 +80,10 @@ import (
 // ## Import
 //
 // This resource can be imported using the variable name as the ID.
+//
+// ### Import Block
+//
+// The following import imports a GitHub actions organization variable named `myvariable`to a `ActionsOrganizationVariable` resource named `example`.
 //
 // ### Import Command
 //

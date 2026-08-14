@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about an app.
+// Get information about an app.
 //
 // ## Example Usage
 //
@@ -58,13 +58,14 @@ type GetGithubAppArgs struct {
 type GetGithubAppResult struct {
 	// The app's description.
 	Description string `pulumi:"description"`
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the app.
 	Id string `pulumi:"id"`
 	// The app's full name.
 	Name string `pulumi:"name"`
 	// The Node ID of the app.
 	NodeId string `pulumi:"nodeId"`
-	Slug   string `pulumi:"slug"`
+	// The URL-friendly name of your GitHub App.
+	Slug string `pulumi:"slug"`
 }
 
 func GetGithubAppOutput(ctx *pulumi.Context, args GetGithubAppOutputArgs, opts ...pulumi.InvokeOption) GetGithubAppResultOutput {
@@ -106,7 +107,7 @@ func (o GetGithubAppResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGithubAppResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the app.
 func (o GetGithubAppResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGithubAppResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -121,6 +122,7 @@ func (o GetGithubAppResultOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGithubAppResult) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
+// The URL-friendly name of your GitHub App.
 func (o GetGithubAppResultOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGithubAppResult) string { return v.Slug }).(pulumi.StringOutput)
 }

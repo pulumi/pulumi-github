@@ -12,15 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a GitHub branch default resource.
+// Configures the default branch for a GitHub repository.
 //
-// This resource allows you to set the default branch for a given repository.
-//
-// Note that use of this resource is incompatible with the `defaultBranch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+// > This resource is incompatible with the `defaultBranch` option of the `Repository` resource. Using both will result in plans always showing a diff.
 //
 // ## Example Usage
-//
-// Basic usage:
 //
 // ```go
 // package main
@@ -34,6 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Basic usage
 //			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome codebase"),
@@ -62,8 +59,6 @@ import (
 //
 // ```
 //
-// Renaming to a branch that doesn't exist:
-//
 // ```go
 // package main
 //
@@ -76,6 +71,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Renaming to a branch that doesn't exist
 //			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome codebase"),
@@ -100,7 +96,7 @@ import (
 //
 // ## Import
 //
-// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+// The `pulumi import` command can be used, for example:
 //
 // ```sh
 // $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
@@ -108,13 +104,18 @@ import (
 type BranchDefault struct {
 	pulumi.CustomResourceState
 
-	// The branch (e.g. `main`)
+	// The name of the branch to set as the default (e.g. 'main').
 	Branch pulumi.StringOutput `pulumi:"branch"`
-	Etag   pulumi.StringOutput `pulumi:"etag"`
-	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	// The ETag header for the repository API response.
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
 	Rename pulumi.BoolPtrOutput `pulumi:"rename"`
-	// The GitHub repository
+	// The name of the GitHub repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The ID of the GitHub repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
+	// If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+	WaitForRename pulumi.BoolPtrOutput `pulumi:"waitForRename"`
 }
 
 // NewBranchDefault registers a new resource with the given unique name, arguments, and options.
@@ -153,23 +154,33 @@ func GetBranchDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BranchDefault resources.
 type branchDefaultState struct {
-	// The branch (e.g. `main`)
+	// The name of the branch to set as the default (e.g. 'main').
 	Branch *string `pulumi:"branch"`
-	Etag   *string `pulumi:"etag"`
-	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	// The ETag header for the repository API response.
+	Etag *string `pulumi:"etag"`
+	// If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
 	Rename *bool `pulumi:"rename"`
-	// The GitHub repository
+	// The name of the GitHub repository.
 	Repository *string `pulumi:"repository"`
+	// The ID of the GitHub repository.
+	RepositoryId *int `pulumi:"repositoryId"`
+	// If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+	WaitForRename *bool `pulumi:"waitForRename"`
 }
 
 type BranchDefaultState struct {
-	// The branch (e.g. `main`)
+	// The name of the branch to set as the default (e.g. 'main').
 	Branch pulumi.StringPtrInput
-	Etag   pulumi.StringPtrInput
-	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	// The ETag header for the repository API response.
+	Etag pulumi.StringPtrInput
+	// If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
 	Rename pulumi.BoolPtrInput
-	// The GitHub repository
+	// The name of the GitHub repository.
 	Repository pulumi.StringPtrInput
+	// The ID of the GitHub repository.
+	RepositoryId pulumi.IntPtrInput
+	// If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+	WaitForRename pulumi.BoolPtrInput
 }
 
 func (BranchDefaultState) ElementType() reflect.Type {
@@ -177,24 +188,30 @@ func (BranchDefaultState) ElementType() reflect.Type {
 }
 
 type branchDefaultArgs struct {
-	// The branch (e.g. `main`)
-	Branch string  `pulumi:"branch"`
-	Etag   *string `pulumi:"etag"`
-	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	// The name of the branch to set as the default (e.g. 'main').
+	Branch string `pulumi:"branch"`
+	// The ETag header for the repository API response.
+	Etag *string `pulumi:"etag"`
+	// If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
 	Rename *bool `pulumi:"rename"`
-	// The GitHub repository
+	// The name of the GitHub repository.
 	Repository string `pulumi:"repository"`
+	// If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+	WaitForRename *bool `pulumi:"waitForRename"`
 }
 
 // The set of arguments for constructing a BranchDefault resource.
 type BranchDefaultArgs struct {
-	// The branch (e.g. `main`)
+	// The name of the branch to set as the default (e.g. 'main').
 	Branch pulumi.StringInput
-	Etag   pulumi.StringPtrInput
-	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+	// The ETag header for the repository API response.
+	Etag pulumi.StringPtrInput
+	// If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
 	Rename pulumi.BoolPtrInput
-	// The GitHub repository
+	// The name of the GitHub repository.
 	Repository pulumi.StringInput
+	// If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+	WaitForRename pulumi.BoolPtrInput
 }
 
 func (BranchDefaultArgs) ElementType() reflect.Type {
@@ -284,23 +301,34 @@ func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The branch (e.g. `main`)
+// The name of the branch to set as the default (e.g. 'main').
 func (o BranchDefaultOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The ETag header for the repository API response.
 func (o BranchDefaultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+// If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
 func (o BranchDefaultOutput) Rename() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.BoolPtrOutput { return v.Rename }).(pulumi.BoolPtrOutput)
 }
 
-// The GitHub repository
+// The name of the GitHub repository.
 func (o BranchDefaultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The ID of the GitHub repository.
+func (o BranchDefaultOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *BranchDefault) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
+}
+
+// If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+func (o BranchDefaultOutput) WaitForRename() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchDefault) pulumi.BoolPtrOutput { return v.WaitForRename }).(pulumi.BoolPtrOutput)
 }
 
 type BranchDefaultArrayOutput struct{ *pulumi.OutputState }

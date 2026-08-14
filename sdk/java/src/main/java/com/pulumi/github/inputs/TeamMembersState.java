@@ -18,14 +18,14 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
     public static final TeamMembersState Empty = new TeamMembersState();
 
     /**
-     * List of team members. See Members below for details.
+     * List of users that should be members of the team.
      * 
      */
     @Import(name="members")
     private @Nullable Output<List<TeamMembersMemberArgs>> members;
 
     /**
-     * @return List of team members. See Members below for details.
+     * @return List of users that should be members of the team.
      * 
      */
     public Optional<Output<List<TeamMembersMemberArgs>>> members() {
@@ -33,22 +33,41 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The team id or the team slug
+     * ID or slug of the GitHub team to manage membership for.
      * 
-     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+     * @deprecated
+     * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      * 
      */
+    @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
     @Import(name="teamId")
     private @Nullable Output<String> teamId;
 
     /**
-     * @return The team id or the team slug
+     * @return ID or slug of the GitHub team to manage membership for.
      * 
-     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+     * @deprecated
+     * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      * 
      */
+    @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
     public Optional<Output<String>> teamId() {
         return Optional.ofNullable(this.teamId);
+    }
+
+    /**
+     * Slug of the GitHub team to manage membership for.
+     * 
+     */
+    @Import(name="teamSlug")
+    private @Nullable Output<String> teamSlug;
+
+    /**
+     * @return Slug of the GitHub team to manage membership for.
+     * 
+     */
+    public Optional<Output<String>> teamSlug() {
+        return Optional.ofNullable(this.teamSlug);
     }
 
     private TeamMembersState() {}
@@ -56,6 +75,7 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
     private TeamMembersState(TeamMembersState $) {
         this.members = $.members;
         this.teamId = $.teamId;
+        this.teamSlug = $.teamSlug;
     }
 
     public static Builder builder() {
@@ -77,7 +97,7 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param members List of team members. See Members below for details.
+         * @param members List of users that should be members of the team.
          * 
          * @return builder
          * 
@@ -88,7 +108,7 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param members List of team members. See Members below for details.
+         * @param members List of users that should be members of the team.
          * 
          * @return builder
          * 
@@ -98,7 +118,7 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param members List of team members. See Members below for details.
+         * @param members List of users that should be members of the team.
          * 
          * @return builder
          * 
@@ -108,28 +128,53 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamId The team id or the team slug
-         * 
-         * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+         * @param teamId ID or slug of the GitHub team to manage membership for.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+         * 
          */
+        @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
         public Builder teamId(@Nullable Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
         /**
-         * @param teamId The team id or the team slug
+         * @param teamId ID or slug of the GitHub team to manage membership for.
          * 
-         * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+         * @return builder
+         * 
+         * @deprecated
+         * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+         * 
+         */
+        @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
+        public Builder teamId(String teamId) {
+            return teamId(Output.of(teamId));
+        }
+
+        /**
+         * @param teamSlug Slug of the GitHub team to manage membership for.
          * 
          * @return builder
          * 
          */
-        public Builder teamId(String teamId) {
-            return teamId(Output.of(teamId));
+        public Builder teamSlug(@Nullable Output<String> teamSlug) {
+            $.teamSlug = teamSlug;
+            return this;
+        }
+
+        /**
+         * @param teamSlug Slug of the GitHub team to manage membership for.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder teamSlug(String teamSlug) {
+            return teamSlug(Output.of(teamSlug));
         }
 
         public TeamMembersState build() {

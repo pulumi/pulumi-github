@@ -391,17 +391,45 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  value_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage GitHub Actions secrets within your GitHub repository environments.
-        You must have write access to a repository to use this resource.
+        This resource allows you to create and manage GitHub Actions secrets within your GitHub repository environments. You must have write access to a repository to use this resource.
 
-        Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
-        interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+        Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 
-        For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
-        but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-        It is also advised that you do not store plaintext values in your code but rather populate the `value_encrypted`
-        using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
-        in your code. See below for an example of this abstraction.
+        For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform, but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always. It is also advised that you do not store plaintext values in your code but rather populate the `value_encrypted` using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible in your code. See below for an example of this abstraction.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_plaintext = github.ActionsEnvironmentSecret("example_plaintext",
+            repository="example-repo",
+            environment="example-environment",
+            secret_name="example_secret_name",
+            plaintext_value="example-value")
+        example_encrypted = github.ActionsEnvironmentSecret("example_encrypted",
+            repository="example-repo",
+            environment="example-environment",
+            secret_name="example_secret_name",
+            key_id=key_id,
+            encrypted_value=encrypted_secret_string)
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.get_repository(full_name="my-org/repo")
+        example_plaintext = github.RepositoryEnvironment("example_plaintext",
+            repository=example.name,
+            environment="example-environment")
+        example_encrypted = github.ActionsEnvironmentSecret("example_encrypted",
+            repository=example.name,
+            environment=example_github_repository_environment["environment"],
+            secret_name="test_secret_name",
+            plaintext_value="example-value")
+        ```
 
         ## Example Lifecycle Ignore Changes
 
@@ -415,14 +443,18 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             repository="example-repo",
             environment="example-environment",
             secret_name="example_secret_name",
-            value="placeholder")
+            plaintext_value="placeholder")
         ```
 
         ## Import
 
-        This resource can be imported using an ID made of the repository name, environment name (URL escaped), and secret name all separated by a `:`.
+        This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and secret name all separated by a `:`.
 
         > **Note**: When importing secrets, the `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+
+        ### Import Block
+
+        The following import imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `ActionsEnvironmentSecret` resource named `example`.
 
         ### Import Command
 
@@ -453,17 +485,45 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  args: ActionsEnvironmentSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage GitHub Actions secrets within your GitHub repository environments.
-        You must have write access to a repository to use this resource.
+        This resource allows you to create and manage GitHub Actions secrets within your GitHub repository environments. You must have write access to a repository to use this resource.
 
-        Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
-        interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+        Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 
-        For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
-        but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-        It is also advised that you do not store plaintext values in your code but rather populate the `value_encrypted`
-        using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
-        in your code. See below for an example of this abstraction.
+        For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform, but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always. It is also advised that you do not store plaintext values in your code but rather populate the `value_encrypted` using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible in your code. See below for an example of this abstraction.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_plaintext = github.ActionsEnvironmentSecret("example_plaintext",
+            repository="example-repo",
+            environment="example-environment",
+            secret_name="example_secret_name",
+            plaintext_value="example-value")
+        example_encrypted = github.ActionsEnvironmentSecret("example_encrypted",
+            repository="example-repo",
+            environment="example-environment",
+            secret_name="example_secret_name",
+            key_id=key_id,
+            encrypted_value=encrypted_secret_string)
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.get_repository(full_name="my-org/repo")
+        example_plaintext = github.RepositoryEnvironment("example_plaintext",
+            repository=example.name,
+            environment="example-environment")
+        example_encrypted = github.ActionsEnvironmentSecret("example_encrypted",
+            repository=example.name,
+            environment=example_github_repository_environment["environment"],
+            secret_name="test_secret_name",
+            plaintext_value="example-value")
+        ```
 
         ## Example Lifecycle Ignore Changes
 
@@ -477,14 +537,18 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             repository="example-repo",
             environment="example-environment",
             secret_name="example_secret_name",
-            value="placeholder")
+            plaintext_value="placeholder")
         ```
 
         ## Import
 
-        This resource can be imported using an ID made of the repository name, environment name (URL escaped), and secret name all separated by a `:`.
+        This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and secret name all separated by a `:`.
 
         > **Note**: When importing secrets, the `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+
+        ### Import Block
+
+        The following import imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `ActionsEnvironmentSecret` resource named `example`.
 
         ### Import Command
 

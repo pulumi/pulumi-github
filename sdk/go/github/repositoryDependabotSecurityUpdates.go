@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to manage dependabot automated security fixes for a single repository. See the
-// [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
-// for details of usage and how this will impact your repository
+// This resource allows you to manage dependabot automated security fixes for a single repository. See the [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates) for details of usage and how this will impact your repository
 //
 // ## Example Usage
 //

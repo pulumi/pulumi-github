@@ -48,16 +48,9 @@ namespace Pulumi.Github
     /// &gt; **Note:** This resource requires a GitHub Enterprise account and enterprise admin permissions.
     /// 
     /// When this resource is destroyed, the workflow permissions will be reset to safe defaults:
+    /// 
     /// - `DefaultWorkflowPermissions` = `Read`
     /// - `CanApprovePullRequestReviews` = `False`
-    /// 
-    /// ## Import
-    /// 
-    /// Enterprise Actions workflow permissions can be imported using the enterprise slug:
-    /// 
-    /// ```sh
-    /// $ pulumi import github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions example my-enterprise
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions")]
     public partial class EnterpriseActionsWorkflowPermissions : global::Pulumi.CustomResource

@@ -14,8 +14,7 @@ import (
 
 // Provides a GitHub issue resource.
 //
-// This resource allows you to create and manage issue within your
-// GitHub repository.
+// This resource allows you to create and manage issue within your GitHub repository.
 //
 // ## Example Usage
 //
@@ -78,14 +77,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeSplit, err := std.Split(ctx, map[string]interface{}{
+//				"separator": "/",
+//				"text":      test.FullName,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			testRepositoryMilestone, err := github.NewRepositoryMilestone(ctx, "test", &github.RepositoryMilestoneArgs{
-//				Owner: std.SplitOutput(ctx, std.SplitOutputArgs{
-//					Separator: pulumi.String("/"),
-//					Text:      test.FullName,
-//				}, nil).ApplyT(func(invoke std.SplitResult) (*string, error) {
-//					val := invoke.Result[0]
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput),
+//				Owner:       invokeSplit.Result[0],
 //				Repository:  test.Name,
 //				Title:       pulumi.String("v1.0.0"),
 //				Description: pulumi.String("General Availability"),

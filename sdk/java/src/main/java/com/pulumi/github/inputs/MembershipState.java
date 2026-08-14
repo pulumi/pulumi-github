@@ -17,20 +17,14 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
     public static final MembershipState Empty = new MembershipState();
 
     /**
-     * Defaults to `false`. If set to true,
-     * when this resource is destroyed, the member will not be removed
-     * from the organization. Instead, the member&#39;s role will be
-     * downgraded to &#39;member&#39;.
+     * Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member&#39;s role will be downgraded to &#39;member&#39;.
      * 
      */
     @Import(name="downgradeOnDestroy")
     private @Nullable Output<Boolean> downgradeOnDestroy;
 
     /**
-     * @return Defaults to `false`. If set to true,
-     * when this resource is destroyed, the member will not be removed
-     * from the organization. Instead, the member&#39;s role will be
-     * downgraded to &#39;member&#39;.
+     * @return Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member&#39;s role will be downgraded to &#39;member&#39;.
      * 
      */
     public Optional<Output<Boolean>> downgradeOnDestroy() {
@@ -45,18 +39,14 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * `admin` role represents the `owner` role available via GitHub UI.
+     * The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * `admin` role represents the `owner` role available via GitHub UI.
+     * @return The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     public Optional<Output<String>> role() {
@@ -106,10 +96,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param downgradeOnDestroy Defaults to `false`. If set to true,
-         * when this resource is destroyed, the member will not be removed
-         * from the organization. Instead, the member&#39;s role will be
-         * downgraded to &#39;member&#39;.
+         * @param downgradeOnDestroy Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member&#39;s role will be downgraded to &#39;member&#39;.
          * 
          * @return builder
          * 
@@ -120,10 +107,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param downgradeOnDestroy Defaults to `false`. If set to true,
-         * when this resource is destroyed, the member will not be removed
-         * from the organization. Instead, the member&#39;s role will be
-         * downgraded to &#39;member&#39;.
+         * @param downgradeOnDestroy Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member&#39;s role will be downgraded to &#39;member&#39;.
          * 
          * @return builder
          * 
@@ -142,9 +126,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The role of the user within the organization.
-         * Must be one of `member` or `admin`. Defaults to `member`.
-         * `admin` role represents the `owner` role available via GitHub UI.
+         * @param role The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
          * 
          * @return builder
          * 
@@ -155,9 +137,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The role of the user within the organization.
-         * Must be one of `member` or `admin`. Defaults to `member`.
-         * `admin` role represents the `owner` role available via GitHub UI.
+         * @param role The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
          * 
          * @return builder
          * 

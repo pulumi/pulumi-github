@@ -17,11 +17,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
- * You must have team synchronization enabled for organizations owned by enterprise accounts.
+ * This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams. You must have team synchronization enabled for organizations owned by enterprise accounts.
  * 
- * To learn more about team synchronization between IdPs and GitHub, please refer to:
- * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+ * To learn more about team synchronization between IdPs and GitHub, please refer to: &lt;https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github&gt;
  * 
  * ## Example Usage
  * 
@@ -43,20 +41,14 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
         return this.etag;
     }
     /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     * The `group` block consists of:
+     * An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
      * 
      */
     @Export(name="groups", refs={List.class,TeamSyncGroupMappingGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamSyncGroupMappingGroup>> groups;
 
     /**
-     * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     * The `group` block consists of:
+     * @return An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
      * 
      */
     public Output<Optional<List<TeamSyncGroupMappingGroup>>> groups() {

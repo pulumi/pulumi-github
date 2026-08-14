@@ -14,20 +14,58 @@ import (
 
 // > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
 //
-// This resource manages relationships between app installations and repositories
-// in your GitHub organization or your user account.
+// This resource manages relationships between app installations and repositories in your GitHub organization or your user account.
 //
 // Creating this resource installs a particular app on multiple repositories.
 //
-// The app installation and the repositories must all belong to the same
-// organization or user account on GitHub. Note: you can review your organization's installations
-// by the following the instructions at this
-// [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+// The app installation and the repositories must all belong to the same organization or user account on GitHub. Note: you can review your organization's installations by the following the instructions at this [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create some repositories.
+//			someRepo, err := github.NewRepository(ctx, "some_repo", &github.RepositoryArgs{
+//				Name: pulumi.String("some-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			anotherRepo, err := github.NewRepository(ctx, "another_repo", &github.RepositoryArgs{
+//				Name: pulumi.String("another-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewAppInstallationRepositories(ctx, "some_app_repos", &github.AppInstallationRepositoriesArgs{
+//				InstallationId: pulumi.String("1234567"),
+//				SelectedRepositories: pulumi.StringArray{
+//					someRepo.Name,
+//					anotherRepo.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// GitHub App Installation Repositories can be imported
-// using an ID made up of `installationId`, e.g.
+// GitHub App Installation Repositories can be imported using an ID made up of `installationId`, e.g.
 //
 // ```sh
 // $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567

@@ -75,8 +75,7 @@ class AwaitableGetActionsOrganizationPublicKeyResult(GetActionsOrganizationPubli
 
 def get_actions_organization_public_key(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionsOrganizationPublicKeyResult:
     """
-    Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to an organization to retrieve it's action public key.
+    Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it's action public key.
 
     ## Example Usage
 
@@ -97,8 +96,7 @@ def get_actions_organization_public_key(opts: Optional[pulumi.InvokeOptions] = N
         key_id=pulumi.get(__ret__, 'key_id'))
 def get_actions_organization_public_key_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsOrganizationPublicKeyResult]:
     """
-    Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to an organization to retrieve it's action public key.
+    Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it's action public key.
 
     ## Example Usage
 

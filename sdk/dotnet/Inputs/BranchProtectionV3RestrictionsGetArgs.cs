@@ -30,8 +30,7 @@ namespace Pulumi.Github.Inputs
         private InputList<string>? _teams;
 
         /// <summary>
-        /// The list of team slugs with push access.
-        /// Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// The list of team slugs with push access. Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         /// </summary>
         public InputList<string> Teams
         {

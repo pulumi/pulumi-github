@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetBypassActor {
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+     * @return (Number) The ID of the actor that can bypass a ruleset. Must be omitted for ID-less actor types: `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` — the GitHub API does not use an ID for these types and will ignore any value set.
      * 
      */
     private @Nullable Integer actorId;
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`.
      * 
      */
     private String actorType;
@@ -28,7 +28,6 @@ public final class OrganizationRulesetBypassActor {
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
-     * - `OrganizationAdmin` &gt; `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
      */
@@ -36,14 +35,14 @@ public final class OrganizationRulesetBypassActor {
 
     private OrganizationRulesetBypassActor() {}
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+     * @return (Number) The ID of the actor that can bypass a ruleset. Must be omitted for ID-less actor types: `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` — the GitHub API does not use an ID for these types and will ignore any value set.
      * 
      */
     public Optional<Integer> actorId() {
         return Optional.ofNullable(this.actorId);
     }
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`.
      * 
      */
     public String actorType() {
@@ -54,7 +53,6 @@ public final class OrganizationRulesetBypassActor {
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
-     * - `OrganizationAdmin` &gt; `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
      */

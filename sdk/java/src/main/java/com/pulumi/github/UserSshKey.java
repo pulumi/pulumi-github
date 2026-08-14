@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.UserSshKey;
  * import com.pulumi.github.UserSshKeyArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new UserSshKey("example", UserSshKeyArgs.builder()
  *             .title("example title")
- *             .key(StdFunctions.file(FileArgs.builder()
- *                 .input("~/.ssh/id_rsa.pub")
- *                 .build()).result())
+ *             .key(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
  *             .build());
  * 
  *     }

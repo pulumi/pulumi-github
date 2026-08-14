@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryRulesetBypassActor {
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actorType` is `User`, `actorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
      * 
      */
     private @Nullable Integer actorId;
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
      * 
      */
     private String actorType;
@@ -28,7 +28,6 @@ public final class RepositoryRulesetBypassActor {
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
-     * - `OrganizationAdmin` &gt; `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
      */
@@ -36,14 +35,14 @@ public final class RepositoryRulesetBypassActor {
 
     private RepositoryRulesetBypassActor() {}
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actorType` is `User`, `actorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
      * 
      */
     public Optional<Integer> actorId() {
         return Optional.ofNullable(this.actorId);
     }
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
      * 
      */
     public String actorType() {
@@ -54,7 +53,6 @@ public final class RepositoryRulesetBypassActor {
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
-     * - `OrganizationAdmin` &gt; `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
      */

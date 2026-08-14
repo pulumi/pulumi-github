@@ -36,7 +36,7 @@ export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.Invok
  */
 export interface GetCollaboratorsArgs {
     /**
-     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
      */
     affiliation?: string;
     /**
@@ -44,7 +44,7 @@ export interface GetCollaboratorsArgs {
      */
     owner: string;
     /**
-     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
      */
     permission?: string;
     /**
@@ -59,7 +59,7 @@ export interface GetCollaboratorsArgs {
 export interface GetCollaboratorsResult {
     readonly affiliation?: string;
     /**
-     * An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
+     * An Array of GitHub collaborators. Each `collaborator` block consists of the fields documented below.
      */
     readonly collaborators: outputs.GetCollaboratorsCollaborator[];
     /**
@@ -103,7 +103,7 @@ export function getCollaboratorsOutput(args: GetCollaboratorsOutputArgs, opts?: 
  */
 export interface GetCollaboratorsOutputArgs {
     /**
-     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
      */
     affiliation?: pulumi.Input<string | undefined>;
     /**
@@ -111,7 +111,7 @@ export interface GetCollaboratorsOutputArgs {
      */
     owner: pulumi.Input<string>;
     /**
-     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
      */
     permission?: pulumi.Input<string | undefined>;
     /**

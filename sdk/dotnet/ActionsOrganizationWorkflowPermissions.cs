@@ -49,8 +49,8 @@ namespace Pulumi.Github
     /// 
     /// When this resource is destroyed, the workflow permissions will be reset to safe defaults:
     /// 
-    /// * `DefaultWorkflowPermissions` = `Read`
-    /// * `CanApprovePullRequestReviews` = `False`
+    /// - `DefaultWorkflowPermissions` = `Read`
+    /// - `CanApprovePullRequestReviews` = `False`
     /// 
     /// ## Import
     /// 

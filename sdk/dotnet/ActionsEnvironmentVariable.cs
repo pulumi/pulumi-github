@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.
-    /// You must have write access to a repository to use this resource.
+    /// This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments. You must have write access to a repository to use this resource.
     /// 
     /// ## Example Usage
     /// 
@@ -67,6 +66,10 @@ namespace Pulumi.Github
     /// ## Import
     /// 
     /// This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and variable name all separated by a `:`.
+    /// 
+    /// ### Import Block
+    /// 
+    /// The following import imports a GitHub actions environment variable named `Myvariable` for the repo `Myrepo` and environment `Myenv` to a `github.ActionsEnvironmentVariable` resource named `Example`.
     /// 
     /// ### Import Command
     /// 

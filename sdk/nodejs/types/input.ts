@@ -109,12 +109,11 @@ export interface BranchProtectionRequiredPullRequestReview {
      */
     requireCodeOwnerReviews?: pulumi.Input<boolean | undefined>;
     /**
-     * Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
      */
     requireLastPushApproval?: pulumi.Input<boolean | undefined>;
     /**
-     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
      */
     requiredApprovingReviewCount?: pulumi.Input<number | undefined>;
     /**
@@ -127,10 +126,7 @@ export interface BranchProtectionRequiredStatusCheck {
     /**
      * The list of status checks to require in order to merge into this branch. No status checks are required by default.
      *
-     * > Note: This attribute can contain multiple string patterns.
-     * If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-     * For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-     * For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+     * > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
      */
     contexts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -164,8 +160,7 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
      */
     dismissalApps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The list of team slugs with dismissal access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      */
     dismissalTeams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -181,7 +176,7 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
      */
     requireCodeOwnerReviews?: pulumi.Input<boolean | undefined>;
     /**
-     * Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
      */
     requireLastPushApproval?: pulumi.Input<boolean | undefined>;
     /**
@@ -211,12 +206,9 @@ export interface BranchProtectionV3RequiredStatusChecks {
      */
     checks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     * (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
      *
-     * > Note: This attribute can contain multiple string patterns.
-     * If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-     * For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-     * For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+     * > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
      *
      * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      */
@@ -239,8 +231,7 @@ export interface BranchProtectionV3Restrictions {
      */
     apps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The list of team slugs with push access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      */
     teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -292,11 +283,11 @@ export interface IssueLabelsLabel {
 
 export interface OrganizationRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+     * (Number) The ID of the actor that can bypass a ruleset. Must be omitted for ID-less actor types: `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` — the GitHub API does not use an ID for these types and will ignore any value set.
      */
     actorId?: pulumi.Input<number | undefined>;
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`.
      */
     actorType: pulumi.Input<string>;
     /**
@@ -304,7 +295,6 @@ export interface OrganizationRulesetBypassActor {
      *
      * ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
-     * - `OrganizationAdmin` > `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: pulumi.Input<string>;
@@ -679,7 +669,7 @@ export interface OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScannin
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
-     * (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
      */
     doNotEnforceOnCreate?: pulumi.Input<boolean | undefined>;
     /**
@@ -769,48 +759,44 @@ export interface OrganizationWebhookConfiguration {
 
 export interface ProviderAppAuth {
     /**
-     * The GitHub App ID.
+     * The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
      */
     id: pulumi.Input<string>;
     /**
-     * The GitHub App installation instance ID.
+     * The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
      */
     installationId: pulumi.Input<string>;
     /**
-     * The GitHub App PEM file contents.
+     * The GitHub App's PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      */
     pemFile: pulumi.Input<string>;
 }
 
 export interface RepositoryCollaboratorsIgnoreTeam {
     /**
-     * The GitHub team id or the GitHub team slug.
+     * ID or slug of the team to ignore.
      */
     teamId: pulumi.Input<string>;
 }
 
 export interface RepositoryCollaboratorsTeam {
     /**
-     * The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * Permission to grant to the team. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `push`.
      */
     permission?: pulumi.Input<string | undefined>;
     /**
-     * The GitHub team id or the GitHub team slug.
+     * ID or slug of the team to add to the repository as a collaborator.
      */
     teamId: pulumi.Input<string>;
 }
 
 export interface RepositoryCollaboratorsUser {
     /**
-     * The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
      */
     permission?: pulumi.Input<string | undefined>;
     /**
-     * The user to add to the repository as a collaborator.
+     * Login for the user to add to the repository as a collaborator.
      */
     username: pulumi.Input<string>;
 }
@@ -878,11 +864,11 @@ export interface RepositoryPagesSource {
 
 export interface RepositoryRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actorType` is `User`, `actorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
      */
     actorId?: pulumi.Input<number | undefined>;
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
      */
     actorType: pulumi.Input<string>;
     /**
@@ -890,7 +876,6 @@ export interface RepositoryRulesetBypassActor {
      *
      * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
-     * - `OrganizationAdmin` > `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: pulumi.Input<string>;
@@ -1391,12 +1376,11 @@ export interface RepositoryWebhookConfiguration {
 
 export interface TeamMembersMember {
     /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * Role to grant the user within the team; must be one of `member` or `maintainer`.
      */
     role?: pulumi.Input<string | undefined>;
     /**
-     * The user to add to the team.
+     * User to add to the team.
      */
     username: pulumi.Input<string>;
 }

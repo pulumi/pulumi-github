@@ -88,13 +88,13 @@ namespace Pulumi.Github
     public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of membership to be requested to fill the list of members. Can be either `All` _(default)_ or `Immediate`.
+        /// Type of membership to be requested to fill the list of members. Can be either `All` *(default)- or `Immediate`.
         /// </summary>
         [Input("membershipType")]
         public string? MembershipType { get; set; }
 
         /// <summary>
-        /// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+        /// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
         /// </summary>
         [Input("resultsPerPage")]
         public int? ResultsPerPage { get; set; }
@@ -120,13 +120,13 @@ namespace Pulumi.Github
     public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of membership to be requested to fill the list of members. Can be either `All` _(default)_ or `Immediate`.
+        /// Type of membership to be requested to fill the list of members. Can be either `All` *(default)- or `Immediate`.
         /// </summary>
         [Input("membershipType")]
         public Input<string>? MembershipType { get; set; }
 
         /// <summary>
-        /// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+        /// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
         /// </summary>
         [Input("resultsPerPage")]
         public Input<int>? ResultsPerPage { get; set; }

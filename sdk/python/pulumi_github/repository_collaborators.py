@@ -28,10 +28,10 @@ class RepositoryCollaboratorsArgs:
         """
         The set of arguments for constructing a RepositoryCollaborators resource.
 
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]] ignore_teams: List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams to grant access to the repository.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of users to grant access to the repository.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]] ignore_teams: Teams to ignore when managing repository collaborators.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: Teams to grant access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: Users to grant access to the repository.
         """
         pulumi.set(__self__, "repository", repository)
         if ignore_teams is not None:
@@ -45,7 +45,7 @@ class RepositoryCollaboratorsArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub repository.
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
 
@@ -57,7 +57,7 @@ class RepositoryCollaboratorsArgs:
     @pulumi.getter(name="ignoreTeams")
     def ignore_teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]]]:
         """
-        List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+        Teams to ignore when managing repository collaborators.
         """
         return pulumi.get(self, "ignore_teams")
 
@@ -69,7 +69,7 @@ class RepositoryCollaboratorsArgs:
     @pulumi.getter
     def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]]:
         """
-        List of teams to grant access to the repository.
+        Teams to grant access to the repository.
         """
         return pulumi.get(self, "teams")
 
@@ -81,7 +81,7 @@ class RepositoryCollaboratorsArgs:
     @pulumi.getter
     def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]]:
         """
-        List of users to grant access to the repository.
+        Users to grant access to the repository.
         """
         return pulumi.get(self, "users")
 
@@ -95,6 +95,7 @@ class _RepositoryCollaboratorsState:
     def __init__(__self__, *,
                  ignore_teams: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]]] = None,
                  invitation_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 owner_configured: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_id: pulumi.Input[Optional[_builtins.int]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]] = None,
@@ -102,18 +103,20 @@ class _RepositoryCollaboratorsState:
         """
         Input properties used for looking up and filtering RepositoryCollaborators resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]] ignore_teams: List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to
-               be used in `UserInvitationAccepter`.
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]] ignore_teams: Teams to ignore when managing repository collaborators.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] invitation_ids: Map of usernames to invitation ID for users that haven't yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren't yet collaborators.
+        :param pulumi.Input[_builtins.bool] owner_configured: Indicates whether the owner of a personal repository is configured as a collaborator.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams to grant access to the repository.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of users to grant access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: Teams to grant access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: Users to grant access to the repository.
         """
         if ignore_teams is not None:
             pulumi.set(__self__, "ignore_teams", ignore_teams)
         if invitation_ids is not None:
             pulumi.set(__self__, "invitation_ids", invitation_ids)
+        if owner_configured is not None:
+            pulumi.set(__self__, "owner_configured", owner_configured)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if repository_id is not None:
@@ -127,7 +130,7 @@ class _RepositoryCollaboratorsState:
     @pulumi.getter(name="ignoreTeams")
     def ignore_teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]]]:
         """
-        List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+        Teams to ignore when managing repository collaborators.
         """
         return pulumi.get(self, "ignore_teams")
 
@@ -139,8 +142,7 @@ class _RepositoryCollaboratorsState:
     @pulumi.getter(name="invitationIds")
     def invitation_ids(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of usernames to invitation ID for any users added as part of creation of this resource to
-        be used in `UserInvitationAccepter`.
+        Map of usernames to invitation ID for users that haven't yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren't yet collaborators.
         """
         return pulumi.get(self, "invitation_ids")
 
@@ -149,10 +151,22 @@ class _RepositoryCollaboratorsState:
         pulumi.set(self, "invitation_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="ownerConfigured")
+    def owner_configured(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the owner of a personal repository is configured as a collaborator.
+        """
+        return pulumi.get(self, "owner_configured")
+
+    @owner_configured.setter
+    def owner_configured(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "owner_configured", value)
+
+    @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The GitHub repository.
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
 
@@ -176,7 +190,7 @@ class _RepositoryCollaboratorsState:
     @pulumi.getter
     def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]]:
         """
-        List of teams to grant access to the repository.
+        Teams to grant access to the repository.
         """
         return pulumi.get(self, "teams")
 
@@ -188,7 +202,7 @@ class _RepositoryCollaboratorsState:
     @pulumi.getter
     def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]]:
         """
-        List of users to grant access to the repository.
+        Users to grant access to the repository.
         """
         return pulumi.get(self, "users")
 
@@ -209,28 +223,33 @@ class RepositoryCollaborators(pulumi.CustomResource):
                  users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a GitHub repository collaborators resource.
+        Manage the complete set of collaborators (users and teams) for a GitHub repository.
 
-        > Note: RepositoryCollaborators cannot be used in conjunction with RepositoryCollaborator and
-        TeamRepository or they will fight over what your policy should be.
+        > This resource (`RepositoryCollaborators`) cannot be used in conjunction with `RepositoryCollaborator` or `TeamRepository` as they will conflict over the management of collaborators.
 
-        This resource allows you to manage all collaborators for repositories in your
-        organization or personal account. For organization repositories, collaborators can
-        have explicit (and differing levels of) read, write, or administrator access to
-        specific repositories, without giving the user full organization membership.
-        For personal repositories, collaborators can only be granted write
-        (implicitly includes read) permission.
+        This resource manages the complete set of collaborators for a repository, which includes both users and teams, in an authoritative manner. When applied, the provider will ensure that the set of collaborators for the repository matches the set defined in Terraform configuration. This means that if a collaborator is removed from the configuration, it will be removed from the repository, and if a collaborator is added to the configuration, it will be added to the repository.
 
-        When applied, an invitation will be sent to the user to become a collaborators
-        on a repository. When destroyed, either the invitation will be cancelled or the
-        collaborators will be removed from the repository.
+        > **Archived Repositories** When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
-        > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
+        ## Organization Repositories
 
-        This resource is authoritative. For adding a collaborator to a repo in a non-authoritative manner, use
-        RepositoryCollaborator instead.
+        For repositories owned by an organization, collaborators can have explicit (and differing levels of) read, write, or administrator access to specific repositories, without giving the user full organization membership.
 
-        Further documentation on GitHub collaborators:
+        ### Teams
+
+        Teams will be added to the repository on apply, and removed if removed from the configuration or on destroy. Teams added to the repository outside of Terraform can be managed by adding them to the configuration, or ignored by using the `ignore_team` argument. This is particularly important for organization/enterprise teams, which either need to be added to the configuration or ignored, as otherwise they will cause perpetual drift.
+
+        ## Personal Repositories
+
+        For personal repositories, non-owner collaborators can only be granted [write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) permission. Owners will be ignored unless they are explicitly added, in which case they must be granted `admin` permission.
+
+        ## Users
+
+        When applied, an invitation will be sent to the user to become a collaborators on a repository. When destroyed, either the invitation will be cancelled or the collaborators will be removed from the repository.
+
+        ## Documentation
+
+        Further documentation on GitHub collaborators.
 
         - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
@@ -259,13 +278,21 @@ class RepositoryCollaborators(pulumi.CustomResource):
             }])
         ```
 
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        ```sh
+        $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators example-repo
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict']]]] ignore_teams: List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: List of teams to grant access to the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]] users: List of users to grant access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict']]]] ignore_teams: Teams to ignore when managing repository collaborators.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: Teams to grant access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]] users: Users to grant access to the repository.
         """
         ...
     @overload
@@ -274,28 +301,33 @@ class RepositoryCollaborators(pulumi.CustomResource):
                  args: RepositoryCollaboratorsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GitHub repository collaborators resource.
+        Manage the complete set of collaborators (users and teams) for a GitHub repository.
 
-        > Note: RepositoryCollaborators cannot be used in conjunction with RepositoryCollaborator and
-        TeamRepository or they will fight over what your policy should be.
+        > This resource (`RepositoryCollaborators`) cannot be used in conjunction with `RepositoryCollaborator` or `TeamRepository` as they will conflict over the management of collaborators.
 
-        This resource allows you to manage all collaborators for repositories in your
-        organization or personal account. For organization repositories, collaborators can
-        have explicit (and differing levels of) read, write, or administrator access to
-        specific repositories, without giving the user full organization membership.
-        For personal repositories, collaborators can only be granted write
-        (implicitly includes read) permission.
+        This resource manages the complete set of collaborators for a repository, which includes both users and teams, in an authoritative manner. When applied, the provider will ensure that the set of collaborators for the repository matches the set defined in Terraform configuration. This means that if a collaborator is removed from the configuration, it will be removed from the repository, and if a collaborator is added to the configuration, it will be added to the repository.
 
-        When applied, an invitation will be sent to the user to become a collaborators
-        on a repository. When destroyed, either the invitation will be cancelled or the
-        collaborators will be removed from the repository.
+        > **Archived Repositories** When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
-        > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
+        ## Organization Repositories
 
-        This resource is authoritative. For adding a collaborator to a repo in a non-authoritative manner, use
-        RepositoryCollaborator instead.
+        For repositories owned by an organization, collaborators can have explicit (and differing levels of) read, write, or administrator access to specific repositories, without giving the user full organization membership.
 
-        Further documentation on GitHub collaborators:
+        ### Teams
+
+        Teams will be added to the repository on apply, and removed if removed from the configuration or on destroy. Teams added to the repository outside of Terraform can be managed by adding them to the configuration, or ignored by using the `ignore_team` argument. This is particularly important for organization/enterprise teams, which either need to be added to the configuration or ignored, as otherwise they will cause perpetual drift.
+
+        ## Personal Repositories
+
+        For personal repositories, non-owner collaborators can only be granted [write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) permission. Owners will be ignored unless they are explicitly added, in which case they must be granted `admin` permission.
+
+        ## Users
+
+        When applied, an invitation will be sent to the user to become a collaborators on a repository. When destroyed, either the invitation will be cancelled or the collaborators will be removed from the repository.
+
+        ## Documentation
+
+        Further documentation on GitHub collaborators.
 
         - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
@@ -322,6 +354,14 @@ class RepositoryCollaborators(pulumi.CustomResource):
                 "permission": "pull",
                 "team_id": some_team.slug,
             }])
+        ```
+
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        ```sh
+        $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators example-repo
         ```
 
 
@@ -360,6 +400,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
             __props__.__dict__["teams"] = teams
             __props__.__dict__["users"] = users
             __props__.__dict__["invitation_ids"] = None
+            __props__.__dict__["owner_configured"] = None
             __props__.__dict__["repository_id"] = None
         super(RepositoryCollaborators, __self__).__init__(
             'github:index/repositoryCollaborators:RepositoryCollaborators',
@@ -373,6 +414,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             ignore_teams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict']]]]] = None,
             invitation_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            owner_configured: pulumi.Input[Optional[_builtins.bool]] = None,
             repository: pulumi.Input[Optional[_builtins.str]] = None,
             repository_id: pulumi.Input[Optional[_builtins.int]] = None,
             teams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]]] = None,
@@ -384,13 +426,13 @@ class RepositoryCollaborators(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict']]]] ignore_teams: List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to
-               be used in `UserInvitationAccepter`.
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict']]]] ignore_teams: Teams to ignore when managing repository collaborators.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] invitation_ids: Map of usernames to invitation ID for users that haven't yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren't yet collaborators.
+        :param pulumi.Input[_builtins.bool] owner_configured: Indicates whether the owner of a personal repository is configured as a collaborator.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: List of teams to grant access to the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]] users: List of users to grant access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: Teams to grant access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]] users: Users to grant access to the repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -398,6 +440,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
 
         __props__.__dict__["ignore_teams"] = ignore_teams
         __props__.__dict__["invitation_ids"] = invitation_ids
+        __props__.__dict__["owner_configured"] = owner_configured
         __props__.__dict__["repository"] = repository
         __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["teams"] = teams
@@ -408,7 +451,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
     @pulumi.getter(name="ignoreTeams")
     def ignore_teams(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCollaboratorsIgnoreTeam']]]:
         """
-        List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+        Teams to ignore when managing repository collaborators.
         """
         return pulumi.get(self, "ignore_teams")
 
@@ -416,16 +459,23 @@ class RepositoryCollaborators(pulumi.CustomResource):
     @pulumi.getter(name="invitationIds")
     def invitation_ids(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        Map of usernames to invitation ID for any users added as part of creation of this resource to
-        be used in `UserInvitationAccepter`.
+        Map of usernames to invitation ID for users that haven't yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren't yet collaborators.
         """
         return pulumi.get(self, "invitation_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerConfigured")
+    def owner_configured(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Indicates whether the owner of a personal repository is configured as a collaborator.
+        """
+        return pulumi.get(self, "owner_configured")
 
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:
         """
-        The GitHub repository.
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
 
@@ -441,7 +491,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
     @pulumi.getter
     def teams(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCollaboratorsTeam']]]:
         """
-        List of teams to grant access to the repository.
+        Teams to grant access to the repository.
         """
         return pulumi.get(self, "teams")
 
@@ -449,7 +499,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCollaboratorsUser']]]:
         """
-        List of users to grant access to the repository.
+        Users to grant access to the repository.
         """
         return pulumi.get(self, "users")
 

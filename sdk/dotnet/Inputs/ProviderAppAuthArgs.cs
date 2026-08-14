@@ -13,13 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class ProviderAppAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The GitHub App ID.
+        /// The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The GitHub App installation instance ID.
+        /// The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
         /// </summary>
         [Input("installationId", required: true)]
         public Input<string> InstallationId { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Github.Inputs
         private Input<string>? _pemFile;
 
         /// <summary>
-        /// The GitHub App PEM file contents.
+        /// The GitHub App's PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
         /// </summary>
         public Input<string>? PemFile
         {

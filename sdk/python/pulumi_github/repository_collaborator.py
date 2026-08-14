@@ -28,12 +28,10 @@ class RepositoryCollaboratorArgs:
 
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
                
-               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+               > Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[_builtins.str] username: The user to add to the repository as a collaborator.
-        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository.
-               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-               Must be `push` for personal repositories. Defaults to `push`.
-        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "username", username)
@@ -48,7 +46,7 @@ class RepositoryCollaboratorArgs:
         """
         The GitHub repository
 
-        > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+        > Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         """
         return pulumi.get(self, "repository")
 
@@ -72,9 +70,7 @@ class RepositoryCollaboratorArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The permission of the outside collaborator for the repository.
-        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        Must be `push` for personal repositories. Defaults to `push`.
+        The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
         """
         return pulumi.get(self, "permission")
 
@@ -86,7 +82,7 @@ class RepositoryCollaboratorArgs:
     @pulumi.getter(name="permissionDiffSuppression")
     def permission_diff_suppression(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
         """
         return pulumi.get(self, "permission_diff_suppression")
 
@@ -106,14 +102,12 @@ class _RepositoryCollaboratorState:
         """
         Input properties used for looking up and filtering RepositoryCollaborator resources.
 
-        :param pulumi.Input[_builtins.str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`
-        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository.
-               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-               Must be `push` for personal repositories. Defaults to `push`.
-        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[_builtins.str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`.
+        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
                
-               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+               > Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[_builtins.str] username: The user to add to the repository as a collaborator.
         """
         if invitation_id is not None:
@@ -131,7 +125,7 @@ class _RepositoryCollaboratorState:
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID of the invitation to be used in `UserInvitationAccepter`
+        ID of the invitation to be used in `UserInvitationAccepter`.
         """
         return pulumi.get(self, "invitation_id")
 
@@ -143,9 +137,7 @@ class _RepositoryCollaboratorState:
     @pulumi.getter
     def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The permission of the outside collaborator for the repository.
-        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        Must be `push` for personal repositories. Defaults to `push`.
+        The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
         """
         return pulumi.get(self, "permission")
 
@@ -157,7 +149,7 @@ class _RepositoryCollaboratorState:
     @pulumi.getter(name="permissionDiffSuppression")
     def permission_diff_suppression(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
         """
         return pulumi.get(self, "permission_diff_suppression")
 
@@ -171,7 +163,7 @@ class _RepositoryCollaboratorState:
         """
         The GitHub repository
 
-        > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+        > Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         """
         return pulumi.get(self, "repository")
 
@@ -206,24 +198,15 @@ class RepositoryCollaborator(pulumi.CustomResource):
         """
         Provides a GitHub repository collaborator resource.
 
-        > Note: RepositoryCollaborator cannot be used in conjunction with RepositoryCollaborators or
-        they will fight over what your policy should be.
+        > Note: RepositoryCollaborator cannot be used in conjunction with RepositoryCollaborators or they will fight over what your policy should be.
 
-        This resource allows you to add/remove collaborators from repositories in your
-        organization or personal account. For organization repositories, collaborators can
-        have explicit (and differing levels of) read, write, or administrator access to
-        specific repositories, without giving the user full organization membership.
-        For personal repositories, collaborators can only be granted write
-        (implicitly includes read) permission.
+        This resource allows you to add/remove collaborators from repositories in your organization or personal account. For organization repositories, collaborators can have explicit (and differing levels of) read, write, or administrator access to specific repositories, without giving the user full organization membership. For personal repositories, collaborators can only be granted write (implicitly includes read) permission.
 
-        When applied, an invitation will be sent to the user to become a collaborator
-        on a repository. When destroyed, either the invitation will be cancelled or the
-        collaborator will be removed from the repository.
+        When applied, an invitation will be sent to the user to become a collaborator on a repository. When destroyed, either the invitation will be cancelled or the collaborator will be removed from the repository.
 
         > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
-        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
-        instead.
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators instead.
 
         Further documentation on GitHub collaborators:
 
@@ -255,13 +238,11 @@ class RepositoryCollaborator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository.
-               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-               Must be `push` for personal repositories. Defaults to `push`.
-        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
                
-               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+               > Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[_builtins.str] username: The user to add to the repository as a collaborator.
         """
         ...
@@ -273,24 +254,15 @@ class RepositoryCollaborator(pulumi.CustomResource):
         """
         Provides a GitHub repository collaborator resource.
 
-        > Note: RepositoryCollaborator cannot be used in conjunction with RepositoryCollaborators or
-        they will fight over what your policy should be.
+        > Note: RepositoryCollaborator cannot be used in conjunction with RepositoryCollaborators or they will fight over what your policy should be.
 
-        This resource allows you to add/remove collaborators from repositories in your
-        organization or personal account. For organization repositories, collaborators can
-        have explicit (and differing levels of) read, write, or administrator access to
-        specific repositories, without giving the user full organization membership.
-        For personal repositories, collaborators can only be granted write
-        (implicitly includes read) permission.
+        This resource allows you to add/remove collaborators from repositories in your organization or personal account. For organization repositories, collaborators can have explicit (and differing levels of) read, write, or administrator access to specific repositories, without giving the user full organization membership. For personal repositories, collaborators can only be granted write (implicitly includes read) permission.
 
-        When applied, an invitation will be sent to the user to become a collaborator
-        on a repository. When destroyed, either the invitation will be cancelled or the
-        collaborator will be removed from the repository.
+        When applied, an invitation will be sent to the user to become a collaborator on a repository. When destroyed, either the invitation will be cancelled or the collaborator will be removed from the repository.
 
         > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
-        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
-        instead.
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators instead.
 
         Further documentation on GitHub collaborators:
 
@@ -379,14 +351,12 @@ class RepositoryCollaborator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`
-        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository.
-               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-               Must be `push` for personal repositories. Defaults to `push`.
-        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        :param pulumi.Input[_builtins.str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`.
+        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[_builtins.bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
                
-               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+               > Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[_builtins.str] username: The user to add to the repository as a collaborator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -404,7 +374,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID of the invitation to be used in `UserInvitationAccepter`
+        ID of the invitation to be used in `UserInvitationAccepter`.
         """
         return pulumi.get(self, "invitation_id")
 
@@ -412,9 +382,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
     @pulumi.getter
     def permission(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The permission of the outside collaborator for the repository.
-        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        Must be `push` for personal repositories. Defaults to `push`.
+        The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
         """
         return pulumi.get(self, "permission")
 
@@ -422,7 +390,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
     @pulumi.getter(name="permissionDiffSuppression")
     def permission_diff_suppression(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
         """
         return pulumi.get(self, "permission_diff_suppression")
 
@@ -432,7 +400,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
         """
         The GitHub repository
 
-        > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+        > Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         """
         return pulumi.get(self, "repository")
 

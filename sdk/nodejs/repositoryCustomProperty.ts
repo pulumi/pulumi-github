@@ -5,23 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and manage a specific custom property for a GitHub repository.
+ * Resource to manage GitHub repository custom properties.
+ * For more information, see the [GitHub API documentation](https://docs.github.com/rest/metadata/custom-properties#create-or-update-repository-custom-property).
  *
  * ## Example Usage
- *
- * > Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `string`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // NOTE: This assumes there already is a custom property defined on the org level called `my-cool-string` of type `string`
  * const example = new github.Repository("example", {
  *     name: "example",
  *     description: "My awesome codebase",
  * });
- * const string = new github.RepositoryCustomProperty("string", {
+ * const exampleRepositoryCustomProperty = new github.RepositoryCustomProperty("example", {
  *     repository: example.name,
- *     propertyName: "my-cool-property",
+ *     propertyName: "my-cool-string",
  *     propertyType: "string",
  *     propertyValues: ["test"],
  * });
@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub Repository Custom Property can be imported using an ID made up of a combination of the names of the organization, repository, custom property separated by a `:` character, e.g.
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
  * $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
@@ -64,21 +64,25 @@ export class RepositoryCustomProperty extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * Name of the custom property.
      */
     declare public readonly propertyName: pulumi.Output<string>;
     /**
-     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      */
     declare public readonly propertyType: pulumi.Output<string>;
     /**
-     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      */
     declare public readonly propertyValues: pulumi.Output<string[]>;
     /**
-     * The repository of the environment.
+     * Name of the repository.
      */
     declare public readonly repository: pulumi.Output<string>;
+    /**
+     * ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
 
     /**
      * Create a RepositoryCustomProperty resource with the given unique name, arguments, and options.
@@ -97,6 +101,7 @@ export class RepositoryCustomProperty extends pulumi.CustomResource {
             resourceInputs["propertyType"] = state?.propertyType;
             resourceInputs["propertyValues"] = state?.propertyValues;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
         } else {
             const args = argsOrState as RepositoryCustomPropertyArgs | undefined;
             if (args?.propertyName === undefined && !opts.urn) {
@@ -115,6 +120,7 @@ export class RepositoryCustomProperty extends pulumi.CustomResource {
             resourceInputs["propertyType"] = args?.propertyType;
             resourceInputs["propertyValues"] = args?.propertyValues;
             resourceInputs["repository"] = args?.repository;
+            resourceInputs["repositoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryCustomProperty.__pulumiType, name, resourceInputs, opts);
@@ -126,21 +132,25 @@ export class RepositoryCustomProperty extends pulumi.CustomResource {
  */
 export interface RepositoryCustomPropertyState {
     /**
-     * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * Name of the custom property.
      */
     propertyName?: pulumi.Input<string | undefined>;
     /**
-     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      */
     propertyType?: pulumi.Input<string | undefined>;
     /**
-     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      */
     propertyValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The repository of the environment.
+     * Name of the repository.
      */
     repository?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -148,19 +158,19 @@ export interface RepositoryCustomPropertyState {
  */
 export interface RepositoryCustomPropertyArgs {
     /**
-     * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * Name of the custom property.
      */
     propertyName: pulumi.Input<string>;
     /**
-     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      */
     propertyType: pulumi.Input<string>;
     /**
-     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      */
     propertyValues: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The repository of the environment.
+     * Name of the repository.
      */
     repository: pulumi.Input<string>;
 }

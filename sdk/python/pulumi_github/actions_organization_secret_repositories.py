@@ -106,8 +106,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
                  selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         """
-        This resource allows you to manage the repositories allowed to access an actions secret within your GitHub organization.
-        You must have write access to an organization secret to use this resource.
+        This resource allows you to manage the repositories allowed to access an actions secret within your GitHub organization. You must have write access to an organization secret to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
 
@@ -119,7 +118,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         example = github.ActionsOrganizationSecret("example",
             secret_name="mysecret",
-            value="foo",
+            plaintext_value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",
@@ -132,6 +131,10 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         ## Import
 
         This resource can be imported using the secret name as the ID.
+
+        ### Import Block
+
+        The following import block imports the repositories able to access the actions organization secret named `mysecret` to a `ActionsOrganizationSecretRepositories` resource named `example`.
 
         ### Import Command
 
@@ -154,8 +157,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
                  args: ActionsOrganizationSecretRepositoriesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to manage the repositories allowed to access an actions secret within your GitHub organization.
-        You must have write access to an organization secret to use this resource.
+        This resource allows you to manage the repositories allowed to access an actions secret within your GitHub organization. You must have write access to an organization secret to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
 
@@ -167,7 +169,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         example = github.ActionsOrganizationSecret("example",
             secret_name="mysecret",
-            value="foo",
+            plaintext_value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",
@@ -180,6 +182,10 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         ## Import
 
         This resource can be imported using the secret name as the ID.
+
+        ### Import Block
+
+        The following import block imports the repositories able to access the actions organization secret named `mysecret` to a `ActionsOrganizationSecretRepositories` resource named `example`.
 
         ### Import Command
 

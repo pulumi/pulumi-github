@@ -14,10 +14,7 @@ import (
 
 // Provides a GitHub team membership resource.
 //
-// This resource allows you to add/remove users from teams in your organization. When applied,
-// the user will be added to the team. If the user hasn't accepted their invitation to the
-// organization, they won't be part of the team until they do. When
-// destroyed, the user will be removed from the team.
+// This resource allows you to add/remove users from teams in your organization. When applied, the user will be added to the team. If the user hasn't accepted their invitation to the organization, they won't be part of the team until they do. When destroyed, the user will be removed from the team.
 //
 // > **Note** This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 //
@@ -78,8 +75,7 @@ type TeamMembership struct {
 	pulumi.CustomResourceState
 
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The role of the user within the team.
-	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	// The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
@@ -124,8 +120,7 @@ func GetTeamMembership(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TeamMembership resources.
 type teamMembershipState struct {
 	Etag *string `pulumi:"etag"`
-	// The role of the user within the team.
-	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	// The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role *string `pulumi:"role"`
 	// The GitHub team id or the GitHub team slug
 	TeamId *string `pulumi:"teamId"`
@@ -135,8 +130,7 @@ type teamMembershipState struct {
 
 type TeamMembershipState struct {
 	Etag pulumi.StringPtrInput
-	// The role of the user within the team.
-	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	// The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role pulumi.StringPtrInput
 	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringPtrInput
@@ -149,8 +143,7 @@ func (TeamMembershipState) ElementType() reflect.Type {
 }
 
 type teamMembershipArgs struct {
-	// The role of the user within the team.
-	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	// The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role *string `pulumi:"role"`
 	// The GitHub team id or the GitHub team slug
 	TeamId string `pulumi:"teamId"`
@@ -160,8 +153,7 @@ type teamMembershipArgs struct {
 
 // The set of arguments for constructing a TeamMembership resource.
 type TeamMembershipArgs struct {
-	// The role of the user within the team.
-	// Must be one of `member` or `maintainer`. Defaults to `member`.
+	// The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
 	Role pulumi.StringPtrInput
 	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringInput
@@ -260,8 +252,7 @@ func (o TeamMembershipOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The role of the user within the team.
-// Must be one of `member` or `maintainer`. Defaults to `member`.
+// The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
 func (o TeamMembershipOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamMembership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }

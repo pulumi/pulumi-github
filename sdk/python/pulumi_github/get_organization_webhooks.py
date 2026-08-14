@@ -47,8 +47,7 @@ class GetOrganizationWebhooksResult:
     @pulumi.getter
     def webhooks(self) -> Sequence['outputs.GetOrganizationWebhooksWebhookResult']:
         """
-        An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-        ***
+        An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
         """
         return pulumi.get(self, "webhooks")
 
@@ -69,7 +68,7 @@ def get_organization_webhooks(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
 
     ## Example Usage
 
-    To retrieve *all* webhooks of the organization:
+    To retrieve *all- webhooks of the organization:
 
     ```python
     import pulumi
@@ -91,7 +90,7 @@ def get_organization_webhooks_output(opts: Optional[Union[pulumi.InvokeOptions, 
 
     ## Example Usage
 
-    To retrieve *all* webhooks of the organization:
+    To retrieve *all- webhooks of the organization:
 
     ```python
     import pulumi

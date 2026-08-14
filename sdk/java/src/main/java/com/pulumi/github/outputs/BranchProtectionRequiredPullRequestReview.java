@@ -35,13 +35,12 @@ public final class BranchProtectionRequiredPullRequestReview {
      */
     private @Nullable Boolean requireCodeOwnerReviews;
     /**
-     * @return Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * @return Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     private @Nullable Boolean requireLastPushApproval;
     /**
-     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (&lt;https://developer.github.com/v3/repos/branches/#parameters-1&gt;) for more information.
      * 
      */
     private @Nullable Integer requiredApprovingReviewCount;
@@ -81,15 +80,14 @@ public final class BranchProtectionRequiredPullRequestReview {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
     /**
-     * @return Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * @return Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     public Optional<Boolean> requireLastPushApproval() {
         return Optional.ofNullable(this.requireLastPushApproval);
     }
     /**
-     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (&lt;https://developer.github.com/v3/repos/branches/#parameters-1&gt;) for more information.
      * 
      */
     public Optional<Integer> requiredApprovingReviewCount() {

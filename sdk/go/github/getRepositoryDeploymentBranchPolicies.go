@@ -53,7 +53,7 @@ func GetRepositoryDeploymentBranchPolicies(ctx *pulumi.Context, args *GetReposit
 
 // A collection of arguments for invoking getRepositoryDeploymentBranchPolicies.
 type GetRepositoryDeploymentBranchPoliciesArgs struct {
-	// Name of the environment to retrieve the deployment branch policies  from.
+	// Name of the environment to retrieve the deployment branch policies from.
 	EnvironmentName string `pulumi:"environmentName"`
 	// Name of the repository to retrieve the deployment branch policies from.
 	Repository string `pulumi:"repository"`
@@ -80,7 +80,7 @@ func GetRepositoryDeploymentBranchPoliciesOutput(ctx *pulumi.Context, args GetRe
 
 // A collection of arguments for invoking getRepositoryDeploymentBranchPolicies.
 type GetRepositoryDeploymentBranchPoliciesOutputArgs struct {
-	// Name of the environment to retrieve the deployment branch policies  from.
+	// Name of the environment to retrieve the deployment branch policies from.
 	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
 	// Name of the repository to retrieve the deployment branch policies from.
 	Repository pulumi.StringInput `pulumi:"repository"`

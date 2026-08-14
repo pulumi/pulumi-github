@@ -7,8 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve each organization member's SAML or SCIM user
- * attributes.
+ * Use this data source to retrieve each organization member's SAML or SCIM user attributes.
  *
  * ## Example Usage
  *
@@ -39,8 +38,7 @@ export interface GetOrganizationExternalIdentitiesResult {
     readonly identities: outputs.GetOrganizationExternalIdentitiesIdentity[];
 }
 /**
- * Use this data source to retrieve each organization member's SAML or SCIM user
- * attributes.
+ * Use this data source to retrieve each organization member's SAML or SCIM user attributes.
  *
  * ## Example Usage
  *

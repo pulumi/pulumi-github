@@ -35,7 +35,7 @@ export interface GetOrganizationSecurityManagersResult {
      */
     readonly id: string;
     /**
-     * An list of GitHub teams.  Each `team` block consists of the fields documented below.
+     * An list of GitHub teams. Each `team` block consists of the fields documented below.
      */
     readonly teams: outputs.GetOrganizationSecurityManagersTeam[];
 }

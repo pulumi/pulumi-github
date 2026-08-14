@@ -10,11 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
-    /// You must have team synchronization enabled for organizations owned by enterprise accounts.
+    /// This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams. You must have team synchronization enabled for organizations owned by enterprise accounts.
     /// 
-    /// To learn more about team synchronization between IdPs and GitHub, please refer to:
-    /// https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+    /// To learn more about team synchronization between IdPs and GitHub, please refer to: &lt;https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github&gt;
     /// 
     /// ## Example Usage
     /// 
@@ -52,10 +50,7 @@ namespace Pulumi.Github
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `Group` block consists of the fields documented below.
-        /// ___
-        /// 
-        /// The `Group` block consists of:
+        /// An Array of GitHub Identity Provider Groups (or empty []). Each `Group` block consists of the fields documented below.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.TeamSyncGroupMappingGroup>> Groups { get; private set; } = null!;
@@ -116,10 +111,7 @@ namespace Pulumi.Github
         private InputList<Inputs.TeamSyncGroupMappingGroupArgs>? _groups;
 
         /// <summary>
-        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `Group` block consists of the fields documented below.
-        /// ___
-        /// 
-        /// The `Group` block consists of:
+        /// An Array of GitHub Identity Provider Groups (or empty []). Each `Group` block consists of the fields documented below.
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupArgs> Groups
         {
@@ -148,10 +140,7 @@ namespace Pulumi.Github
         private InputList<Inputs.TeamSyncGroupMappingGroupGetArgs>? _groups;
 
         /// <summary>
-        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `Group` block consists of the fields documented below.
-        /// ___
-        /// 
-        /// The `Group` block consists of:
+        /// An Array of GitHub Identity Provider Groups (or empty []). Each `Group` block consists of the fields documented below.
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupGetArgs> Groups
         {

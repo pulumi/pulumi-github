@@ -13,13 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryRulesetBypassActorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+        /// (Number) The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `ActorType` is `User`, `ActorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
         /// </summary>
         [Input("actorId")]
         public Input<int>? ActorId { get; set; }
 
         /// <summary>
-        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
         /// </summary>
         [Input("actorType", required: true)]
         public Input<string> ActorType { get; set; } = null!;
@@ -29,7 +29,6 @@ namespace Pulumi.Github.Inputs
         /// 
         /// &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// 
-        /// - `OrganizationAdmin` &gt; `1`
         /// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         /// </summary>
         [Input("bypassMode", required: true)]

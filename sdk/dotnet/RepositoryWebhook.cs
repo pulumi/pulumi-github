@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage webhooks for repositories within your
-    /// GitHub organization or personal account.
+    /// This resource allows you to create and manage webhooks for repositories within your GitHub organization or personal account.
     /// 
     /// &gt; **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing webhook modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
     /// 
@@ -54,8 +53,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Repository webhooks can be imported using the `Name` of the repository, combined with the `Id` of the webhook, separated by a `/` character.
-    /// The `Id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
+    /// Repository webhooks can be imported using the `Name` of the repository, combined with the `Id` of the webhook, separated by a `/` character. The `Id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
     /// 
     /// Importing uses the name of the repository, as well as the ID of the webhook, e.g.
     /// 
@@ -96,7 +94,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        /// URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -222,7 +220,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+        /// URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

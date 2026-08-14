@@ -17,11 +17,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
- * repository.
+ * This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub repository.
  * 
- * More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
- * available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+ * More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
  * 
  * The following table lists the behaviour of `useDefault`:
  * 
@@ -115,16 +113,14 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
         return this.repository;
     }
     /**
-     * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-     * be set.
+     * Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
      * 
      */
     @Export(name="useDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> useDefault;
 
     /**
-     * @return Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-     * be set.
+     * @return Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
      * 
      */
     public Output<Boolean> useDefault() {

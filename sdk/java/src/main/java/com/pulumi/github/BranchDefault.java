@@ -11,20 +11,17 @@ import com.pulumi.github.BranchDefaultArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.BranchDefaultState;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a GitHub branch default resource.
+ * Configures the default branch for a GitHub repository.
  * 
- * This resource allows you to set the default branch for a given repository.
- * 
- * Note that use of this resource is incompatible with the `defaultBranch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
+ * &gt; This resource is incompatible with the `defaultBranch` option of the `github.Repository` resource. Using both will result in plans always showing a diff.
  * 
  * ## Example Usage
- * 
- * Basic usage:
  * 
  * <pre>
  * {@code
@@ -52,6 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Basic usage 
  *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example")
  *             .description("My awesome codebase")
@@ -72,8 +70,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * Renaming to a branch that doesn&#39;t exist:
  * 
  * <pre>
  * {@code
@@ -99,6 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Renaming to a branch that doesn't exist
  *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example")
  *             .description("My awesome codebase")
@@ -118,7 +115,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
@@ -128,52 +125,88 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/branchDefault:BranchDefault")
 public class BranchDefault extends com.pulumi.resources.CustomResource {
     /**
-     * The branch (e.g. `main`)
+     * The name of the branch to set as the default (e.g. &#39;main&#39;).
      * 
      */
     @Export(name="branch", refs={String.class}, tree="[0]")
     private Output<String> branch;
 
     /**
-     * @return The branch (e.g. `main`)
+     * @return The name of the branch to set as the default (e.g. &#39;main&#39;).
      * 
      */
     public Output<String> branch() {
         return this.branch;
     }
+    /**
+     * The ETag header for the repository API response.
+     * 
+     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
+    /**
+     * @return The ETag header for the repository API response.
+     * 
+     */
     public Output<String> etag() {
         return this.etag;
     }
     /**
-     * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * If `true` rename the existing branch when the `branch` input is changed. Defaults to &#39;false&#39;.
      * 
      */
     @Export(name="rename", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rename;
 
     /**
-     * @return Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+     * @return If `true` rename the existing branch when the `branch` input is changed. Defaults to &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> rename() {
         return Codegen.optional(this.rename);
     }
     /**
-     * The GitHub repository
+     * The name of the GitHub repository.
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
-     * @return The GitHub repository
+     * @return The name of the GitHub repository.
      * 
      */
     public Output<String> repository() {
         return this.repository;
+    }
+    /**
+     * The ID of the GitHub repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the GitHub repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
+    }
+    /**
+     * If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to &#39;false&#39;.
+     * 
+     */
+    @Export(name="waitForRename", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> waitForRename;
+
+    /**
+     * @return If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to &#39;false&#39;.
+     * 
+     */
+    public Output<Optional<Boolean>> waitForRename() {
+        return Codegen.optional(this.waitForRename);
     }
 
     /**

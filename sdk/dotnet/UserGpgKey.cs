@@ -36,15 +36,13 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
-    /// does not return previously uploaded GPG key.
+    /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
     /// </summary>
     [GithubResourceType("github:index/userGpgKey:UserGpgKey")]
     public partial class UserGpgKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Your public GPG key, generated in ASCII-armored format.
-        /// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+        /// Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         /// </summary>
         [Output("armoredPublicKey")]
         public Output<string> ArmoredPublicKey { get; private set; } = null!;
@@ -105,8 +103,7 @@ namespace Pulumi.Github
     public sealed class UserGpgKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Your public GPG key, generated in ASCII-armored format.
-        /// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+        /// Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         /// </summary>
         [Input("armoredPublicKey", required: true)]
         public Input<string> ArmoredPublicKey { get; set; } = null!;
@@ -120,8 +117,7 @@ namespace Pulumi.Github
     public sealed class UserGpgKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Your public GPG key, generated in ASCII-armored format.
-        /// See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+        /// Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         /// </summary>
         [Input("armoredPublicKey")]
         public Input<string>? ArmoredPublicKey { get; set; }

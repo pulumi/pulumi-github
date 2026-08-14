@@ -19,20 +19,14 @@ public final class TeamSyncGroupMappingArgs extends com.pulumi.resources.Resourc
     public static final TeamSyncGroupMappingArgs Empty = new TeamSyncGroupMappingArgs();
 
     /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     * The `group` block consists of:
+     * An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<TeamSyncGroupMappingGroupArgs>> groups;
 
     /**
-     * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     * The `group` block consists of:
+     * @return An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
      * 
      */
     public Optional<Output<List<TeamSyncGroupMappingGroupArgs>>> groups() {
@@ -80,10 +74,7 @@ public final class TeamSyncGroupMappingArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-         * ***
-         * 
-         * The `group` block consists of:
+         * @param groups An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
          * 
          * @return builder
          * 
@@ -94,10 +85,7 @@ public final class TeamSyncGroupMappingArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-         * ***
-         * 
-         * The `group` block consists of:
+         * @param groups An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
          * 
          * @return builder
          * 
@@ -107,10 +95,7 @@ public final class TeamSyncGroupMappingArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-         * ***
-         * 
-         * The `group` block consists of:
+         * @param groups An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
          * 
          * @return builder
          * 

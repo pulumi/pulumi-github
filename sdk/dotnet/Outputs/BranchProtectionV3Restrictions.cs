@@ -20,8 +20,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Apps;
         /// <summary>
-        /// The list of team slugs with push access.
-        /// Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// The list of team slugs with push access. Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         /// </summary>
         public readonly ImmutableArray<string> Teams;
         /// <summary>

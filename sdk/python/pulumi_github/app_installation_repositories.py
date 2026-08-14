@@ -116,20 +116,32 @@ class AppInstallationRepositories(pulumi.CustomResource):
         """
         > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
 
-        This resource manages relationships between app installations and repositories
-        in your GitHub organization or your user account.
+        This resource manages relationships between app installations and repositories in your GitHub organization or your user account.
 
         Creating this resource installs a particular app on multiple repositories.
 
-        The app installation and the repositories must all belong to the same
-        organization or user account on GitHub. Note: you can review your organization's installations
-        by the following the instructions at this
-        [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+        The app installation and the repositories must all belong to the same organization or user account on GitHub. Note: you can review your organization's installations by the following the instructions at this [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create some repositories.
+        some_repo = github.Repository("some_repo", name="some-repo")
+        another_repo = github.Repository("another_repo", name="another-repo")
+        some_app_repos = github.AppInstallationRepositories("some_app_repos",
+            installation_id="1234567",
+            selected_repositories=[
+                some_repo.name,
+                another_repo.name,
+            ])
+        ```
 
         ## Import
 
-        GitHub App Installation Repositories can be imported
-        using an ID made up of `installation_id`, e.g.
+        GitHub App Installation Repositories can be imported using an ID made up of `installation_id`, e.g.
 
         ```sh
         $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
@@ -152,20 +164,32 @@ class AppInstallationRepositories(pulumi.CustomResource):
         """
         > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
 
-        This resource manages relationships between app installations and repositories
-        in your GitHub organization or your user account.
+        This resource manages relationships between app installations and repositories in your GitHub organization or your user account.
 
         Creating this resource installs a particular app on multiple repositories.
 
-        The app installation and the repositories must all belong to the same
-        organization or user account on GitHub. Note: you can review your organization's installations
-        by the following the instructions at this
-        [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+        The app installation and the repositories must all belong to the same organization or user account on GitHub. Note: you can review your organization's installations by the following the instructions at this [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create some repositories.
+        some_repo = github.Repository("some_repo", name="some-repo")
+        another_repo = github.Repository("another_repo", name="another-repo")
+        some_app_repos = github.AppInstallationRepositories("some_app_repos",
+            installation_id="1234567",
+            selected_repositories=[
+                some_repo.name,
+                another_repo.name,
+            ])
+        ```
 
         ## Import
 
-        GitHub App Installation Repositories can be imported
-        using an ID made up of `installation_id`, e.g.
+        GitHub App Installation Repositories can be imported using an ID made up of `installation_id`, e.g.
 
         ```sh
         $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567

@@ -12,8 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage files within a
-// GitHub repository.
+// This resource allows you to create and manage files within a GitHub repository.
 //
 // > **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
 //
@@ -73,15 +72,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := github.NewRepository(ctx, "foo", &github.RepositoryArgs{
-//				Name:     pulumi.String("example"),
+//			bar, err := github.NewRepository(ctx, "bar", &github.RepositoryArgs{
+//				Name:     pulumi.String("example2"),
 //				AutoInit: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryFile(ctx, "foo", &github.RepositoryFileArgs{
-//				Repository:        foo.Name,
+//			_, err = github.NewBranch(ctx, "bar", &github.BranchArgs{
+//				Branch:     pulumi.String("does/not/exist"),
+//				Repository: bar.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryFile(ctx, "bar", &github.RepositoryFileArgs{
+//				Repository:        bar.Name,
 //				Branch:            pulumi.String("does/not/exist"),
 //				File:              pulumi.String(".gitignore"),
 //				Content:           pulumi.String("**/*.tfstate"),
@@ -89,7 +95,6 @@ import (
 //				CommitAuthor:      pulumi.String("Terraform User"),
 //				CommitEmail:       pulumi.String("terraform@example.com"),
 //				OverwriteOnCreate: pulumi.Bool(true),
-//				AutocreateBranch:  pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -102,7 +107,7 @@ import (
 //
 // ## Import
 //
-// Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
+// Repository files can be imported using a combination of the `repo`, `file path` (any `:` in the file path need to be escaped as `??`) and `branch` or empty branch for the default branch, e.g.
 //
 // ```sh
 // $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
@@ -128,8 +133,7 @@ type RepositoryFile struct {
 	//
 	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha pulumi.StringOutput `pulumi:"autocreateBranchSourceSha"`
-	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+	// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch pulumi.StringOutput `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor pulumi.StringPtrOutput `pulumi:"commitAuthor"`
@@ -206,8 +210,7 @@ type repositoryFileState struct {
 	//
 	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha *string `pulumi:"autocreateBranchSourceSha"`
-	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+	// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor *string `pulumi:"commitAuthor"`
@@ -246,8 +249,7 @@ type RepositoryFileState struct {
 	//
 	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha pulumi.StringPtrInput
-	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+	// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor pulumi.StringPtrInput
@@ -290,8 +292,7 @@ type repositoryFileArgs struct {
 	//
 	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha *string `pulumi:"autocreateBranchSourceSha"`
-	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+	// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor *string `pulumi:"commitAuthor"`
@@ -323,8 +324,7 @@ type RepositoryFileArgs struct {
 	//
 	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha pulumi.StringPtrInput
-	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+	// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor pulumi.StringPtrInput
@@ -450,8 +450,7 @@ func (o RepositoryFileOutput) AutocreateBranchSourceSha() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.AutocreateBranchSourceSha }).(pulumi.StringOutput)
 }
 
-// Git branch (defaults to the repository's default branch).
-// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 func (o RepositoryFileOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
 }

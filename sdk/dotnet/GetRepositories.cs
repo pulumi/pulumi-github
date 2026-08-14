@@ -12,8 +12,7 @@ namespace Pulumi.Github
     public static class GetRepositories
     {
         /// <summary>
-        /// &gt; **Note:** The data source will return a maximum of `1000` repositories
-        /// 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+        /// &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
         /// 
         /// Use this data source to retrieve a list of GitHub repositories using a search query.
         /// 
@@ -40,8 +39,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("github:index/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Note:** The data source will return a maximum of `1000` repositories
-        /// 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+        /// &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
         /// 
         /// Use this data source to retrieve a list of GitHub repositories using a search query.
         /// 
@@ -68,8 +66,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("github:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Note:** The data source will return a maximum of `1000` repositories
-        /// 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+        /// &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
         /// 
         /// Use this data source to retrieve a list of GitHub repositories using a search query.
         /// 

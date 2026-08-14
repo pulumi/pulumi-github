@@ -70,6 +70,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ```sh
+ * $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
+ * ```
+ * 
  */
 @ResourceType(type="github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy")
 public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.CustomResource {

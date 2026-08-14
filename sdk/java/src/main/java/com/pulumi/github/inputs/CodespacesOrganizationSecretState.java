@@ -108,16 +108,14 @@ public final class CodespacesOrganizationSecretState extends com.pulumi.resource
     }
 
     /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * @return Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     public Optional<Output<String>> visibility() {
@@ -291,8 +289,7 @@ public final class CodespacesOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 
@@ -303,8 +300,7 @@ public final class CodespacesOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization secret. Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 

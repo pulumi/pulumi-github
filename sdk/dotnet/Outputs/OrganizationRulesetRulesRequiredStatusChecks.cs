@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredStatusChecks
     {
         /// <summary>
-        /// (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `False`.
+        /// Allow repositories and branches to be created if a check would otherwise prohibit it.
         /// </summary>
         public readonly bool? DoNotEnforceOnCreate;
         /// <summary>

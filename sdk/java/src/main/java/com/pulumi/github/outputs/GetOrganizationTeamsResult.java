@@ -37,7 +37,7 @@ public final class GetOrganizationTeamsResult {
      */
     private @Nullable Boolean summaryOnly;
     /**
-     * @return (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+     * @return (Required) An Array of GitHub Teams. Each `team` block consists of the fields documented below.
      * 
      */
     private List<GetOrganizationTeamsTeam> teams;
@@ -72,7 +72,7 @@ public final class GetOrganizationTeamsResult {
         return Optional.ofNullable(this.summaryOnly);
     }
     /**
-     * @return (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+     * @return (Required) An Array of GitHub Teams. Each `team` block consists of the fields documented below.
      * 
      */
     public List<GetOrganizationTeamsTeam> teams() {

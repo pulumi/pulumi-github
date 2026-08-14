@@ -30,6 +30,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Add a repository to the team
     ///     var someTeam = new Github.Team("some_team", new()
     ///     {
     ///         Name = "SomeTeam",
@@ -39,7 +40,12 @@ namespace Pulumi.Github
     ///     var codeReviewSettings = new Github.TeamSettings("code_review_settings", new()
     ///     {
     ///         TeamId = someTeam.Id,
-    ///         Notify = true,
+    ///         ReviewRequestDelegation = new Github.Inputs.TeamSettingsReviewRequestDelegationArgs
+    ///         {
+    ///             Algorithm = "ROUND_ROBIN",
+    ///             MemberCount = 1,
+    ///             Notify = true,
+    ///         },
     ///     });
     /// 
     /// });
@@ -74,12 +80,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
-    /// 
-    /// or,
     /// </summary>
     [GithubResourceType("github:index/teamSettings:TeamSettings")]
     public partial class TeamSettings : global::Pulumi.CustomResource

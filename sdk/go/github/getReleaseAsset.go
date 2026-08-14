@@ -43,8 +43,7 @@ import (
 //
 // ```
 //
-// To retrieve a specific release asset from a repository, and download the file
-// into a `file` attribute on the data source:
+// To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
 //
 // To retrieve the first release asset associated with the latest release in a repository:
 //

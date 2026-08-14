@@ -27,8 +27,7 @@ class TeamMembershipArgs:
 
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[_builtins.str] username: The user to add to the team.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the team.
-               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
         """
         pulumi.set(__self__, "team_id", team_id)
         pulumi.set(__self__, "username", username)
@@ -63,8 +62,7 @@ class TeamMembershipArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role of the user within the team.
-        Must be one of `member` or `maintainer`. Defaults to `member`.
+        The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
         """
         return pulumi.get(self, "role")
 
@@ -83,8 +81,7 @@ class _TeamMembershipState:
         """
         Input properties used for looking up and filtering TeamMembership resources.
 
-        :param pulumi.Input[_builtins.str] role: The role of the user within the team.
-               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[_builtins.str] username: The user to add to the team.
         """
@@ -110,8 +107,7 @@ class _TeamMembershipState:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role of the user within the team.
-        Must be one of `member` or `maintainer`. Defaults to `member`.
+        The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
         """
         return pulumi.get(self, "role")
 
@@ -157,10 +153,7 @@ class TeamMembership(pulumi.CustomResource):
         """
         Provides a GitHub team membership resource.
 
-        This resource allows you to add/remove users from teams in your organization. When applied,
-        the user will be added to the team. If the user hasn't accepted their invitation to the
-        organization, they won't be part of the team until they do. When
-        destroyed, the user will be removed from the team.
+        This resource allows you to add/remove users from teams in your organization. When applied, the user will be added to the team. If the user hasn't accepted their invitation to the organization, they won't be part of the team until they do. When destroyed, the user will be removed from the team.
 
         > **Note** This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 
@@ -197,8 +190,7 @@ class TeamMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the team.
-               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[_builtins.str] username: The user to add to the team.
         """
@@ -211,10 +203,7 @@ class TeamMembership(pulumi.CustomResource):
         """
         Provides a GitHub team membership resource.
 
-        This resource allows you to add/remove users from teams in your organization. When applied,
-        the user will be added to the team. If the user hasn't accepted their invitation to the
-        organization, they won't be part of the team until they do. When
-        destroyed, the user will be removed from the team.
+        This resource allows you to add/remove users from teams in your organization. When applied, the user will be added to the team. If the user hasn't accepted their invitation to the organization, they won't be part of the team until they do. When destroyed, the user will be removed from the team.
 
         > **Note** This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 
@@ -305,8 +294,7 @@ class TeamMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the team.
-               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[_builtins.str] username: The user to add to the team.
         """
@@ -329,8 +317,7 @@ class TeamMembership(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The role of the user within the team.
-        Must be one of `member` or `maintainer`. Defaults to `member`.
+        The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
         """
         return pulumi.get(self, "role")
 

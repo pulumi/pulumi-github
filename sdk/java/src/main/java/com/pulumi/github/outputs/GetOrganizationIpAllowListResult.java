@@ -19,7 +19,6 @@ public final class GetOrganizationIpAllowListResult {
     private String id;
     /**
      * @return An Array of allowed IP addresses.
-     * ***
      * 
      */
     private List<GetOrganizationIpAllowListIpAllowList> ipAllowLists;
@@ -34,7 +33,6 @@ public final class GetOrganizationIpAllowListResult {
     }
     /**
      * @return An Array of allowed IP addresses.
-     * ***
      * 
      */
     public List<GetOrganizationIpAllowListIpAllowList> ipAllowLists() {

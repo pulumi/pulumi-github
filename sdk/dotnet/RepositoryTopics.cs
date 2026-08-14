@@ -12,8 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage topics for repositories within your GitHub organization or personal account.
     /// 
-    /// &gt; Note: This resource is not compatible with the `Topic` attribute of the `github.Repository` Use either ``github.RepositoryTopics``
-    /// or ``Topic`` in ``github.Repository``. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
+    /// &gt; Note: This resource is not compatible with the `Topic` attribute of the `github.Repository` Use either `github.RepositoryTopics` or `Topic` in `github.Repository`. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
     /// 
     /// ## Example Usage
     /// 

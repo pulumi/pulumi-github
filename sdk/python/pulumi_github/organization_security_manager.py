@@ -92,6 +92,10 @@ class OrganizationSecurityManager(pulumi.CustomResource):
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
 
+        ```sh
+        $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,6 +125,10 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+
+        ```sh
+        $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -7,9 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve information about the IP allow list of an organization.
- * The allow list for IP addresses will block access to private resources via the web, API,
- * and Git from any IP addresses that are not on the allow list.
+ * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
  *
  * ## Example Usage
  *
@@ -36,14 +34,11 @@ export interface GetOrganizationIpAllowListResult {
     readonly id: string;
     /**
      * An Array of allowed IP addresses.
-     * ***
      */
     readonly ipAllowLists: outputs.GetOrganizationIpAllowListIpAllowList[];
 }
 /**
- * Use this data source to retrieve information about the IP allow list of an organization.
- * The allow list for IP addresses will block access to private resources via the web, API,
- * and Git from any IP addresses that are not on the allow list.
+ * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
  *
  * ## Example Usage
  *

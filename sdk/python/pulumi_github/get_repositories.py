@@ -127,8 +127,7 @@ def get_repositories(include_repo_id: Optional[_builtins.bool] = None,
                      sort: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoriesResult:
     """
-    > **Note:** The data source will return a maximum of `1000` repositories
-    	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+    > **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
 
     Use this data source to retrieve a list of GitHub repositories using a search query.
 
@@ -171,8 +170,7 @@ def get_repositories_output(include_repo_id: pulumi.Input[Optional[Optional[_bui
                             sort: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
-    > **Note:** The data source will return a maximum of `1000` repositories
-    	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+    > **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
 
     Use this data source to retrieve a list of GitHub repositories using a search query.
 

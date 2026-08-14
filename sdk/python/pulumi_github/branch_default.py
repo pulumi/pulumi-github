@@ -22,13 +22,16 @@ class BranchDefaultArgs:
                  branch: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
                  etag: pulumi.Input[Optional[_builtins.str]] = None,
-                 rename: pulumi.Input[Optional[_builtins.bool]] = None):
+                 rename: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait_for_rename: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BranchDefault resource.
 
-        :param pulumi.Input[_builtins.str] branch: The branch (e.g. `main`)
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository
-        :param pulumi.Input[_builtins.bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] branch: The name of the branch to set as the default (e.g. 'main').
+        :param pulumi.Input[_builtins.str] repository: The name of the GitHub repository.
+        :param pulumi.Input[_builtins.str] etag: The ETag header for the repository API response.
+        :param pulumi.Input[_builtins.bool] rename: If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
+        :param pulumi.Input[_builtins.bool] wait_for_rename: If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
@@ -36,12 +39,14 @@ class BranchDefaultArgs:
             pulumi.set(__self__, "etag", etag)
         if rename is not None:
             pulumi.set(__self__, "rename", rename)
+        if wait_for_rename is not None:
+            pulumi.set(__self__, "wait_for_rename", wait_for_rename)
 
     @_builtins.property
     @pulumi.getter
     def branch(self) -> pulumi.Input[_builtins.str]:
         """
-        The branch (e.g. `main`)
+        The name of the branch to set as the default (e.g. 'main').
         """
         return pulumi.get(self, "branch")
 
@@ -53,7 +58,7 @@ class BranchDefaultArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub repository
+        The name of the GitHub repository.
         """
         return pulumi.get(self, "repository")
 
@@ -64,6 +69,9 @@ class BranchDefaultArgs:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ETag header for the repository API response.
+        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -74,13 +82,25 @@ class BranchDefaultArgs:
     @pulumi.getter
     def rename(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
         """
         return pulumi.get(self, "rename")
 
     @rename.setter
     def rename(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rename", value)
+
+    @_builtins.property
+    @pulumi.getter(name="waitForRename")
+    def wait_for_rename(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+        """
+        return pulumi.get(self, "wait_for_rename")
+
+    @wait_for_rename.setter
+    def wait_for_rename(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "wait_for_rename", value)
 
 
 @pulumi.input_type
@@ -89,13 +109,18 @@ class _BranchDefaultState:
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
                  etag: pulumi.Input[Optional[_builtins.str]] = None,
                  rename: pulumi.Input[Optional[_builtins.bool]] = None,
-                 repository: pulumi.Input[Optional[_builtins.str]] = None):
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 wait_for_rename: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering BranchDefault resources.
 
-        :param pulumi.Input[_builtins.str] branch: The branch (e.g. `main`)
-        :param pulumi.Input[_builtins.bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository
+        :param pulumi.Input[_builtins.str] branch: The name of the branch to set as the default (e.g. 'main').
+        :param pulumi.Input[_builtins.str] etag: The ETag header for the repository API response.
+        :param pulumi.Input[_builtins.bool] rename: If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
+        :param pulumi.Input[_builtins.str] repository: The name of the GitHub repository.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the GitHub repository.
+        :param pulumi.Input[_builtins.bool] wait_for_rename: If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -105,12 +130,16 @@ class _BranchDefaultState:
             pulumi.set(__self__, "rename", rename)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if wait_for_rename is not None:
+            pulumi.set(__self__, "wait_for_rename", wait_for_rename)
 
     @_builtins.property
     @pulumi.getter
     def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The branch (e.g. `main`)
+        The name of the branch to set as the default (e.g. 'main').
         """
         return pulumi.get(self, "branch")
 
@@ -121,6 +150,9 @@ class _BranchDefaultState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ETag header for the repository API response.
+        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -131,7 +163,7 @@ class _BranchDefaultState:
     @pulumi.getter
     def rename(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
         """
         return pulumi.get(self, "rename")
 
@@ -143,13 +175,37 @@ class _BranchDefaultState:
     @pulumi.getter
     def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The GitHub repository
+        The name of the GitHub repository.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
     def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The ID of the GitHub repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="waitForRename")
+    def wait_for_rename(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+        """
+        return pulumi.get(self, "wait_for_rename")
+
+    @wait_for_rename.setter
+    def wait_for_rename(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "wait_for_rename", value)
 
 
 @pulumi.type_token("github:index/branchDefault:BranchDefault")
@@ -162,22 +218,20 @@ class BranchDefault(pulumi.CustomResource):
                  etag: pulumi.Input[Optional[_builtins.str]] = None,
                  rename: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_rename: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides a GitHub branch default resource.
+        Configures the default branch for a GitHub repository.
 
-        This resource allows you to set the default branch for a given repository.
-
-        Note that use of this resource is incompatible with the `default_branch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+        > This resource is incompatible with the `default_branch` option of the `Repository` resource. Using both will result in plans always showing a diff.
 
         ## Example Usage
-
-        Basic usage:
 
         ```python
         import pulumi
         import pulumi_github as github
 
+        # Basic usage 
         example = github.Repository("example",
             name="example",
             description="My awesome codebase",
@@ -190,12 +244,11 @@ class BranchDefault(pulumi.CustomResource):
             branch=development.branch)
         ```
 
-        Renaming to a branch that doesn't exist:
-
         ```python
         import pulumi
         import pulumi_github as github
 
+        # Renaming to a branch that doesn't exist
         example = github.Repository("example",
             name="example",
             description="My awesome codebase",
@@ -208,7 +261,7 @@ class BranchDefault(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
@@ -217,9 +270,11 @@ class BranchDefault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] branch: The branch (e.g. `main`)
-        :param pulumi.Input[_builtins.bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository
+        :param pulumi.Input[_builtins.str] branch: The name of the branch to set as the default (e.g. 'main').
+        :param pulumi.Input[_builtins.str] etag: The ETag header for the repository API response.
+        :param pulumi.Input[_builtins.bool] rename: If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
+        :param pulumi.Input[_builtins.str] repository: The name of the GitHub repository.
+        :param pulumi.Input[_builtins.bool] wait_for_rename: If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
         """
         ...
     @overload
@@ -228,20 +283,17 @@ class BranchDefault(pulumi.CustomResource):
                  args: BranchDefaultArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GitHub branch default resource.
+        Configures the default branch for a GitHub repository.
 
-        This resource allows you to set the default branch for a given repository.
-
-        Note that use of this resource is incompatible with the `default_branch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+        > This resource is incompatible with the `default_branch` option of the `Repository` resource. Using both will result in plans always showing a diff.
 
         ## Example Usage
-
-        Basic usage:
 
         ```python
         import pulumi
         import pulumi_github as github
 
+        # Basic usage 
         example = github.Repository("example",
             name="example",
             description="My awesome codebase",
@@ -254,12 +306,11 @@ class BranchDefault(pulumi.CustomResource):
             branch=development.branch)
         ```
 
-        Renaming to a branch that doesn't exist:
-
         ```python
         import pulumi
         import pulumi_github as github
 
+        # Renaming to a branch that doesn't exist
         example = github.Repository("example",
             name="example",
             description="My awesome codebase",
@@ -272,7 +323,7 @@ class BranchDefault(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
@@ -298,6 +349,7 @@ class BranchDefault(pulumi.CustomResource):
                  etag: pulumi.Input[Optional[_builtins.str]] = None,
                  rename: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_rename: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -315,6 +367,8 @@ class BranchDefault(pulumi.CustomResource):
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
+            __props__.__dict__["wait_for_rename"] = wait_for_rename
+            __props__.__dict__["repository_id"] = None
         super(BranchDefault, __self__).__init__(
             'github:index/branchDefault:BranchDefault',
             resource_name,
@@ -328,7 +382,9 @@ class BranchDefault(pulumi.CustomResource):
             branch: pulumi.Input[Optional[_builtins.str]] = None,
             etag: pulumi.Input[Optional[_builtins.str]] = None,
             rename: pulumi.Input[Optional[_builtins.bool]] = None,
-            repository: pulumi.Input[Optional[_builtins.str]] = None) -> 'BranchDefault':
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            wait_for_rename: pulumi.Input[Optional[_builtins.bool]] = None) -> 'BranchDefault':
         """
         Get an existing BranchDefault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -336,9 +392,12 @@ class BranchDefault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] branch: The branch (e.g. `main`)
-        :param pulumi.Input[_builtins.bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] repository: The GitHub repository
+        :param pulumi.Input[_builtins.str] branch: The name of the branch to set as the default (e.g. 'main').
+        :param pulumi.Input[_builtins.str] etag: The ETag header for the repository API response.
+        :param pulumi.Input[_builtins.bool] rename: If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
+        :param pulumi.Input[_builtins.str] repository: The name of the GitHub repository.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the GitHub repository.
+        :param pulumi.Input[_builtins.bool] wait_for_rename: If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,26 +407,31 @@ class BranchDefault(pulumi.CustomResource):
         __props__.__dict__["etag"] = etag
         __props__.__dict__["rename"] = rename
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
+        __props__.__dict__["wait_for_rename"] = wait_for_rename
         return BranchDefault(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
     def branch(self) -> pulumi.Output[_builtins.str]:
         """
-        The branch (e.g. `main`)
+        The name of the branch to set as the default (e.g. 'main').
         """
         return pulumi.get(self, "branch")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ETag header for the repository API response.
+        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter
     def rename(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        If `true` rename the existing branch when the `branch` input is changed. Defaults to 'false'.
         """
         return pulumi.get(self, "rename")
 
@@ -375,7 +439,23 @@ class BranchDefault(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:
         """
-        The GitHub repository
+        The name of the GitHub repository.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The ID of the GitHub repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @_builtins.property
+    @pulumi.getter(name="waitForRename")
+    def wait_for_rename(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If `true`, poll until GitHub propagates the renamed default branch before proceeding. Only has effect when `rename` is also `true`. Defaults to 'false'.
+        """
+        return pulumi.get(self, "wait_for_rename")
 

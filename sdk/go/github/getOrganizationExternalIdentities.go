@@ -11,8 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve each organization member's SAML or SCIM user
-// attributes.
+// Use this data source to retrieve each organization member's SAML or SCIM user attributes.
 //
 // ## Example Usage
 //

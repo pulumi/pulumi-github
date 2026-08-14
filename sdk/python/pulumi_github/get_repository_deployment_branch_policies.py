@@ -99,7 +99,7 @@ def get_repository_deployment_branch_policies(environment_name: Optional[_builti
     ```
 
 
-    :param _builtins.str environment_name: Name of the environment to retrieve the deployment branch policies  from.
+    :param _builtins.str environment_name: Name of the environment to retrieve the deployment branch policies from.
     :param _builtins.str repository: Name of the repository to retrieve the deployment branch policies from.
     """
     __args__ = dict()
@@ -132,7 +132,7 @@ def get_repository_deployment_branch_policies_output(environment_name: pulumi.In
     ```
 
 
-    :param _builtins.str environment_name: Name of the environment to retrieve the deployment branch policies  from.
+    :param _builtins.str environment_name: Name of the environment to retrieve the deployment branch policies from.
     :param _builtins.str repository: Name of the repository to retrieve the deployment branch policies from.
     """
     __args__ = dict()

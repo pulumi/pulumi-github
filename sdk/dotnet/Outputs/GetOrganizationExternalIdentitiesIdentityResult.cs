@@ -18,13 +18,11 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string Login;
         /// <summary>
-        /// An Object containing the user's SAML data. This object will
-        /// be empty if the user is not managed by SAML.
+        /// An Object containing the user's SAML data. This object will be empty if the user is not managed by SAML.
         /// </summary>
         public readonly ImmutableDictionary<string, string> SamlIdentity;
         /// <summary>
-        /// An Object contining the user's SCIM data. This object will
-        /// be empty if the user is not managed by SCIM.
+        /// An Object contining the user's SCIM data. This object will be empty if the user is not managed by SCIM.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ScimIdentity;
 

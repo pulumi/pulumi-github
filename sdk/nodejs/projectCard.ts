@@ -112,8 +112,7 @@ export class ProjectCard extends pulumi.CustomResource {
     /**
      * Must be either `Issue` or `PullRequest`
      *
-     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
-     * See note example or issue example for more information.
+     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`. See note example or issue example for more information.
      */
     declare public readonly contentType: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly etag: pulumi.Output<string>;
@@ -177,8 +176,7 @@ export interface ProjectCardState {
     /**
      * Must be either `Issue` or `PullRequest`
      *
-     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
-     * See note example or issue example for more information.
+     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`. See note example or issue example for more information.
      */
     contentType?: pulumi.Input<string | undefined>;
     etag?: pulumi.Input<string | undefined>;
@@ -203,8 +201,7 @@ export interface ProjectCardArgs {
     /**
      * Must be either `Issue` or `PullRequest`
      *
-     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
-     * See note example or issue example for more information.
+     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`. See note example or issue example for more information.
      */
     contentType?: pulumi.Input<string | undefined>;
     /**

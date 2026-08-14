@@ -50,9 +50,9 @@ func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamArgs struct {
-	// Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+	// Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
 	MembershipType *string `pulumi:"membershipType"`
-	// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+	// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
 	//
 	// Deprecated: This is deprecated and will be removed in a future release.
 	ResultsPerPage *int `pulumi:"resultsPerPage"`
@@ -106,9 +106,9 @@ func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamOutputArgs struct {
-	// Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+	// Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
 	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
-	// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+	// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
 	//
 	// Deprecated: This is deprecated and will be removed in a future release.
 	ResultsPerPage pulumi.IntPtrInput `pulumi:"resultsPerPage"`

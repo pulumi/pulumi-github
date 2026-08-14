@@ -22,8 +22,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
- * does not return previously uploaded GPG key.
+ * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
  */
 export class UserGpgKey extends pulumi.CustomResource {
     /**
@@ -54,8 +53,7 @@ export class UserGpgKey extends pulumi.CustomResource {
     }
 
     /**
-     * Your public GPG key, generated in ASCII-armored format.
-     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      */
     declare public readonly armoredPublicKey: pulumi.Output<string>;
     declare public /*out*/ readonly etag: pulumi.Output<string>;
@@ -99,8 +97,7 @@ export class UserGpgKey extends pulumi.CustomResource {
  */
 export interface UserGpgKeyState {
     /**
-     * Your public GPG key, generated in ASCII-armored format.
-     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      */
     armoredPublicKey?: pulumi.Input<string | undefined>;
     etag?: pulumi.Input<string | undefined>;
@@ -115,8 +112,7 @@ export interface UserGpgKeyState {
  */
 export interface UserGpgKeyArgs {
     /**
-     * Your public GPG key, generated in ASCII-armored format.
-     * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
+     * Your public GPG key, generated in ASCII-armored format. See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      */
     armoredPublicKey: pulumi.Input<string>;
 }

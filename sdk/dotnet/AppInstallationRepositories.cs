@@ -12,20 +12,49 @@ namespace Pulumi.Github
     /// <summary>
     /// &gt; **Note**: This resource is not compatible with the GitHub App Installation authentication method.
     /// 
-    /// This resource manages relationships between app installations and repositories
-    /// in your GitHub organization or your user account.
+    /// This resource manages relationships between app installations and repositories in your GitHub organization or your user account.
     /// 
     /// Creating this resource installs a particular app on multiple repositories.
     /// 
-    /// The app installation and the repositories must all belong to the same
-    /// organization or user account on GitHub. Note: you can review your organization's installations
-    /// by the following the instructions at this
-    /// [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+    /// The app installation and the repositories must all belong to the same organization or user account on GitHub. Note: you can review your organization's installations by the following the instructions at this [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create some repositories.
+    ///     var someRepo = new Github.Repository("some_repo", new()
+    ///     {
+    ///         Name = "some-repo",
+    ///     });
+    /// 
+    ///     var anotherRepo = new Github.Repository("another_repo", new()
+    ///     {
+    ///         Name = "another-repo",
+    ///     });
+    /// 
+    ///     var someAppRepos = new Github.AppInstallationRepositories("some_app_repos", new()
+    ///     {
+    ///         InstallationId = "1234567",
+    ///         SelectedRepositories = new[]
+    ///         {
+    ///             someRepo.Name,
+    ///             anotherRepo.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// GitHub App Installation Repositories can be imported
-    /// using an ID made up of `InstallationId`, e.g.
+    /// GitHub App Installation Repositories can be imported using an ID made up of `InstallationId`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567

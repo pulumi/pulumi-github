@@ -115,14 +115,14 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      * 
      */
     @Import(name="notificationSetting")
     private @Nullable Output<String> notificationSetting;
 
     /**
-     * @return The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * @return The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      * 
      */
     public Optional<Output<String>> notificationSetting() {
@@ -175,14 +175,14 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      * 
      */
     @Import(name="privacy")
     private @Nullable Output<String> privacy;
 
     /**
-     * @return The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * @return The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      * 
      */
     public Optional<Output<String>> privacy() {
@@ -190,18 +190,14 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains &#34;URL-unsafe&#34; characters.
      * 
      */
     @Import(name="slug")
     private @Nullable Output<String> slug;
 
     /**
-     * @return The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * @return The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains &#34;URL-unsafe&#34; characters.
      * 
      */
     public Optional<Output<String>> slug() {
@@ -376,7 +372,7 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
          * 
          * @return builder
          * 
@@ -387,7 +383,7 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
          * 
          * @return builder
          * 
@@ -460,7 +456,7 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privacy The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+         * @param privacy The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
          * 
          * @return builder
          * 
@@ -471,7 +467,7 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privacy The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+         * @param privacy The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
          * 
          * @return builder
          * 
@@ -481,9 +477,7 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param slug The slug of the created team, which may or may not differ from `name`,
-         * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-         * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+         * @param slug The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains &#34;URL-unsafe&#34; characters.
          * 
          * @return builder
          * 
@@ -494,9 +488,7 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param slug The slug of the created team, which may or may not differ from `name`,
-         * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-         * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+         * @param slug The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains &#34;URL-unsafe&#34; characters.
          * 
          * @return builder
          * 

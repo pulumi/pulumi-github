@@ -19,8 +19,7 @@ public final class GetRepositoryWebhooksResult {
     private String id;
     private String repository;
     /**
-     * @return An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-     * ***
+     * @return An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
      * 
      */
     private List<GetRepositoryWebhooksWebhook> webhooks;
@@ -37,8 +36,7 @@ public final class GetRepositoryWebhooksResult {
         return this.repository;
     }
     /**
-     * @return An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-     * ***
+     * @return An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
      * 
      */
     public List<GetRepositoryWebhooksWebhook> webhooks() {

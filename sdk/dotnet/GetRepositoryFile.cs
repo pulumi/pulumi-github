@@ -12,9 +12,7 @@ namespace Pulumi.Github
     public static class GetRepositoryFile
     {
         /// <summary>
-        /// This data source allows you to read files within a
-        /// GitHub repository.
-        /// 
+        /// This data source allows you to read files within a GitHub repository.
         /// 
         /// ## Example Usage
         /// 
@@ -40,9 +38,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source allows you to read files within a
-        /// GitHub repository.
-        /// 
+        /// This data source allows you to read files within a GitHub repository.
         /// 
         /// ## Example Usage
         /// 
@@ -68,9 +64,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source allows you to read files within a
-        /// GitHub repository.
-        /// 
+        /// This data source allows you to read files within a GitHub repository.
         /// 
         /// ## Example Usage
         /// 

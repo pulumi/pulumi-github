@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * To retrieve *all* teams of the organization:
+ * To retrieve *all- teams of the organization:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -80,7 +80,7 @@ export interface GetOrganizationTeamsResult {
      */
     readonly summaryOnly?: boolean;
     /**
-     * (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+     * (Required) An Array of GitHub Teams. Each `team` block consists of the fields documented below.
      */
     readonly teams: outputs.GetOrganizationTeamsTeam[];
 }
@@ -89,7 +89,7 @@ export interface GetOrganizationTeamsResult {
  *
  * ## Example Usage
  *
- * To retrieve *all* teams of the organization:
+ * To retrieve *all- teams of the organization:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

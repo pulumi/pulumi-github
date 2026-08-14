@@ -17,16 +17,14 @@ public final class TeamRepositoryArgs extends com.pulumi.resources.ResourceArgs 
     public static final TeamRepositoryArgs Empty = new TeamRepositoryArgs();
 
     /**
-     * The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * 
      */
     @Import(name="permission")
     private @Nullable Output<String> permission;
 
     /**
-     * @return The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * @return The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * 
      */
     public Optional<Output<String>> permission() {
@@ -90,8 +88,7 @@ public final class TeamRepositoryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param permission The permissions of team members regarding the repository.
-         * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+         * @param permission The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
          * 
          * @return builder
          * 
@@ -102,8 +99,7 @@ public final class TeamRepositoryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param permission The permissions of team members regarding the repository.
-         * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+         * @param permission The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
          * 
          * @return builder
          * 
