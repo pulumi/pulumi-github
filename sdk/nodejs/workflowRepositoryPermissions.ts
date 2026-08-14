@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to manage GitHub Workflow permissions for a given repository.
- * You must have admin access to a repository to use this resource.
+ * This resource allows you to manage GitHub Workflow permissions for a given repository. You must have admin access to a repository to use this resource.
  *
  * ## Example Usage
  *

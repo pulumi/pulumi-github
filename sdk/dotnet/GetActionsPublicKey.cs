@@ -12,8 +12,7 @@ namespace Pulumi.Github
     public static class GetActionsPublicKey
     {
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to a repository to retrieve it's action public key.
+        /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to a repository to retrieve it's action public key.
         /// 
         /// ## Example Usage
         /// 
@@ -37,8 +36,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to a repository to retrieve it's action public key.
+        /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to a repository to retrieve it's action public key.
         /// 
         /// ## Example Usage
         /// 
@@ -62,8 +60,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to a repository to retrieve it's action public key.
+        /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to a repository to retrieve it's action public key.
         /// 
         /// ## Example Usage
         /// 

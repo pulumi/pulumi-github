@@ -198,6 +198,10 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
 
         ## Import
 
+        ```sh
+        $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,6 +242,10 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ```sh
+        $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
+        ```
 
 
         :param str resource_name: The name of the resource.

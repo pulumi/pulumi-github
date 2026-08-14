@@ -68,16 +68,9 @@ import javax.annotation.Nullable;
  * &gt; **Note:** This resource requires a GitHub Enterprise account and enterprise admin permissions.
  * 
  * When this resource is destroyed, the workflow permissions will be reset to safe defaults:
+ * 
  * - `defaultWorkflowPermissions` = `read`
  * - `canApprovePullRequestReviews` = `false`
- * 
- * ## Import
- * 
- * Enterprise Actions workflow permissions can be imported using the enterprise slug:
- * 
- * ```sh
- * $ pulumi import github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions example my-enterprise
- * ```
  * 
  */
 @ResourceType(type="github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions")

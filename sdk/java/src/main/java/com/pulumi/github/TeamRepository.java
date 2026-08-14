@@ -15,23 +15,17 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; Note: github.TeamRepository cannot be used in conjunction with github.RepositoryCollaborators or
- * they will fight over what your policy should be.
+ * &gt; Note: github.TeamRepository cannot be used in conjunction with github.RepositoryCollaborators or they will fight over what your policy should be.
  * 
- * This resource manages relationships between teams and repositories
- * in your GitHub organization.
+ * This resource manages relationships between teams and repositories in your GitHub organization.
  * 
- * Creating this resource grants a particular team permissions on a
- * particular repository.
+ * Creating this resource grants a particular team permissions on a particular repository.
  * 
- * The repository and the team must both belong to the same organization
- * on GitHub. This resource does not actually *create* any repositories;
- * to do that, see `github.Repository`.
+ * The repository and the team must both belong to the same organization on GitHub. This resource does not actually *create* any repositories.
  * 
  * &gt; **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing team permission modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
  * 
- * This resource is non-authoritative, for managing ALL collaborators of a repo, use github.RepositoryCollaborators
- * instead.
+ * This resource is non-authoritative, for managing ALL collaborators of a repo, use github.RepositoryCollaborators instead.
  * 
  * ## Example Usage
  * 
@@ -101,16 +95,14 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
         return this.etag;
     }
     /**
-     * The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * 
      */
     @Export(name="permission", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permission;
 
     /**
-     * @return The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * @return The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * 
      */
     public Output<Optional<String>> permission() {

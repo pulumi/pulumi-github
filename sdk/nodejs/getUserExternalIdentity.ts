@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve a specific organization member's SAML or SCIM user
- * attributes.
+ * Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
  *
  * ## Example Usage
  *
@@ -49,13 +48,11 @@ export interface GetUserExternalIdentityResult {
      */
     readonly login: string;
     /**
-     * An Object containing the user's SAML data. This object will
-     * be empty if the user is not managed by SAML.
+     * An Object containing the user's SAML data. This object will be empty if the user is not managed by SAML.
      */
     readonly samlIdentity: {[key: string]: string};
     /**
-     * An Object contining the user's SCIM data. This object will
-     * be empty if the user is not managed by SCIM.
+     * An Object contining the user's SCIM data. This object will be empty if the user is not managed by SCIM.
      */
     readonly scimIdentity: {[key: string]: string};
     /**
@@ -64,8 +61,7 @@ export interface GetUserExternalIdentityResult {
     readonly username: string;
 }
 /**
- * Use this data source to retrieve a specific organization member's SAML or SCIM user
- * attributes.
+ * Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
  *
  * ## Example Usage
  *

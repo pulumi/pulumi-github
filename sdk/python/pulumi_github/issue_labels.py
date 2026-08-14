@@ -111,8 +111,7 @@ class IssueLabels(pulumi.CustomResource):
         """
         Provides GitHub issue labels resource.
 
-        This resource allows you to create and manage issue labels within your
-        GitHub organization.
+        This resource allows you to create and manage issue labels within your GitHub organization.
 
         > Note: IssueLabels cannot be used in conjunction with IssueLabel or they will fight over what your policy should be.
 
@@ -166,8 +165,7 @@ class IssueLabels(pulumi.CustomResource):
         """
         Provides GitHub issue labels resource.
 
-        This resource allows you to create and manage issue labels within your
-        GitHub organization.
+        This resource allows you to create and manage issue labels within your GitHub organization.
 
         > Note: IssueLabels cannot be used in conjunction with IssueLabel or they will fight over what your policy should be.
 

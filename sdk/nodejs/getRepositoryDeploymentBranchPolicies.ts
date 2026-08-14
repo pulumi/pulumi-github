@@ -36,7 +36,7 @@ export function getRepositoryDeploymentBranchPolicies(args: GetRepositoryDeploym
  */
 export interface GetRepositoryDeploymentBranchPoliciesArgs {
     /**
-     * Name of the environment to retrieve the deployment branch policies  from.
+     * Name of the environment to retrieve the deployment branch policies from.
      */
     environmentName: string;
     /**
@@ -90,7 +90,7 @@ export function getRepositoryDeploymentBranchPoliciesOutput(args: GetRepositoryD
  */
 export interface GetRepositoryDeploymentBranchPoliciesOutputArgs {
     /**
-     * Name of the environment to retrieve the deployment branch policies  from.
+     * Name of the environment to retrieve the deployment branch policies from.
      */
     environmentName: pulumi.Input<string>;
     /**

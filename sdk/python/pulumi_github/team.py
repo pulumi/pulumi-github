@@ -35,11 +35,11 @@ class TeamArgs:
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
-        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` *(default)- or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
         """
         if create_default_maintainer is not None:
             warnings.warn("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""", DeprecationWarning)
@@ -116,7 +116,7 @@ class TeamArgs:
     @pulumi.getter(name="notificationSetting")
     def notification_setting(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        The notification setting for the team. Must be one of `notifications_enabled` *(default)- or `notifications_disabled`.
         """
         return pulumi.get(self, "notification_setting")
 
@@ -164,7 +164,7 @@ class TeamArgs:
     @pulumi.getter
     def privacy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+        The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
         """
         return pulumi.get(self, "privacy")
 
@@ -197,14 +197,12 @@ class _TeamState:
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
         :param pulumi.Input[_builtins.str] node_id: The Node ID of the created team.
-        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` *(default)- or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
-        :param pulumi.Input[_builtins.str] slug: The slug of the created team, which may or may not differ from `name`,
-               depending on whether `name` contains "URL-unsafe" characters.
-               Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
+        :param pulumi.Input[_builtins.str] slug: The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
         """
         if create_default_maintainer is not None:
             warnings.warn("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""", DeprecationWarning)
@@ -319,7 +317,7 @@ class _TeamState:
     @pulumi.getter(name="notificationSetting")
     def notification_setting(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        The notification setting for the team. Must be one of `notifications_enabled` *(default)- or `notifications_disabled`.
         """
         return pulumi.get(self, "notification_setting")
 
@@ -367,7 +365,7 @@ class _TeamState:
     @pulumi.getter
     def privacy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+        The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
         """
         return pulumi.get(self, "privacy")
 
@@ -379,9 +377,7 @@ class _TeamState:
     @pulumi.getter
     def slug(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The slug of the created team, which may or may not differ from `name`,
-        depending on whether `name` contains "URL-unsafe" characters.
-        Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
         """
         return pulumi.get(self, "slug")
 
@@ -409,8 +405,7 @@ class Team(pulumi.CustomResource):
         """
         Provides a GitHub team resource.
 
-        This resource allows you to add/remove teams from your organization. When applied,
-        a new team will be created. When destroyed, that team will be removed.
+        This resource allows you to add/remove teams from your organization. When applied, a new team will be created. When destroyed, that team will be removed.
 
         ## Example Usage
 
@@ -441,11 +436,11 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
-        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` *(default)- or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
         """
         ...
     @overload
@@ -456,8 +451,7 @@ class Team(pulumi.CustomResource):
         """
         Provides a GitHub team resource.
 
-        This resource allows you to add/remove teams from your organization. When applied,
-        a new team will be created. When destroyed, that team will be removed.
+        This resource allows you to add/remove teams from your organization. When applied, a new team will be created. When destroyed, that team will be removed.
 
         ## Example Usage
 
@@ -563,14 +557,12 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
         :param pulumi.Input[_builtins.str] node_id: The Node ID of the created team.
-        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` *(default)- or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
-        :param pulumi.Input[_builtins.str] slug: The slug of the created team, which may or may not differ from `name`,
-               depending on whether `name` contains "URL-unsafe" characters.
-               Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
+        :param pulumi.Input[_builtins.str] slug: The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -646,7 +638,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="notificationSetting")
     def notification_setting(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        The notification setting for the team. Must be one of `notifications_enabled` *(default)- or `notifications_disabled`.
         """
         return pulumi.get(self, "notification_setting")
 
@@ -678,7 +670,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter
     def privacy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+        The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
         """
         return pulumi.get(self, "privacy")
 
@@ -686,9 +678,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter
     def slug(self) -> pulumi.Output[_builtins.str]:
         """
-        The slug of the created team, which may or may not differ from `name`,
-        depending on whether `name` contains "URL-unsafe" characters.
-        Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+        The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
         """
         return pulumi.get(self, "slug")
 

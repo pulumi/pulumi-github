@@ -25,9 +25,9 @@ class AppAuth(dict):
                  installation_id: _builtins.str,
                  pem_file: _builtins.str):
         """
-        :param _builtins.str id: The GitHub App ID.
-        :param _builtins.str installation_id: The GitHub App installation instance ID.
-        :param _builtins.str pem_file: The GitHub App PEM file contents.
+        :param _builtins.str id: The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
+        :param _builtins.str installation_id: The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
+        :param _builtins.str pem_file: The GitHub App's PEM file content; `\\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "installation_id", installation_id)
@@ -37,7 +37,7 @@ class AppAuth(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The GitHub App ID.
+        The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
         """
         return pulumi.get(self, "id")
 
@@ -45,7 +45,7 @@ class AppAuth(dict):
     @pulumi.getter(name="installationId")
     def installation_id(self) -> _builtins.str:
         """
-        The GitHub App installation instance ID.
+        The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
         """
         return pulumi.get(self, "installation_id")
 
@@ -53,7 +53,7 @@ class AppAuth(dict):
     @pulumi.getter(name="pemFile")
     def pem_file(self) -> _builtins.str:
         """
-        The GitHub App PEM file contents.
+        The GitHub App's PEM file content; `\\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
         """
         return pulumi.get(self, "pem_file")
 

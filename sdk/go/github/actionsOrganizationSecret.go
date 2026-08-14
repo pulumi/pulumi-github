@@ -12,17 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage GitHub Actions secrets within your GitHub organization.
-// You must have write access to a repository to use this resource.
+// This resource allows you to create and manage GitHub Actions secrets within your GitHub organization. You must have write access to a repository to use this resource.
 //
-// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
-// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 //
-// For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
-// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-// It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted`
-// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
-// in your code. See below for an example of this abstraction.
+// For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform, but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always. It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted` using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible in your code. See below for an example of this abstraction.
 //
 // ## Example Usage
 //
@@ -39,9 +33,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewActionsOrganizationSecret(ctx, "example_plaintext", &github.ActionsOrganizationSecretArgs{
-//				SecretName: pulumi.String("example_secret_name"),
-//				Visibility: pulumi.String("all"),
-//				Value:      pulumi.Any(someSecretString),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("all"),
+//				PlaintextValue: pulumi.Any(someSecretString),
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +43,7 @@ import (
 //			_, err = github.NewActionsOrganizationSecret(ctx, "example_encrypted", &github.ActionsOrganizationSecretArgs{
 //				SecretName:     pulumi.String("example_secret_name"),
 //				Visibility:     pulumi.String("all"),
-//				ValueEncrypted: pulumi.Any(someEncryptedSecretString),
+//				EncryptedValue: pulumi.Any(someEncryptedSecretString),
 //			})
 //			if err != nil {
 //				return err
@@ -79,9 +73,9 @@ import (
 //				return err
 //			}
 //			_, err = github.NewActionsOrganizationSecret(ctx, "example_encrypted", &github.ActionsOrganizationSecretArgs{
-//				SecretName: pulumi.String("example_secret_name"),
-//				Visibility: pulumi.String("selected"),
-//				Value:      pulumi.Any(someSecretString),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("selected"),
+//				PlaintextValue: pulumi.Any(someSecretString),
 //				SelectedRepositoryIds: pulumi.IntArray{
 //					pulumi.Int(repo.RepoId),
 //				},
@@ -92,7 +86,7 @@ import (
 //			_, err = github.NewActionsOrganizationSecret(ctx, "example_secret", &github.ActionsOrganizationSecretArgs{
 //				SecretName:     pulumi.String("example_secret_name"),
 //				Visibility:     pulumi.String("selected"),
-//				ValueEncrypted: pulumi.Any(someEncryptedSecretString),
+//				EncryptedValue: pulumi.Any(someEncryptedSecretString),
 //				SelectedRepositoryIds: pulumi.IntArray{
 //					pulumi.Int(repo.RepoId),
 //				},
@@ -123,9 +117,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewActionsOrganizationSecret(ctx, "example_allow_drift", &github.ActionsOrganizationSecretArgs{
-//				SecretName: pulumi.String("example_secret_name"),
-//				Visibility: pulumi.String("all"),
-//				Value:      pulumi.String("placeholder"),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("all"),
+//				PlaintextValue: pulumi.String("placeholder"),
 //			})
 //			if err != nil {
 //				return err
@@ -141,6 +135,10 @@ import (
 // This resource can be imported using the secret name as the ID.
 //
 // > **Note**: When importing secrets, the `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+//
+// ### Import Block
+//
+// The following import imports a GitHub actions organization secret named `mysecret` to a `ActionsOrganizationSecret` resource named `example`.
 //
 // ### Import Command
 //

@@ -104,7 +104,7 @@ def get_app_token(app_id: Optional[_builtins.str] = None,
 
     this = github.get_app_token(app_id="123456",
         installation_id="78910",
-        pem_file=std.file(input="foo/bar.pem").result)
+        pem_file=std.file(input="foo/bar.pem")["result"])
     ```
 
 
@@ -141,7 +141,7 @@ def get_app_token_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
 
     this = github.get_app_token(app_id="123456",
         installation_id="78910",
-        pem_file=std.file(input="foo/bar.pem").result)
+        pem_file=std.file(input="foo/bar.pem")["result"])
     ```
 
 

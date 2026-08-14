@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetOrganizationTeamSyncGroupsResult {
     /**
-     * @return An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+     * @return An Array of GitHub Identity Provider Groups. Each `group` block consists of the fields documented below.
      * 
      */
     private List<GetOrganizationTeamSyncGroupsGroup> groups;
@@ -25,7 +25,7 @@ public final class GetOrganizationTeamSyncGroupsResult {
 
     private GetOrganizationTeamSyncGroupsResult() {}
     /**
-     * @return An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+     * @return An Array of GitHub Identity Provider Groups. Each `group` block consists of the fields documented below.
      * 
      */
     public List<GetOrganizationTeamSyncGroupsGroup> groups() {

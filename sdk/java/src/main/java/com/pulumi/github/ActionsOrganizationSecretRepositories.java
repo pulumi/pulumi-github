@@ -16,8 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to manage the repositories allowed to access an actions secret within your GitHub organization.
- * You must have write access to an organization secret to use this resource.
+ * This resource allows you to manage the repositories allowed to access an actions secret within your GitHub organization. You must have write access to an organization secret to use this resource.
  * 
  * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
  * 
@@ -51,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ActionsOrganizationSecret("example", ActionsOrganizationSecretArgs.builder()
  *             .secretName("mysecret")
- *             .value("foo")
+ *             .plaintextValue("foo")
  *             .visibility("selected")
  *             .build());
  * 
@@ -73,6 +72,10 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * This resource can be imported using the secret name as the ID.
+ * 
+ * ### Import Block
+ * 
+ * The following import block imports the repositories able to access the actions organization secret named `mysecret` to a `github.ActionsOrganizationSecretRepositories` resource named `example`.
  * 
  * ### Import Command
  * 

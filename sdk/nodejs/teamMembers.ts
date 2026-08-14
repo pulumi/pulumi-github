@@ -7,19 +7,13 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a GitHub team members resource.
+ * > This resource is not compatible with `github.TeamMembership`; use either `github.TeamMembers` or `github.TeamMembership`.
  *
- * This resource allows you to manage members of teams in your organization. It sets the requested team members for the team and removes all users not managed by Terraform.
+ * Resource to authoritatively manage GitHub team members.
  *
- * When applied, if the user hasn't accepted their invitation to the organization, they won't be part of the team until they do.
+ * This resource allows you to manage members of teams in your organization; it sets the requested team members for the team and removes all users not managed by Terraform. If an organization owner is given the `member` role they will be granted `maintainer` instead which will result in a perpetual diff. If a user who hasn't accepted their invitation to the organization is added to the team, they will not be a team member until they've accepted the invitation. When this resource is deleted all users will be removed from the team.
  *
- * When destroyed, all users will be removed from the team.
- *
- * > **Note** This resource is not compatible with `github.TeamMembership`. Use either `github.TeamMembers` or `github.TeamMembership`.
- *
- * > **Note** You can accidentally lock yourself out of your team using this resource. Deleting a `github.TeamMembers` resource removes access from anyone without organization-level access to the team. Proceed with caution. It should generally only be used with teams fully managed by Terraform.
- *
- * > **Note** Attempting to set a user who is an organization owner to "member" will result in the user being granted "maintainer" instead; this can result in a perpetual `terraform plan` diff that changes their status back to "member".
+ * > If you don't have a member with the `maintainer` set then this resource may end up with a perpetual diff as the GitHub API will automatically promote a member to `maintainer` if there are no maintainers in the team. To avoid this, ensure that at least one member has the `maintainer` role.
  *
  * ## Example Usage
  *
@@ -27,21 +21,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membership_for_some_user", {
- *     username: "SomeUser",
- *     role: "member",
- * });
- * const membershipForAnotherUser = new github.Membership("membership_for_another_user", {
- *     username: "AnotherUser",
- *     role: "member",
- * });
- * const someTeam = new github.Team("some_team", {
- *     name: "SomeTeam",
- *     description: "Some cool team",
- * });
- * const someTeamMembers = new github.TeamMembers("some_team_members", {
- *     teamId: someTeam.id,
+ * const example = new github.Team("example", {name: "my-team"});
+ * const exampleTeamMembers = new github.TeamMembers("example", {
+ *     teamSlug: example.slug,
  *     members: [
  *         {
  *             username: "SomeUser",
@@ -57,13 +39,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
+ * This resource can be imported either by the team slug or team ID; it is recommended to use the team slug in combination with the `teamSlug` resource attribute.
  *
- * GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
- * $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
- * $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
+ * $ pulumi import github:index/teamMembers:TeamMembers example my-team
  * ```
  */
 export class TeamMembers extends pulumi.CustomResource {
@@ -95,15 +76,19 @@ export class TeamMembers extends pulumi.CustomResource {
     }
 
     /**
-     * List of team members. See Members below for details.
+     * List of users that should be members of the team.
      */
     declare public readonly members: pulumi.Output<outputs.TeamMembersMember[]>;
     /**
-     * The team id or the team slug
+     * ID or slug of the GitHub team to manage membership for.
      *
-     * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+     * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      */
     declare public readonly teamId: pulumi.Output<string>;
+    /**
+     * Slug of the GitHub team to manage membership for.
+     */
+    declare public readonly teamSlug: pulumi.Output<string>;
 
     /**
      * Create a TeamMembers resource with the given unique name, arguments, and options.
@@ -120,16 +105,15 @@ export class TeamMembers extends pulumi.CustomResource {
             const state = argsOrState as TeamMembersState | undefined;
             resourceInputs["members"] = state?.members;
             resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["teamSlug"] = state?.teamSlug;
         } else {
             const args = argsOrState as TeamMembersArgs | undefined;
             if (args?.members === undefined && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            if (args?.teamId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'teamId'");
-            }
             resourceInputs["members"] = args?.members;
             resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["teamSlug"] = args?.teamSlug;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamMembers.__pulumiType, name, resourceInputs, opts);
@@ -141,15 +125,19 @@ export class TeamMembers extends pulumi.CustomResource {
  */
 export interface TeamMembersState {
     /**
-     * List of team members. See Members below for details.
+     * List of users that should be members of the team.
      */
     members?: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[] | undefined>;
     /**
-     * The team id or the team slug
+     * ID or slug of the GitHub team to manage membership for.
      *
-     * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+     * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      */
     teamId?: pulumi.Input<string | undefined>;
+    /**
+     * Slug of the GitHub team to manage membership for.
+     */
+    teamSlug?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -157,13 +145,17 @@ export interface TeamMembersState {
  */
 export interface TeamMembersArgs {
     /**
-     * List of team members. See Members below for details.
+     * List of users that should be members of the team.
      */
     members: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
     /**
-     * The team id or the team slug
+     * ID or slug of the GitHub team to manage membership for.
      *
-     * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+     * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      */
-    teamId: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
+    /**
+     * Slug of the GitHub team to manage membership for.
+     */
+    teamSlug?: pulumi.Input<string | undefined>;
 }

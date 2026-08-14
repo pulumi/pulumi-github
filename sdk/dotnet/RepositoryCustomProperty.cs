@@ -10,11 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage a specific custom property for a GitHub repository.
+    /// Resource to manage GitHub repository custom properties.
+    /// For more information, see the [GitHub API documentation](https://docs.github.com/rest/metadata/custom-properties#create-or-update-repository-custom-property).
     /// 
     /// ## Example Usage
-    /// 
-    /// &gt; Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `String`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -24,16 +23,17 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // NOTE: This assumes there already is a custom property defined on the org level called `my-cool-string` of type `string`
     ///     var example = new Github.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///     });
     /// 
-    ///     var @string = new Github.RepositoryCustomProperty("string", new()
+    ///     var exampleRepositoryCustomProperty = new Github.RepositoryCustomProperty("example", new()
     ///     {
     ///         Repository = example.Name,
-    ///         PropertyName = "my-cool-property",
+    ///         PropertyName = "my-cool-string",
     ///         PropertyType = "string",
     ///         PropertyValues = new[]
     ///         {
@@ -46,7 +46,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Repository Custom Property can be imported using an ID made up of a combination of the names of the organization, repository, custom property separated by a `:` character, e.g.
+    /// The `pulumi import` command can be used, for example:
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
@@ -56,28 +56,34 @@ namespace Pulumi.Github
     public partial class RepositoryCustomProperty : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+        /// Name of the custom property.
         /// </summary>
         [Output("propertyName")]
         public Output<string> PropertyName { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the custom property. Can be one of `SingleSelect`, `MultiSelect`, `String`, or `TrueFalse`
+        /// Type of the custom property. Valid values are `String`, `SingleSelect`, `MultiSelect`, `TrueFalse`, and `Url`.
         /// </summary>
         [Output("propertyType")]
         public Output<string> PropertyType { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the custom property in the form of an array. Properties of type `SingleSelect`, `String`, and `TrueFalse` are represented as a string array of length 1
+        /// Value of the custom property. For `String`, `SingleSelect`, `TrueFalse`, and `Url` property types, this should be a single value. For `MultiSelect` property types, this can be multiple values.
         /// </summary>
         [Output("propertyValues")]
         public Output<ImmutableArray<string>> PropertyValues { get; private set; } = null!;
 
         /// <summary>
-        /// The repository of the environment.
+        /// Name of the repository.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,13 +132,13 @@ namespace Pulumi.Github
     public sealed class RepositoryCustomPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+        /// Name of the custom property.
         /// </summary>
         [Input("propertyName", required: true)]
         public Input<string> PropertyName { get; set; } = null!;
 
         /// <summary>
-        /// Type of the custom property. Can be one of `SingleSelect`, `MultiSelect`, `String`, or `TrueFalse`
+        /// Type of the custom property. Valid values are `String`, `SingleSelect`, `MultiSelect`, `TrueFalse`, and `Url`.
         /// </summary>
         [Input("propertyType", required: true)]
         public Input<string> PropertyType { get; set; } = null!;
@@ -141,7 +147,7 @@ namespace Pulumi.Github
         private InputList<string>? _propertyValues;
 
         /// <summary>
-        /// Value of the custom property in the form of an array. Properties of type `SingleSelect`, `String`, and `TrueFalse` are represented as a string array of length 1
+        /// Value of the custom property. For `String`, `SingleSelect`, `TrueFalse`, and `Url` property types, this should be a single value. For `MultiSelect` property types, this can be multiple values.
         /// </summary>
         public InputList<string> PropertyValues
         {
@@ -150,7 +156,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// The repository of the environment.
+        /// Name of the repository.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -164,13 +170,13 @@ namespace Pulumi.Github
     public sealed class RepositoryCustomPropertyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+        /// Name of the custom property.
         /// </summary>
         [Input("propertyName")]
         public Input<string>? PropertyName { get; set; }
 
         /// <summary>
-        /// Type of the custom property. Can be one of `SingleSelect`, `MultiSelect`, `String`, or `TrueFalse`
+        /// Type of the custom property. Valid values are `String`, `SingleSelect`, `MultiSelect`, `TrueFalse`, and `Url`.
         /// </summary>
         [Input("propertyType")]
         public Input<string>? PropertyType { get; set; }
@@ -179,7 +185,7 @@ namespace Pulumi.Github
         private InputList<string>? _propertyValues;
 
         /// <summary>
-        /// Value of the custom property in the form of an array. Properties of type `SingleSelect`, `String`, and `TrueFalse` are represented as a string array of length 1
+        /// Value of the custom property. For `String`, `SingleSelect`, `TrueFalse`, and `Url` property types, this should be a single value. For `MultiSelect` property types, this can be multiple values.
         /// </summary>
         public InputList<string> PropertyValues
         {
@@ -188,10 +194,16 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// The repository of the environment.
+        /// Name of the repository.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
+
+        /// <summary>
+        /// ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
 
         public RepositoryCustomPropertyState()
         {

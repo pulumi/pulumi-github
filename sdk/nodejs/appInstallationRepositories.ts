@@ -7,20 +7,33 @@ import * as utilities from "./utilities";
 /**
  * > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
  *
- * This resource manages relationships between app installations and repositories
- * in your GitHub organization or your user account.
+ * This resource manages relationships between app installations and repositories in your GitHub organization or your user account.
  *
  * Creating this resource installs a particular app on multiple repositories.
  *
- * The app installation and the repositories must all belong to the same
- * organization or user account on GitHub. Note: you can review your organization's installations
- * by the following the instructions at this
- * [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+ * The app installation and the repositories must all belong to the same organization or user account on GitHub. Note: you can review your organization's installations by the following the instructions at this [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations) or for your user account at this [link](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Create some repositories.
+ * const someRepo = new github.Repository("some_repo", {name: "some-repo"});
+ * const anotherRepo = new github.Repository("another_repo", {name: "another-repo"});
+ * const someAppRepos = new github.AppInstallationRepositories("some_app_repos", {
+ *     installationId: "1234567",
+ *     selectedRepositories: [
+ *         someRepo.name,
+ *         anotherRepo.name,
+ *     ],
+ * });
+ * ```
  *
  * ## Import
  *
- * GitHub App Installation Repositories can be imported
- * using an ID made up of `installationId`, e.g.
+ * GitHub App Installation Repositories can be imported using an ID made up of `installationId`, e.g.
  *
  * ```sh
  * $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567

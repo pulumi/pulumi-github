@@ -17,14 +17,12 @@ public final class GetOrganizationExternalIdentitiesIdentity {
      */
     private String login;
     /**
-     * @return An Object containing the user&#39;s SAML data. This object will
-     * be empty if the user is not managed by SAML.
+     * @return An Object containing the user&#39;s SAML data. This object will be empty if the user is not managed by SAML.
      * 
      */
     private Map<String,String> samlIdentity;
     /**
-     * @return An Object contining the user&#39;s SCIM data. This object will
-     * be empty if the user is not managed by SCIM.
+     * @return An Object contining the user&#39;s SCIM data. This object will be empty if the user is not managed by SCIM.
      * 
      */
     private Map<String,String> scimIdentity;
@@ -38,16 +36,14 @@ public final class GetOrganizationExternalIdentitiesIdentity {
         return this.login;
     }
     /**
-     * @return An Object containing the user&#39;s SAML data. This object will
-     * be empty if the user is not managed by SAML.
+     * @return An Object containing the user&#39;s SAML data. This object will be empty if the user is not managed by SAML.
      * 
      */
     public Map<String,String> samlIdentity() {
         return this.samlIdentity;
     }
     /**
-     * @return An Object contining the user&#39;s SCIM data. This object will
-     * be empty if the user is not managed by SCIM.
+     * @return An Object contining the user&#39;s SCIM data. This object will be empty if the user is not managed by SCIM.
      * 
      */
     public Map<String,String> scimIdentity() {

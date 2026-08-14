@@ -12,11 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
-// repository.
+// This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub repository.
 //
-// More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
-// available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+// More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 //
 // The following table lists the behaviour of `useDefault`:
 //
@@ -78,8 +76,7 @@ type ActionsRepositoryOidcSubjectClaimCustomizationTemplate struct {
 	IncludeClaimKeys pulumi.StringArrayOutput `pulumi:"includeClaimKeys"`
 	// The name of the repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-	// be set.
+	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
 	UseDefault pulumi.BoolOutput `pulumi:"useDefault"`
 }
 
@@ -123,8 +120,7 @@ type actionsRepositoryOidcSubjectClaimCustomizationTemplateState struct {
 	IncludeClaimKeys []string `pulumi:"includeClaimKeys"`
 	// The name of the repository.
 	Repository *string `pulumi:"repository"`
-	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-	// be set.
+	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
 	UseDefault *bool `pulumi:"useDefault"`
 }
 
@@ -133,8 +129,7 @@ type ActionsRepositoryOidcSubjectClaimCustomizationTemplateState struct {
 	IncludeClaimKeys pulumi.StringArrayInput
 	// The name of the repository.
 	Repository pulumi.StringPtrInput
-	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-	// be set.
+	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
 	UseDefault pulumi.BoolPtrInput
 }
 
@@ -147,8 +142,7 @@ type actionsRepositoryOidcSubjectClaimCustomizationTemplateArgs struct {
 	IncludeClaimKeys []string `pulumi:"includeClaimKeys"`
 	// The name of the repository.
 	Repository string `pulumi:"repository"`
-	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-	// be set.
+	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
 	UseDefault bool `pulumi:"useDefault"`
 }
 
@@ -158,8 +152,7 @@ type ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs struct {
 	IncludeClaimKeys pulumi.StringArrayInput
 	// The name of the repository.
 	Repository pulumi.StringInput
-	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-	// be set.
+	// Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
 	UseDefault pulumi.BoolInput
 }
 
@@ -264,8 +257,7 @@ func (o ActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput) Repository
 	}).(pulumi.StringOutput)
 }
 
-// Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-// be set.
+// Whether to use the default template or not. If `true`, `includeClaimKeys` must not be set.
 func (o ActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput) UseDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ActionsRepositoryOidcSubjectClaimCustomizationTemplate) pulumi.BoolOutput { return v.UseDefault }).(pulumi.BoolOutput)
 }

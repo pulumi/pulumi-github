@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to manage GitHub Workflow permissions for a given repository.
-    /// You must have admin access to a repository to use this resource.
+    /// This resource allows you to manage GitHub Workflow permissions for a given repository. You must have admin access to a repository to use this resource.
     /// 
     /// ## Example Usage
     /// 

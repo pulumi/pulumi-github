@@ -16,7 +16,7 @@ public final class GetGithubAppResult {
      */
     private String description;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the app.
      * 
      */
     private String id;
@@ -30,6 +30,10 @@ public final class GetGithubAppResult {
      * 
      */
     private String nodeId;
+    /**
+     * @return The URL-friendly name of your GitHub App.
+     * 
+     */
     private String slug;
 
     private GetGithubAppResult() {}
@@ -41,7 +45,7 @@ public final class GetGithubAppResult {
         return this.description;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the app.
      * 
      */
     public String id() {
@@ -61,6 +65,10 @@ public final class GetGithubAppResult {
     public String nodeId() {
         return this.nodeId;
     }
+    /**
+     * @return The URL-friendly name of your GitHub App.
+     * 
+     */
     public String slug() {
         return this.slug;
     }

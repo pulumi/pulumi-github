@@ -11,8 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-// Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it's environments.
+// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it's environments.
 //
 // ## Example Usage
 //

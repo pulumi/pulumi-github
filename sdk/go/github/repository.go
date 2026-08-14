@@ -11,8 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage repositories within your
-// GitHub organization or personal account.
+// This resource allows you to create and manage repositories within your GitHub organization or personal account.
 //
 // > **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `allowMergeCommit`, `allowSquashMerge`, `allowRebaseMerge`, `mergeCommitTitle`, `mergeCommitMessage`, `squashMergeCommitTitle` and `squashMergeCommitMessage`.
 //
@@ -107,9 +106,7 @@ type Repository struct {
 	Archived pulumi.BoolPtrOutput `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrOutput `pulumi:"autoInit"`
-	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
 	// Deprecated: Use the BranchDefault resource instead
 	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
@@ -132,13 +129,11 @@ type Repository struct {
 	//
 	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads pulumi.BoolPtrOutput `pulumi:"hasDownloads"`
-	// Set to `true` to enable the GitHub Issues features
-	// on the repository.
+	// Set to `true` to enable the GitHub Issues features on the repository.
 	HasIssues pulumi.BoolPtrOutput `pulumi:"hasIssues"`
 	// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
 	HasProjects pulumi.BoolPtrOutput `pulumi:"hasProjects"`
-	// Set to `true` to enable the GitHub Wiki features on
-	// the repository.
+	// Set to `true` to enable the GitHub Wiki features on the repository.
 	HasWiki pulumi.BoolPtrOutput `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrOutput `pulumi:"homepageUrl"`
@@ -168,8 +163,7 @@ type Repository struct {
 	Pages RepositoryPagesTypePtrOutput `pulumi:"pages"`
 	// The primary language used in the repository.
 	PrimaryLanguage pulumi.StringOutput `pulumi:"primaryLanguage"`
-	// Set to `true` to create a private repository.
-	// Repositories are created as public (e.g. open source) by default.
+	// Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolOutput `pulumi:"private"`
@@ -253,9 +247,7 @@ type repositoryState struct {
 	Archived *bool `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit *bool `pulumi:"autoInit"`
-	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
 	// Deprecated: Use the BranchDefault resource instead
 	DefaultBranch *string `pulumi:"defaultBranch"`
@@ -278,13 +270,11 @@ type repositoryState struct {
 	//
 	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads *bool `pulumi:"hasDownloads"`
-	// Set to `true` to enable the GitHub Issues features
-	// on the repository.
+	// Set to `true` to enable the GitHub Issues features on the repository.
 	HasIssues *bool `pulumi:"hasIssues"`
 	// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
 	HasProjects *bool `pulumi:"hasProjects"`
-	// Set to `true` to enable the GitHub Wiki features on
-	// the repository.
+	// Set to `true` to enable the GitHub Wiki features on the repository.
 	HasWiki *bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl *string `pulumi:"homepageUrl"`
@@ -314,8 +304,7 @@ type repositoryState struct {
 	Pages *RepositoryPagesType `pulumi:"pages"`
 	// The primary language used in the repository.
 	PrimaryLanguage *string `pulumi:"primaryLanguage"`
-	// Set to `true` to create a private repository.
-	// Repositories are created as public (e.g. open source) by default.
+	// Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private *bool `pulumi:"private"`
@@ -370,9 +359,7 @@ type RepositoryState struct {
 	Archived pulumi.BoolPtrInput
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrInput
-	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
 	// Deprecated: Use the BranchDefault resource instead
 	DefaultBranch pulumi.StringPtrInput
@@ -395,13 +382,11 @@ type RepositoryState struct {
 	//
 	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads pulumi.BoolPtrInput
-	// Set to `true` to enable the GitHub Issues features
-	// on the repository.
+	// Set to `true` to enable the GitHub Issues features on the repository.
 	HasIssues pulumi.BoolPtrInput
 	// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
 	HasProjects pulumi.BoolPtrInput
-	// Set to `true` to enable the GitHub Wiki features on
-	// the repository.
+	// Set to `true` to enable the GitHub Wiki features on the repository.
 	HasWiki pulumi.BoolPtrInput
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrInput
@@ -431,8 +416,7 @@ type RepositoryState struct {
 	Pages RepositoryPagesTypePtrInput
 	// The primary language used in the repository.
 	PrimaryLanguage pulumi.StringPtrInput
-	// Set to `true` to create a private repository.
-	// Repositories are created as public (e.g. open source) by default.
+	// Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolPtrInput
@@ -491,9 +475,7 @@ type repositoryArgs struct {
 	Archived *bool `pulumi:"archived"`
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit *bool `pulumi:"autoInit"`
-	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
 	// Deprecated: Use the BranchDefault resource instead
 	DefaultBranch *string `pulumi:"defaultBranch"`
@@ -512,13 +494,11 @@ type repositoryArgs struct {
 	//
 	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads *bool `pulumi:"hasDownloads"`
-	// Set to `true` to enable the GitHub Issues features
-	// on the repository.
+	// Set to `true` to enable the GitHub Issues features on the repository.
 	HasIssues *bool `pulumi:"hasIssues"`
 	// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
 	HasProjects *bool `pulumi:"hasProjects"`
-	// Set to `true` to enable the GitHub Wiki features on
-	// the repository.
+	// Set to `true` to enable the GitHub Wiki features on the repository.
 	HasWiki *bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl *string `pulumi:"homepageUrl"`
@@ -540,8 +520,7 @@ type repositoryArgs struct {
 	//
 	// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
 	Pages *RepositoryPagesType `pulumi:"pages"`
-	// Set to `true` to create a private repository.
-	// Repositories are created as public (e.g. open source) by default.
+	// Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private *bool `pulumi:"private"`
@@ -591,9 +570,7 @@ type RepositoryArgs struct {
 	Archived pulumi.BoolPtrInput
 	// Set to `true` to produce an initial commit in the repository.
 	AutoInit pulumi.BoolPtrInput
-	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+	// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
 	// Deprecated: Use the BranchDefault resource instead
 	DefaultBranch pulumi.StringPtrInput
@@ -612,13 +589,11 @@ type RepositoryArgs struct {
 	//
 	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads pulumi.BoolPtrInput
-	// Set to `true` to enable the GitHub Issues features
-	// on the repository.
+	// Set to `true` to enable the GitHub Issues features on the repository.
 	HasIssues pulumi.BoolPtrInput
 	// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
 	HasProjects pulumi.BoolPtrInput
-	// Set to `true` to enable the GitHub Wiki features on
-	// the repository.
+	// Set to `true` to enable the GitHub Wiki features on the repository.
 	HasWiki pulumi.BoolPtrInput
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrInput
@@ -640,8 +615,7 @@ type RepositoryArgs struct {
 	//
 	// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
 	Pages RepositoryPagesTypePtrInput
-	// Set to `true` to create a private repository.
-	// Repositories are created as public (e.g. open source) by default.
+	// Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
 	//
 	// Deprecated: use visibility instead
 	Private pulumi.BoolPtrInput
@@ -803,9 +777,7 @@ func (o RepositoryOutput) AutoInit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AutoInit }).(pulumi.BoolPtrOutput)
 }
 
-// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+// (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 //
 // Deprecated: Use the BranchDefault resource instead
 func (o RepositoryOutput) DefaultBranch() pulumi.StringOutput {
@@ -858,8 +830,7 @@ func (o RepositoryOutput) HasDownloads() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasDownloads }).(pulumi.BoolPtrOutput)
 }
 
-// Set to `true` to enable the GitHub Issues features
-// on the repository.
+// Set to `true` to enable the GitHub Issues features on the repository.
 func (o RepositoryOutput) HasIssues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasIssues }).(pulumi.BoolPtrOutput)
 }
@@ -869,8 +840,7 @@ func (o RepositoryOutput) HasProjects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasProjects }).(pulumi.BoolPtrOutput)
 }
 
-// Set to `true` to enable the GitHub Wiki features on
-// the repository.
+// Set to `true` to enable the GitHub Wiki features on the repository.
 func (o RepositoryOutput) HasWiki() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasWiki }).(pulumi.BoolPtrOutput)
 }
@@ -939,8 +909,7 @@ func (o RepositoryOutput) PrimaryLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.PrimaryLanguage }).(pulumi.StringOutput)
 }
 
-// Set to `true` to create a private repository.
-// Repositories are created as public (e.g. open source) by default.
+// Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
 //
 // Deprecated: use visibility instead
 func (o RepositoryOutput) Private() pulumi.BoolOutput {

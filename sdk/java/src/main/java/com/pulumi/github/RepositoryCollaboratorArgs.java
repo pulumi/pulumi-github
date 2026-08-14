@@ -18,18 +18,14 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
     public static final RepositoryCollaboratorArgs Empty = new RepositoryCollaboratorArgs();
 
     /**
-     * The permission of the outside collaborator for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
     @Import(name="permission")
     private @Nullable Output<String> permission;
 
     /**
-     * @return The permission of the outside collaborator for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * @return The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
     public Optional<Output<String>> permission() {
@@ -37,14 +33,14 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     * Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
      * 
      */
     @Import(name="permissionDiffSuppression")
     private @Nullable Output<Boolean> permissionDiffSuppression;
 
     /**
-     * @return Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+     * @return Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> permissionDiffSuppression() {
@@ -54,7 +50,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
     /**
      * The GitHub repository
      * 
-     * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+     * &gt; Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      * 
      */
     @Import(name="repository", required=true)
@@ -63,7 +59,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
     /**
      * @return The GitHub repository
      * 
-     * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+     * &gt; Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      * 
      */
     public Output<String> repository() {
@@ -113,9 +109,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param permission The permission of the outside collaborator for the repository.
-         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-         * Must be `push` for personal repositories. Defaults to `push`.
+         * @param permission The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
          * 
          * @return builder
          * 
@@ -126,9 +120,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param permission The permission of the outside collaborator for the repository.
-         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-         * Must be `push` for personal repositories. Defaults to `push`.
+         * @param permission The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
          * 
          * @return builder
          * 
@@ -138,7 +130,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param permissionDiffSuppression Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+         * @param permissionDiffSuppression Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -149,7 +141,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param permissionDiffSuppression Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+         * @param permissionDiffSuppression Suppress plan diffs for `triage` and `maintain`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -161,7 +153,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
         /**
          * @param repository The GitHub repository
          * 
-         * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+         * &gt; Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
          * 
          * @return builder
          * 
@@ -174,7 +166,7 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
         /**
          * @param repository The GitHub repository
          * 
-         * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+         * &gt; Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
          * 
          * @return builder
          * 

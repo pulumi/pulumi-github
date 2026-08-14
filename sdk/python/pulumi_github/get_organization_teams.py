@@ -80,7 +80,7 @@ class GetOrganizationTeamsResult:
     @pulumi.getter
     def teams(self) -> Sequence['outputs.GetOrganizationTeamsTeamResult']:
         """
-        (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+        (Required) An Array of GitHub Teams. Each `team` block consists of the fields documented below.
         """
         return pulumi.get(self, "teams")
 
@@ -107,7 +107,7 @@ def get_organization_teams(results_per_page: Optional[_builtins.int] = None,
 
     ## Example Usage
 
-    To retrieve *all* teams of the organization:
+    To retrieve *all- teams of the organization:
 
     ```python
     import pulumi
@@ -152,7 +152,7 @@ def get_organization_teams_output(results_per_page: pulumi.Input[Optional[Option
 
     ## Example Usage
 
-    To retrieve *all* teams of the organization:
+    To retrieve *all- teams of the organization:
 
     ```python
     import pulumi

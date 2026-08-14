@@ -23,16 +23,14 @@ public final class TeamMembershipState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * @return The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
      * 
      */
     public Optional<Output<String>> role() {
@@ -106,8 +104,7 @@ public final class TeamMembershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param role The role of the user within the team.
-         * Must be one of `member` or `maintainer`. Defaults to `member`.
+         * @param role The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
          * 
          * @return builder
          * 
@@ -118,8 +115,7 @@ public final class TeamMembershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param role The role of the user within the team.
-         * Must be one of `member` or `maintainer`. Defaults to `member`.
+         * @param role The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
          * 
          * @return builder
          * 

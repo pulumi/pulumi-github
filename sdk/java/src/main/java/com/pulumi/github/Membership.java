@@ -18,9 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a GitHub membership resource.
  * 
- * This resource allows you to add/remove users from your organization. When applied,
- * an invitation will be sent to the user to become part of the organization. When
- * destroyed, either the invitation will be cancelled or the user will be removed.
+ * This resource allows you to add/remove users from your organization. When applied, an invitation will be sent to the user to become part of the organization. When destroyed, either the invitation will be cancelled or the user will be removed.
  * 
  * ## Example Usage
  * 
@@ -69,20 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/membership:Membership")
 public class Membership extends com.pulumi.resources.CustomResource {
     /**
-     * Defaults to `false`. If set to true,
-     * when this resource is destroyed, the member will not be removed
-     * from the organization. Instead, the member&#39;s role will be
-     * downgraded to &#39;member&#39;.
+     * Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member&#39;s role will be downgraded to &#39;member&#39;.
      * 
      */
     @Export(name="downgradeOnDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> downgradeOnDestroy;
 
     /**
-     * @return Defaults to `false`. If set to true,
-     * when this resource is destroyed, the member will not be removed
-     * from the organization. Instead, the member&#39;s role will be
-     * downgraded to &#39;member&#39;.
+     * @return Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member&#39;s role will be downgraded to &#39;member&#39;.
      * 
      */
     public Output<Optional<Boolean>> downgradeOnDestroy() {
@@ -95,18 +87,14 @@ public class Membership extends com.pulumi.resources.CustomResource {
         return this.etag;
     }
     /**
-     * The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * `admin` role represents the `owner` role available via GitHub UI.
+     * The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return The role of the user within the organization.
-     * Must be one of `member` or `admin`. Defaults to `member`.
-     * `admin` role represents the `owner` role available via GitHub UI.
+     * @return The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     public Output<Optional<String>> role() {

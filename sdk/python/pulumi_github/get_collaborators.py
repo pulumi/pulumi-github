@@ -56,7 +56,7 @@ class GetCollaboratorsResult:
     @pulumi.getter
     def collaborators(self) -> Sequence['outputs.GetCollaboratorsCollaboratorResult']:
         """
-        An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
+        An Array of GitHub collaborators. Each `collaborator` block consists of the fields documented below.
         """
         return pulumi.get(self, "collaborators")
 
@@ -120,9 +120,9 @@ def get_collaborators(affiliation: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+    :param _builtins.str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
     :param _builtins.str owner: The organization that owns the repository.
-    :param _builtins.str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+    :param _builtins.str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
     :param _builtins.str repository: The name of the repository.
     """
     __args__ = dict()
@@ -159,9 +159,9 @@ def get_collaborators_output(affiliation: pulumi.Input[Optional[Optional[_builti
     ```
 
 
-    :param _builtins.str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+    :param _builtins.str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
     :param _builtins.str owner: The organization that owns the repository.
-    :param _builtins.str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+    :param _builtins.str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
     :param _builtins.str repository: The name of the repository.
     """
     __args__ = dict()

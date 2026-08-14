@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage files within a
-    /// GitHub repository.
+    /// This resource allows you to create and manage files within a GitHub repository.
     /// 
     /// &gt; **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
     /// 
@@ -58,15 +57,21 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Github.Repository("foo", new()
+    ///     var bar = new Github.Repository("bar", new()
     ///     {
-    ///         Name = "example",
+    ///         Name = "example2",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var fooRepositoryFile = new Github.RepositoryFile("foo", new()
+    ///     var barBranch = new Github.Branch("bar", new()
     ///     {
-    ///         Repository = foo.Name,
+    ///         BranchName = "does/not/exist",
+    ///         Repository = bar.Name,
+    ///     });
+    /// 
+    ///     var barRepositoryFile = new Github.RepositoryFile("bar", new()
+    ///     {
+    ///         Repository = bar.Name,
     ///         Branch = "does/not/exist",
     ///         File = ".gitignore",
     ///         Content = "**/*.tfstate",
@@ -74,7 +79,6 @@ namespace Pulumi.Github
     ///         CommitAuthor = "Terraform User",
     ///         CommitEmail = "terraform@example.com",
     ///         OverwriteOnCreate = true,
-    ///         AutocreateBranch = true,
     ///     });
     /// 
     /// });
@@ -82,7 +86,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Repository files can be imported using a combination of the `Repo`, `File` and `Branch` or empty branch for the default branch, e.g.
+    /// Repository files can be imported using a combination of the `Repo`, `file path` (any `:` in the file path need to be escaped as `??`) and `Branch` or empty branch for the default branch, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
@@ -116,8 +120,7 @@ namespace Pulumi.Github
         public Output<string> AutocreateBranchSourceSha { get; private set; } = null!;
 
         /// <summary>
-        /// Git branch (defaults to the repository's default branch).
-        /// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        /// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         /// </summary>
         [Output("branch")]
         public Output<string> Branch { get; private set; } = null!;
@@ -253,8 +256,7 @@ namespace Pulumi.Github
         public Input<string>? AutocreateBranchSourceSha { get; set; }
 
         /// <summary>
-        /// Git branch (defaults to the repository's default branch).
-        /// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        /// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
@@ -328,8 +330,7 @@ namespace Pulumi.Github
         public Input<string>? AutocreateBranchSourceSha { get; set; }
 
         /// <summary>
-        /// Git branch (defaults to the repository's default branch).
-        /// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
+        /// Git branch (defaults to the repository's default branch). The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }

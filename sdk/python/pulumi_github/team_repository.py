@@ -27,8 +27,7 @@ class TeamRepositoryArgs:
 
         :param pulumi.Input[_builtins.str] repository: The repository to add to the team.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
-        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "team_id", team_id)
@@ -63,8 +62,7 @@ class TeamRepositoryArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         return pulumi.get(self, "permission")
 
@@ -83,8 +81,7 @@ class _TeamRepositoryState:
         """
         Input properties used for looking up and filtering TeamRepository resources.
 
-        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         :param pulumi.Input[_builtins.str] repository: The repository to add to the team.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         """
@@ -110,8 +107,7 @@ class _TeamRepositoryState:
     @pulumi.getter
     def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         return pulumi.get(self, "permission")
 
@@ -155,23 +151,17 @@ class TeamRepository(pulumi.CustomResource):
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
-        they will fight over what your policy should be.
+        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or they will fight over what your policy should be.
 
-        This resource manages relationships between teams and repositories
-        in your GitHub organization.
+        This resource manages relationships between teams and repositories in your GitHub organization.
 
-        Creating this resource grants a particular team permissions on a
-        particular repository.
+        Creating this resource grants a particular team permissions on a particular repository.
 
-        The repository and the team must both belong to the same organization
-        on GitHub. This resource does not actually *create* any repositories;
-        to do that, see `Repository`.
+        The repository and the team must both belong to the same organization on GitHub. This resource does not actually *create* any repositories.
 
         > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing team permission modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
-        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
-        instead.
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators instead.
 
         ## Example Usage
 
@@ -202,8 +192,7 @@ class TeamRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         :param pulumi.Input[_builtins.str] repository: The repository to add to the team.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         """
@@ -214,23 +203,17 @@ class TeamRepository(pulumi.CustomResource):
                  args: TeamRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
-        they will fight over what your policy should be.
+        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or they will fight over what your policy should be.
 
-        This resource manages relationships between teams and repositories
-        in your GitHub organization.
+        This resource manages relationships between teams and repositories in your GitHub organization.
 
-        Creating this resource grants a particular team permissions on a
-        particular repository.
+        Creating this resource grants a particular team permissions on a particular repository.
 
-        The repository and the team must both belong to the same organization
-        on GitHub. This resource does not actually *create* any repositories;
-        to do that, see `Repository`.
+        The repository and the team must both belong to the same organization on GitHub. This resource does not actually *create* any repositories.
 
         > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing team permission modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 
-        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
-        instead.
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators instead.
 
         ## Example Usage
 
@@ -315,8 +298,7 @@ class TeamRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         :param pulumi.Input[_builtins.str] repository: The repository to add to the team.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         """
@@ -339,8 +321,7 @@ class TeamRepository(pulumi.CustomResource):
     @pulumi.getter
     def permission(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The permissions of team members regarding the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         """
         return pulumi.get(self, "permission")
 

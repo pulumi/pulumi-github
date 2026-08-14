@@ -15,14 +15,14 @@ public final class RepositoryCollaboratorsIgnoreTeamArgs extends com.pulumi.reso
     public static final RepositoryCollaboratorsIgnoreTeamArgs Empty = new RepositoryCollaboratorsIgnoreTeamArgs();
 
     /**
-     * The GitHub team id or the GitHub team slug.
+     * ID or slug of the team to ignore.
      * 
      */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
     /**
-     * @return The GitHub team id or the GitHub team slug.
+     * @return ID or slug of the team to ignore.
      * 
      */
     public Output<String> teamId() {
@@ -54,7 +54,7 @@ public final class RepositoryCollaboratorsIgnoreTeamArgs extends com.pulumi.reso
         }
 
         /**
-         * @param teamId The GitHub team id or the GitHub team slug.
+         * @param teamId ID or slug of the team to ignore.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class RepositoryCollaboratorsIgnoreTeamArgs extends com.pulumi.reso
         }
 
         /**
-         * @param teamId The GitHub team id or the GitHub team slug.
+         * @param teamId ID or slug of the team to ignore.
          * 
          * @return builder
          * 

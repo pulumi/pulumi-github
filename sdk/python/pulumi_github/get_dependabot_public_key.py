@@ -85,8 +85,7 @@ class AwaitableGetDependabotPublicKeyResult(GetDependabotPublicKeyResult):
 def get_dependabot_public_key(repository: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDependabotPublicKeyResult:
     """
-    Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
+    Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
 
     ## Example Usage
 
@@ -113,8 +112,7 @@ def get_dependabot_public_key(repository: Optional[_builtins.str] = None,
 def get_dependabot_public_key_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDependabotPublicKeyResult]:
     """
-    Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
+    Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
 
     ## Example Usage
 

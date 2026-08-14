@@ -47,7 +47,7 @@ class GetOrganizationSecurityManagersResult:
     @pulumi.getter
     def teams(self) -> Sequence['outputs.GetOrganizationSecurityManagersTeamResult']:
         """
-        An list of GitHub teams.  Each `team` block consists of the fields documented below.
+        An list of GitHub teams. Each `team` block consists of the fields documented below.
         """
         return pulumi.get(self, "teams")
 

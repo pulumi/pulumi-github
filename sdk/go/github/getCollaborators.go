@@ -51,11 +51,11 @@ func GetCollaborators(ctx *pulumi.Context, args *GetCollaboratorsArgs, opts ...p
 
 // A collection of arguments for invoking getCollaborators.
 type GetCollaboratorsArgs struct {
-	// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+	// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
 	Affiliation *string `pulumi:"affiliation"`
 	// The organization that owns the repository.
 	Owner string `pulumi:"owner"`
-	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
 	Permission *string `pulumi:"permission"`
 	// The name of the repository.
 	Repository string `pulumi:"repository"`
@@ -64,7 +64,7 @@ type GetCollaboratorsArgs struct {
 // A collection of values returned by getCollaborators.
 type GetCollaboratorsResult struct {
 	Affiliation *string `pulumi:"affiliation"`
-	// An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
+	// An Array of GitHub collaborators. Each `collaborator` block consists of the fields documented below.
 	Collaborators []GetCollaboratorsCollaborator `pulumi:"collaborators"`
 	// The provider-assigned unique ID for this managed resource.
 	Id    string `pulumi:"id"`
@@ -85,11 +85,11 @@ func GetCollaboratorsOutput(ctx *pulumi.Context, args GetCollaboratorsOutputArgs
 
 // A collection of arguments for invoking getCollaborators.
 type GetCollaboratorsOutputArgs struct {
-	// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+	// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
 	Affiliation pulumi.StringPtrInput `pulumi:"affiliation"`
 	// The organization that owns the repository.
 	Owner pulumi.StringInput `pulumi:"owner"`
-	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
 	Permission pulumi.StringPtrInput `pulumi:"permission"`
 	// The name of the repository.
 	Repository pulumi.StringInput `pulumi:"repository"`
@@ -118,7 +118,7 @@ func (o GetCollaboratorsResultOutput) Affiliation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCollaboratorsResult) *string { return v.Affiliation }).(pulumi.StringPtrOutput)
 }
 
-// An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
+// An Array of GitHub collaborators. Each `collaborator` block consists of the fields documented below.
 func (o GetCollaboratorsResultOutput) Collaborators() GetCollaboratorsCollaboratorArrayOutput {
 	return o.ApplyT(func(v GetCollaboratorsResult) []GetCollaboratorsCollaborator { return v.Collaborators }).(GetCollaboratorsCollaboratorArrayOutput)
 }

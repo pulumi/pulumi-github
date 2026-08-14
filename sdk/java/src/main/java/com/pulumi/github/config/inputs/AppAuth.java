@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class AppAuth {
     /**
-     * @return The GitHub App ID.
+     * @return The GitHub App&#39;s identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
      * 
      */
     private String id;
     /**
-     * @return The GitHub App installation instance ID.
+     * @return The GitHub App&#39;s installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
      * 
      */
     private String installationId;
     /**
-     * @return The GitHub App PEM file contents.
+     * @return The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     private String pemFile;
 
     private AppAuth() {}
     /**
-     * @return The GitHub App ID.
+     * @return The GitHub App&#39;s identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The GitHub App installation instance ID.
+     * @return The GitHub App&#39;s installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
      * 
      */
     public String installationId() {
         return this.installationId;
     }
     /**
-     * @return The GitHub App PEM file contents.
+     * @return The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     public String pemFile() {

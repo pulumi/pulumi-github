@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * To retrieve *all* webhooks of the organization:
+ * To retrieve *all- webhooks of the organization:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,8 +35,7 @@ export interface GetOrganizationWebhooksResult {
      */
     readonly id: string;
     /**
-     * An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-     * ***
+     * An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
      */
     readonly webhooks: outputs.GetOrganizationWebhooksWebhook[];
 }
@@ -45,7 +44,7 @@ export interface GetOrganizationWebhooksResult {
  *
  * ## Example Usage
  *
- * To retrieve *all* webhooks of the organization:
+ * To retrieve *all- webhooks of the organization:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

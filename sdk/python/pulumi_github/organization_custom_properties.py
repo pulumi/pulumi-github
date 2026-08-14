@@ -338,14 +338,6 @@ class OrganizationCustomProperties(pulumi.CustomResource):
             default_value="false")
         ```
 
-        ## Import
-
-        Organization custom properties can be imported using the property name:
-
-        ```sh
-        $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,14 +420,6 @@ class OrganizationCustomProperties(pulumi.CustomResource):
             required=False,
             description="Whether this repository is archived",
             default_value="false")
-        ```
-
-        ## Import
-
-        Organization custom properties can be imported using the property name:
-
-        ```sh
-        $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
         ```
 
 

@@ -13,14 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class TeamMembersMemberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
+        /// Role to grant the user within the team; must be one of `Member` or `Maintainer`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The user to add to the team.
+        /// User to add to the team.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

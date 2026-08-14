@@ -12,11 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage a specific custom property for a GitHub repository.
+// Resource to manage GitHub repository custom properties.
+// For more information, see the [GitHub API documentation](https://docs.github.com/rest/metadata/custom-properties#create-or-update-repository-custom-property).
 //
 // ## Example Usage
-//
-// > Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `string`
 //
 // ```go
 // package main
@@ -30,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// NOTE: This assumes there already is a custom property defined on the org level called `my-cool-string` of type `string`
 //			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome codebase"),
@@ -37,9 +37,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryCustomProperty(ctx, "string", &github.RepositoryCustomPropertyArgs{
+//			_, err = github.NewRepositoryCustomProperty(ctx, "example", &github.RepositoryCustomPropertyArgs{
 //				Repository:   example.Name,
-//				PropertyName: pulumi.String("my-cool-property"),
+//				PropertyName: pulumi.String("my-cool-string"),
 //				PropertyType: pulumi.String("string"),
 //				PropertyValues: pulumi.StringArray{
 //					pulumi.String("test"),
@@ -56,7 +56,7 @@ import (
 //
 // ## Import
 //
-// GitHub Repository Custom Property can be imported using an ID made up of a combination of the names of the organization, repository, custom property separated by a `:` character, e.g.
+// The `pulumi import` command can be used, for example:
 //
 // ```sh
 // $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
@@ -64,14 +64,16 @@ import (
 type RepositoryCustomProperty struct {
 	pulumi.CustomResourceState
 
-	// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+	// Name of the custom property.
 	PropertyName pulumi.StringOutput `pulumi:"propertyName"`
-	// Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+	// Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
 	PropertyType pulumi.StringOutput `pulumi:"propertyType"`
-	// Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+	// Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
 	PropertyValues pulumi.StringArrayOutput `pulumi:"propertyValues"`
-	// The repository of the environment.
+	// Name of the repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
 }
 
 // NewRepositoryCustomProperty registers a new resource with the given unique name, arguments, and options.
@@ -116,25 +118,29 @@ func GetRepositoryCustomProperty(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryCustomProperty resources.
 type repositoryCustomPropertyState struct {
-	// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+	// Name of the custom property.
 	PropertyName *string `pulumi:"propertyName"`
-	// Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+	// Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
 	PropertyType *string `pulumi:"propertyType"`
-	// Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+	// Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
 	PropertyValues []string `pulumi:"propertyValues"`
-	// The repository of the environment.
+	// Name of the repository.
 	Repository *string `pulumi:"repository"`
+	// ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
 }
 
 type RepositoryCustomPropertyState struct {
-	// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+	// Name of the custom property.
 	PropertyName pulumi.StringPtrInput
-	// Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+	// Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
 	PropertyType pulumi.StringPtrInput
-	// Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+	// Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
 	PropertyValues pulumi.StringArrayInput
-	// The repository of the environment.
+	// Name of the repository.
 	Repository pulumi.StringPtrInput
+	// ID of the repository.
+	RepositoryId pulumi.IntPtrInput
 }
 
 func (RepositoryCustomPropertyState) ElementType() reflect.Type {
@@ -142,25 +148,25 @@ func (RepositoryCustomPropertyState) ElementType() reflect.Type {
 }
 
 type repositoryCustomPropertyArgs struct {
-	// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+	// Name of the custom property.
 	PropertyName string `pulumi:"propertyName"`
-	// Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+	// Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
 	PropertyType string `pulumi:"propertyType"`
-	// Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+	// Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
 	PropertyValues []string `pulumi:"propertyValues"`
-	// The repository of the environment.
+	// Name of the repository.
 	Repository string `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryCustomProperty resource.
 type RepositoryCustomPropertyArgs struct {
-	// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+	// Name of the custom property.
 	PropertyName pulumi.StringInput
-	// Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+	// Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
 	PropertyType pulumi.StringInput
-	// Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+	// Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
 	PropertyValues pulumi.StringArrayInput
-	// The repository of the environment.
+	// Name of the repository.
 	Repository pulumi.StringInput
 }
 
@@ -251,24 +257,29 @@ func (o RepositoryCustomPropertyOutput) ToRepositoryCustomPropertyOutputWithCont
 	return o
 }
 
-// Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+// Name of the custom property.
 func (o RepositoryCustomPropertyOutput) PropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCustomProperty) pulumi.StringOutput { return v.PropertyName }).(pulumi.StringOutput)
 }
 
-// Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+// Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
 func (o RepositoryCustomPropertyOutput) PropertyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCustomProperty) pulumi.StringOutput { return v.PropertyType }).(pulumi.StringOutput)
 }
 
-// Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+// Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
 func (o RepositoryCustomPropertyOutput) PropertyValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryCustomProperty) pulumi.StringArrayOutput { return v.PropertyValues }).(pulumi.StringArrayOutput)
 }
 
-// The repository of the environment.
+// Name of the repository.
 func (o RepositoryCustomPropertyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCustomProperty) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// ID of the repository.
+func (o RepositoryCustomPropertyOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *RepositoryCustomProperty) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
 }
 
 type RepositoryCustomPropertyArrayOutput struct{ *pulumi.OutputState }

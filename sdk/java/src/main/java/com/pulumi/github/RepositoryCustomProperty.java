@@ -10,16 +10,16 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.RepositoryCustomPropertyArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryCustomPropertyState;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage a specific custom property for a GitHub repository.
+ * Resource to manage GitHub repository custom properties.
+ * For more information, see the [GitHub API documentation](https://docs.github.com/rest/metadata/custom-properties#create-or-update-repository-custom-property).
  * 
  * ## Example Usage
- * 
- * &gt; Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `string`
  * 
  * <pre>
  * {@code
@@ -45,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // NOTE: This assumes there already is a custom property defined on the org level called `my-cool-string` of type `string`
  *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example")
  *             .description("My awesome codebase")
  *             .build());
  * 
- *         var string = new RepositoryCustomProperty("string", RepositoryCustomPropertyArgs.builder()
+ *         var exampleRepositoryCustomProperty = new RepositoryCustomProperty("exampleRepositoryCustomProperty", RepositoryCustomPropertyArgs.builder()
  *             .repository(example.name())
- *             .propertyName("my-cool-property")
+ *             .propertyName("my-cool-string")
  *             .propertyType("string")
  *             .propertyValues("test")
  *             .build());
@@ -64,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub Repository Custom Property can be imported using an ID made up of a combination of the names of the organization, repository, custom property separated by a `:` character, e.g.
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
  * $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
@@ -74,60 +75,74 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/repositoryCustomProperty:RepositoryCustomProperty")
 public class RepositoryCustomProperty extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * Name of the custom property.
      * 
      */
     @Export(name="propertyName", refs={String.class}, tree="[0]")
     private Output<String> propertyName;
 
     /**
-     * @return Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * @return Name of the custom property.
      * 
      */
     public Output<String> propertyName() {
         return this.propertyName;
     }
     /**
-     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      * 
      */
     @Export(name="propertyType", refs={String.class}, tree="[0]")
     private Output<String> propertyType;
 
     /**
-     * @return Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * @return Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      * 
      */
     public Output<String> propertyType() {
         return this.propertyType;
     }
     /**
-     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      * 
      */
     @Export(name="propertyValues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> propertyValues;
 
     /**
-     * @return Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * @return Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      * 
      */
     public Output<List<String>> propertyValues() {
         return this.propertyValues;
     }
     /**
-     * The repository of the environment.
+     * Name of the repository.
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
-     * @return The repository of the environment.
+     * @return Name of the repository.
      * 
      */
     public Output<String> repository() {
         return this.repository;
+    }
+    /**
+     * ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
     }
 
     /**

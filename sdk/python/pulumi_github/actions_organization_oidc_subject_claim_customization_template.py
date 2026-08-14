@@ -74,11 +74,9 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
                  include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
-        organization.
+        This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub organization.
 
-        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
-        available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
         ## Example Usage
 
@@ -113,11 +111,9 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
                  args: ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
-        organization.
+        This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub organization.
 
-        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
-        available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+        More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
         ## Example Usage
 

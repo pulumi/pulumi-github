@@ -168,8 +168,8 @@ class ActionsOrganizationWorkflowPermissions(pulumi.CustomResource):
 
         When this resource is destroyed, the workflow permissions will be reset to safe defaults:
 
-        * `default_workflow_permissions` = `read`
-        * `can_approve_pull_request_reviews` = `false`
+        - `default_workflow_permissions` = `read`
+        - `can_approve_pull_request_reviews` = `false`
 
         ## Import
 
@@ -221,8 +221,8 @@ class ActionsOrganizationWorkflowPermissions(pulumi.CustomResource):
 
         When this resource is destroyed, the workflow permissions will be reset to safe defaults:
 
-        * `default_workflow_permissions` = `read`
-        * `can_approve_pull_request_reviews` = `false`
+        - `default_workflow_permissions` = `read`
+        - `can_approve_pull_request_reviews` = `false`
 
         ## Import
 

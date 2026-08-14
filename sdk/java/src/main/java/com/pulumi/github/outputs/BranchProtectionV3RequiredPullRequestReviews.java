@@ -31,8 +31,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
      */
     private @Nullable List<String> dismissalApps;
     /**
-     * @return The list of team slugs with dismissal access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * @return The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     private @Nullable List<String> dismissalTeams;
@@ -54,7 +53,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
      */
     private @Nullable Boolean requireCodeOwnerReviews;
     /**
-     * @return Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * @return Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     private @Nullable Boolean requireLastPushApproval;
@@ -87,8 +86,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         return this.dismissalApps == null ? List.of() : this.dismissalApps;
     }
     /**
-     * @return The list of team slugs with dismissal access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * @return The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     public List<String> dismissalTeams() {
@@ -118,7 +116,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
     /**
-     * @return Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * @return Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     public Optional<Boolean> requireLastPushApproval() {

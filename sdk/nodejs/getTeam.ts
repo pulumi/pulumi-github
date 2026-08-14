@@ -35,11 +35,11 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetTeamArgs {
     /**
-     * Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+     * Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
      */
     membershipType?: string;
     /**
-     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
      *
      * @deprecated This is deprecated and will be removed in a future release.
      */
@@ -139,11 +139,11 @@ export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOutpu
  */
 export interface GetTeamOutputArgs {
     /**
-     * Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+     * Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
      */
     membershipType?: pulumi.Input<string | undefined>;
     /**
-     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
      *
      * @deprecated This is deprecated and will be removed in a future release.
      */

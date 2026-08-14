@@ -12,9 +12,7 @@ namespace Pulumi.Github
     public static class GetActionsEnvironmentPublicKey
     {
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to a repository to retrieve the action public keys of it's environments.
-        /// 
+        /// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to a repository to retrieve the action public keys of it's environments.
         /// 
         /// ## Example Usage
         /// 
@@ -39,9 +37,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsEnvironmentPublicKeyResult>("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", args ?? new GetActionsEnvironmentPublicKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to a repository to retrieve the action public keys of it's environments.
-        /// 
+        /// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to a repository to retrieve the action public keys of it's environments.
         /// 
         /// ## Example Usage
         /// 
@@ -66,9 +62,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsEnvironmentPublicKeyResult>("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", args ?? new GetActionsEnvironmentPublicKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to a repository to retrieve the action public keys of it's environments.
-        /// 
+        /// Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to a repository to retrieve the action public keys of it's environments.
         /// 
         /// ## Example Usage
         /// 

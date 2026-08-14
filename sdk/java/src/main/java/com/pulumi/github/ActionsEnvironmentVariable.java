@@ -15,8 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.
- * You must have write access to a repository to use this resource.
+ * This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments. You must have write access to a repository to use this resource.
  * 
  * ## Example Usage
  * 
@@ -104,6 +103,10 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and variable name all separated by a `:`.
+ * 
+ * ### Import Block
+ * 
+ * The following import imports a GitHub actions environment variable named `myvariable` for the repo `myrepo` and environment `myenv` to a `github.ActionsEnvironmentVariable` resource named `example`.
  * 
  * ### Import Command
  * 

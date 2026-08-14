@@ -85,8 +85,7 @@ class AwaitableGetCodespacesPublicKeyResult(GetCodespacesPublicKeyResult):
 def get_codespaces_public_key(repository: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodespacesPublicKeyResult:
     """
-    Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
+    Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
 
     ## Example Usage
 
@@ -113,8 +112,7 @@ def get_codespaces_public_key(repository: Optional[_builtins.str] = None,
 def get_codespaces_public_key_output(repository: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodespacesPublicKeyResult]:
     """
-    Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
+    Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
 
     ## Example Usage
 

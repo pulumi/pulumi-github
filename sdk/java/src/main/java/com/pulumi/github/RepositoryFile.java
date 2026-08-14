@@ -17,8 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage files within a
- * GitHub repository.
+ * This resource allows you to create and manage files within a GitHub repository.
  * 
  * &gt; **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
  * 
@@ -82,6 +81,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
  * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.Branch;
+ * import com.pulumi.github.BranchArgs;
  * import com.pulumi.github.RepositoryFile;
  * import com.pulumi.github.RepositoryFileArgs;
  * import java.util.ArrayList;
@@ -97,13 +98,18 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         var foo = new Repository("foo", RepositoryArgs.builder()
- *             .name("example")
+ *         var bar = new Repository("bar", RepositoryArgs.builder()
+ *             .name("example2")
  *             .autoInit(true)
  *             .build());
  * 
- *         var fooRepositoryFile = new RepositoryFile("fooRepositoryFile", RepositoryFileArgs.builder()
- *             .repository(foo.name())
+ *         var barBranch = new Branch("barBranch", BranchArgs.builder()
+ *             .branch("does/not/exist")
+ *             .repository(bar.name())
+ *             .build());
+ * 
+ *         var barRepositoryFile = new RepositoryFile("barRepositoryFile", RepositoryFileArgs.builder()
+ *             .repository(bar.name())
  *             .branch("does/not/exist")
  *             .file(".gitignore")
  *             .content("**}&#47;{@code *.tfstate")
@@ -111,7 +117,6 @@ import javax.annotation.Nullable;
  *             .commitAuthor("Terraform User")
  *             .commitEmail("terraform}{@literal @}{@code example.com")
  *             .overwriteOnCreate(true)
- *             .autocreateBranch(true)
  *             .build());
  * 
  *     }}{@code
@@ -121,7 +126,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
+ * Repository files can be imported using a combination of the `repo`, `file path` (any `:` in the file path need to be escaped as `??`) and `branch` or empty branch for the default branch, e.g.
  * 
  * ```sh
  * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
@@ -191,16 +196,14 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
         return this.autocreateBranchSourceSha;
     }
     /**
-     * Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
+     * Git branch (defaults to the repository&#39;s default branch). The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     @Export(name="branch", refs={String.class}, tree="[0]")
     private Output<String> branch;
 
     /**
-     * @return Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
+     * @return Git branch (defaults to the repository&#39;s default branch). The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     public Output<String> branch() {

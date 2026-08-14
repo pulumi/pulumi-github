@@ -195,8 +195,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class GithubFunctions {
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
      * 
      * ## Example Usage
      * 
@@ -237,8 +236,7 @@ public final class GithubFunctions {
         return getActionsEnvironmentPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
      * 
      * ## Example Usage
      * 
@@ -279,8 +277,7 @@ public final class GithubFunctions {
         return getActionsEnvironmentPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
      * 
      * ## Example Usage
      * 
@@ -321,8 +318,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", TypeShape.of(GetActionsEnvironmentPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
      * 
      * ## Example Usage
      * 
@@ -363,8 +359,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", TypeShape.of(GetActionsEnvironmentPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
      * 
      * ## Example Usage
      * 
@@ -1074,8 +1069,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -1112,8 +1106,7 @@ public final class GithubFunctions {
         return getActionsOrganizationPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -1150,8 +1143,7 @@ public final class GithubFunctions {
         return getActionsOrganizationPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -1188,8 +1180,7 @@ public final class GithubFunctions {
         return getActionsOrganizationPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -1226,8 +1217,7 @@ public final class GithubFunctions {
         return getActionsOrganizationPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -1264,8 +1254,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", TypeShape.of(GetActionsOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -1302,8 +1291,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", TypeShape.of(GetActionsOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -2117,8 +2105,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", TypeShape.of(GetActionsOrganizationVariablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -2158,8 +2145,7 @@ public final class GithubFunctions {
         return getActionsPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -2199,8 +2185,7 @@ public final class GithubFunctions {
         return getActionsPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -2240,8 +2225,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getActionsPublicKey:getActionsPublicKey", TypeShape.of(GetActionsPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -2281,8 +2265,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getActionsPublicKey:getActionsPublicKey", TypeShape.of(GetActionsPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
+     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
      * 
@@ -3294,7 +3277,6 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3313,9 +3295,7 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(FileArgs.builder()
-     *                 .input("foo/bar.pem")
-     *                 .build()).result())
+     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
      *             .build());
      * 
      *     }
@@ -3340,7 +3320,6 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3359,9 +3338,7 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(FileArgs.builder()
-     *                 .input("foo/bar.pem")
-     *                 .build()).result())
+     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
      *             .build());
      * 
      *     }
@@ -3386,7 +3363,6 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3405,9 +3381,7 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(FileArgs.builder()
-     *                 .input("foo/bar.pem")
-     *                 .build()).result())
+     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
      *             .build());
      * 
      *     }
@@ -3432,7 +3406,6 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3451,9 +3424,7 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(FileArgs.builder()
-     *                 .input("foo/bar.pem")
-     *                 .build()).result())
+     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
      *             .build());
      * 
      *     }
@@ -3478,7 +3449,6 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3497,9 +3467,7 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(FileArgs.builder()
-     *                 .input("foo/bar.pem")
-     *                 .build()).result())
+     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
      *             .build());
      * 
      *     }
@@ -3917,8 +3885,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getBranchProtectionRules:getBranchProtectionRules", TypeShape.of(GetBranchProtectionRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -3955,8 +3922,7 @@ public final class GithubFunctions {
         return getCodespacesOrganizationPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -3993,8 +3959,7 @@ public final class GithubFunctions {
         return getCodespacesOrganizationPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4031,8 +3996,7 @@ public final class GithubFunctions {
         return getCodespacesOrganizationPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4069,8 +4033,7 @@ public final class GithubFunctions {
         return getCodespacesOrganizationPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4107,8 +4070,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", TypeShape.of(GetCodespacesOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4145,8 +4107,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", TypeShape.of(GetCodespacesOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4442,8 +4403,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", TypeShape.of(GetCodespacesOrganizationSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4483,8 +4443,7 @@ public final class GithubFunctions {
         return getCodespacesPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4524,8 +4483,7 @@ public final class GithubFunctions {
         return getCodespacesPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4565,8 +4523,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getCodespacesPublicKey:getCodespacesPublicKey", TypeShape.of(GetCodespacesPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4606,8 +4563,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getCodespacesPublicKey:getCodespacesPublicKey", TypeShape.of(GetCodespacesPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4955,8 +4911,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getCodespacesSecrets:getCodespacesSecrets", TypeShape.of(GetCodespacesSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -4993,8 +4948,7 @@ public final class GithubFunctions {
         return getCodespacesUserPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -5031,8 +4985,7 @@ public final class GithubFunctions {
         return getCodespacesUserPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -5069,8 +5022,7 @@ public final class GithubFunctions {
         return getCodespacesUserPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -5107,8 +5059,7 @@ public final class GithubFunctions {
         return getCodespacesUserPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -5145,8 +5096,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", TypeShape.of(GetCodespacesUserPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -5183,8 +5133,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", TypeShape.of(GetCodespacesUserPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
      * 
@@ -5685,8 +5634,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getCollaborators:getCollaborators", TypeShape.of(GetCollaboratorsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -5723,8 +5671,7 @@ public final class GithubFunctions {
         return getDependabotOrganizationPublicKey(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -5761,8 +5708,7 @@ public final class GithubFunctions {
         return getDependabotOrganizationPublicKeyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -5799,8 +5745,7 @@ public final class GithubFunctions {
         return getDependabotOrganizationPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -5837,8 +5782,7 @@ public final class GithubFunctions {
         return getDependabotOrganizationPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -5875,8 +5819,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", TypeShape.of(GetDependabotOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -5913,8 +5856,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", TypeShape.of(GetDependabotOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -6210,8 +6152,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -6251,8 +6192,7 @@ public final class GithubFunctions {
         return getDependabotPublicKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -6292,8 +6232,7 @@ public final class GithubFunctions {
         return getDependabotPublicKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -6333,8 +6272,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -6374,8 +6312,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
      * 
@@ -7175,7 +7112,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getExternalGroups:getExternalGroups", TypeShape.of(GetExternalGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an app.
+     * Get information about an app.
      * 
      * ## Example Usage
      * 
@@ -7215,7 +7152,7 @@ public final class GithubFunctions {
         return getGithubApp(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an app.
+     * Get information about an app.
      * 
      * ## Example Usage
      * 
@@ -7255,7 +7192,7 @@ public final class GithubFunctions {
         return getGithubAppPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an app.
+     * Get information about an app.
      * 
      * ## Example Usage
      * 
@@ -7295,7 +7232,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getGithubApp:getGithubApp", TypeShape.of(GetGithubAppResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an app.
+     * Get information about an app.
      * 
      * ## Example Usage
      * 
@@ -7335,7 +7272,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getGithubApp:getGithubApp", TypeShape.of(GetGithubAppResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an app.
+     * Get information about an app.
      * 
      * ## Example Usage
      * 
@@ -7669,10 +7606,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getIssueLabels:getIssueLabels", TypeShape.of(GetIssueLabelsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to find out if a user is a member of your organization, as well
-     * as what role they have within it.
-     * If the user&#39;s membership in the organization is pending their acceptance of an invite,
-     * the role they would have once they accept will be returned.
+     * Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user&#39;s membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
      * 
      * ## Example Usage
      * 
@@ -7712,10 +7646,7 @@ public final class GithubFunctions {
         return getMembership(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to find out if a user is a member of your organization, as well
-     * as what role they have within it.
-     * If the user&#39;s membership in the organization is pending their acceptance of an invite,
-     * the role they would have once they accept will be returned.
+     * Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user&#39;s membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
      * 
      * ## Example Usage
      * 
@@ -7755,10 +7686,7 @@ public final class GithubFunctions {
         return getMembershipPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to find out if a user is a member of your organization, as well
-     * as what role they have within it.
-     * If the user&#39;s membership in the organization is pending their acceptance of an invite,
-     * the role they would have once they accept will be returned.
+     * Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user&#39;s membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
      * 
      * ## Example Usage
      * 
@@ -7798,10 +7726,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getMembership:getMembership", TypeShape.of(GetMembershipResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to find out if a user is a member of your organization, as well
-     * as what role they have within it.
-     * If the user&#39;s membership in the organization is pending their acceptance of an invite,
-     * the role they would have once they accept will be returned.
+     * Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user&#39;s membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
      * 
      * ## Example Usage
      * 
@@ -7841,10 +7766,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getMembership:getMembership", TypeShape.of(GetMembershipResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to find out if a user is a member of your organization, as well
-     * as what role they have within it.
-     * If the user&#39;s membership in the organization is pending their acceptance of an invite,
-     * the role they would have once they accept will be returned.
+     * Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user&#39;s membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
      * 
      * ## Example Usage
      * 
@@ -8777,8 +8699,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -8815,8 +8736,7 @@ public final class GithubFunctions {
         return getOrganizationExternalIdentities(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -8853,8 +8773,7 @@ public final class GithubFunctions {
         return getOrganizationExternalIdentitiesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -8891,8 +8810,7 @@ public final class GithubFunctions {
         return getOrganizationExternalIdentities(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -8929,8 +8847,7 @@ public final class GithubFunctions {
         return getOrganizationExternalIdentitiesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -8967,8 +8884,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", TypeShape.of(GetOrganizationExternalIdentitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -9005,8 +8921,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", TypeShape.of(GetOrganizationExternalIdentitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -9043,9 +8958,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", TypeShape.of(GetOrganizationExternalIdentitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about the IP allow list of an organization.
-     * The allow list for IP addresses will block access to private resources via the web, API,
-     * and Git from any IP addresses that are not on the allow list.
+     * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
      * 
@@ -9082,9 +8995,7 @@ public final class GithubFunctions {
         return getOrganizationIpAllowList(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about the IP allow list of an organization.
-     * The allow list for IP addresses will block access to private resources via the web, API,
-     * and Git from any IP addresses that are not on the allow list.
+     * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
      * 
@@ -9121,9 +9032,7 @@ public final class GithubFunctions {
         return getOrganizationIpAllowListPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about the IP allow list of an organization.
-     * The allow list for IP addresses will block access to private resources via the web, API,
-     * and Git from any IP addresses that are not on the allow list.
+     * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
      * 
@@ -9160,9 +9069,7 @@ public final class GithubFunctions {
         return getOrganizationIpAllowList(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about the IP allow list of an organization.
-     * The allow list for IP addresses will block access to private resources via the web, API,
-     * and Git from any IP addresses that are not on the allow list.
+     * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
      * 
@@ -9199,9 +9106,7 @@ public final class GithubFunctions {
         return getOrganizationIpAllowListPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about the IP allow list of an organization.
-     * The allow list for IP addresses will block access to private resources via the web, API,
-     * and Git from any IP addresses that are not on the allow list.
+     * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
      * 
@@ -9238,9 +9143,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", TypeShape.of(GetOrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about the IP allow list of an organization.
-     * The allow list for IP addresses will block access to private resources via the web, API,
-     * and Git from any IP addresses that are not on the allow list.
+     * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
      * 
@@ -9277,9 +9180,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", TypeShape.of(GetOrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about the IP allow list of an organization.
-     * The allow list for IP addresses will block access to private resources via the web, API,
-     * and Git from any IP addresses that are not on the allow list.
+     * Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
      * 
@@ -11421,7 +11322,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* teams of the organization:
+     * To retrieve *all- teams of the organization:
      * 
      * <pre>
      * {@code
@@ -11495,7 +11396,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* teams of the organization:
+     * To retrieve *all- teams of the organization:
      * 
      * <pre>
      * {@code
@@ -11569,7 +11470,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* teams of the organization:
+     * To retrieve *all- teams of the organization:
      * 
      * <pre>
      * {@code
@@ -11643,7 +11544,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* teams of the organization:
+     * To retrieve *all- teams of the organization:
      * 
      * <pre>
      * {@code
@@ -11717,7 +11618,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* teams of the organization:
+     * To retrieve *all- teams of the organization:
      * 
      * <pre>
      * {@code
@@ -11791,7 +11692,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* teams of the organization:
+     * To retrieve *all- teams of the organization:
      * 
      * <pre>
      * {@code
@@ -11865,7 +11766,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* teams of the organization:
+     * To retrieve *all- teams of the organization:
      * 
      * <pre>
      * {@code
@@ -11939,7 +11840,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* webhooks of the organization:
+     * To retrieve *all- webhooks of the organization:
      * 
      * <pre>
      * {@code
@@ -11978,7 +11879,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* webhooks of the organization:
+     * To retrieve *all- webhooks of the organization:
      * 
      * <pre>
      * {@code
@@ -12017,7 +11918,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* webhooks of the organization:
+     * To retrieve *all- webhooks of the organization:
      * 
      * <pre>
      * {@code
@@ -12056,7 +11957,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* webhooks of the organization:
+     * To retrieve *all- webhooks of the organization:
      * 
      * <pre>
      * {@code
@@ -12095,7 +11996,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* webhooks of the organization:
+     * To retrieve *all- webhooks of the organization:
      * 
      * <pre>
      * {@code
@@ -12134,7 +12035,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* webhooks of the organization:
+     * To retrieve *all- webhooks of the organization:
      * 
      * <pre>
      * {@code
@@ -12173,7 +12074,7 @@ public final class GithubFunctions {
      * 
      * ## Example Usage
      * 
-     * To retrieve *all* webhooks of the organization:
+     * To retrieve *all- webhooks of the organization:
      * 
      * <pre>
      * {@code
@@ -12867,8 +12768,7 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release asset from a repository, and download the file
-     * into a `file` attribute on the data source:
+     * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -12958,8 +12858,7 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release asset from a repository, and download the file
-     * into a `file` attribute on the data source:
+     * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -13049,8 +12948,7 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release asset from a repository, and download the file
-     * into a `file` attribute on the data source:
+     * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -13140,8 +13038,7 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release asset from a repository, and download the file
-     * into a `file` attribute on the data source:
+     * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -13231,8 +13128,7 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release asset from a repository, and download the file
-     * into a `file` attribute on the data source:
+     * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -13283,8 +13179,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getReleaseAsset:getReleaseAsset", TypeShape.of(GetReleaseAssetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -13327,8 +13222,7 @@ public final class GithubFunctions {
         return getRepositories(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -13371,8 +13265,7 @@ public final class GithubFunctions {
         return getRepositoriesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -13415,8 +13308,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -13459,8 +13351,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * &gt; **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -15005,6 +14896,8 @@ public final class GithubFunctions {
     /**
      * Use this data source to retrieve information about environments for a repository.
      * 
+     * &gt; Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15044,6 +14937,8 @@ public final class GithubFunctions {
     }
     /**
      * Use this data source to retrieve information about environments for a repository.
+     * 
+     * &gt; Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
      * 
      * ## Example Usage
      * 
@@ -15085,6 +14980,8 @@ public final class GithubFunctions {
     /**
      * Use this data source to retrieve information about environments for a repository.
      * 
+     * &gt; Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15124,6 +15021,8 @@ public final class GithubFunctions {
     }
     /**
      * Use this data source to retrieve information about environments for a repository.
+     * 
+     * &gt; Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
      * 
      * ## Example Usage
      * 
@@ -15165,6 +15064,8 @@ public final class GithubFunctions {
     /**
      * Use this data source to retrieve information about environments for a repository.
      * 
+     * &gt; Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15203,8 +15104,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryEnvironments:getRepositoryEnvironments", TypeShape.of(GetRepositoryEnvironmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source allows you to read files within a
-     * GitHub repository.
+     * This data source allows you to read files within a GitHub repository.
      * 
      * ## Example Usage
      * 
@@ -15246,8 +15146,7 @@ public final class GithubFunctions {
         return getRepositoryFile(args, InvokeOptions.Empty);
     }
     /**
-     * This data source allows you to read files within a
-     * GitHub repository.
+     * This data source allows you to read files within a GitHub repository.
      * 
      * ## Example Usage
      * 
@@ -15289,8 +15188,7 @@ public final class GithubFunctions {
         return getRepositoryFilePlain(args, InvokeOptions.Empty);
     }
     /**
-     * This data source allows you to read files within a
-     * GitHub repository.
+     * This data source allows you to read files within a GitHub repository.
      * 
      * ## Example Usage
      * 
@@ -15332,8 +15230,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getRepositoryFile:getRepositoryFile", TypeShape.of(GetRepositoryFileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source allows you to read files within a
-     * GitHub repository.
+     * This data source allows you to read files within a GitHub repository.
      * 
      * ## Example Usage
      * 
@@ -15375,8 +15272,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getRepositoryFile:getRepositoryFile", TypeShape.of(GetRepositoryFileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source allows you to read files within a
-     * GitHub repository.
+     * This data source allows you to read files within a GitHub repository.
      * 
      * ## Example Usage
      * 
@@ -17907,8 +17803,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -17948,8 +17843,7 @@ public final class GithubFunctions {
         return getUserExternalIdentity(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -17989,8 +17883,7 @@ public final class GithubFunctions {
         return getUserExternalIdentityPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -18030,8 +17923,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getUserExternalIdentity:getUserExternalIdentity", TypeShape.of(GetUserExternalIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 
@@ -18071,8 +17963,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getUserExternalIdentity:getUserExternalIdentity", TypeShape.of(GetUserExternalIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
-     * attributes.
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user attributes.
      * 
      * ## Example Usage
      * 

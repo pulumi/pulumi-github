@@ -18,7 +18,7 @@ public final class GetOrganizationSecurityManagersResult {
      */
     private String id;
     /**
-     * @return An list of GitHub teams.  Each `team` block consists of the fields documented below.
+     * @return An list of GitHub teams. Each `team` block consists of the fields documented below.
      * 
      */
     private List<GetOrganizationSecurityManagersTeam> teams;
@@ -32,7 +32,7 @@ public final class GetOrganizationSecurityManagersResult {
         return this.id;
     }
     /**
-     * @return An list of GitHub teams.  Each `team` block consists of the fields documented below.
+     * @return An list of GitHub teams. Each `team` block consists of the fields documented below.
      * 
      */
     public List<GetOrganizationSecurityManagersTeam> teams() {

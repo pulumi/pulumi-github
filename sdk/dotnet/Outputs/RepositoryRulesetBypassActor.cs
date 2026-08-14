@@ -14,11 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryRulesetBypassActor
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+        /// (Number) The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `ActorType` is `User`, `ActorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
         /// </summary>
         public readonly int? ActorId;
         /// <summary>
-        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
         /// </summary>
         public readonly string ActorType;
         /// <summary>
@@ -26,7 +26,6 @@ namespace Pulumi.Github.Outputs
         /// 
         /// &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// 
-        /// - `OrganizationAdmin` &gt; `1`
         /// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         /// </summary>
         public readonly string BypassMode;

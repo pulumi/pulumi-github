@@ -26,10 +26,10 @@ class RepositoryCustomPropertyArgs:
         """
         The set of arguments for constructing a RepositoryCustomProperty resource.
 
-        :param pulumi.Input[_builtins.str] property_name: Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
-        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
-        :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.str] property_name: Name of the custom property.
+        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Valid values are `string`, `single_select`, `multi_select`, `true_false`, and `url`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property. For `string`, `single_select`, `true_false`, and `url` property types, this should be a single value. For `multi_select` property types, this can be multiple values.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
         """
         pulumi.set(__self__, "property_name", property_name)
         pulumi.set(__self__, "property_type", property_type)
@@ -40,7 +40,7 @@ class RepositoryCustomPropertyArgs:
     @pulumi.getter(name="propertyName")
     def property_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+        Name of the custom property.
         """
         return pulumi.get(self, "property_name")
 
@@ -52,7 +52,7 @@ class RepositoryCustomPropertyArgs:
     @pulumi.getter(name="propertyType")
     def property_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+        Type of the custom property. Valid values are `string`, `single_select`, `multi_select`, `true_false`, and `url`.
         """
         return pulumi.get(self, "property_type")
 
@@ -64,7 +64,7 @@ class RepositoryCustomPropertyArgs:
     @pulumi.getter(name="propertyValues")
     def property_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+        Value of the custom property. For `string`, `single_select`, `true_false`, and `url` property types, this should be a single value. For `multi_select` property types, this can be multiple values.
         """
         return pulumi.get(self, "property_values")
 
@@ -76,7 +76,7 @@ class RepositoryCustomPropertyArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[_builtins.str]:
         """
-        The repository of the environment.
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
 
@@ -91,14 +91,16 @@ class _RepositoryCustomPropertyState:
                  property_name: pulumi.Input[Optional[_builtins.str]] = None,
                  property_type: pulumi.Input[Optional[_builtins.str]] = None,
                  property_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 repository: pulumi.Input[Optional[_builtins.str]] = None):
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RepositoryCustomProperty resources.
 
-        :param pulumi.Input[_builtins.str] property_name: Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
-        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
-        :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.str] property_name: Name of the custom property.
+        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Valid values are `string`, `single_select`, `multi_select`, `true_false`, and `url`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property. For `string`, `single_select`, `true_false`, and `url` property types, this should be a single value. For `multi_select` property types, this can be multiple values.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         """
         if property_name is not None:
             pulumi.set(__self__, "property_name", property_name)
@@ -108,12 +110,14 @@ class _RepositoryCustomPropertyState:
             pulumi.set(__self__, "property_values", property_values)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
     def property_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+        Name of the custom property.
         """
         return pulumi.get(self, "property_name")
 
@@ -125,7 +129,7 @@ class _RepositoryCustomPropertyState:
     @pulumi.getter(name="propertyType")
     def property_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+        Type of the custom property. Valid values are `string`, `single_select`, `multi_select`, `true_false`, and `url`.
         """
         return pulumi.get(self, "property_type")
 
@@ -137,7 +141,7 @@ class _RepositoryCustomPropertyState:
     @pulumi.getter(name="propertyValues")
     def property_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+        Value of the custom property. For `string`, `single_select`, `true_false`, and `url` property types, this should be a single value. For `multi_select` property types, this can be multiple values.
         """
         return pulumi.get(self, "property_values")
 
@@ -149,13 +153,25 @@ class _RepositoryCustomPropertyState:
     @pulumi.getter
     def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The repository of the environment.
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
     def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
 
 
 @pulumi.type_token("github:index/repositoryCustomProperty:RepositoryCustomProperty")
@@ -170,29 +186,29 @@ class RepositoryCustomProperty(pulumi.CustomResource):
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage a specific custom property for a GitHub repository.
+        Resource to manage GitHub repository custom properties.
+        For more information, see the [GitHub API documentation](https://docs.github.com/rest/metadata/custom-properties#create-or-update-repository-custom-property).
 
         ## Example Usage
-
-        > Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `string`
 
         ```python
         import pulumi
         import pulumi_github as github
 
+        # NOTE: This assumes there already is a custom property defined on the org level called `my-cool-string` of type `string`
         example = github.Repository("example",
             name="example",
             description="My awesome codebase")
-        string = github.RepositoryCustomProperty("string",
+        example_repository_custom_property = github.RepositoryCustomProperty("example",
             repository=example.name,
-            property_name="my-cool-property",
+            property_name="my-cool-string",
             property_type="string",
             property_values=["test"])
         ```
 
         ## Import
 
-        GitHub Repository Custom Property can be imported using an ID made up of a combination of the names of the organization, repository, custom property separated by a `:` character, e.g.
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
@@ -201,10 +217,10 @@ class RepositoryCustomProperty(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] property_name: Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
-        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
-        :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.str] property_name: Name of the custom property.
+        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Valid values are `string`, `single_select`, `multi_select`, `true_false`, and `url`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property. For `string`, `single_select`, `true_false`, and `url` property types, this should be a single value. For `multi_select` property types, this can be multiple values.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
         """
         ...
     @overload
@@ -213,29 +229,29 @@ class RepositoryCustomProperty(pulumi.CustomResource):
                  args: RepositoryCustomPropertyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage a specific custom property for a GitHub repository.
+        Resource to manage GitHub repository custom properties.
+        For more information, see the [GitHub API documentation](https://docs.github.com/rest/metadata/custom-properties#create-or-update-repository-custom-property).
 
         ## Example Usage
-
-        > Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `string`
 
         ```python
         import pulumi
         import pulumi_github as github
 
+        # NOTE: This assumes there already is a custom property defined on the org level called `my-cool-string` of type `string`
         example = github.Repository("example",
             name="example",
             description="My awesome codebase")
-        string = github.RepositoryCustomProperty("string",
+        example_repository_custom_property = github.RepositoryCustomProperty("example",
             repository=example.name,
-            property_name="my-cool-property",
+            property_name="my-cool-string",
             property_type="string",
             property_values=["test"])
         ```
 
         ## Import
 
-        GitHub Repository Custom Property can be imported using an ID made up of a combination of the names of the organization, repository, custom property separated by a `:` character, e.g.
+        The `pulumi import` command can be used, for example:
 
         ```sh
         $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
@@ -282,6 +298,7 @@ class RepositoryCustomProperty(pulumi.CustomResource):
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
+            __props__.__dict__["repository_id"] = None
         super(RepositoryCustomProperty, __self__).__init__(
             'github:index/repositoryCustomProperty:RepositoryCustomProperty',
             resource_name,
@@ -295,7 +312,8 @@ class RepositoryCustomProperty(pulumi.CustomResource):
             property_name: pulumi.Input[Optional[_builtins.str]] = None,
             property_type: pulumi.Input[Optional[_builtins.str]] = None,
             property_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            repository: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryCustomProperty':
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'RepositoryCustomProperty':
         """
         Get an existing RepositoryCustomProperty resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -303,10 +321,11 @@ class RepositoryCustomProperty(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] property_name: Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
-        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
-        :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.str] property_name: Name of the custom property.
+        :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Valid values are `string`, `single_select`, `multi_select`, `true_false`, and `url`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property. For `string`, `single_select`, `true_false`, and `url` property types, this should be a single value. For `multi_select` property types, this can be multiple values.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -316,13 +335,14 @@ class RepositoryCustomProperty(pulumi.CustomResource):
         __props__.__dict__["property_type"] = property_type
         __props__.__dict__["property_values"] = property_values
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
         return RepositoryCustomProperty(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
     def property_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+        Name of the custom property.
         """
         return pulumi.get(self, "property_name")
 
@@ -330,7 +350,7 @@ class RepositoryCustomProperty(pulumi.CustomResource):
     @pulumi.getter(name="propertyType")
     def property_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+        Type of the custom property. Valid values are `string`, `single_select`, `multi_select`, `true_false`, and `url`.
         """
         return pulumi.get(self, "property_type")
 
@@ -338,7 +358,7 @@ class RepositoryCustomProperty(pulumi.CustomResource):
     @pulumi.getter(name="propertyValues")
     def property_values(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+        Value of the custom property. For `string`, `single_select`, `true_false`, and `url` property types, this should be a single value. For `multi_select` property types, this can be multiple values.
         """
         return pulumi.get(self, "property_values")
 
@@ -346,7 +366,15 @@ class RepositoryCustomProperty(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:
         """
-        The repository of the environment.
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
 

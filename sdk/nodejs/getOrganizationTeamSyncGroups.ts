@@ -29,7 +29,7 @@ export function getOrganizationTeamSyncGroups(opts?: pulumi.InvokeOptions): Prom
  */
 export interface GetOrganizationTeamSyncGroupsResult {
     /**
-     * An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+     * An Array of GitHub Identity Provider Groups. Each `group` block consists of the fields documented below.
      */
     readonly groups: outputs.GetOrganizationTeamSyncGroupsGroup[];
     /**

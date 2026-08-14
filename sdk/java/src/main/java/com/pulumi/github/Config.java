@@ -16,91 +16,105 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("github");
 /**
- * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+ * Authenticate using a GitHub App.
  * 
  */
     public Optional<AppAuth> appAuth() {
         return Codegen.objectProp("appAuth", AppAuth.class).config(config).get();
     }
 /**
- * The GitHub Base API URL
+ * The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
  * 
  */
     public Optional<String> baseUrl() {
         return Codegen.stringProp("baseUrl").config(config).env("GITHUB_BASE_URL").def("https://api.github.com/").get();
     }
 /**
- * Enable `insecure` mode for testing purposes
+ * The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+ * 
+ */
+    public Optional<String> cachePath() {
+        return Codegen.stringProp("cachePath").config(config).get();
+    }
+/**
+ * Allow insecure server connections when using SSL.
  * 
  */
     public Optional<Boolean> insecure() {
         return Codegen.booleanProp("insecure").config(config).get();
     }
 /**
- * Number of items per page for paginationDefaults to 100
+ * Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+ * 
+ */
+    public Optional<Boolean> legacyClient() {
+        return Codegen.booleanProp("legacyClient").config(config).get();
+    }
+/**
+ * The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
  * 
  */
     public Optional<Integer> maxPerPage() {
         return Codegen.integerProp("maxPerPage").config(config).get();
     }
 /**
- * Number of times to retry a request after receiving an error status codeDefaults to 3
+ * The maximum number of retries for failed requests; this defaults to `3`.
  * 
  */
     public Optional<Integer> maxRetries() {
         return Codegen.integerProp("maxRetries").config(config).get();
     }
 /**
- * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+ * GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
  * 
  */
     public Optional<String> organization() {
         return Codegen.stringProp("organization").config(config).get();
     }
 /**
- * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+ * GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
  * 
  */
     public Optional<String> owner() {
         return Codegen.stringProp("owner").config(config).get();
     }
 /**
- * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+ * Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is designed to safely handle parallel requests.
  * 
  */
     public Optional<Boolean> parallelRequests() {
         return Codegen.booleanProp("parallelRequests").config(config).get();
     }
 /**
- * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+ * The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
  * 
  */
     public Optional<Integer> readDelayMs() {
         return Codegen.integerProp("readDelayMs").config(config).get();
     }
 /**
- * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
+ * The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `maxRetries` is greater than `0`.
  * 
  */
     public Optional<Integer> retryDelayMs() {
         return Codegen.integerProp("retryDelayMs").config(config).get();
     }
 /**
- * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+ * List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `maxRetries` is greater than `0`. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation handles the retry logic.
  * 
  */
     public Optional<List<Integer>> retryableErrors() {
         return Codegen.objectProp("retryableErrors", TypeShape.<List<Integer>>builder(List.class).addParameter(Integer.class).build()).config(config).get();
     }
 /**
- * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+ * GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
  * 
  */
     public Optional<String> token() {
         return Codegen.stringProp("token").config(config).env("GITHUB_TOKEN").get();
     }
 /**
- * Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+ * The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API&#39;s abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
  * 
  */
     public Optional<Integer> writeDelayMs() {

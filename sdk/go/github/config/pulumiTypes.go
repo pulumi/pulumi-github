@@ -14,11 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppAuth struct {
-	// The GitHub App ID.
+	// The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
 	Id string `pulumi:"id"`
-	// The GitHub App installation instance ID.
+	// The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
 	InstallationId string `pulumi:"installationId"`
-	// The GitHub App PEM file contents.
+	// The GitHub App's PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
 	PemFile string `pulumi:"pemFile"`
 }
 
@@ -34,11 +34,11 @@ type AppAuthInput interface {
 }
 
 type AppAuthArgs struct {
-	// The GitHub App ID.
+	// The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The GitHub App installation instance ID.
+	// The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
 	InstallationId pulumi.StringInput `pulumi:"installationId"`
-	// The GitHub App PEM file contents.
+	// The GitHub App's PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
 	PemFile pulumi.StringInput `pulumi:"pemFile"`
 }
 
@@ -68,17 +68,17 @@ func (o AppAuthOutput) ToAppAuthOutputWithContext(ctx context.Context) AppAuthOu
 	return o
 }
 
-// The GitHub App ID.
+// The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
 func (o AppAuthOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuth) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The GitHub App installation instance ID.
+// The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
 func (o AppAuthOutput) InstallationId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuth) string { return v.InstallationId }).(pulumi.StringOutput)
 }
 
-// The GitHub App PEM file contents.
+// The GitHub App's PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
 func (o AppAuthOutput) PemFile() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuth) string { return v.PemFile }).(pulumi.StringOutput)
 }

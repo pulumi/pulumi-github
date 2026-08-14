@@ -12,8 +12,7 @@ namespace Pulumi.Github
     public static class GetUserExternalIdentity
     {
         /// <summary>
-        /// Use this data source to retrieve a specific organization member's SAML or SCIM user
-        /// attributes.
+        /// Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -37,8 +36,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserExternalIdentityResult>("github:index/getUserExternalIdentity:getUserExternalIdentity", args ?? new GetUserExternalIdentityArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a specific organization member's SAML or SCIM user
-        /// attributes.
+        /// Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -62,8 +60,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetUserExternalIdentityResult>("github:index/getUserExternalIdentity:getUserExternalIdentity", args ?? new GetUserExternalIdentityInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a specific organization member's SAML or SCIM user
-        /// attributes.
+        /// Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -129,13 +126,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Login;
         /// <summary>
-        /// An Object containing the user's SAML data. This object will
-        /// be empty if the user is not managed by SAML.
+        /// An Object containing the user's SAML data. This object will be empty if the user is not managed by SAML.
         /// </summary>
         public readonly ImmutableDictionary<string, string> SamlIdentity;
         /// <summary>
-        /// An Object contining the user's SCIM data. This object will
-        /// be empty if the user is not managed by SCIM.
+        /// An Object contining the user's SCIM data. This object will be empty if the user is not managed by SCIM.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ScimIdentity;
         /// <summary>

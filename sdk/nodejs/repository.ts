@@ -7,8 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and manage repositories within your
- * GitHub organization or personal account.
+ * This resource allows you to create and manage repositories within your GitHub organization or personal account.
  *
  * > **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `allowMergeCommit`, `allowSquashMerge`, `allowRebaseMerge`, `mergeCommitTitle`, `mergeCommitMessage`, `squashMergeCommitTitle` and `squashMergeCommitMessage`.
  *
@@ -118,9 +117,7 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly autoInit: pulumi.Output<boolean | undefined>;
     /**
-     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      *
      * @deprecated Use the github.BranchDefault resource instead
      */
@@ -161,8 +158,7 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly hasDownloads: pulumi.Output<boolean | undefined>;
     /**
-     * Set to `true` to enable the GitHub Issues features
-     * on the repository.
+     * Set to `true` to enable the GitHub Issues features on the repository.
      */
     declare public readonly hasIssues: pulumi.Output<boolean | undefined>;
     /**
@@ -170,8 +166,7 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly hasProjects: pulumi.Output<boolean | undefined>;
     /**
-     * Set to `true` to enable the GitHub Wiki features on
-     * the repository.
+     * Set to `true` to enable the GitHub Wiki features on the repository.
      */
     declare public readonly hasWiki: pulumi.Output<boolean | undefined>;
     /**
@@ -227,8 +222,7 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly primaryLanguage: pulumi.Output<string>;
     /**
-     * Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
+     * Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      *
      * @deprecated use visibility instead
      */
@@ -448,9 +442,7 @@ export interface RepositoryState {
      */
     autoInit?: pulumi.Input<boolean | undefined>;
     /**
-     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      *
      * @deprecated Use the github.BranchDefault resource instead
      */
@@ -491,8 +483,7 @@ export interface RepositoryState {
      */
     hasDownloads?: pulumi.Input<boolean | undefined>;
     /**
-     * Set to `true` to enable the GitHub Issues features
-     * on the repository.
+     * Set to `true` to enable the GitHub Issues features on the repository.
      */
     hasIssues?: pulumi.Input<boolean | undefined>;
     /**
@@ -500,8 +491,7 @@ export interface RepositoryState {
      */
     hasProjects?: pulumi.Input<boolean | undefined>;
     /**
-     * Set to `true` to enable the GitHub Wiki features on
-     * the repository.
+     * Set to `true` to enable the GitHub Wiki features on the repository.
      */
     hasWiki?: pulumi.Input<boolean | undefined>;
     /**
@@ -557,8 +547,7 @@ export interface RepositoryState {
      */
     primaryLanguage?: pulumi.Input<string | undefined>;
     /**
-     * Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
+     * Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      *
      * @deprecated use visibility instead
      */
@@ -662,9 +651,7 @@ export interface RepositoryArgs {
      */
     autoInit?: pulumi.Input<boolean | undefined>;
     /**
-     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-     * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-     * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+     * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      *
      * @deprecated Use the github.BranchDefault resource instead
      */
@@ -697,8 +684,7 @@ export interface RepositoryArgs {
      */
     hasDownloads?: pulumi.Input<boolean | undefined>;
     /**
-     * Set to `true` to enable the GitHub Issues features
-     * on the repository.
+     * Set to `true` to enable the GitHub Issues features on the repository.
      */
     hasIssues?: pulumi.Input<boolean | undefined>;
     /**
@@ -706,8 +692,7 @@ export interface RepositoryArgs {
      */
     hasProjects?: pulumi.Input<boolean | undefined>;
     /**
-     * Set to `true` to enable the GitHub Wiki features on
-     * the repository.
+     * Set to `true` to enable the GitHub Wiki features on the repository.
      */
     hasWiki?: pulumi.Input<boolean | undefined>;
     /**
@@ -747,8 +732,7 @@ export interface RepositoryArgs {
      */
     pages?: pulumi.Input<inputs.RepositoryPages | undefined>;
     /**
-     * Set to `true` to create a private repository.
-     * Repositories are created as public (e.g. open source) by default.
+     * Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      *
      * @deprecated use visibility instead
      */

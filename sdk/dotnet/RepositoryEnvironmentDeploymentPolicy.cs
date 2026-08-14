@@ -122,6 +122,10 @@ namespace Pulumi.Github
     /// 
     /// This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and deployment policy ID name all separated by a `:`.
     /// 
+    /// ### Import Block
+    /// 
+    /// The following import block imports a deployment policy with the ID `123456` for the repo `Myrepo` and environment `Myenv` to a `github.RepositoryEnvironmentDeploymentPolicy` resource named `Example`.
+    /// 
     /// ### Import Command
     /// 
     /// The following command imports a deployment policy with the ID `123456` for the repo `Myrepo` and environment `Myenv` to a `github.RepositoryEnvironmentDeploymentPolicy` resource named `Example`.

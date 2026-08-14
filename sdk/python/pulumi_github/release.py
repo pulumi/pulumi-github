@@ -509,8 +509,7 @@ class Release(pulumi.CustomResource):
                  target_commitish: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage a release in a specific
-        GitHub repository.
+        This resource allows you to create and manage a release in a specific GitHub repository.
 
         ## Example Usage
 
@@ -576,8 +575,7 @@ class Release(pulumi.CustomResource):
                  args: ReleaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage a release in a specific
-        GitHub repository.
+        This resource allows you to create and manage a release in a specific GitHub repository.
 
         ## Example Usage
 

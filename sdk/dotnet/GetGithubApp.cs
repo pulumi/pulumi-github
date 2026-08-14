@@ -12,7 +12,7 @@ namespace Pulumi.Github
     public static class GetGithubApp
     {
         /// <summary>
-        /// Use this data source to retrieve information about an app.
+        /// Get information about an app.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about an app.
+        /// Get information about an app.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about an app.
+        /// Get information about an app.
         /// 
         /// ## Example Usage
         /// 
@@ -122,7 +122,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the app.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -133,6 +133,9 @@ namespace Pulumi.Github
         /// The Node ID of the app.
         /// </summary>
         public readonly string NodeId;
+        /// <summary>
+        /// The URL-friendly name of your GitHub App.
+        /// </summary>
         public readonly string Slug;
 
         [OutputConstructor]

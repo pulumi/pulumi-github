@@ -7,10 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Provides a GitHub team membership resource.
  *
- * This resource allows you to add/remove users from teams in your organization. When applied,
- * the user will be added to the team. If the user hasn't accepted their invitation to the
- * organization, they won't be part of the team until they do. When
- * destroyed, the user will be removed from the team.
+ * This resource allows you to add/remove users from teams in your organization. When applied, the user will be added to the team. If the user hasn't accepted their invitation to the organization, they won't be part of the team until they do. When destroyed, the user will be removed from the team.
  *
  * > **Note** This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
  *
@@ -77,8 +74,7 @@ export class TeamMembership extends pulumi.CustomResource {
 
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
      */
     declare public readonly role: pulumi.Output<string | undefined>;
     /**
@@ -131,8 +127,7 @@ export class TeamMembership extends pulumi.CustomResource {
 export interface TeamMembershipState {
     etag?: pulumi.Input<string | undefined>;
     /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
      */
     role?: pulumi.Input<string | undefined>;
     /**
@@ -150,8 +145,7 @@ export interface TeamMembershipState {
  */
 export interface TeamMembershipArgs {
     /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
      */
     role?: pulumi.Input<string | undefined>;
     /**

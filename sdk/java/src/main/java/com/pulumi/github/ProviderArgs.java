@@ -21,14 +21,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+     * Authenticate using a GitHub App.
      * 
      */
     @Import(name="appAuth", json=true)
     private @Nullable Output<ProviderAppAuthArgs> appAuth;
 
     /**
-     * @return The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+     * @return Authenticate using a GitHub App.
      * 
      */
     public Optional<Output<ProviderAppAuthArgs>> appAuth() {
@@ -36,14 +36,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The GitHub Base API URL
+     * The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
      * 
      */
     @Import(name="baseUrl")
     private @Nullable Output<String> baseUrl;
 
     /**
-     * @return The GitHub Base API URL
+     * @return The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
      * 
      */
     public Optional<Output<String>> baseUrl() {
@@ -51,29 +51,67 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable `insecure` mode for testing purposes
+     * The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
      * 
      */
+    @Import(name="cachePath")
+    private @Nullable Output<String> cachePath;
+
+    /**
+     * @return The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+     * 
+     */
+    public Optional<Output<String>> cachePath() {
+        return Optional.ofNullable(this.cachePath);
+    }
+
+    /**
+     * Allow insecure server connections when using SSL.
+     * 
+     * @deprecated
+     * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
+     * 
+     */
+    @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
     @Import(name="insecure", json=true)
     private @Nullable Output<Boolean> insecure;
 
     /**
-     * @return Enable `insecure` mode for testing purposes
+     * @return Allow insecure server connections when using SSL.
+     * 
+     * @deprecated
+     * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
      * 
      */
+    @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
     public Optional<Output<Boolean>> insecure() {
         return Optional.ofNullable(this.insecure);
     }
 
     /**
-     * Number of items per page for paginationDefaults to 100
+     * Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+     * 
+     */
+    @Import(name="legacyClient", json=true)
+    private @Nullable Output<Boolean> legacyClient;
+
+    /**
+     * @return Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> legacyClient() {
+        return Optional.ofNullable(this.legacyClient);
+    }
+
+    /**
+     * The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
      * 
      */
     @Import(name="maxPerPage", json=true)
     private @Nullable Output<Integer> maxPerPage;
 
     /**
-     * @return Number of items per page for paginationDefaults to 100
+     * @return The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
      * 
      */
     public Optional<Output<Integer>> maxPerPage() {
@@ -81,14 +119,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of times to retry a request after receiving an error status codeDefaults to 3
+     * The maximum number of retries for failed requests; this defaults to `3`.
      * 
      */
     @Import(name="maxRetries", json=true)
     private @Nullable Output<Integer> maxRetries;
 
     /**
-     * @return Number of times to retry a request after receiving an error status codeDefaults to 3
+     * @return The maximum number of retries for failed requests; this defaults to `3`.
      * 
      */
     public Optional<Output<Integer>> maxRetries() {
@@ -96,37 +134,37 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+     * GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
      * 
      * @deprecated
-     * Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+     * This argument is deprecated and will be removed in a future major release; use `owner` instead.
      * 
      */
-    @Deprecated /* Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION) */
+    @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
     @Import(name="organization")
     private @Nullable Output<String> organization;
 
     /**
-     * @return The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+     * @return GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
      * 
      * @deprecated
-     * Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+     * This argument is deprecated and will be removed in a future major release; use `owner` instead.
      * 
      */
-    @Deprecated /* Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION) */
+    @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
     public Optional<Output<String>> organization() {
         return Optional.ofNullable(this.organization);
     }
 
     /**
-     * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+     * GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
      * 
      */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
     /**
-     * @return The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+     * @return GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
      * 
      */
     public Optional<Output<String>> owner() {
@@ -134,14 +172,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+     * Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is designed to safely handle parallel requests.
      * 
      */
     @Import(name="parallelRequests", json=true)
     private @Nullable Output<Boolean> parallelRequests;
 
     /**
-     * @return Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+     * @return Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is designed to safely handle parallel requests.
      * 
      */
     public Optional<Output<Boolean>> parallelRequests() {
@@ -149,14 +187,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+     * The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
      * 
      */
     @Import(name="readDelayMs", json=true)
     private @Nullable Output<Integer> readDelayMs;
 
     /**
-     * @return Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+     * @return The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
      * 
      */
     public Optional<Output<Integer>> readDelayMs() {
@@ -164,14 +202,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
+     * The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `maxRetries` is greater than `0`.
      * 
      */
     @Import(name="retryDelayMs", json=true)
     private @Nullable Output<Integer> retryDelayMs;
 
     /**
-     * @return Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
+     * @return The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `maxRetries` is greater than `0`.
      * 
      */
     public Optional<Output<Integer>> retryDelayMs() {
@@ -179,14 +217,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+     * List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `maxRetries` is greater than `0`. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation handles the retry logic.
      * 
      */
     @Import(name="retryableErrors", json=true)
     private @Nullable Output<List<Integer>> retryableErrors;
 
     /**
-     * @return Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+     * @return List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `maxRetries` is greater than `0`. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation handles the retry logic.
      * 
      */
     public Optional<Output<List<Integer>>> retryableErrors() {
@@ -194,14 +232,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+     * GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
      * 
      */
     @Import(name="token")
     private @Nullable Output<String> token;
 
     /**
-     * @return The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+     * @return GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
      * 
      */
     public Optional<Output<String>> token() {
@@ -209,14 +247,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+     * The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API&#39;s abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
      * 
      */
     @Import(name="writeDelayMs", json=true)
     private @Nullable Output<Integer> writeDelayMs;
 
     /**
-     * @return Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+     * @return The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API&#39;s abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
      * 
      */
     public Optional<Output<Integer>> writeDelayMs() {
@@ -228,7 +266,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private ProviderArgs(ProviderArgs $) {
         this.appAuth = $.appAuth;
         this.baseUrl = $.baseUrl;
+        this.cachePath = $.cachePath;
         this.insecure = $.insecure;
+        this.legacyClient = $.legacyClient;
         this.maxPerPage = $.maxPerPage;
         this.maxRetries = $.maxRetries;
         this.organization = $.organization;
@@ -260,7 +300,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appAuth The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+         * @param appAuth Authenticate using a GitHub App.
          * 
          * @return builder
          * 
@@ -271,7 +311,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appAuth The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+         * @param appAuth Authenticate using a GitHub App.
          * 
          * @return builder
          * 
@@ -281,7 +321,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseUrl The GitHub Base API URL
+         * @param baseUrl The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
          * 
          * @return builder
          * 
@@ -292,7 +332,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseUrl The GitHub Base API URL
+         * @param baseUrl The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
          * 
          * @return builder
          * 
@@ -302,28 +342,78 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insecure Enable `insecure` mode for testing purposes
+         * @param cachePath The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
          * 
          * @return builder
          * 
          */
+        public Builder cachePath(@Nullable Output<String> cachePath) {
+            $.cachePath = cachePath;
+            return this;
+        }
+
+        /**
+         * @param cachePath The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cachePath(String cachePath) {
+            return cachePath(Output.of(cachePath));
+        }
+
+        /**
+         * @param insecure Allow insecure server connections when using SSL.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
+         * 
+         */
+        @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
         public Builder insecure(@Nullable Output<Boolean> insecure) {
             $.insecure = insecure;
             return this;
         }
 
         /**
-         * @param insecure Enable `insecure` mode for testing purposes
+         * @param insecure Allow insecure server connections when using SSL.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
+         * 
          */
+        @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
         public Builder insecure(Boolean insecure) {
             return insecure(Output.of(insecure));
         }
 
         /**
-         * @param maxPerPage Number of items per page for paginationDefaults to 100
+         * @param legacyClient Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder legacyClient(@Nullable Output<Boolean> legacyClient) {
+            $.legacyClient = legacyClient;
+            return this;
+        }
+
+        /**
+         * @param legacyClient Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder legacyClient(Boolean legacyClient) {
+            return legacyClient(Output.of(legacyClient));
+        }
+
+        /**
+         * @param maxPerPage The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
          * 
          * @return builder
          * 
@@ -334,7 +424,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxPerPage Number of items per page for paginationDefaults to 100
+         * @param maxPerPage The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
          * 
          * @return builder
          * 
@@ -344,7 +434,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries Number of times to retry a request after receiving an error status codeDefaults to 3
+         * @param maxRetries The maximum number of retries for failed requests; this defaults to `3`.
          * 
          * @return builder
          * 
@@ -355,7 +445,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries Number of times to retry a request after receiving an error status codeDefaults to 3
+         * @param maxRetries The maximum number of retries for failed requests; this defaults to `3`.
          * 
          * @return builder
          * 
@@ -365,36 +455,36 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organization The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+         * @param organization GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+         * This argument is deprecated and will be removed in a future major release; use `owner` instead.
          * 
          */
-        @Deprecated /* Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION) */
+        @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
         public Builder organization(@Nullable Output<String> organization) {
             $.organization = organization;
             return this;
         }
 
         /**
-         * @param organization The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+         * @param organization GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+         * This argument is deprecated and will be removed in a future major release; use `owner` instead.
          * 
          */
-        @Deprecated /* Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION) */
+        @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
         public Builder organization(String organization) {
             return organization(Output.of(organization));
         }
 
         /**
-         * @param owner The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+         * @param owner GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
          * 
          * @return builder
          * 
@@ -405,7 +495,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param owner The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+         * @param owner GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
          * 
          * @return builder
          * 
@@ -415,7 +505,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+         * @param parallelRequests Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is designed to safely handle parallel requests.
          * 
          * @return builder
          * 
@@ -426,7 +516,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+         * @param parallelRequests Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is designed to safely handle parallel requests.
          * 
          * @return builder
          * 
@@ -436,7 +526,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readDelayMs Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+         * @param readDelayMs The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
          * 
          * @return builder
          * 
@@ -447,7 +537,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readDelayMs Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+         * @param readDelayMs The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
          * 
          * @return builder
          * 
@@ -457,7 +547,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
+         * @param retryDelayMs The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `maxRetries` is greater than `0`.
          * 
          * @return builder
          * 
@@ -468,7 +558,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
+         * @param retryDelayMs The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `maxRetries` is greater than `0`.
          * 
          * @return builder
          * 
@@ -478,7 +568,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryableErrors Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+         * @param retryableErrors List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `maxRetries` is greater than `0`. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation handles the retry logic.
          * 
          * @return builder
          * 
@@ -489,7 +579,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryableErrors Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+         * @param retryableErrors List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `maxRetries` is greater than `0`. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation handles the retry logic.
          * 
          * @return builder
          * 
@@ -499,7 +589,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryableErrors Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+         * @param retryableErrors List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `maxRetries` is greater than `0`. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation handles the retry logic.
          * 
          * @return builder
          * 
@@ -509,7 +599,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param token The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+         * @param token GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -520,7 +610,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param token The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+         * @param token GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -530,7 +620,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeDelayMs Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+         * @param writeDelayMs The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API&#39;s abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
          * 
          * @return builder
          * 
@@ -541,7 +631,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeDelayMs Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+         * @param writeDelayMs The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API&#39;s abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
          * 
          * @return builder
          * 

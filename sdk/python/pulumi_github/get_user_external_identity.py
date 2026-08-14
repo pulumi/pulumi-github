@@ -63,8 +63,7 @@ class GetUserExternalIdentityResult:
     @pulumi.getter(name="samlIdentity")
     def saml_identity(self) -> Mapping[str, _builtins.str]:
         """
-        An Object containing the user's SAML data. This object will
-        be empty if the user is not managed by SAML.
+        An Object containing the user's SAML data. This object will be empty if the user is not managed by SAML.
         """
         return pulumi.get(self, "saml_identity")
 
@@ -72,8 +71,7 @@ class GetUserExternalIdentityResult:
     @pulumi.getter(name="scimIdentity")
     def scim_identity(self) -> Mapping[str, _builtins.str]:
         """
-        An Object contining the user's SCIM data. This object will
-        be empty if the user is not managed by SCIM.
+        An Object contining the user's SCIM data. This object will be empty if the user is not managed by SCIM.
         """
         return pulumi.get(self, "scim_identity")
 
@@ -102,8 +100,7 @@ class AwaitableGetUserExternalIdentityResult(GetUserExternalIdentityResult):
 def get_user_external_identity(username: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserExternalIdentityResult:
     """
-    Use this data source to retrieve a specific organization member's SAML or SCIM user
-    attributes.
+    Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
 
     ## Example Usage
 
@@ -131,8 +128,7 @@ def get_user_external_identity(username: Optional[_builtins.str] = None,
 def get_user_external_identity_output(username: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserExternalIdentityResult]:
     """
-    Use this data source to retrieve a specific organization member's SAML or SCIM user
-    attributes.
+    Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
 
     ## Example Usage
 

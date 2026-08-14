@@ -29,7 +29,7 @@ public final class GetMembershipResult {
      */
     private String role;
     /**
-     * @return `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+     * @return `active` or `pending` -- the state of membership within the organization. `active` if the member has accepted the invite, or `pending` if the invite is still pending.
      * 
      */
     private String state;
@@ -65,7 +65,7 @@ public final class GetMembershipResult {
         return this.role;
     }
     /**
-     * @return `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+     * @return `active` or `pending` -- the state of membership within the organization. `active` if the member has accepted the invite, or `pending` if the invite is still pending.
      * 
      */
     public String state() {

@@ -85,14 +85,14 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      * 
      */
     @Import(name="notificationSetting")
     private @Nullable Output<String> notificationSetting;
 
     /**
-     * @return The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * @return The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      * 
      */
     public Optional<Output<String>> notificationSetting() {
@@ -145,14 +145,14 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      * 
      */
     @Import(name="privacy")
     private @Nullable Output<String> privacy;
 
     /**
-     * @return The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * @return The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      * 
      */
     public Optional<Output<String>> privacy() {
@@ -284,7 +284,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privacy The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+         * @param privacy The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privacy The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+         * @param privacy The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
          * 
          * @return builder
          * 

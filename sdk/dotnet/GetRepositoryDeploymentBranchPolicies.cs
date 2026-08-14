@@ -97,7 +97,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryDeploymentBranchPoliciesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the environment to retrieve the deployment branch policies  from.
+        /// Name of the environment to retrieve the deployment branch policies from.
         /// </summary>
         [Input("environmentName", required: true)]
         public string EnvironmentName { get; set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryDeploymentBranchPoliciesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the environment to retrieve the deployment branch policies  from.
+        /// Name of the environment to retrieve the deployment branch policies from.
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;

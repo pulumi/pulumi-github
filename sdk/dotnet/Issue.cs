@@ -12,8 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// Provides a GitHub issue resource.
     /// 
-    /// This resource allows you to create and manage issue within your
-    /// GitHub repository.
+    /// This resource allows you to create and manage issue within your GitHub repository.
     /// 
     /// ## Example Usage
     /// 
@@ -68,7 +67,7 @@ namespace Pulumi.Github
     ///         {
     ///             Separator = "/",
     ///             Text = test.FullName,
-    ///         }).Apply(invoke =&gt; invoke.Result[0]),
+    ///         }).Result[0],
     ///         Repository = test.Name,
     ///         Title = "v1.0.0",
     ///         Description = "General Availability",

@@ -208,8 +208,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                  sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
-        You must have admin access to an organization to use this resource.
+        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations. You must have admin access to an organization to use this resource.
 
         ## Example Usage
 
@@ -258,8 +257,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                  args: ActionsOrganizationPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
-        You must have admin access to an organization to use this resource.
+        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations. You must have admin access to an organization to use this resource.
 
         ## Example Usage
 

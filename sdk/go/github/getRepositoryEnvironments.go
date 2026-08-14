@@ -13,6 +13,8 @@ import (
 
 // Use this data source to retrieve information about environments for a repository.
 //
+// > Verify you have the correct permissions set up from the [GitHub API docs](https://docs.github.com/en/rest/deployments/environments?apiVersion=2022-11-28#get-an-environment--fine-grained-access-tokens)
+//
 // ## Example Usage
 //
 // ```go

@@ -16,14 +16,14 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
     public static final RepositoryCustomPropertyArgs Empty = new RepositoryCustomPropertyArgs();
 
     /**
-     * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * Name of the custom property.
      * 
      */
     @Import(name="propertyName", required=true)
     private Output<String> propertyName;
 
     /**
-     * @return Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+     * @return Name of the custom property.
      * 
      */
     public Output<String> propertyName() {
@@ -31,14 +31,14 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      * 
      */
     @Import(name="propertyType", required=true)
     private Output<String> propertyType;
 
     /**
-     * @return Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+     * @return Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
      * 
      */
     public Output<String> propertyType() {
@@ -46,14 +46,14 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      * 
      */
     @Import(name="propertyValues", required=true)
     private Output<List<String>> propertyValues;
 
     /**
-     * @return Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+     * @return Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
      * 
      */
     public Output<List<String>> propertyValues() {
@@ -61,14 +61,14 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The repository of the environment.
+     * Name of the repository.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The repository of the environment.
+     * @return Name of the repository.
      * 
      */
     public Output<String> repository() {
@@ -103,7 +103,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param propertyName Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+         * @param propertyName Name of the custom property.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param propertyName Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
+         * @param propertyName Name of the custom property.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param propertyType Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+         * @param propertyType Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param propertyType Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
+         * @param propertyType Type of the custom property. Valid values are `string`, `singleSelect`, `multiSelect`, `trueFalse`, and `url`.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property. For `string`, `singleSelect`, `trueFalse`, and `url` property types, this should be a single value. For `multiSelect` property types, this can be multiple values.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param repository The repository of the environment.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class RepositoryCustomPropertyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param repository The repository of the environment.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 

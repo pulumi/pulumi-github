@@ -22,7 +22,9 @@ class ProviderArgs:
     def __init__(__self__, *,
                  app_auth: pulumi.Input[Optional['ProviderAppAuthArgs']] = None,
                  base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_path: pulumi.Input[Optional[_builtins.str]] = None,
                  insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 legacy_client: pulumi.Input[Optional[_builtins.bool]] = None,
                  max_per_page: pulumi.Input[Optional[_builtins.int]] = None,
                  max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,19 +38,21 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
 
-        :param pulumi.Input['ProviderAppAuthArgs'] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
-        :param pulumi.Input[_builtins.str] base_url: The GitHub Base API URL
-        :param pulumi.Input[_builtins.bool] insecure: Enable `insecure` mode for testing purposes
-        :param pulumi.Input[_builtins.int] max_per_page: Number of items per page for paginationDefaults to 100
-        :param pulumi.Input[_builtins.int] max_retries: Number of times to retry a request after receiving an error status codeDefaults to 3
-        :param pulumi.Input[_builtins.str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
-        :param pulumi.Input[_builtins.str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
-        :param pulumi.Input[_builtins.int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
-        :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
-        :param pulumi.Input[_builtins.str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
-        :param pulumi.Input[_builtins.int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        :param pulumi.Input['ProviderAppAuthArgs'] app_auth: Authenticate using a GitHub App.
+        :param pulumi.Input[_builtins.str] base_url: The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
+        :param pulumi.Input[_builtins.str] cache_path: The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+        :param pulumi.Input[_builtins.bool] insecure: Allow insecure server connections when using SSL.
+        :param pulumi.Input[_builtins.bool] legacy_client: Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+        :param pulumi.Input[_builtins.int] max_per_page: The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
+        :param pulumi.Input[_builtins.int] max_retries: The maximum number of retries for failed requests; this defaults to `3`.
+        :param pulumi.Input[_builtins.str] organization: GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
+        :param pulumi.Input[_builtins.str] owner: GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
+        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is designed to safely handle parallel requests.
+        :param pulumi.Input[_builtins.int] read_delay_ms: The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is GitHub rate limit aware.
+        :param pulumi.Input[_builtins.int] retry_delay_ms: The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `max_retries` is greater than `0`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `max_retries` is greater than `0`. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation handles the retry logic.
+        :param pulumi.Input[_builtins.str] token: GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
+        :param pulumi.Input[_builtins.int] write_delay_ms: The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API's abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is GitHub rate limit aware.
         """
         if app_auth is not None:
             pulumi.set(__self__, "app_auth", app_auth)
@@ -56,15 +60,22 @@ class ProviderArgs:
             base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
         if base_url is not None:
             pulumi.set(__self__, "base_url", base_url)
+        if cache_path is not None:
+            pulumi.set(__self__, "cache_path", cache_path)
+        if insecure is not None:
+            warnings.warn("""This argument is deprecated as it's currently not used and will be removed in the next major version.""", DeprecationWarning)
+            pulumi.log.warn("""insecure is deprecated: This argument is deprecated as it's currently not used and will be removed in the next major version.""")
         if insecure is not None:
             pulumi.set(__self__, "insecure", insecure)
+        if legacy_client is not None:
+            pulumi.set(__self__, "legacy_client", legacy_client)
         if max_per_page is not None:
             pulumi.set(__self__, "max_per_page", max_per_page)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
         if organization is not None:
-            warnings.warn("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""", DeprecationWarning)
-            pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
+            warnings.warn("""This argument is deprecated and will be removed in a future major release; use `owner` instead.""", DeprecationWarning)
+            pulumi.log.warn("""organization is deprecated: This argument is deprecated and will be removed in a future major release; use `owner` instead.""")
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if owner is not None:
@@ -88,7 +99,7 @@ class ProviderArgs:
     @pulumi.getter(name="appAuth")
     def app_auth(self) -> pulumi.Input[Optional['ProviderAppAuthArgs']]:
         """
-        The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        Authenticate using a GitHub App.
         """
         return pulumi.get(self, "app_auth")
 
@@ -100,7 +111,7 @@ class ProviderArgs:
     @pulumi.getter(name="baseUrl")
     def base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The GitHub Base API URL
+        The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
         """
         return pulumi.get(self, "base_url")
 
@@ -109,10 +120,23 @@ class ProviderArgs:
         pulumi.set(self, "base_url", value)
 
     @_builtins.property
+    @pulumi.getter(name="cachePath")
+    def cache_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+        """
+        return pulumi.get(self, "cache_path")
+
+    @cache_path.setter
+    def cache_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cache_path", value)
+
+    @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This argument is deprecated as it's currently not used and will be removed in the next major version.""")
     def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable `insecure` mode for testing purposes
+        Allow insecure server connections when using SSL.
         """
         return pulumi.get(self, "insecure")
 
@@ -121,10 +145,22 @@ class ProviderArgs:
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
+    @pulumi.getter(name="legacyClient")
+    def legacy_client(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+        """
+        return pulumi.get(self, "legacy_client")
+
+    @legacy_client.setter
+    def legacy_client(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "legacy_client", value)
+
+    @_builtins.property
     @pulumi.getter(name="maxPerPage")
     def max_per_page(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of items per page for paginationDefaults to 100
+        The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
         """
         return pulumi.get(self, "max_per_page")
 
@@ -136,7 +172,7 @@ class ProviderArgs:
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Number of times to retry a request after receiving an error status codeDefaults to 3
+        The maximum number of retries for failed requests; this defaults to `3`.
         """
         return pulumi.get(self, "max_retries")
 
@@ -146,10 +182,10 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
+    @_utilities.deprecated("""This argument is deprecated and will be removed in a future major release; use `owner` instead.""")
     def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
         """
         return pulumi.get(self, "organization")
 
@@ -161,7 +197,7 @@ class ProviderArgs:
     @pulumi.getter
     def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
         """
         return pulumi.get(self, "owner")
 
@@ -173,7 +209,7 @@ class ProviderArgs:
     @pulumi.getter(name="parallelRequests")
     def parallel_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+        Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is designed to safely handle parallel requests.
         """
         return pulumi.get(self, "parallel_requests")
 
@@ -185,7 +221,7 @@ class ProviderArgs:
     @pulumi.getter(name="readDelayMs")
     def read_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+        The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is GitHub rate limit aware.
         """
         return pulumi.get(self, "read_delay_ms")
 
@@ -197,7 +233,7 @@ class ProviderArgs:
     @pulumi.getter(name="retryDelayMs")
     def retry_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
+        The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `max_retries` is greater than `0`.
         """
         return pulumi.get(self, "retry_delay_ms")
 
@@ -209,7 +245,7 @@ class ProviderArgs:
     @pulumi.getter(name="retryableErrors")
     def retryable_errors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
+        List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `max_retries` is greater than `0`. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation handles the retry logic.
         """
         return pulumi.get(self, "retryable_errors")
 
@@ -221,7 +257,7 @@ class ProviderArgs:
     @pulumi.getter
     def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
         """
         return pulumi.get(self, "token")
 
@@ -233,7 +269,7 @@ class ProviderArgs:
     @pulumi.getter(name="writeDelayMs")
     def write_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API's abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is GitHub rate limit aware.
         """
         return pulumi.get(self, "write_delay_ms")
 
@@ -250,7 +286,9 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_auth: pulumi.Input[Optional[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']]] = None,
                  base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_path: pulumi.Input[Optional[_builtins.str]] = None,
                  insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 legacy_client: pulumi.Input[Optional[_builtins.bool]] = None,
                  max_per_page: pulumi.Input[Optional[_builtins.int]] = None,
                  max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -271,19 +309,21 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
-        :param pulumi.Input[_builtins.str] base_url: The GitHub Base API URL
-        :param pulumi.Input[_builtins.bool] insecure: Enable `insecure` mode for testing purposes
-        :param pulumi.Input[_builtins.int] max_per_page: Number of items per page for paginationDefaults to 100
-        :param pulumi.Input[_builtins.int] max_retries: Number of times to retry a request after receiving an error status codeDefaults to 3
-        :param pulumi.Input[_builtins.str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
-        :param pulumi.Input[_builtins.str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
-        :param pulumi.Input[_builtins.int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
-        :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
-        :param pulumi.Input[_builtins.str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
-        :param pulumi.Input[_builtins.int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        :param pulumi.Input[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']] app_auth: Authenticate using a GitHub App.
+        :param pulumi.Input[_builtins.str] base_url: The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
+        :param pulumi.Input[_builtins.str] cache_path: The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+        :param pulumi.Input[_builtins.bool] insecure: Allow insecure server connections when using SSL.
+        :param pulumi.Input[_builtins.bool] legacy_client: Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+        :param pulumi.Input[_builtins.int] max_per_page: The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
+        :param pulumi.Input[_builtins.int] max_retries: The maximum number of retries for failed requests; this defaults to `3`.
+        :param pulumi.Input[_builtins.str] organization: GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
+        :param pulumi.Input[_builtins.str] owner: GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
+        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is designed to safely handle parallel requests.
+        :param pulumi.Input[_builtins.int] read_delay_ms: The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is GitHub rate limit aware.
+        :param pulumi.Input[_builtins.int] retry_delay_ms: The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `max_retries` is greater than `0`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `max_retries` is greater than `0`. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation handles the retry logic.
+        :param pulumi.Input[_builtins.str] token: GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
+        :param pulumi.Input[_builtins.int] write_delay_ms: The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API's abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacy_client` is `false` since the new client implementation is GitHub rate limit aware.
         """
         ...
     @overload
@@ -315,7 +355,9 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_auth: pulumi.Input[Optional[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']]] = None,
                  base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_path: pulumi.Input[Optional[_builtins.str]] = None,
                  insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 legacy_client: pulumi.Input[Optional[_builtins.bool]] = None,
                  max_per_page: pulumi.Input[Optional[_builtins.int]] = None,
                  max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -339,7 +381,9 @@ class Provider(pulumi.ProviderResource):
             if base_url is None:
                 base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
             __props__.__dict__["base_url"] = base_url
+            __props__.__dict__["cache_path"] = cache_path
             __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
+            __props__.__dict__["legacy_client"] = pulumi.Output.from_input(legacy_client).apply(pulumi.runtime.to_json) if legacy_client is not None else None
             __props__.__dict__["max_per_page"] = pulumi.Output.from_input(max_per_page).apply(pulumi.runtime.to_json) if max_per_page is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
             __props__.__dict__["organization"] = organization
@@ -364,16 +408,24 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="baseUrl")
     def base_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The GitHub Base API URL
+        The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
         """
         return pulumi.get(self, "base_url")
 
     @_builtins.property
+    @pulumi.getter(name="cachePath")
+    def cache_path(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+        """
+        return pulumi.get(self, "cache_path")
+
+    @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
+    @_utilities.deprecated("""This argument is deprecated and will be removed in a future major release; use `owner` instead.""")
     def organization(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
         """
         return pulumi.get(self, "organization")
 
@@ -381,7 +433,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def owner(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
         """
         return pulumi.get(self, "owner")
 
@@ -389,7 +441,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
         """
         return pulumi.get(self, "token")
 

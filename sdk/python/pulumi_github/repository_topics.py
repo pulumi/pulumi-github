@@ -108,8 +108,7 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         This resource allows you to create and manage topics for repositories within your GitHub organization or personal account.
 
-        > Note: This resource is not compatible with the `topic` attribute of the `Repository` Use either ``RepositoryTopics``
-        or ``topic`` in ``Repository``. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
+        > Note: This resource is not compatible with the `topic` attribute of the `Repository` Use either `RepositoryTopics` or `topic` in `Repository`. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 
         ## Example Usage
 
@@ -149,8 +148,7 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         This resource allows you to create and manage topics for repositories within your GitHub organization or personal account.
 
-        > Note: This resource is not compatible with the `topic` attribute of the `Repository` Use either ``RepositoryTopics``
-        or ``topic`` in ``Repository``. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
+        > Note: This resource is not compatible with the `topic` attribute of the `Repository` Use either `RepositoryTopics` or `topic` in `Repository`. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 
         ## Example Usage
 

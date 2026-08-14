@@ -34,7 +34,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<Pulumi.Github.Config.Types.AppAuth?> _appAuth = new __Value<Pulumi.Github.Config.Types.AppAuth?>(() => __config.GetObject<Pulumi.Github.Config.Types.AppAuth>("appAuth"));
         /// <summary>
-        /// The GitHub App credentials used to connect to GitHub. Conflicts with `Token`. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
+        /// Authenticate using a GitHub App.
         /// </summary>
         public static Pulumi.Github.Config.Types.AppAuth? AppAuth
         {
@@ -44,7 +44,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<string?> _baseUrl = new __Value<string?>(() => __config.Get("baseUrl") ?? Utilities.GetEnv("GITHUB_BASE_URL") ?? "https://api.github.com/");
         /// <summary>
-        /// The GitHub Base API URL
+        /// The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
         /// </summary>
         public static string? BaseUrl
         {
@@ -52,9 +52,19 @@ namespace Pulumi.Github
             set => _baseUrl.Set(value);
         }
 
+        private static readonly __Value<string?> _cachePath = new __Value<string?>(() => __config.Get("cachePath"));
+        /// <summary>
+        /// The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+        /// </summary>
+        public static string? CachePath
+        {
+            get => _cachePath.Get();
+            set => _cachePath.Set(value);
+        }
+
         private static readonly __Value<bool?> _insecure = new __Value<bool?>(() => __config.GetBoolean("insecure"));
         /// <summary>
-        /// Enable `Insecure` mode for testing purposes
+        /// Allow insecure server connections when using SSL.
         /// </summary>
         public static bool? Insecure
         {
@@ -62,9 +72,19 @@ namespace Pulumi.Github
             set => _insecure.Set(value);
         }
 
+        private static readonly __Value<bool?> _legacyClient = new __Value<bool?>(() => __config.GetBoolean("legacyClient"));
+        /// <summary>
+        /// Use the legacy GitHub client implementation; if set to `False`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+        /// </summary>
+        public static bool? LegacyClient
+        {
+            get => _legacyClient.Get();
+            set => _legacyClient.Set(value);
+        }
+
         private static readonly __Value<int?> _maxPerPage = new __Value<int?>(() => __config.GetInt32("maxPerPage"));
         /// <summary>
-        /// Number of items per page for paginationDefaults to 100
+        /// The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
         /// </summary>
         public static int? MaxPerPage
         {
@@ -74,7 +94,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
         /// <summary>
-        /// Number of times to retry a request after receiving an error status codeDefaults to 3
+        /// The maximum number of retries for failed requests; this defaults to `3`.
         /// </summary>
         public static int? MaxRetries
         {
@@ -84,7 +104,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<string?> _organization = new __Value<string?>(() => __config.Get("organization"));
         /// <summary>
-        /// The GitHub organization name to manage. Use this field instead of `Owner` when managing organization accounts.
+        /// GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
         /// </summary>
         public static string? Organization
         {
@@ -94,7 +114,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<string?> _owner = new __Value<string?>(() => __config.Get("owner"));
         /// <summary>
-        /// The GitHub owner name to manage. Use this field instead of `Organization` when managing individual accounts.
+        /// GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
         /// </summary>
         public static string? Owner
         {
@@ -104,7 +124,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<bool?> _parallelRequests = new __Value<bool?>(() => __config.GetBoolean("parallelRequests"));
         /// <summary>
-        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+        /// Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation is designed to safely handle parallel requests.
         /// </summary>
         public static bool? ParallelRequests
         {
@@ -114,7 +134,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<int?> _readDelayMs = new __Value<int?>(() => __config.GetInt32("readDelayMs"));
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+        /// The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation is GitHub rate limit aware.
         /// </summary>
         public static int? ReadDelayMs
         {
@@ -124,7 +144,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<int?> _retryDelayMs = new __Value<int?>(() => __config.GetInt32("retryDelayMs"));
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the MaxRetries must be set to greater than zero.
+        /// The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `MaxRetries` is greater than `0`.
         /// </summary>
         public static int? RetryDelayMs
         {
@@ -134,7 +154,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<ImmutableArray<int>> _retryableErrors = new __Value<ImmutableArray<int>>(() => __config.GetObject<ImmutableArray<int>>("retryableErrors"));
         /// <summary>
-        /// Allow the provider to retry after receiving an error status code, the MaxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+        /// List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `MaxRetries` is greater than `0`. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation handles the retry logic.
         /// </summary>
         public static ImmutableArray<int> RetryableErrors
         {
@@ -144,7 +164,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token") ?? Utilities.GetEnv("GITHUB_TOKEN"));
         /// <summary>
-        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
+        /// GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
         /// </summary>
         public static string? Token
         {
@@ -154,7 +174,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<int?> _writeDelayMs = new __Value<int?>(() => __config.GetInt32("writeDelayMs"));
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+        /// The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API's abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `LegacyClient` is `False` since the new client implementation is GitHub rate limit aware.
         /// </summary>
         public static int? WriteDelayMs
         {
@@ -168,15 +188,15 @@ namespace Pulumi.Github
              public class AppAuth
              {
             /// <summary>
-            /// The GitHub App ID.
+            /// The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
             /// </summary>
                 public string Id { get; set; }
             /// <summary>
-            /// The GitHub App installation instance ID.
+            /// The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
             /// </summary>
                 public string InstallationId { get; set; }
             /// <summary>
-            /// The GitHub App PEM file contents.
+            /// The GitHub App's PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
             /// </summary>
                 public string PemFile { get; set; }
             }

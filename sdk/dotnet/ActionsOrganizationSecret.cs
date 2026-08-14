@@ -10,17 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage GitHub Actions secrets within your GitHub organization.
-    /// You must have write access to a repository to use this resource.
+    /// This resource allows you to create and manage GitHub Actions secrets within your GitHub organization. You must have write access to a repository to use this resource.
     /// 
-    /// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
-    /// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+    /// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
     /// 
-    /// For the purposes of security, the contents of the `Value` field have been marked as `Sensitive` to Terraform,
-    /// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-    /// It is also advised that you do not store plaintext values in your code but rather populate the `ValueEncrypted`
-    /// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
-    /// in your code. See below for an example of this abstraction.
+    /// For the purposes of security, the contents of the `Value` field have been marked as `Sensitive` to Terraform, but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always. It is also advised that you do not store plaintext values in your code but rather populate the `ValueEncrypted` using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible in your code. See below for an example of this abstraction.
     /// 
     /// ## Example Usage
     /// 
@@ -36,14 +30,14 @@ namespace Pulumi.Github
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "all",
-    ///         Value = someSecretString,
+    ///         PlaintextValue = someSecretString,
     ///     });
     /// 
     ///     var exampleEncrypted = new Github.ActionsOrganizationSecret("example_encrypted", new()
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "all",
-    ///         ValueEncrypted = someEncryptedSecretString,
+    ///         EncryptedValue = someEncryptedSecretString,
     ///     });
     /// 
     /// });
@@ -66,7 +60,7 @@ namespace Pulumi.Github
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "selected",
-    ///         Value = someSecretString,
+    ///         PlaintextValue = someSecretString,
     ///         SelectedRepositoryIds = new[]
     ///         {
     ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
@@ -77,7 +71,7 @@ namespace Pulumi.Github
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "selected",
-    ///         ValueEncrypted = someEncryptedSecretString,
+    ///         EncryptedValue = someEncryptedSecretString,
     ///         SelectedRepositoryIds = new[]
     ///         {
     ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
@@ -103,7 +97,7 @@ namespace Pulumi.Github
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "all",
-    ///         Value = "placeholder",
+    ///         PlaintextValue = "placeholder",
     ///     });
     /// 
     /// });
@@ -114,6 +108,10 @@ namespace Pulumi.Github
     /// This resource can be imported using the secret name as the ID.
     /// 
     /// &gt; **Note**: When importing secrets, the `Value`, `ValueEncrypted`, `EncryptedValue`, or `PlaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+    /// 
+    /// ### Import Block
+    /// 
+    /// The following import imports a GitHub actions organization secret named `Mysecret` to a `github.ActionsOrganizationSecret` resource named `Example`.
     /// 
     /// ### Import Command
     /// 

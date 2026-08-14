@@ -284,8 +284,7 @@ class Issue(pulumi.CustomResource):
         """
         Provides a GitHub issue resource.
 
-        This resource allows you to create and manage issue within your
-        GitHub repository.
+        This resource allows you to create and manage issue within your GitHub repository.
 
         ## Example Usage
 
@@ -317,8 +316,8 @@ class Issue(pulumi.CustomResource):
             auto_init=True,
             has_issues=True)
         test_repository_milestone = github.RepositoryMilestone("test",
-            owner=std.split_output(separator="/",
-                text=test.full_name).result[0],
+            owner=std.split(separator="/",
+                text=test.full_name)["result"][0],
             repository=test.name,
             title="v1.0.0",
             description="General Availability",
@@ -363,8 +362,7 @@ class Issue(pulumi.CustomResource):
         """
         Provides a GitHub issue resource.
 
-        This resource allows you to create and manage issue within your
-        GitHub repository.
+        This resource allows you to create and manage issue within your GitHub repository.
 
         ## Example Usage
 
@@ -396,8 +394,8 @@ class Issue(pulumi.CustomResource):
             auto_init=True,
             has_issues=True)
         test_repository_milestone = github.RepositoryMilestone("test",
-            owner=std.split_output(separator="/",
-                text=test.full_name).result[0],
+            owner=std.split(separator="/",
+                text=test.full_name)["result"][0],
             repository=test.name,
             title="v1.0.0",
             description="General Availability",

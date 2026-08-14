@@ -18,14 +18,14 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     public static final RepositoryRulesetBypassActorArgs Empty = new RepositoryRulesetBypassActorArgs();
 
     /**
-     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actorType` is `User`, `actorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
      * 
      */
     @Import(name="actorId")
     private @Nullable Output<Integer> actorId;
 
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actorType` is `User`, `actorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
      * 
      */
     public Optional<Output<Integer>> actorId() {
@@ -33,14 +33,14 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     }
 
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
      * 
      */
     @Import(name="actorType", required=true)
     private Output<String> actorType;
 
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
      * 
      */
     public Output<String> actorType() {
@@ -52,7 +52,6 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
-     * - `OrganizationAdmin` &gt; `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
      */
@@ -64,7 +63,6 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
-     * - `OrganizationAdmin` &gt; `1`
      * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
      */
@@ -99,7 +97,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+         * @param actorId (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actorType` is `User`, `actorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
          * 
          * @return builder
          * 
@@ -110,7 +108,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+         * @param actorId (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actorType` is `User`, `actorId` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
          * 
          * @return builder
          * 
@@ -120,7 +118,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
          * 
          * @return builder
          * 
@@ -131,7 +129,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
          * 
          * @return builder
          * 
@@ -145,7 +143,6 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
          * 
          * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
          * 
-         * - `OrganizationAdmin` &gt; `1`
          * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
          * 
          * @return builder
@@ -161,7 +158,6 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
          * 
          * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
          * 
-         * - `OrganizationAdmin` &gt; `1`
          * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
          * 
          * @return builder

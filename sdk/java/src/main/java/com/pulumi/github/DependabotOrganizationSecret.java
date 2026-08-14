@@ -17,17 +17,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage GitHub Dependabot secrets within your GitHub organization.
- * You must have write access to a repository to use this resource.
+ * This resource allows you to create and manage GitHub Dependabot secrets within your GitHub organization. You must have write access to a repository to use this resource.
  * 
- * Secret values are encrypted using the [Go &#39;/crypto/box&#39; module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
- * interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+ * Secret values are encrypted using the [Go &#39;/crypto/box&#39; module](https://godoc.org/golang.org/x/crypto/nacl/box) which is interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
  * 
- * For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
- * but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
- * It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted`
- * using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
- * in your code. See below for an example of this abstraction.
+ * For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform, but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always. It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted` using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible in your code. See below for an example of this abstraction.
  * 
  * ## Example Usage
  * 
@@ -56,13 +50,13 @@ import javax.annotation.Nullable;
  *         var examplePlaintext = new DependabotOrganizationSecret("examplePlaintext", DependabotOrganizationSecretArgs.builder()
  *             .secretName("example_secret_name")
  *             .visibility("all")
- *             .value(someSecretString)
+ *             .plaintextValue(someSecretString)
  *             .build());
  * 
  *         var exampleSecret = new DependabotOrganizationSecret("exampleSecret", DependabotOrganizationSecretArgs.builder()
  *             .secretName("example_secret_name")
  *             .visibility("all")
- *             .valueEncrypted(someEncryptedSecretString)
+ *             .encryptedValue(someEncryptedSecretString)
  *             .build());
  * 
  *     }
@@ -101,14 +95,14 @@ import javax.annotation.Nullable;
  *         var examplePlaintext = new DependabotOrganizationSecret("examplePlaintext", DependabotOrganizationSecretArgs.builder()
  *             .secretName("example_secret_name")
  *             .visibility("selected")
- *             .value(someSecretString)
+ *             .plaintextValue(someSecretString)
  *             .selectedRepositoryIds(repo.repoId())
  *             .build());
  * 
  *         var exampleEncrypted = new DependabotOrganizationSecret("exampleEncrypted", DependabotOrganizationSecretArgs.builder()
  *             .secretName("example_secret_name")
  *             .visibility("selected")
- *             .valueEncrypted(someEncryptedSecretString)
+ *             .encryptedValue(someEncryptedSecretString)
  *             .selectedRepositoryIds(repo.repoId())
  *             .build());
  * 
@@ -116,6 +110,53 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ## Example Lifecycle Ignore Changes
+ * 
+ * This resource supports using the `lifecycle` `ignoreChanges` block on `remoteUpdatedAt` to support use cases where a secret value is created using a placeholder value and then modified after creation outside the scope of Terraform. This approach ensures only the initial placeholder value is referenced in your code and in the resulting state file.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.DependabotOrganizationSecret;
+ * import com.pulumi.github.DependabotOrganizationSecretArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleAllowDrift = new DependabotOrganizationSecret("exampleAllowDrift", DependabotOrganizationSecretArgs.builder()
+ *             .secretName("example_secret_name")
+ *             .visibility("all")
+ *             .plaintextValue("placeholder")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * This resource can be imported using the secret name as the ID.
+ * 
+ * &gt; **Note**: When importing secrets, the `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you&#39;re not planning on updating the secret through Terraform.
+ * 
+ * ### Import Block
+ * 
+ * The following import imports a GitHub Dependabot organization secret named `mysecret` to a `github.DependabotOrganizationSecret` resource named `example`.
  * 
  * ### Import Command
  * 

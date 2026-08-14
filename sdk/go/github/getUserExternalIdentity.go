@@ -11,8 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve a specific organization member's SAML or SCIM user
-// attributes.
+// Use this data source to retrieve a specific organization member's SAML or SCIM user attributes.
 //
 // ## Example Usage
 //
@@ -61,11 +60,9 @@ type GetUserExternalIdentityResult struct {
 	Id string `pulumi:"id"`
 	// The username of the GitHub user
 	Login string `pulumi:"login"`
-	// An Object containing the user's SAML data. This object will
-	// be empty if the user is not managed by SAML.
+	// An Object containing the user's SAML data. This object will be empty if the user is not managed by SAML.
 	SamlIdentity map[string]string `pulumi:"samlIdentity"`
-	// An Object contining the user's SCIM data. This object will
-	// be empty if the user is not managed by SCIM.
+	// An Object contining the user's SCIM data. This object will be empty if the user is not managed by SCIM.
 	ScimIdentity map[string]string `pulumi:"scimIdentity"`
 	// The member's SAML Username
 	Username string `pulumi:"username"`
@@ -115,14 +112,12 @@ func (o GetUserExternalIdentityResultOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserExternalIdentityResult) string { return v.Login }).(pulumi.StringOutput)
 }
 
-// An Object containing the user's SAML data. This object will
-// be empty if the user is not managed by SAML.
+// An Object containing the user's SAML data. This object will be empty if the user is not managed by SAML.
 func (o GetUserExternalIdentityResultOutput) SamlIdentity() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetUserExternalIdentityResult) map[string]string { return v.SamlIdentity }).(pulumi.StringMapOutput)
 }
 
-// An Object contining the user's SCIM data. This object will
-// be empty if the user is not managed by SCIM.
+// An Object contining the user's SCIM data. This object will be empty if the user is not managed by SCIM.
 func (o GetUserExternalIdentityResultOutput) ScimIdentity() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetUserExternalIdentityResult) map[string]string { return v.ScimIdentity }).(pulumi.StringMapOutput)
 }

@@ -14,14 +14,14 @@ public final class GetRepositoryDeploymentBranchPoliciesPlainArgs extends com.pu
     public static final GetRepositoryDeploymentBranchPoliciesPlainArgs Empty = new GetRepositoryDeploymentBranchPoliciesPlainArgs();
 
     /**
-     * Name of the environment to retrieve the deployment branch policies  from.
+     * Name of the environment to retrieve the deployment branch policies from.
      * 
      */
     @Import(name="environmentName", required=true)
     private String environmentName;
 
     /**
-     * @return Name of the environment to retrieve the deployment branch policies  from.
+     * @return Name of the environment to retrieve the deployment branch policies from.
      * 
      */
     public String environmentName() {
@@ -69,7 +69,7 @@ public final class GetRepositoryDeploymentBranchPoliciesPlainArgs extends com.pu
         }
 
         /**
-         * @param environmentName Name of the environment to retrieve the deployment branch policies  from.
+         * @param environmentName Name of the environment to retrieve the deployment branch policies from.
          * 
          * @return builder
          * 

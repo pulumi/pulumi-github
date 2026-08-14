@@ -64,8 +64,7 @@ class AwaitableGetOrganizationExternalIdentitiesResult(GetOrganizationExternalId
 
 def get_organization_external_identities(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationExternalIdentitiesResult:
     """
-    Use this data source to retrieve each organization member's SAML or SCIM user
-    attributes.
+    Use this data source to retrieve each organization member's SAML or SCIM user attributes.
 
     ## Example Usage
 
@@ -85,8 +84,7 @@ def get_organization_external_identities(opts: Optional[pulumi.InvokeOptions] = 
         identities=pulumi.get(__ret__, 'identities'))
 def get_organization_external_identities_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationExternalIdentitiesResult]:
     """
-    Use this data source to retrieve each organization member's SAML or SCIM user
-    attributes.
+    Use this data source to retrieve each organization member's SAML or SCIM user attributes.
 
     ## Example Usage
 

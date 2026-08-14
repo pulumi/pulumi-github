@@ -79,7 +79,7 @@ class GetMembershipResult:
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+        `active` or `pending` -- the state of membership within the organization. `active` if the member has accepted the invite, or `pending` if the invite is still pending.
         """
         return pulumi.get(self, "state")
 
@@ -110,10 +110,7 @@ def get_membership(organization: Optional[_builtins.str] = None,
                    username: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMembershipResult:
     """
-    Use this data source to find out if a user is a member of your organization, as well
-    as what role they have within it.
-    If the user's membership in the organization is pending their acceptance of an invite,
-    the role they would have once they accept will be returned.
+    Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
 
     ## Example Usage
 
@@ -145,10 +142,7 @@ def get_membership_output(organization: pulumi.Input[Optional[Optional[_builtins
                           username: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMembershipResult]:
     """
-    Use this data source to find out if a user is a member of your organization, as well
-    as what role they have within it.
-    If the user's membership in the organization is pending their acceptance of an invite,
-    the role they would have once they accept will be returned.
+    Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
 
     ## Example Usage
 

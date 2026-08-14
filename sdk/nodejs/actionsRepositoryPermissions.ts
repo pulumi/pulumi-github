@@ -7,8 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to enable and manage GitHub Actions permissions for a given repository.
- * You must have admin access to an repository to use this resource.
+ * This resource allows you to enable and manage GitHub Actions permissions for a given repository. You must have admin access to an repository to use this resource.
  *
  * ## Example Usage
  *

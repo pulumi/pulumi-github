@@ -12,10 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// Provides a GitHub team membership resource.
     /// 
-    /// This resource allows you to add/remove users from teams in your organization. When applied,
-    /// the user will be added to the team. If the user hasn't accepted their invitation to the
-    /// organization, they won't be part of the team until they do. When
-    /// destroyed, the user will be removed from the team.
+    /// This resource allows you to add/remove users from teams in your organization. When applied, the user will be added to the team. If the user hasn't accepted their invitation to the organization, they won't be part of the team until they do. When destroyed, the user will be removed from the team.
     /// 
     /// &gt; **Note** This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
     /// 
@@ -70,8 +67,7 @@ namespace Pulumi.Github
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
+        /// The role of the user within the team. Must be one of `Member` or `Maintainer`. Defaults to `Member`.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -135,8 +131,7 @@ namespace Pulumi.Github
     public sealed class TeamMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
+        /// The role of the user within the team. Must be one of `Member` or `Maintainer`. Defaults to `Member`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -165,8 +160,7 @@ namespace Pulumi.Github
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The role of the user within the team.
-        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
+        /// The role of the user within the team. Must be one of `Member` or `Maintainer`. Defaults to `Member`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

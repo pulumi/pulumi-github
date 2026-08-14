@@ -90,7 +90,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An list of GitHub teams.  Each `Team` block consists of the fields documented below.
+        /// An list of GitHub teams. Each `Team` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationSecurityManagersTeamResult> Teams;
 

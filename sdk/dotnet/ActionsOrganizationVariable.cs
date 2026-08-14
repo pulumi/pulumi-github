@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
-    /// You must have write access to a repository to use this resource.
+    /// This resource allows you to create and manage GitHub Actions variables within your GitHub organization. You must have write access to a repository to use this resource.
     /// 
     /// ## Example Usage
     /// 
@@ -63,6 +62,10 @@ namespace Pulumi.Github
     /// ## Import
     /// 
     /// This resource can be imported using the variable name as the ID.
+    /// 
+    /// ### Import Block
+    /// 
+    /// The following import imports a GitHub actions organization variable named `Myvariable`to a `github.ActionsOrganizationVariable` resource named `Example`.
     /// 
     /// ### Import Command
     /// 

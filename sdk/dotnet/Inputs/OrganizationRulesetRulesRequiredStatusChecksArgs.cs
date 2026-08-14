@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class OrganizationRulesetRulesRequiredStatusChecksArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `False`.
+        /// Allow repositories and branches to be created if a check would otherwise prohibit it.
         /// </summary>
         [Input("doNotEnforceOnCreate")]
         public Input<bool>? DoNotEnforceOnCreate { get; set; }

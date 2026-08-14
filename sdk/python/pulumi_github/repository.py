@@ -72,20 +72,16 @@ class RepositoryArgs:
         :param pulumi.Input[_builtins.bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[_builtins.bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[_builtins.bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
         :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
-        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
+        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
+        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
@@ -94,8 +90,7 @@ class RepositoryArgs:
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input['RepositoryPagesArgs'] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
-        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
+        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
@@ -319,9 +314,7 @@ class RepositoryArgs:
     @_utilities.deprecated("""Use the BranchDefault resource instead""")
     def default_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
         return pulumi.get(self, "default_branch")
 
@@ -415,8 +408,7 @@ class RepositoryArgs:
     @pulumi.getter(name="hasIssues")
     def has_issues(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to `true` to enable the GitHub Issues features
-        on the repository.
+        Set to `true` to enable the GitHub Issues features on the repository.
         """
         return pulumi.get(self, "has_issues")
 
@@ -440,8 +432,7 @@ class RepositoryArgs:
     @pulumi.getter(name="hasWiki")
     def has_wiki(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to `true` to enable the GitHub Wiki features on
-        the repository.
+        Set to `true` to enable the GitHub Wiki features on the repository.
         """
         return pulumi.get(self, "has_wiki")
 
@@ -552,8 +543,7 @@ class RepositoryArgs:
     @_utilities.deprecated("""use visibility instead""")
     def private(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to `true` to create a private repository.
-        Repositories are created as public (e.g. open source) by default.
+        Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         """
         return pulumi.get(self, "private")
 
@@ -748,9 +738,7 @@ class _RepositoryState:
         :param pulumi.Input[_builtins.bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[_builtins.bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[_builtins.bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
         :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
@@ -759,11 +747,9 @@ class _RepositoryState:
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
-        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
+        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
+        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[_builtins.str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
@@ -776,8 +762,7 @@ class _RepositoryState:
         :param pulumi.Input[_builtins.str] node_id: GraphQL global node id for use with v4 API
         :param pulumi.Input['RepositoryPagesArgs'] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.str] primary_language: The primary language used in the repository.
-        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
+        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[_builtins.int] repo_id: GitHub ID for the repository
         :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
@@ -1022,9 +1007,7 @@ class _RepositoryState:
     @_utilities.deprecated("""Use the BranchDefault resource instead""")
     def default_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
         return pulumi.get(self, "default_branch")
 
@@ -1142,8 +1125,7 @@ class _RepositoryState:
     @pulumi.getter(name="hasIssues")
     def has_issues(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to `true` to enable the GitHub Issues features
-        on the repository.
+        Set to `true` to enable the GitHub Issues features on the repository.
         """
         return pulumi.get(self, "has_issues")
 
@@ -1167,8 +1149,7 @@ class _RepositoryState:
     @pulumi.getter(name="hasWiki")
     def has_wiki(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to `true` to enable the GitHub Wiki features on
-        the repository.
+        Set to `true` to enable the GitHub Wiki features on the repository.
         """
         return pulumi.get(self, "has_wiki")
 
@@ -1327,8 +1308,7 @@ class _RepositoryState:
     @_utilities.deprecated("""use visibility instead""")
     def private(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Set to `true` to create a private repository.
-        Repositories are created as public (e.g. open source) by default.
+        Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         """
         return pulumi.get(self, "private")
 
@@ -1543,8 +1523,7 @@ class Repository(pulumi.CustomResource):
                  web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage repositories within your
-        GitHub organization or personal account.
+        This resource allows you to create and manage repositories within your GitHub organization or personal account.
 
         > **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `allow_merge_commit`, `allow_squash_merge`, `allow_rebase_merge`, `merge_commit_title`, `merge_commit_message`, `squash_merge_commit_title` and `squash_merge_commit_message`.
 
@@ -1599,20 +1578,16 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[_builtins.bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[_builtins.bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
         :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
-        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
+        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
+        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
@@ -1621,8 +1596,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
-        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
+        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
@@ -1643,8 +1617,7 @@ class Repository(pulumi.CustomResource):
                  args: Optional[RepositoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage repositories within your
-        GitHub organization or personal account.
+        This resource allows you to create and manage repositories within your GitHub organization or personal account.
 
         > **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `allow_merge_commit`, `allow_squash_merge`, `allow_rebase_merge`, `merge_commit_title`, `merge_commit_message`, `squash_merge_commit_title` and `squash_merge_commit_message`.
 
@@ -1873,9 +1846,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] archive_on_destroy: Set to `true` to archive the repository instead of deleting on destroy.
         :param pulumi.Input[_builtins.bool] archived: Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
         :param pulumi.Input[_builtins.bool] auto_init: Set to `true` to produce an initial commit in the repository.
-        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-               and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-               initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        :param pulumi.Input[_builtins.str] default_branch: (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
         :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
@@ -1884,11 +1855,9 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
-        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
-               on the repository.
+        :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
-        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
-               the repository.
+        :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[_builtins.str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
@@ -1901,8 +1870,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] node_id: GraphQL global node id for use with v4 API
         :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.str] primary_language: The primary language used in the repository.
-        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
-               Repositories are created as public (e.g. open source) by default.
+        :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[_builtins.int] repo_id: GitHub ID for the repository
         :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
@@ -2050,9 +2018,7 @@ class Repository(pulumi.CustomResource):
     @_utilities.deprecated("""Use the BranchDefault resource instead""")
     def default_branch(self) -> pulumi.Output[_builtins.str]:
         """
-        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
-        and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
-        initial repository creation and create the target branch inside of the repository prior to setting this attribute.
+        (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
         return pulumi.get(self, "default_branch")
 
@@ -2130,8 +2096,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="hasIssues")
     def has_issues(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Set to `true` to enable the GitHub Issues features
-        on the repository.
+        Set to `true` to enable the GitHub Issues features on the repository.
         """
         return pulumi.get(self, "has_issues")
 
@@ -2147,8 +2112,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="hasWiki")
     def has_wiki(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Set to `true` to enable the GitHub Wiki features on
-        the repository.
+        Set to `true` to enable the GitHub Wiki features on the repository.
         """
         return pulumi.get(self, "has_wiki")
 
@@ -2255,8 +2219,7 @@ class Repository(pulumi.CustomResource):
     @_utilities.deprecated("""use visibility instead""")
     def private(self) -> pulumi.Output[_builtins.bool]:
         """
-        Set to `true` to create a private repository.
-        Repositories are created as public (e.g. open source) by default.
+        Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         """
         return pulumi.get(self, "private")
 

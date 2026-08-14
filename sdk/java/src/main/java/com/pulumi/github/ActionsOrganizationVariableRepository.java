@@ -15,8 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * This resource adds permission for a repository to use an actions variables within your GitHub organization.
- * You must have write access to an organization variable to use this resource.
+ * This resource adds permission for a repository to use an actions variables within your GitHub organization. You must have write access to an organization variable to use this resource.
  * 
  * This resource is only applicable when `visibility` of the existing organization variable has been set to `selected`.
  * 
@@ -50,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ActionsOrganizationVariable("example", ActionsOrganizationVariableArgs.builder()
  *             .variableName("myvariable")
- *             .value("foo")
+ *             .plaintextValue("foo")
  *             .visibility("selected")
  *             .build());
  * 
@@ -72,6 +71,10 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * This resource can be imported using an ID made of the variable name and repository name separated by a `:`.
+ * 
+ * ### Import Block
+ * 
+ * The following import block imports the access of repository ID `123456` for the actions organization variable named `myvariable` to a `github.ActionsOrganizationVariableRepository` resource named `example`.
  * 
  * ### Import Command
  * 

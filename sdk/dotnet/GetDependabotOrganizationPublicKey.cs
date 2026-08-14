@@ -12,8 +12,7 @@ namespace Pulumi.Github
     public static class GetDependabotOrganizationPublicKey
     {
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to an organization to retrieve it's Dependabot public key.
+        /// Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to an organization to retrieve it's Dependabot public key.
         /// 
         /// ## Example Usage
         /// 
@@ -34,8 +33,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDependabotOrganizationPublicKeyResult>("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to an organization to retrieve it's Dependabot public key.
+        /// Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to an organization to retrieve it's Dependabot public key.
         /// 
         /// ## Example Usage
         /// 
@@ -56,8 +54,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetDependabotOrganizationPublicKeyResult>("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `Token` must have admin rights to an organization to retrieve it's Dependabot public key.
+        /// Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions. Note that the provider `Token` must have admin rights to an organization to retrieve it's Dependabot public key.
         /// 
         /// ## Example Usage
         /// 

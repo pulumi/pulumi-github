@@ -18,8 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage webhooks for repositories within your
- * GitHub organization or personal account.
+ * This resource allows you to create and manage webhooks for repositories within your GitHub organization or personal account.
  * 
  * &gt; **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing webhook modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
  * 
@@ -75,8 +74,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character.
- * The `id` of the webhook can be found in the URL of the webhook. For example: `&#34;https://github.com/foo-org/foo-repo/settings/hooks/14711452&#34;`.
+ * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example: `&#34;https://github.com/foo-org/foo-repo/settings/hooks/14711452&#34;`.
  * 
  * Importing uses the name of the repository, as well as the ID of the webhook, e.g.
  * 
@@ -152,14 +150,14 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
         return this.repository;
     }
     /**
-     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+     * URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
-     * @return URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
+     * @return URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     public Output<String> url() {

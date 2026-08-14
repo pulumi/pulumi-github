@@ -19,8 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a GitHub team resource.
  * 
- * This resource allows you to add/remove teams from your organization. When applied,
- * a new team will be created. When destroyed, that team will be removed.
+ * This resource allows you to add/remove teams from your organization. When applied, a new team will be created. When destroyed, that team will be removed.
  * 
  * ## Example Usage
  * 
@@ -157,14 +156,14 @@ public class Team extends com.pulumi.resources.CustomResource {
         return this.nodeId;
     }
     /**
-     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      * 
      */
     @Export(name="notificationSetting", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationSetting;
 
     /**
-     * @return The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * @return The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      * 
      */
     public Output<Optional<String>> notificationSetting() {
@@ -213,32 +212,28 @@ public class Team extends com.pulumi.resources.CustomResource {
         return this.parentTeamReadSlug;
     }
     /**
-     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      * 
      */
     @Export(name="privacy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privacy;
 
     /**
-     * @return The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * @return The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      * 
      */
     public Output<Optional<String>> privacy() {
         return Codegen.optional(this.privacy);
     }
     /**
-     * The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains &#34;URL-unsafe&#34; characters.
      * 
      */
     @Export(name="slug", refs={String.class}, tree="[0]")
     private Output<String> slug;
 
     /**
-     * @return The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains &#34;URL-unsafe&#34; characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * @return The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains &#34;URL-unsafe&#34; characters.
      * 
      */
     public Output<String> slug() {

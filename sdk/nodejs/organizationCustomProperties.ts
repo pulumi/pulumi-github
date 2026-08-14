@@ -74,14 +74,6 @@ import * as utilities from "./utilities";
  *     defaultValue: "false",
  * });
  * ```
- *
- * ## Import
- *
- * Organization custom properties can be imported using the property name:
- *
- * ```sh
- * $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
- * ```
  */
 export class OrganizationCustomProperties extends pulumi.CustomResource {
     /**

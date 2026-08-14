@@ -39,7 +39,7 @@ class GetOrganizationTeamSyncGroupsResult:
     @pulumi.getter
     def groups(self) -> Sequence['outputs.GetOrganizationTeamSyncGroupsGroupResult']:
         """
-        An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+        An Array of GitHub Identity Provider Groups. Each `group` block consists of the fields documented below.
         """
         return pulumi.get(self, "groups")
 

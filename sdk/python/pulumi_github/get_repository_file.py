@@ -165,8 +165,7 @@ def get_repository_file(branch: Optional[_builtins.str] = None,
                         repository: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryFileResult:
     """
-    This data source allows you to read files within a
-    GitHub repository.
+    This data source allows you to read files within a GitHub repository.
 
     ## Example Usage
 
@@ -208,8 +207,7 @@ def get_repository_file_output(branch: pulumi.Input[Optional[Optional[_builtins.
                                repository: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryFileResult]:
     """
-    This data source allows you to read files within a
-    GitHub repository.
+    This data source allows you to read files within a GitHub repository.
 
     ## Example Usage
 

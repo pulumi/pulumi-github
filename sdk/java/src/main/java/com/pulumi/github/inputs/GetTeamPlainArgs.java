@@ -18,14 +18,14 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTeamPlainArgs Empty = new GetTeamPlainArgs();
 
     /**
-     * Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+     * Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
      * 
      */
     @Import(name="membershipType")
     private @Nullable String membershipType;
 
     /**
-     * @return Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+     * @return Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
      * 
      */
     public Optional<String> membershipType() {
@@ -33,7 +33,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
      * 
      * @deprecated
      * This is deprecated and will be removed in a future release.
@@ -44,7 +44,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Integer resultsPerPage;
 
     /**
-     * @return (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     * @return (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
      * 
      * @deprecated
      * This is deprecated and will be removed in a future release.
@@ -113,7 +113,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param membershipType Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+         * @param membershipType Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resultsPerPage (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+         * @param resultsPerPage (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
          * 
          * @return builder
          * 

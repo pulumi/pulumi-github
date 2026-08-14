@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This data source allows you to read files within a
- * GitHub repository.
+ * This data source allows you to read files within a GitHub repository.
  *
  * ## Example Usage
  *
@@ -89,8 +88,7 @@ export interface GetRepositoryFileResult {
     readonly sha: string;
 }
 /**
- * This data source allows you to read files within a
- * GitHub repository.
+ * This data source allows you to read files within a GitHub repository.
  *
  * ## Example Usage
  *

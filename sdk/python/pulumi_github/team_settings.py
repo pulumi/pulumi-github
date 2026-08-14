@@ -190,12 +190,17 @@ class TeamSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
+        # Add a repository to the team
         some_team = github.Team("some_team",
             name="SomeTeam",
             description="Some cool team")
         code_review_settings = github.TeamSettings("code_review_settings",
             team_id=some_team.id,
-            notify=True)
+            review_request_delegation={
+                "algorithm": "ROUND_ROBIN",
+                "member_count": 1,
+                "notify": True,
+            })
         ```
 
         ### Notify with delegation
@@ -215,12 +220,6 @@ class TeamSettings(pulumi.CustomResource):
                 "member_count": 1,
             })
         ```
-
-        ## Import
-
-        GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
-
-        or,
 
 
         :param str resource_name: The name of the resource.
@@ -252,12 +251,17 @@ class TeamSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
+        # Add a repository to the team
         some_team = github.Team("some_team",
             name="SomeTeam",
             description="Some cool team")
         code_review_settings = github.TeamSettings("code_review_settings",
             team_id=some_team.id,
-            notify=True)
+            review_request_delegation={
+                "algorithm": "ROUND_ROBIN",
+                "member_count": 1,
+                "notify": True,
+            })
         ```
 
         ### Notify with delegation
@@ -277,12 +281,6 @@ class TeamSettings(pulumi.CustomResource):
                 "member_count": 1,
             })
         ```
-
-        ## Import
-
-        GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
-
-        or,
 
 
         :param str resource_name: The name of the resource.

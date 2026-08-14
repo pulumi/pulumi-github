@@ -14,9 +14,7 @@ import (
 
 // Provides a GitHub membership resource.
 //
-// This resource allows you to add/remove users from your organization. When applied,
-// an invitation will be sent to the user to become part of the organization. When
-// destroyed, either the invitation will be cancelled or the user will be removed.
+// This resource allows you to add/remove users from your organization. When applied, an invitation will be sent to the user to become part of the organization. When destroyed, either the invitation will be cancelled or the user will be removed.
 //
 // ## Example Usage
 //
@@ -56,15 +54,10 @@ import (
 type Membership struct {
 	pulumi.CustomResourceState
 
-	// Defaults to `false`. If set to true,
-	// when this resource is destroyed, the member will not be removed
-	// from the organization. Instead, the member's role will be
-	// downgraded to 'member'.
+	// Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
 	DowngradeOnDestroy pulumi.BoolPtrOutput `pulumi:"downgradeOnDestroy"`
 	Etag               pulumi.StringOutput  `pulumi:"etag"`
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	// `admin` role represents the `owner` role available via GitHub UI.
+	// The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// The user to add to the organization.
 	Username pulumi.StringOutput `pulumi:"username"`
@@ -103,30 +96,20 @@ func GetMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Membership resources.
 type membershipState struct {
-	// Defaults to `false`. If set to true,
-	// when this resource is destroyed, the member will not be removed
-	// from the organization. Instead, the member's role will be
-	// downgraded to 'member'.
+	// Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
 	DowngradeOnDestroy *bool   `pulumi:"downgradeOnDestroy"`
 	Etag               *string `pulumi:"etag"`
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	// `admin` role represents the `owner` role available via GitHub UI.
+	// The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
 	Role *string `pulumi:"role"`
 	// The user to add to the organization.
 	Username *string `pulumi:"username"`
 }
 
 type MembershipState struct {
-	// Defaults to `false`. If set to true,
-	// when this resource is destroyed, the member will not be removed
-	// from the organization. Instead, the member's role will be
-	// downgraded to 'member'.
+	// Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
 	DowngradeOnDestroy pulumi.BoolPtrInput
 	Etag               pulumi.StringPtrInput
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	// `admin` role represents the `owner` role available via GitHub UI.
+	// The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
 	Role pulumi.StringPtrInput
 	// The user to add to the organization.
 	Username pulumi.StringPtrInput
@@ -137,14 +120,9 @@ func (MembershipState) ElementType() reflect.Type {
 }
 
 type membershipArgs struct {
-	// Defaults to `false`. If set to true,
-	// when this resource is destroyed, the member will not be removed
-	// from the organization. Instead, the member's role will be
-	// downgraded to 'member'.
+	// Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
 	DowngradeOnDestroy *bool `pulumi:"downgradeOnDestroy"`
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	// `admin` role represents the `owner` role available via GitHub UI.
+	// The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
 	Role *string `pulumi:"role"`
 	// The user to add to the organization.
 	Username string `pulumi:"username"`
@@ -152,14 +130,9 @@ type membershipArgs struct {
 
 // The set of arguments for constructing a Membership resource.
 type MembershipArgs struct {
-	// Defaults to `false`. If set to true,
-	// when this resource is destroyed, the member will not be removed
-	// from the organization. Instead, the member's role will be
-	// downgraded to 'member'.
+	// Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
 	DowngradeOnDestroy pulumi.BoolPtrInput
-	// The role of the user within the organization.
-	// Must be one of `member` or `admin`. Defaults to `member`.
-	// `admin` role represents the `owner` role available via GitHub UI.
+	// The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
 	Role pulumi.StringPtrInput
 	// The user to add to the organization.
 	Username pulumi.StringInput
@@ -252,10 +225,7 @@ func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) Mem
 	return o
 }
 
-// Defaults to `false`. If set to true,
-// when this resource is destroyed, the member will not be removed
-// from the organization. Instead, the member's role will be
-// downgraded to 'member'.
+// Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
 func (o MembershipOutput) DowngradeOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Membership) pulumi.BoolPtrOutput { return v.DowngradeOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -264,9 +234,7 @@ func (o MembershipOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The role of the user within the organization.
-// Must be one of `member` or `admin`. Defaults to `member`.
-// `admin` role represents the `owner` role available via GitHub UI.
+// The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
 func (o MembershipOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }

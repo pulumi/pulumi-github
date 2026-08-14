@@ -17,18 +17,14 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
     public static final RepositoryCollaboratorsUserArgs Empty = new RepositoryCollaboratorsUserArgs();
 
     /**
-     * The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
     @Import(name="permission")
     private @Nullable Output<String> permission;
 
     /**
-     * @return The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * @return Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
     public Optional<Output<String>> permission() {
@@ -36,14 +32,14 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
     }
 
     /**
-     * The user to add to the repository as a collaborator.
+     * Login for the user to add to the repository as a collaborator.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The user to add to the repository as a collaborator.
+     * @return Login for the user to add to the repository as a collaborator.
      * 
      */
     public Output<String> username() {
@@ -76,9 +72,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param permission The permission of the outside collaborators for the repository.
-         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-         * Must be `push` for personal repositories. Defaults to `push`.
+         * @param permission Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
          * 
          * @return builder
          * 
@@ -89,9 +83,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param permission The permission of the outside collaborators for the repository.
-         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-         * Must be `push` for personal repositories. Defaults to `push`.
+         * @param permission Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
          * 
          * @return builder
          * 
@@ -101,7 +93,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param username The user to add to the repository as a collaborator.
+         * @param username Login for the user to add to the repository as a collaborator.
          * 
          * @return builder
          * 
@@ -112,7 +104,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param username The user to add to the repository as a collaborator.
+         * @param username Login for the user to add to the repository as a collaborator.
          * 
          * @return builder
          * 

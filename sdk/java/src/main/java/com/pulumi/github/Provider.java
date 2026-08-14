@@ -24,60 +24,74 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:github")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * The GitHub Base API URL
+     * The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
      * 
      */
     @Export(name="baseUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> baseUrl;
 
     /**
-     * @return The GitHub Base API URL
+     * @return The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
      * 
      */
     public Output<Optional<String>> baseUrl() {
         return Codegen.optional(this.baseUrl);
     }
     /**
-     * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
-     * 
-     * @deprecated
-     * Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+     * The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
      * 
      */
-    @Deprecated /* Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION) */
+    @Export(name="cachePath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cachePath;
+
+    /**
+     * @return The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+     * 
+     */
+    public Output<Optional<String>> cachePath() {
+        return Codegen.optional(this.cachePath);
+    }
+    /**
+     * GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
+     * 
+     * @deprecated
+     * This argument is deprecated and will be removed in a future major release; use `owner` instead.
+     * 
+     */
+    @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
     @Export(name="organization", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organization;
 
     /**
-     * @return The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+     * @return GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
      * 
      */
     public Output<Optional<String>> organization() {
         return Codegen.optional(this.organization);
     }
     /**
-     * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+     * GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> owner;
 
     /**
-     * @return The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+     * @return GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
      * 
      */
     public Output<Optional<String>> owner() {
         return Codegen.optional(this.owner);
     }
     /**
-     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+     * GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
      * 
      */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**
-     * @return The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+     * @return GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
      * 
      */
     public Output<Optional<String>> token() {

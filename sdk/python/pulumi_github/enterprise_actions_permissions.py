@@ -207,8 +207,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                  enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise.
-        You must have admin access to an enterprise to use this resource.
+        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise. You must have admin access to an enterprise to use this resource.
 
         ## Example Usage
 
@@ -258,8 +257,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                  args: EnterpriseActionsPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise.
-        You must have admin access to an enterprise to use this resource.
+        This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise. You must have admin access to an enterprise to use this resource.
 
         ## Example Usage
 

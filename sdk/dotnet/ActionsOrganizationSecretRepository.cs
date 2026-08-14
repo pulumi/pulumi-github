@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource adds permission for a repository to use an actions secret within your GitHub organization.
-    /// You must have write access to an organization secret to use this resource.
+    /// This resource adds permission for a repository to use an actions secret within your GitHub organization. You must have write access to an organization secret to use this resource.
     /// 
     /// This resource is only applicable when `Visibility` of the existing organization secret has been set to `Selected`.
     /// 
@@ -28,7 +27,7 @@ namespace Pulumi.Github
     ///     var example = new Github.ActionsOrganizationSecret("example", new()
     ///     {
     ///         SecretName = "mysecret",
-    ///         Value = "foo",
+    ///         PlaintextValue = "foo",
     ///         Visibility = "selected",
     ///     });
     /// 
@@ -50,6 +49,10 @@ namespace Pulumi.Github
     /// ## Import
     /// 
     /// This resource can be imported using an ID made of the secret name and repository name separated by a `:`.
+    /// 
+    /// ### Import Block
+    /// 
+    /// The following import block imports the access of repository ID `123456` for the actions organization secret named `Mysecret` to a `github.ActionsOrganizationSecretRepository` resource named `Example`.
     /// 
     /// ### Import Command
     /// 

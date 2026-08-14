@@ -321,9 +321,7 @@ class RepositoryPages(pulumi.CustomResource):
                  source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None,
                  __props__=None):
         """
-        This resource allows you to manage GitHub Pages for a repository. See the
-        [documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
-        for details on GitHub Pages.
+        This resource allows you to manage GitHub Pages for a repository. See the [documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) for details on GitHub Pages.
 
         The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission. OAuth app tokens and personal access tokens (classic) need the repo scope to use this resource.
 
@@ -409,9 +407,7 @@ class RepositoryPages(pulumi.CustomResource):
                  args: RepositoryPagesInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to manage GitHub Pages for a repository. See the
-        [documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
-        for details on GitHub Pages.
+        This resource allows you to manage GitHub Pages for a repository. See the [documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) for details on GitHub Pages.
 
         The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission. OAuth app tokens and personal access tokens (classic) need the repo scope to use this resource.
 

@@ -106,8 +106,7 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
                  variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource adds permission for a repository to use an actions variables within your GitHub organization.
-        You must have write access to an organization variable to use this resource.
+        This resource adds permission for a repository to use an actions variables within your GitHub organization. You must have write access to an organization variable to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization variable has been set to `selected`.
 
@@ -119,7 +118,7 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
 
         example = github.ActionsOrganizationVariable("example",
             variable_name="myvariable",
-            value="foo",
+            plaintext_value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",
@@ -132,6 +131,10 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
         ## Import
 
         This resource can be imported using an ID made of the variable name and repository name separated by a `:`.
+
+        ### Import Block
+
+        The following import block imports the access of repository ID `123456` for the actions organization variable named `myvariable` to a `ActionsOrganizationVariableRepository` resource named `example`.
 
         ### Import Command
 
@@ -154,8 +157,7 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
                  args: ActionsOrganizationVariableRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource adds permission for a repository to use an actions variables within your GitHub organization.
-        You must have write access to an organization variable to use this resource.
+        This resource adds permission for a repository to use an actions variables within your GitHub organization. You must have write access to an organization variable to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization variable has been set to `selected`.
 
@@ -167,7 +169,7 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
 
         example = github.ActionsOrganizationVariable("example",
             variable_name="myvariable",
-            value="foo",
+            plaintext_value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",
@@ -180,6 +182,10 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
         ## Import
 
         This resource can be imported using an ID made of the variable name and repository name separated by a `:`.
+
+        ### Import Block
+
+        The following import block imports the access of repository ID `123456` for the actions organization variable named `myvariable` to a `ActionsOrganizationVariableRepository` resource named `example`.
 
         ### Import Command
 

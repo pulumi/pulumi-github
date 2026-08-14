@@ -12,10 +12,7 @@ namespace Pulumi.Github
     public static class GetMembership
     {
         /// <summary>
-        /// Use this data source to find out if a user is a member of your organization, as well
-        /// as what role they have within it.
-        /// If the user's membership in the organization is pending their acceptance of an invite,
-        /// the role they would have once they accept will be returned.
+        /// Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
         /// 
         /// ## Example Usage
         /// 
@@ -39,10 +36,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to find out if a user is a member of your organization, as well
-        /// as what role they have within it.
-        /// If the user's membership in the organization is pending their acceptance of an invite,
-        /// the role they would have once they accept will be returned.
+        /// Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
         /// 
         /// ## Example Usage
         /// 
@@ -66,10 +60,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to find out if a user is a member of your organization, as well
-        /// as what role they have within it.
-        /// If the user's membership in the organization is pending their acceptance of an invite,
-        /// the role they would have once they accept will be returned.
+        /// Use this data source to find out if a user is a member of your organization, as well as what role they have within it. If the user's membership in the organization is pending their acceptance of an invite, the role they would have once they accept will be returned.
         /// 
         /// ## Example Usage
         /// 
@@ -152,7 +143,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// `Active` or `Pending` -- the state of membership within the organization.  `Active` if the member has accepted the invite, or `Pending` if the invite is still pending.
+        /// `Active` or `Pending` -- the state of membership within the organization. `Active` if the member has accepted the invite, or `Pending` if the invite is still pending.
         /// </summary>
         public readonly string State;
         /// <summary>

@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about the IP allow list of an organization.
-// The allow list for IP addresses will block access to private resources via the web, API,
-// and Git from any IP addresses that are not on the allow list.
+// Use this data source to retrieve information about the IP allow list of an organization. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
 //
 // ## Example Usage
 //
@@ -53,7 +51,6 @@ type GetOrganizationIpAllowListResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An Array of allowed IP addresses.
-	// ***
 	IpAllowLists []GetOrganizationIpAllowListIpAllowList `pulumi:"ipAllowLists"`
 }
 
@@ -85,7 +82,6 @@ func (o GetOrganizationIpAllowListResultOutput) Id() pulumi.StringOutput {
 }
 
 // An Array of allowed IP addresses.
-// ***
 func (o GetOrganizationIpAllowListResultOutput) IpAllowLists() GetOrganizationIpAllowListIpAllowListArrayOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListResult) []GetOrganizationIpAllowListIpAllowList {
 		return v.IpAllowLists

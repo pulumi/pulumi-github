@@ -7,8 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Provides a GitHub issue resource.
  *
- * This resource allows you to create and manage issue within your
- * GitHub repository.
+ * This resource allows you to create and manage issue within your GitHub repository.
  *
  * ## Example Usage
  *
@@ -43,10 +42,10 @@ import * as utilities from "./utilities";
  *     hasIssues: true,
  * });
  * const testRepositoryMilestone = new github.RepositoryMilestone("test", {
- *     owner: std.splitOutput({
+ *     owner: std.split({
  *         separator: "/",
  *         text: test.fullName,
- *     }).apply(invoke => invoke.result?.[0]),
+ *     }).result[0],
  *     repository: test.name,
  *     title: "v1.0.0",
  *     description: "General Availability",

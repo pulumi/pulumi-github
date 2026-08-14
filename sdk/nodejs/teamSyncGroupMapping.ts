@@ -7,11 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
- * You must have team synchronization enabled for organizations owned by enterprise accounts.
+ * This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams. You must have team synchronization enabled for organizations owned by enterprise accounts.
  *
- * To learn more about team synchronization between IdPs and GitHub, please refer to:
- * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+ * To learn more about team synchronization between IdPs and GitHub, please refer to: <https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github>
  *
  * ## Example Usage
  *
@@ -68,10 +66,7 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
 
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     *
-     * The `group` block consists of:
+     * An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
      */
     declare public readonly groups: pulumi.Output<outputs.TeamSyncGroupMappingGroup[] | undefined>;
     /**
@@ -115,10 +110,7 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
 export interface TeamSyncGroupMappingState {
     etag?: pulumi.Input<string | undefined>;
     /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     *
-     * The `group` block consists of:
+     * An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
      */
     groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[] | undefined>;
     /**
@@ -132,10 +124,7 @@ export interface TeamSyncGroupMappingState {
  */
 export interface TeamSyncGroupMappingArgs {
     /**
-     * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     *
-     * The `group` block consists of:
+     * An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
      */
     groups?: pulumi.Input<pulumi.Input<inputs.TeamSyncGroupMappingGroup>[] | undefined>;
     /**

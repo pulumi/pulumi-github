@@ -55,7 +55,7 @@ class GetGithubAppResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the app.
         """
         return pulumi.get(self, "id")
 
@@ -78,6 +78,9 @@ class GetGithubAppResult:
     @_builtins.property
     @pulumi.getter
     def slug(self) -> _builtins.str:
+        """
+        The URL-friendly name of your GitHub App.
+        """
         return pulumi.get(self, "slug")
 
 
@@ -97,7 +100,7 @@ class AwaitableGetGithubAppResult(GetGithubAppResult):
 def get_github_app(slug: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGithubAppResult:
     """
-    Use this data source to retrieve information about an app.
+    Get information about an app.
 
     ## Example Usage
 
@@ -125,7 +128,7 @@ def get_github_app(slug: Optional[_builtins.str] = None,
 def get_github_app_output(slug: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGithubAppResult]:
     """
-    Use this data source to retrieve information about an app.
+    Get information about an app.
 
     ## Example Usage
 

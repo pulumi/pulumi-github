@@ -31,15 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = github.NewUserSshKey(ctx, "example", &github.UserSshKeyArgs{
 //				Title: pulumi.String("example title"),
-//				Key:   pulumi.String(invokeFile.Result),
+//				Key:   invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

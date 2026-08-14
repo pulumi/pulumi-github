@@ -7,28 +7,33 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a GitHub repository collaborators resource.
+ * Manage the complete set of collaborators (users and teams) for a GitHub repository.
  *
- * > Note: github.RepositoryCollaborators cannot be used in conjunction with github.RepositoryCollaborator and
- * github.TeamRepository or they will fight over what your policy should be.
+ * > This resource (`github.RepositoryCollaborators`) cannot be used in conjunction with `github.RepositoryCollaborator` or `github.TeamRepository` as they will conflict over the management of collaborators.
  *
- * This resource allows you to manage all collaborators for repositories in your
- * organization or personal account. For organization repositories, collaborators can
- * have explicit (and differing levels of) read, write, or administrator access to
- * specific repositories, without giving the user full organization membership.
- * For personal repositories, collaborators can only be granted write
- * (implicitly includes read) permission.
+ * This resource manages the complete set of collaborators for a repository, which includes both users and teams, in an authoritative manner. When applied, the provider will ensure that the set of collaborators for the repository matches the set defined in Terraform configuration. This means that if a collaborator is removed from the configuration, it will be removed from the repository, and if a collaborator is added to the configuration, it will be added to the repository.
  *
- * When applied, an invitation will be sent to the user to become a collaborators
- * on a repository. When destroyed, either the invitation will be cancelled or the
- * collaborators will be removed from the repository.
+ * > **Archived Repositories** When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
  *
- * > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
+ * ## Organization Repositories
  *
- * This resource is authoritative. For adding a collaborator to a repo in a non-authoritative manner, use
- * github.RepositoryCollaborator instead.
+ * For repositories owned by an organization, collaborators can have explicit (and differing levels of) read, write, or administrator access to specific repositories, without giving the user full organization membership.
  *
- * Further documentation on GitHub collaborators:
+ * ### Teams
+ *
+ * Teams will be added to the repository on apply, and removed if removed from the configuration or on destroy. Teams added to the repository outside of Terraform can be managed by adding them to the configuration, or ignored by using the `ignoreTeam` argument. This is particularly important for organization/enterprise teams, which either need to be added to the configuration or ignored, as otherwise they will cause perpetual drift.
+ *
+ * ## Personal Repositories
+ *
+ * For personal repositories, non-owner collaborators can only be granted [write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) permission. Owners will be ignored unless they are explicitly added, in which case they must be granted `admin` permission.
+ *
+ * ## Users
+ *
+ * When applied, an invitation will be sent to the user to become a collaborators on a repository. When destroyed, either the invitation will be cancelled or the collaborators will be removed from the repository.
+ *
+ * ## Documentation
+ *
+ * Further documentation on GitHub collaborators.
  *
  * - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
  * - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
@@ -57,6 +62,14 @@ import * as utilities from "./utilities";
  *         teamId: someTeam.slug,
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * The `pulumi import` command can be used, for example:
+ *
+ * ```sh
+ * $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators example-repo
  * ```
  */
 export class RepositoryCollaborators extends pulumi.CustomResource {
@@ -88,16 +101,19 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
     }
 
     /**
-     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * Teams to ignore when managing repository collaborators.
      */
     declare public readonly ignoreTeams: pulumi.Output<outputs.RepositoryCollaboratorsIgnoreTeam[] | undefined>;
     /**
-     * Map of usernames to invitation ID for any users added as part of creation of this resource to
-     * be used in `github.UserInvitationAccepter`.
+     * Map of usernames to invitation ID for users that haven't yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren't yet collaborators.
      */
     declare public /*out*/ readonly invitationIds: pulumi.Output<{[key: string]: string}>;
     /**
-     * The GitHub repository.
+     * Indicates whether the owner of a personal repository is configured as a collaborator.
+     */
+    declare public /*out*/ readonly ownerConfigured: pulumi.Output<boolean>;
+    /**
+     * Name of the repository.
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
@@ -105,11 +121,11 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
     /**
-     * List of teams to grant access to the repository.
+     * Teams to grant access to the repository.
      */
     declare public readonly teams: pulumi.Output<outputs.RepositoryCollaboratorsTeam[] | undefined>;
     /**
-     * List of users to grant access to the repository.
+     * Users to grant access to the repository.
      */
     declare public readonly users: pulumi.Output<outputs.RepositoryCollaboratorsUser[] | undefined>;
 
@@ -128,6 +144,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
             const state = argsOrState as RepositoryCollaboratorsState | undefined;
             resourceInputs["ignoreTeams"] = state?.ignoreTeams;
             resourceInputs["invitationIds"] = state?.invitationIds;
+            resourceInputs["ownerConfigured"] = state?.ownerConfigured;
             resourceInputs["repository"] = state?.repository;
             resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["teams"] = state?.teams;
@@ -142,6 +159,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
             resourceInputs["teams"] = args?.teams;
             resourceInputs["users"] = args?.users;
             resourceInputs["invitationIds"] = undefined /*out*/;
+            resourceInputs["ownerConfigured"] = undefined /*out*/;
             resourceInputs["repositoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -154,16 +172,19 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
  */
 export interface RepositoryCollaboratorsState {
     /**
-     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * Teams to ignore when managing repository collaborators.
      */
     ignoreTeams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsIgnoreTeam>[] | undefined>;
     /**
-     * Map of usernames to invitation ID for any users added as part of creation of this resource to
-     * be used in `github.UserInvitationAccepter`.
+     * Map of usernames to invitation ID for users that haven't yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren't yet collaborators.
      */
     invitationIds?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The GitHub repository.
+     * Indicates whether the owner of a personal repository is configured as a collaborator.
+     */
+    ownerConfigured?: pulumi.Input<boolean | undefined>;
+    /**
+     * Name of the repository.
      */
     repository?: pulumi.Input<string | undefined>;
     /**
@@ -171,11 +192,11 @@ export interface RepositoryCollaboratorsState {
      */
     repositoryId?: pulumi.Input<number | undefined>;
     /**
-     * List of teams to grant access to the repository.
+     * Teams to grant access to the repository.
      */
     teams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsTeam>[] | undefined>;
     /**
-     * List of users to grant access to the repository.
+     * Users to grant access to the repository.
      */
     users?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsUser>[] | undefined>;
 }
@@ -185,19 +206,19 @@ export interface RepositoryCollaboratorsState {
  */
 export interface RepositoryCollaboratorsArgs {
     /**
-     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * Teams to ignore when managing repository collaborators.
      */
     ignoreTeams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsIgnoreTeam>[] | undefined>;
     /**
-     * The GitHub repository.
+     * Name of the repository.
      */
     repository: pulumi.Input<string>;
     /**
-     * List of teams to grant access to the repository.
+     * Teams to grant access to the repository.
      */
     teams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsTeam>[] | undefined>;
     /**
-     * List of users to grant access to the repository.
+     * Users to grant access to the repository.
      */
     users?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsUser>[] | undefined>;
 }

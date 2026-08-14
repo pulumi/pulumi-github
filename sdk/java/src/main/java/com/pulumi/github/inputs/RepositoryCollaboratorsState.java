@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.github.inputs.RepositoryCollaboratorsIgnoreTeamArgs;
 import com.pulumi.github.inputs.RepositoryCollaboratorsTeamArgs;
 import com.pulumi.github.inputs.RepositoryCollaboratorsUserArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -22,14 +23,14 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     public static final RepositoryCollaboratorsState Empty = new RepositoryCollaboratorsState();
 
     /**
-     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * Teams to ignore when managing repository collaborators.
      * 
      */
     @Import(name="ignoreTeams")
     private @Nullable Output<List<RepositoryCollaboratorsIgnoreTeamArgs>> ignoreTeams;
 
     /**
-     * @return List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * @return Teams to ignore when managing repository collaborators.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsIgnoreTeamArgs>>> ignoreTeams() {
@@ -37,16 +38,14 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     }
 
     /**
-     * Map of usernames to invitation ID for any users added as part of creation of this resource to
-     * be used in `github.UserInvitationAccepter`.
+     * Map of usernames to invitation ID for users that haven&#39;t yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren&#39;t yet collaborators.
      * 
      */
     @Import(name="invitationIds")
     private @Nullable Output<Map<String,String>> invitationIds;
 
     /**
-     * @return Map of usernames to invitation ID for any users added as part of creation of this resource to
-     * be used in `github.UserInvitationAccepter`.
+     * @return Map of usernames to invitation ID for users that haven&#39;t yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren&#39;t yet collaborators.
      * 
      */
     public Optional<Output<Map<String,String>>> invitationIds() {
@@ -54,14 +53,29 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     }
 
     /**
-     * The GitHub repository.
+     * Indicates whether the owner of a personal repository is configured as a collaborator.
+     * 
+     */
+    @Import(name="ownerConfigured")
+    private @Nullable Output<Boolean> ownerConfigured;
+
+    /**
+     * @return Indicates whether the owner of a personal repository is configured as a collaborator.
+     * 
+     */
+    public Optional<Output<Boolean>> ownerConfigured() {
+        return Optional.ofNullable(this.ownerConfigured);
+    }
+
+    /**
+     * Name of the repository.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The GitHub repository.
+     * @return Name of the repository.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -84,14 +98,14 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of teams to grant access to the repository.
+     * Teams to grant access to the repository.
      * 
      */
     @Import(name="teams")
     private @Nullable Output<List<RepositoryCollaboratorsTeamArgs>> teams;
 
     /**
-     * @return List of teams to grant access to the repository.
+     * @return Teams to grant access to the repository.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsTeamArgs>>> teams() {
@@ -99,14 +113,14 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of users to grant access to the repository.
+     * Users to grant access to the repository.
      * 
      */
     @Import(name="users")
     private @Nullable Output<List<RepositoryCollaboratorsUserArgs>> users;
 
     /**
-     * @return List of users to grant access to the repository.
+     * @return Users to grant access to the repository.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsUserArgs>>> users() {
@@ -118,6 +132,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     private RepositoryCollaboratorsState(RepositoryCollaboratorsState $) {
         this.ignoreTeams = $.ignoreTeams;
         this.invitationIds = $.invitationIds;
+        this.ownerConfigured = $.ownerConfigured;
         this.repository = $.repository;
         this.repositoryId = $.repositoryId;
         this.teams = $.teams;
@@ -143,7 +158,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * @param ignoreTeams Teams to ignore when managing repository collaborators.
          * 
          * @return builder
          * 
@@ -154,7 +169,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * @param ignoreTeams Teams to ignore when managing repository collaborators.
          * 
          * @return builder
          * 
@@ -164,7 +179,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * @param ignoreTeams Teams to ignore when managing repository collaborators.
          * 
          * @return builder
          * 
@@ -174,8 +189,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param invitationIds Map of usernames to invitation ID for any users added as part of creation of this resource to
-         * be used in `github.UserInvitationAccepter`.
+         * @param invitationIds Map of usernames to invitation ID for users that haven&#39;t yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren&#39;t yet collaborators.
          * 
          * @return builder
          * 
@@ -186,8 +200,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param invitationIds Map of usernames to invitation ID for any users added as part of creation of this resource to
-         * be used in `github.UserInvitationAccepter`.
+         * @param invitationIds Map of usernames to invitation ID for users that haven&#39;t yet accepted their invitation to become a collaborator. This is only set on read, and is used internally to track pending invitations for users that aren&#39;t yet collaborators.
          * 
          * @return builder
          * 
@@ -197,7 +210,28 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param repository The GitHub repository.
+         * @param ownerConfigured Indicates whether the owner of a personal repository is configured as a collaborator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerConfigured(@Nullable Output<Boolean> ownerConfigured) {
+            $.ownerConfigured = ownerConfigured;
+            return this;
+        }
+
+        /**
+         * @param ownerConfigured Indicates whether the owner of a personal repository is configured as a collaborator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerConfigured(Boolean ownerConfigured) {
+            return ownerConfigured(Output.of(ownerConfigured));
+        }
+
+        /**
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -208,7 +242,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param repository The GitHub repository.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -239,7 +273,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param teams List of teams to grant access to the repository.
+         * @param teams Teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -250,7 +284,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param teams List of teams to grant access to the repository.
+         * @param teams Teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -260,7 +294,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param teams List of teams to grant access to the repository.
+         * @param teams Teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -270,7 +304,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param users List of users to grant access to the repository.
+         * @param users Users to grant access to the repository.
          * 
          * @return builder
          * 
@@ -281,7 +315,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param users List of users to grant access to the repository.
+         * @param users Users to grant access to the repository.
          * 
          * @return builder
          * 
@@ -291,7 +325,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param users List of users to grant access to the repository.
+         * @param users Users to grant access to the repository.
          * 
          * @return builder
          * 

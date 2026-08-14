@@ -26,13 +26,8 @@ class MembershipArgs:
         The set of arguments for constructing a Membership resource.
 
         :param pulumi.Input[_builtins.str] username: The user to add to the organization.
-        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true,
-               when this resource is destroyed, the member will not be removed
-               from the organization. Instead, the member's role will be
-               downgraded to 'member'.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the organization.
-               Must be one of `member` or `admin`. Defaults to `member`.
-               `admin` role represents the `owner` role available via GitHub UI.
+        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
         """
         pulumi.set(__self__, "username", username)
         if downgrade_on_destroy is not None:
@@ -56,10 +51,7 @@ class MembershipArgs:
     @pulumi.getter(name="downgradeOnDestroy")
     def downgrade_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Defaults to `false`. If set to true,
-        when this resource is destroyed, the member will not be removed
-        from the organization. Instead, the member's role will be
-        downgraded to 'member'.
+        Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
         """
         return pulumi.get(self, "downgrade_on_destroy")
 
@@ -71,9 +63,7 @@ class MembershipArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role of the user within the organization.
-        Must be one of `member` or `admin`. Defaults to `member`.
-        `admin` role represents the `owner` role available via GitHub UI.
+        The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
         """
         return pulumi.get(self, "role")
 
@@ -92,13 +82,8 @@ class _MembershipState:
         """
         Input properties used for looking up and filtering Membership resources.
 
-        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true,
-               when this resource is destroyed, the member will not be removed
-               from the organization. Instead, the member's role will be
-               downgraded to 'member'.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the organization.
-               Must be one of `member` or `admin`. Defaults to `member`.
-               `admin` role represents the `owner` role available via GitHub UI.
+        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
         :param pulumi.Input[_builtins.str] username: The user to add to the organization.
         """
         if downgrade_on_destroy is not None:
@@ -114,10 +99,7 @@ class _MembershipState:
     @pulumi.getter(name="downgradeOnDestroy")
     def downgrade_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Defaults to `false`. If set to true,
-        when this resource is destroyed, the member will not be removed
-        from the organization. Instead, the member's role will be
-        downgraded to 'member'.
+        Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
         """
         return pulumi.get(self, "downgrade_on_destroy")
 
@@ -138,9 +120,7 @@ class _MembershipState:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role of the user within the organization.
-        Must be one of `member` or `admin`. Defaults to `member`.
-        `admin` role represents the `owner` role available via GitHub UI.
+        The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
         """
         return pulumi.get(self, "role")
 
@@ -174,9 +154,7 @@ class Membership(pulumi.CustomResource):
         """
         Provides a GitHub membership resource.
 
-        This resource allows you to add/remove users from your organization. When applied,
-        an invitation will be sent to the user to become part of the organization. When
-        destroyed, either the invitation will be cancelled or the user will be removed.
+        This resource allows you to add/remove users from your organization. When applied, an invitation will be sent to the user to become part of the organization. When destroyed, either the invitation will be cancelled or the user will be removed.
 
         ## Example Usage
 
@@ -201,13 +179,8 @@ class Membership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true,
-               when this resource is destroyed, the member will not be removed
-               from the organization. Instead, the member's role will be
-               downgraded to 'member'.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the organization.
-               Must be one of `member` or `admin`. Defaults to `member`.
-               `admin` role represents the `owner` role available via GitHub UI.
+        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
         :param pulumi.Input[_builtins.str] username: The user to add to the organization.
         """
         ...
@@ -219,9 +192,7 @@ class Membership(pulumi.CustomResource):
         """
         Provides a GitHub membership resource.
 
-        This resource allows you to add/remove users from your organization. When applied,
-        an invitation will be sent to the user to become part of the organization. When
-        destroyed, either the invitation will be cancelled or the user will be removed.
+        This resource allows you to add/remove users from your organization. When applied, an invitation will be sent to the user to become part of the organization. When destroyed, either the invitation will be cancelled or the user will be removed.
 
         ## Example Usage
 
@@ -298,13 +269,8 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true,
-               when this resource is destroyed, the member will not be removed
-               from the organization. Instead, the member's role will be
-               downgraded to 'member'.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the organization.
-               Must be one of `member` or `admin`. Defaults to `member`.
-               `admin` role represents the `owner` role available via GitHub UI.
+        :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
+        :param pulumi.Input[_builtins.str] role: The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
         :param pulumi.Input[_builtins.str] username: The user to add to the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -321,10 +287,7 @@ class Membership(pulumi.CustomResource):
     @pulumi.getter(name="downgradeOnDestroy")
     def downgrade_on_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Defaults to `false`. If set to true,
-        when this resource is destroyed, the member will not be removed
-        from the organization. Instead, the member's role will be
-        downgraded to 'member'.
+        Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
         """
         return pulumi.get(self, "downgrade_on_destroy")
 
@@ -337,9 +300,7 @@ class Membership(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The role of the user within the organization.
-        Must be one of `member` or `admin`. Defaults to `member`.
-        `admin` role represents the `owner` role available via GitHub UI.
+        The role of the user within the organization. Must be one of `member` or `admin`. Defaults to `member`. `admin` role represents the `owner` role available via GitHub UI.
         """
         return pulumi.get(self, "role")
 

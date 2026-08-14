@@ -58,6 +58,10 @@ import (
 // ```
 //
 // ## Import
+//
+// ```sh
+// $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
+// ```
 type RepositoryDeploymentBranchPolicy struct {
 	pulumi.CustomResourceState
 

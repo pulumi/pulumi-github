@@ -19,14 +19,14 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
     public static final OrganizationRulesetRulesRequiredStatusChecksArgs Empty = new OrganizationRulesetRulesRequiredStatusChecksArgs();
 
     /**
-     * (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
      * 
      */
     @Import(name="doNotEnforceOnCreate")
     private @Nullable Output<Boolean> doNotEnforceOnCreate;
 
     /**
-     * @return (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
      * 
      */
     public Optional<Output<Boolean>> doNotEnforceOnCreate() {
@@ -90,7 +90,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
         }
 
         /**
-         * @param doNotEnforceOnCreate (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+         * @param doNotEnforceOnCreate Allow repositories and branches to be created if a check would otherwise prohibit it.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
         }
 
         /**
-         * @param doNotEnforceOnCreate (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+         * @param doNotEnforceOnCreate Allow repositories and branches to be created if a check would otherwise prohibit it.
          * 
          * @return builder
          * 

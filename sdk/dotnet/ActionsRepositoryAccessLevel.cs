@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
-    /// You must have admin access to a repository to use this resource.
+    /// This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories. You must have admin access to a repository to use this resource.
     /// 
     /// ## Example Usage
     /// 

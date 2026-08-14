@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class RepositoryCollaboratorsIgnoreTeam {
     /**
-     * @return The GitHub team id or the GitHub team slug.
+     * @return ID or slug of the team to ignore.
      * 
      */
     private String teamId;
 
     private RepositoryCollaboratorsIgnoreTeam() {}
     /**
-     * @return The GitHub team id or the GitHub team slug.
+     * @return ID or slug of the team to ignore.
      * 
      */
     public String teamId() {

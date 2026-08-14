@@ -108,14 +108,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Organization custom properties can be imported using the property name:
-    /// 
-    /// ```sh
-    /// $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationCustomProperties:OrganizationCustomProperties")]
     public partial class OrganizationCustomProperties : global::Pulumi.CustomResource

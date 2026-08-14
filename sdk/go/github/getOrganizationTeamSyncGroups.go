@@ -48,7 +48,7 @@ func GetOrganizationTeamSyncGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOpt
 
 // A collection of values returned by getOrganizationTeamSyncGroups.
 type GetOrganizationTeamSyncGroupsResult struct {
-	// An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+	// An Array of GitHub Identity Provider Groups. Each `group` block consists of the fields documented below.
 	Groups []GetOrganizationTeamSyncGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -76,7 +76,7 @@ func (o GetOrganizationTeamSyncGroupsResultOutput) ToGetOrganizationTeamSyncGrou
 	return o
 }
 
-// An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+// An Array of GitHub Identity Provider Groups. Each `group` block consists of the fields documented below.
 func (o GetOrganizationTeamSyncGroupsResultOutput) Groups() GetOrganizationTeamSyncGroupsGroupArrayOutput {
 	return o.ApplyT(func(v GetOrganizationTeamSyncGroupsResult) []GetOrganizationTeamSyncGroupsGroup { return v.Groups }).(GetOrganizationTeamSyncGroupsGroupArrayOutput)
 }

@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **Note:** The data source will return a maximum of `1000` repositories
- * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+ * > **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
  *
  * Use this data source to retrieve a list of GitHub repositories using a search query.
  *
@@ -80,8 +79,7 @@ export interface GetRepositoriesResult {
     readonly sort?: string;
 }
 /**
- * > **Note:** The data source will return a maximum of `1000` repositories
- * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+ * > **Note:** The data source will return a maximum of `1000` repositories [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
  *
  * Use this data source to retrieve a list of GitHub repositories using a search query.
  *

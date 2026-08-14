@@ -11,8 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source allows you to read files within a
-// GitHub repository.
+// This data source allows you to read files within a GitHub repository.
 //
 // ## Example Usage
 //

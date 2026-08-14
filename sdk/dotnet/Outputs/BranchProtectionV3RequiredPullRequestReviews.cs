@@ -26,8 +26,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DismissalApps;
         /// <summary>
-        /// The list of team slugs with dismissal access.
-        /// Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// The list of team slugs with dismissal access. Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         /// </summary>
         public readonly ImmutableArray<string> DismissalTeams;
         /// <summary>
@@ -40,7 +39,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly bool? RequireCodeOwnerReviews;
         /// <summary>
-        /// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `False`
+        /// Require that the most recent push must be approved by someone other than the last pusher. Defaults to `False`
         /// </summary>
         public readonly bool? RequireLastPushApproval;
         /// <summary>

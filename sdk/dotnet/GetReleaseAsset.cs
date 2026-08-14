@@ -36,9 +36,7 @@ namespace Pulumi.Github
         /// });
         /// ```
         /// 
-        /// To retrieve a specific release asset from a repository, and download the file
-        /// into a `File` attribute on the data source:
-        /// 
+        /// To retrieve a specific release asset from a repository, and download the file into a `File` attribute on the data source:
         /// 
         /// 
         /// 
@@ -119,9 +117,7 @@ namespace Pulumi.Github
         /// });
         /// ```
         /// 
-        /// To retrieve a specific release asset from a repository, and download the file
-        /// into a `File` attribute on the data source:
-        /// 
+        /// To retrieve a specific release asset from a repository, and download the file into a `File` attribute on the data source:
         /// 
         /// 
         /// 
@@ -202,9 +198,7 @@ namespace Pulumi.Github
         /// });
         /// ```
         /// 
-        /// To retrieve a specific release asset from a repository, and download the file
-        /// into a `File` attribute on the data source:
-        /// 
+        /// To retrieve a specific release asset from a repository, and download the file into a `File` attribute on the data source:
         /// 
         /// 
         /// 

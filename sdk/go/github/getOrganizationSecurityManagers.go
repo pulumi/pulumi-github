@@ -52,7 +52,7 @@ func GetOrganizationSecurityManagers(ctx *pulumi.Context, opts ...pulumi.InvokeO
 type GetOrganizationSecurityManagersResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An list of GitHub teams.  Each `team` block consists of the fields documented below.
+	// An list of GitHub teams. Each `team` block consists of the fields documented below.
 	Teams []GetOrganizationSecurityManagersTeam `pulumi:"teams"`
 }
 
@@ -83,7 +83,7 @@ func (o GetOrganizationSecurityManagersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationSecurityManagersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An list of GitHub teams.  Each `team` block consists of the fields documented below.
+// An list of GitHub teams. Each `team` block consists of the fields documented below.
 func (o GetOrganizationSecurityManagersResultOutput) Teams() GetOrganizationSecurityManagersTeamArrayOutput {
 	return o.ApplyT(func(v GetOrganizationSecurityManagersResult) []GetOrganizationSecurityManagersTeam { return v.Teams }).(GetOrganizationSecurityManagersTeamArrayOutput)
 }

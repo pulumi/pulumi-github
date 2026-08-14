@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage a release in a specific
-    /// GitHub repository.
+    /// This resource allows you to create and manage a release in a specific GitHub repository.
     /// 
     /// ## Example Usage
     /// 

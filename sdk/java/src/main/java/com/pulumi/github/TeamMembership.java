@@ -17,10 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a GitHub team membership resource.
  * 
- * This resource allows you to add/remove users from teams in your organization. When applied,
- * the user will be added to the team. If the user hasn&#39;t accepted their invitation to the
- * organization, they won&#39;t be part of the team until they do. When
- * destroyed, the user will be removed from the team.
+ * This resource allows you to add/remove users from teams in your organization. When applied, the user will be added to the team. If the user hasn&#39;t accepted their invitation to the organization, they won&#39;t be part of the team until they do. When destroyed, the user will be removed from the team.
  * 
  * &gt; **Note** This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
  * 
@@ -95,16 +92,14 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
         return this.etag;
     }
     /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * @return The role of the user within the team. Must be one of `member` or `maintainer`. Defaults to `member`.
      * 
      */
     public Output<Optional<String>> role() {

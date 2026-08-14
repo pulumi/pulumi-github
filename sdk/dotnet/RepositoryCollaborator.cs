@@ -12,24 +12,15 @@ namespace Pulumi.Github
     /// <summary>
     /// Provides a GitHub repository collaborator resource.
     /// 
-    /// &gt; Note: github.RepositoryCollaborator cannot be used in conjunction with github.RepositoryCollaborators or
-    /// they will fight over what your policy should be.
+    /// &gt; Note: github.RepositoryCollaborator cannot be used in conjunction with github.RepositoryCollaborators or they will fight over what your policy should be.
     /// 
-    /// This resource allows you to add/remove collaborators from repositories in your
-    /// organization or personal account. For organization repositories, collaborators can
-    /// have explicit (and differing levels of) read, write, or administrator access to
-    /// specific repositories, without giving the user full organization membership.
-    /// For personal repositories, collaborators can only be granted write
-    /// (implicitly includes read) permission.
+    /// This resource allows you to add/remove collaborators from repositories in your organization or personal account. For organization repositories, collaborators can have explicit (and differing levels of) read, write, or administrator access to specific repositories, without giving the user full organization membership. For personal repositories, collaborators can only be granted write (implicitly includes read) permission.
     /// 
-    /// When applied, an invitation will be sent to the user to become a collaborator
-    /// on a repository. When destroyed, either the invitation will be cancelled or the
-    /// collaborator will be removed from the repository.
+    /// When applied, an invitation will be sent to the user to become a collaborator on a repository. When destroyed, either the invitation will be cancelled or the collaborator will be removed from the repository.
     /// 
     /// &gt; **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing collaborator modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
     /// 
-    /// This resource is non-authoritative, for managing ALL collaborators of a repo, use github.RepositoryCollaborators
-    /// instead.
+    /// This resource is non-authoritative, for managing ALL collaborators of a repo, use github.RepositoryCollaborators instead.
     /// 
     /// Further documentation on GitHub collaborators:
     /// 
@@ -70,21 +61,19 @@ namespace Pulumi.Github
     public partial class RepositoryCollaborator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the invitation to be used in `github.UserInvitationAccepter`
+        /// ID of the invitation to be used in `github.UserInvitationAccepter`.
         /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
         /// <summary>
-        /// The permission of the outside collaborator for the repository.
-        /// Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        /// Must be `Push` for personal repositories. Defaults to `Push`.
+        /// The permission of the outside collaborator for the repository. Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `Push` for personal repositories. Defaults to `Push`.
         /// </summary>
         [Output("permission")]
         public Output<string?> Permission { get; private set; } = null!;
 
         /// <summary>
-        /// Suppress plan diffs for `Triage` and `Maintain`.  Defaults to `False`.
+        /// Suppress plan diffs for `Triage` and `Maintain`. Defaults to `False`.
         /// </summary>
         [Output("permissionDiffSuppression")]
         public Output<bool?> PermissionDiffSuppression { get; private set; } = null!;
@@ -92,7 +81,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The GitHub repository
         /// 
-        /// &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+        /// &gt; Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
@@ -150,15 +139,13 @@ namespace Pulumi.Github
     public sealed class RepositoryCollaboratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permission of the outside collaborator for the repository.
-        /// Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        /// Must be `Push` for personal repositories. Defaults to `Push`.
+        /// The permission of the outside collaborator for the repository. Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `Push` for personal repositories. Defaults to `Push`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
         /// <summary>
-        /// Suppress plan diffs for `Triage` and `Maintain`.  Defaults to `False`.
+        /// Suppress plan diffs for `Triage` and `Maintain`. Defaults to `False`.
         /// </summary>
         [Input("permissionDiffSuppression")]
         public Input<bool>? PermissionDiffSuppression { get; set; }
@@ -166,7 +153,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The GitHub repository
         /// 
-        /// &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+        /// &gt; Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -186,21 +173,19 @@ namespace Pulumi.Github
     public sealed class RepositoryCollaboratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the invitation to be used in `github.UserInvitationAccepter`
+        /// ID of the invitation to be used in `github.UserInvitationAccepter`.
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
         /// <summary>
-        /// The permission of the outside collaborator for the repository.
-        /// Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        /// Must be `Push` for personal repositories. Defaults to `Push`.
+        /// The permission of the outside collaborator for the repository. Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `Push` for personal repositories. Defaults to `Push`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
         /// <summary>
-        /// Suppress plan diffs for `Triage` and `Maintain`.  Defaults to `False`.
+        /// Suppress plan diffs for `Triage` and `Maintain`. Defaults to `False`.
         /// </summary>
         [Input("permissionDiffSuppression")]
         public Input<bool>? PermissionDiffSuppression { get; set; }
@@ -208,7 +193,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The GitHub repository
         /// 
-        /// &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+        /// &gt; Note: The owner of the repository can be passed as part of the repository name e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

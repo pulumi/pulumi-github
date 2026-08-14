@@ -12,23 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
-// they will fight over what your policy should be.
+// > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or they will fight over what your policy should be.
 //
-// This resource manages relationships between teams and repositories
-// in your GitHub organization.
+// This resource manages relationships between teams and repositories in your GitHub organization.
 //
-// Creating this resource grants a particular team permissions on a
-// particular repository.
+// Creating this resource grants a particular team permissions on a particular repository.
 //
-// The repository and the team must both belong to the same organization
-// on GitHub. This resource does not actually *create* any repositories;
-// to do that, see `Repository`.
+// The repository and the team must both belong to the same organization on GitHub. This resource does not actually *create* any repositories.
 //
 // > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing team permission modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
 //
-// This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
-// instead.
+// This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators instead.
 //
 // ## Example Usage
 //
@@ -84,8 +78,7 @@ type TeamRepository struct {
 	pulumi.CustomResourceState
 
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+	// The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission pulumi.StringPtrOutput `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository pulumi.StringOutput `pulumi:"repository"`
@@ -130,8 +123,7 @@ func GetTeamRepository(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TeamRepository resources.
 type teamRepositoryState struct {
 	Etag *string `pulumi:"etag"`
-	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+	// The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission *string `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository *string `pulumi:"repository"`
@@ -141,8 +133,7 @@ type teamRepositoryState struct {
 
 type TeamRepositoryState struct {
 	Etag pulumi.StringPtrInput
-	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+	// The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission pulumi.StringPtrInput
 	// The repository to add to the team.
 	Repository pulumi.StringPtrInput
@@ -155,8 +146,7 @@ func (TeamRepositoryState) ElementType() reflect.Type {
 }
 
 type teamRepositoryArgs struct {
-	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+	// The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission *string `pulumi:"permission"`
 	// The repository to add to the team.
 	Repository string `pulumi:"repository"`
@@ -166,8 +156,7 @@ type teamRepositoryArgs struct {
 
 // The set of arguments for constructing a TeamRepository resource.
 type TeamRepositoryArgs struct {
-	// The permissions of team members regarding the repository.
-	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+	// The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission pulumi.StringPtrInput
 	// The repository to add to the team.
 	Repository pulumi.StringInput
@@ -266,8 +255,7 @@ func (o TeamRepositoryOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamRepository) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The permissions of team members regarding the repository.
-// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+// The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 func (o TeamRepositoryOutput) Permission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamRepository) pulumi.StringPtrOutput { return v.Permission }).(pulumi.StringPtrOutput)
 }

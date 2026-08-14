@@ -335,8 +335,7 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
                  visibility: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise.
-        You must have admin access to an enterprise to use this resource.
+        This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise. You must have admin access to an enterprise to use this resource.
 
         ## Example Usage
 
@@ -386,8 +385,7 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
                  args: EnterpriseActionsRunnerGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise.
-        You must have admin access to an enterprise to use this resource.
+        This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise. You must have admin access to an enterprise to use this resource.
 
         ## Example Usage
 

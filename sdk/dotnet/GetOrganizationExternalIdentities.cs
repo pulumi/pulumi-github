@@ -12,8 +12,7 @@ namespace Pulumi.Github
     public static class GetOrganizationExternalIdentities
     {
         /// <summary>
-        /// Use this data source to retrieve each organization member's SAML or SCIM user
-        /// attributes.
+        /// Use this data source to retrieve each organization member's SAML or SCIM user attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -34,8 +33,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationExternalIdentitiesResult>("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve each organization member's SAML or SCIM user
-        /// attributes.
+        /// Use this data source to retrieve each organization member's SAML or SCIM user attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -56,8 +54,7 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationExternalIdentitiesResult>("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve each organization member's SAML or SCIM user
-        /// attributes.
+        /// Use this data source to retrieve each organization member's SAML or SCIM user attributes.
         /// 
         /// ## Example Usage
         /// 

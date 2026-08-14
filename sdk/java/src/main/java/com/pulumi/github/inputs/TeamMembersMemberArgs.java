@@ -17,16 +17,14 @@ public final class TeamMembersMemberArgs extends com.pulumi.resources.ResourceAr
     public static final TeamMembersMemberArgs Empty = new TeamMembersMemberArgs();
 
     /**
-     * The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * Role to grant the user within the team; must be one of `member` or `maintainer`.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The role of the user within the team.
-     * Must be one of `member` or `maintainer`. Defaults to `member`.
+     * @return Role to grant the user within the team; must be one of `member` or `maintainer`.
      * 
      */
     public Optional<Output<String>> role() {
@@ -34,14 +32,14 @@ public final class TeamMembersMemberArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The user to add to the team.
+     * User to add to the team.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The user to add to the team.
+     * @return User to add to the team.
      * 
      */
     public Output<String> username() {
@@ -74,8 +72,7 @@ public final class TeamMembersMemberArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param role The role of the user within the team.
-         * Must be one of `member` or `maintainer`. Defaults to `member`.
+         * @param role Role to grant the user within the team; must be one of `member` or `maintainer`.
          * 
          * @return builder
          * 
@@ -86,8 +83,7 @@ public final class TeamMembersMemberArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param role The role of the user within the team.
-         * Must be one of `member` or `maintainer`. Defaults to `member`.
+         * @param role Role to grant the user within the team; must be one of `member` or `maintainer`.
          * 
          * @return builder
          * 
@@ -97,7 +93,7 @@ public final class TeamMembersMemberArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param username The user to add to the team.
+         * @param username User to add to the team.
          * 
          * @return builder
          * 
@@ -108,7 +104,7 @@ public final class TeamMembersMemberArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param username The user to add to the team.
+         * @param username User to add to the team.
          * 
          * @return builder
          * 

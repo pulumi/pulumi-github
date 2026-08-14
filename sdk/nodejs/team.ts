@@ -7,8 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Provides a GitHub team resource.
  *
- * This resource allows you to add/remove teams from your organization. When applied,
- * a new team will be created. When destroyed, that team will be removed.
+ * This resource allows you to add/remove teams from your organization. When applied, a new team will be created. When destroyed, that team will be removed.
  *
  * ## Example Usage
  *
@@ -86,7 +85,7 @@ export class Team extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
-     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      */
     declare public readonly notificationSetting: pulumi.Output<string | undefined>;
     /**
@@ -102,13 +101,11 @@ export class Team extends pulumi.CustomResource {
      */
     declare public readonly parentTeamReadSlug: pulumi.Output<string>;
     /**
-     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      */
     declare public readonly privacy: pulumi.Output<string | undefined>;
     /**
-     * The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains "URL-unsafe" characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
      */
     declare public /*out*/ readonly slug: pulumi.Output<string>;
 
@@ -188,7 +185,7 @@ export interface TeamState {
      */
     nodeId?: pulumi.Input<string | undefined>;
     /**
-     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      */
     notificationSetting?: pulumi.Input<string | undefined>;
     /**
@@ -204,13 +201,11 @@ export interface TeamState {
      */
     parentTeamReadSlug?: pulumi.Input<string | undefined>;
     /**
-     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      */
     privacy?: pulumi.Input<string | undefined>;
     /**
-     * The slug of the created team, which may or may not differ from `name`,
-     * depending on whether `name` contains "URL-unsafe" characters.
-     * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
+     * The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters.
      */
     slug?: pulumi.Input<string | undefined>;
 }
@@ -238,7 +233,7 @@ export interface TeamArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * The notification setting for the team. Must be one of `notificationsEnabled` *(default)- or `notificationsDisabled`.
      */
     notificationSetting?: pulumi.Input<string | undefined>;
     /**
@@ -254,7 +249,7 @@ export interface TeamArgs {
      */
     parentTeamReadSlug?: pulumi.Input<string | undefined>;
     /**
-     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
+     * The level of privacy for the team. Must be one of `secret` *(default)- or `closed`.
      */
     privacy?: pulumi.Input<string | undefined>;
 }

@@ -13,30 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryCollaboratorsUser {
     /**
-     * @return The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * @return Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
     private @Nullable String permission;
     /**
-     * @return The user to add to the repository as a collaborator.
+     * @return Login for the user to add to the repository as a collaborator.
      * 
      */
     private String username;
 
     private RepositoryCollaboratorsUser() {}
     /**
-     * @return The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-     * Must be `push` for personal repositories. Defaults to `push`.
+     * @return Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
     public Optional<String> permission() {
         return Optional.ofNullable(this.permission);
     }
     /**
-     * @return The user to add to the repository as a collaborator.
+     * @return Login for the user to add to the repository as a collaborator.
      * 
      */
     public String username() {

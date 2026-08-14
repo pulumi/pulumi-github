@@ -19,8 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a GitHub issue resource.
  * 
- * This resource allows you to create and manage issue within your
- * GitHub repository.
+ * This resource allows you to create and manage issue within your GitHub repository.
  * 
  * ## Example Usage
  * 
@@ -80,7 +79,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.RepositoryMilestone;
  * import com.pulumi.github.RepositoryMilestoneArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.github.Issue;
  * import com.pulumi.github.IssueArgs;
  * import java.util.ArrayList;
@@ -104,10 +102,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRepositoryMilestone = new RepositoryMilestone("testRepositoryMilestone", RepositoryMilestoneArgs.builder()
- *             .owner(StdFunctions.split(SplitArgs.builder()
- *                 .separator("/")
- *                 .text(test.fullName())
- *                 .build()).applyValue(_invoke -> _invoke.result()[0]))
+ *             .owner(StdFunctions.split(Map.ofEntries(
+ *                 Map.entry("separator", "/"),
+ *                 Map.entry("text", test.fullName())
+ *             )).result()[0])
  *             .repository(test.name())
  *             .title("v1.0.0")
  *             .description("General Availability")

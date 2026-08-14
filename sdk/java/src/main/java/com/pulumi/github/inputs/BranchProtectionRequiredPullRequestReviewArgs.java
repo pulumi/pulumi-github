@@ -79,14 +79,14 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
     }
 
     /**
-     * Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     @Import(name="requireLastPushApproval")
     private @Nullable Output<Boolean> requireLastPushApproval;
 
     /**
-     * @return Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * @return Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> requireLastPushApproval() {
@@ -94,16 +94,14 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
     }
 
     /**
-     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (&lt;https://developer.github.com/v3/repos/branches/#parameters-1&gt;) for more information.
      * 
      */
     @Import(name="requiredApprovingReviewCount")
     private @Nullable Output<Integer> requiredApprovingReviewCount;
 
     /**
-     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (&lt;https://developer.github.com/v3/repos/branches/#parameters-1&gt;) for more information.
      * 
      */
     public Optional<Output<Integer>> requiredApprovingReviewCount() {
@@ -260,7 +258,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         }
 
         /**
-         * @param requireLastPushApproval Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * @param requireLastPushApproval Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
          * 
          * @return builder
          * 
@@ -271,7 +269,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         }
 
         /**
-         * @param requireLastPushApproval Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * @param requireLastPushApproval Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
          * 
          * @return builder
          * 
@@ -281,8 +279,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         }
 
         /**
-         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-         * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (&lt;https://developer.github.com/v3/repos/branches/#parameters-1&gt;) for more information.
          * 
          * @return builder
          * 
@@ -293,8 +290,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         }
 
         /**
-         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-         * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+         * @param requiredApprovingReviewCount Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (&lt;https://developer.github.com/v3/repos/branches/#parameters-1&gt;) for more information.
          * 
          * @return builder
          * 

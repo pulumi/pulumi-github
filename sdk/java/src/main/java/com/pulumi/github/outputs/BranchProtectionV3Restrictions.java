@@ -19,8 +19,7 @@ public final class BranchProtectionV3Restrictions {
      */
     private @Nullable List<String> apps;
     /**
-     * @return The list of team slugs with push access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * @return The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     private @Nullable List<String> teams;
@@ -41,8 +40,7 @@ public final class BranchProtectionV3Restrictions {
         return this.apps == null ? List.of() : this.apps;
     }
     /**
-     * @return The list of team slugs with push access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * @return The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     public List<String> teams() {

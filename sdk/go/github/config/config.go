@@ -11,12 +11,12 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+// Authenticate using a GitHub App.
 func GetAppAuth(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:appAuth")
 }
 
-// The GitHub Base API URL
+// The base URL for the GitHub API; this defaults to the GitHub API URL. If you are using GitHub Enterprise Server (GHES) or GitHub Enterprise Cloud with Data Residency (GHEC-DR), this is required. This can also be set by the `GITHUB_BASE_URL` environment variable.
 func GetBaseUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "github:baseUrl")
 	if err == nil {
@@ -29,54 +29,66 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 	return value
 }
 
-// Enable `insecure` mode for testing purposes
+// The path to the cache directory for persisting GitHub API requests between runs; if not set there will be no caching between runs. This can also be set by the `GITHUB_CACHE_PATH` environment variable.
+func GetCachePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "github:cachePath")
+}
+
+// Allow insecure server connections when using SSL.
+//
+// Deprecated: This argument is deprecated as it's currently not used and will be removed in the next major version.
 func GetInsecure(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "github:insecure")
 }
 
-// Number of items per page for paginationDefaults to 100
+// Use the legacy GitHub client implementation; if set to `false`, the new client implementation is used. This can also be set by the `GITHUB_LEGACY_CLIENT` environment variable.
+func GetLegacyClient(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "github:legacyClient")
+}
+
+// The maximum number of results per page for paginated API requests; this defaults to `100`. This can also be set by the `GITHUB_MAX_PER_PAGE` environment variable.
 func GetMaxPerPage(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:maxPerPage")
 }
 
-// Number of times to retry a request after receiving an error status codeDefaults to 3
+// The maximum number of retries for failed requests; this defaults to `3`.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:maxRetries")
 }
 
-// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+// GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
 //
-// Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
+// Deprecated: This argument is deprecated and will be removed in a future major release; use `owner` instead.
 func GetOrganization(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:organization")
 }
 
-// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+// GitHub organization or user account to manage; this is required when authenticating using a GitHub App. If the owner is not provided and a token is provided, the provider will attempt to auto-detect the owner associated with the token. This can also be set by the `GITHUB_OWNER` environment variable.
 func GetOwner(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:owner")
 }
 
-// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
+// Allow the provider to make parallel API calls; this is experimental and may cause concurrency and rate limiting issues. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is designed to safely handle parallel requests.
 func GetParallelRequests(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "github:parallelRequests")
 }
 
-// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+// The delay in milliseconds between read operations; this defaults to `0`. This can be used to mitigate rate limiting issues when performing a large number of read operations. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
 func GetReadDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:readDelayMs")
 }
 
-// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
+// The delay in milliseconds between retry attempts; this defaults to `1000`. This setting only applies when `maxRetries` is greater than `0`.
 func GetRetryDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:retryDelayMs")
 }
 
-// Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
+// List of HTTP status codes that should be retried; if not set this uses the provider defaults. This setting only applies when `maxRetries` is greater than `0`. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation handles the retry logic.
 func GetRetryableErrors(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:retryableErrors")
 }
 
-// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
+// GitHub OAuth or Personal Access Token (PAT) to use for authentication. This can also be set by the `GITHUB_TOKEN` environment variable.
 func GetToken(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "github:token")
 	if err == nil {
@@ -89,7 +101,7 @@ func GetToken(ctx *pulumi.Context) string {
 	return value
 }
 
-// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
+// The delay in milliseconds between write operations; this defaults to `1000`. This is used to mitigate the GitHub API's abuse rate limits when writing. Note that **ALL** requests to the GraphQL API are implemented as `POST` requests under the hood, so this setting affects those calls as well. This is ignored for the REST API when `legacyClient` is `false` since the new client implementation is GitHub rate limit aware.
 func GetWriteDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:writeDelayMs")
 }

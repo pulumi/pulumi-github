@@ -600,12 +600,11 @@ class BranchProtectionRequiredPullRequestReviewArgsDict(TypedDict):
     """
     require_last_push_approval: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+    Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
     """
     required_approving_review_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-    (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+    Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
     """
     restrict_dismissals: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -627,9 +626,8 @@ class BranchProtectionRequiredPullRequestReviewArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dismissal_restrictions: The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pull_request_bypassers: The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
         :param pulumi.Input[_builtins.bool] require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] require_last_push_approval: Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
-        :param pulumi.Input[_builtins.int] required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-               (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        :param pulumi.Input[_builtins.bool] require_last_push_approval: Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
+        :param pulumi.Input[_builtins.int] required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
         :param pulumi.Input[_builtins.bool] restrict_dismissals: Restrict pull request review dismissals.
         """
         if dismiss_stale_reviews is not None:
@@ -699,7 +697,7 @@ class BranchProtectionRequiredPullRequestReviewArgs:
     @pulumi.getter(name="requireLastPushApproval")
     def require_last_push_approval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        Require that The most recent push must be approved by someone other than the last pusher. Defaults to `false`
         """
         return pulumi.get(self, "require_last_push_approval")
 
@@ -711,8 +709,7 @@ class BranchProtectionRequiredPullRequestReviewArgs:
     @pulumi.getter(name="requiredApprovingReviewCount")
     def required_approving_review_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-        (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information. (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
         """
         return pulumi.get(self, "required_approving_review_count")
 
@@ -738,10 +735,7 @@ class BranchProtectionRequiredStatusCheckArgsDict(TypedDict):
     """
     The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
-    > Note: This attribute can contain multiple string patterns.
-    If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-    For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-    For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+    > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
     """
     strict: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -756,10 +750,7 @@ class BranchProtectionRequiredStatusCheckArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
                
-               > Note: This attribute can contain multiple string patterns.
-               If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-               For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-               For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+               > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         :param pulumi.Input[_builtins.bool] strict: Require branches to be up to date before merging. Defaults to `false`.
         """
         if contexts is not None:
@@ -773,10 +764,7 @@ class BranchProtectionRequiredStatusCheckArgs:
         """
         The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
-        > Note: This attribute can contain multiple string patterns.
-        If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-        For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-        For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+        > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         """
         return pulumi.get(self, "contexts")
 
@@ -861,8 +849,7 @@ class BranchProtectionV3RequiredPullRequestReviewsArgsDict(TypedDict):
     """
     dismissal_teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The list of team slugs with dismissal access.
-    Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+    The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
     """
     dismissal_users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -875,7 +862,7 @@ class BranchProtectionV3RequiredPullRequestReviewsArgsDict(TypedDict):
     """
     require_last_push_approval: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+    Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
     """
     required_approving_review_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -898,11 +885,10 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
         :param pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs'] bypass_pull_request_allowances: Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
         :param pulumi.Input[_builtins.bool] dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dismissal_apps: The list of app slugs with dismissal access.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dismissal_teams: The list of team slugs with dismissal access.
-               Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dismissal_teams: The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dismissal_users: The list of user logins with dismissal access
         :param pulumi.Input[_builtins.bool] require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] require_last_push_approval: Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        :param pulumi.Input[_builtins.bool] require_last_push_approval: Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
         :param pulumi.Input[_builtins.int] required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         """
         if bypass_pull_request_allowances is not None:
@@ -967,8 +953,7 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
     @pulumi.getter(name="dismissalTeams")
     def dismissal_teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of team slugs with dismissal access.
-        Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         """
         return pulumi.get(self, "dismissal_teams")
 
@@ -1014,7 +999,7 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
     @pulumi.getter(name="requireLastPushApproval")
     def require_last_push_approval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
         """
         return pulumi.get(self, "require_last_push_approval")
 
@@ -1111,12 +1096,9 @@ class BranchProtectionV3RequiredStatusChecksArgsDict(TypedDict):
     """
     contexts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+    (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
-    > Note: This attribute can contain multiple string patterns.
-    If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-    For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-    For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+    > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
     """
     include_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     strict: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
@@ -1133,12 +1115,9 @@ class BranchProtectionV3RequiredStatusChecksArgs:
                  strict: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] checks: The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contexts: [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contexts: (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
                
-               > Note: This attribute can contain multiple string patterns.
-               If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-               For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-               For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+               > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         :param pulumi.Input[_builtins.bool] strict: Require branches to be up to date before merging. Defaults to `false`.
         """
         if checks is not None:
@@ -1173,12 +1152,9 @@ class BranchProtectionV3RequiredStatusChecksArgs:
     @_utilities.deprecated("""GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""")
     def contexts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
-        > Note: This attribute can contain multiple string patterns.
-        If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-        For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-        For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+        > Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         """
         return pulumi.get(self, "contexts")
 
@@ -1218,8 +1194,7 @@ class BranchProtectionV3RestrictionsArgsDict(TypedDict):
     """
     teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The list of team slugs with push access.
-    Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+    The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
     """
     users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -1236,8 +1211,7 @@ class BranchProtectionV3RestrictionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: The list of app slugs with push access.
                
                `restrictions` is only available for organization-owned repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The list of team slugs with push access.
-               Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: The list of user logins with push access.
         """
         if apps is not None:
@@ -1265,8 +1239,7 @@ class BranchProtectionV3RestrictionsArgs:
     @pulumi.getter
     def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of team slugs with push access.
-        Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        The list of team slugs with push access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         """
         return pulumi.get(self, "teams")
 
@@ -1473,7 +1446,7 @@ class IssueLabelsLabelArgs:
 class OrganizationRulesetBypassActorArgsDict(TypedDict):
     actor_type: pulumi.Input[_builtins.str]
     """
-    The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+    The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`.
     """
     bypass_mode: pulumi.Input[_builtins.str]
     """
@@ -1481,12 +1454,11 @@ class OrganizationRulesetBypassActorArgsDict(TypedDict):
 
     ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-    - `OrganizationAdmin` > `1`
     - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
     """
     actor_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+    (Number) The ID of the actor that can bypass a ruleset. Must be omitted for ID-less actor types: `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` — the GitHub API does not use an ID for these types and will ignore any value set.
     """
 
 @pulumi.input_type
@@ -1496,14 +1468,13 @@ class OrganizationRulesetBypassActorArgs:
                  bypass_mode: pulumi.Input[_builtins.str],
                  actor_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`.
         :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
                
                ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
                
-               - `OrganizationAdmin` > `1`
                - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
-        :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+        :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset. Must be omitted for ID-less actor types: `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` — the GitHub API does not use an ID for these types and will ignore any value set.
         """
         pulumi.set(__self__, "actor_type", actor_type)
         pulumi.set(__self__, "bypass_mode", bypass_mode)
@@ -1514,7 +1485,7 @@ class OrganizationRulesetBypassActorArgs:
     @pulumi.getter(name="actorType")
     def actor_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`.
         """
         return pulumi.get(self, "actor_type")
 
@@ -1530,7 +1501,6 @@ class OrganizationRulesetBypassActorArgs:
 
         ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        - `OrganizationAdmin` > `1`
         - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         return pulumi.get(self, "bypass_mode")
@@ -1543,7 +1513,7 @@ class OrganizationRulesetBypassActorArgs:
     @pulumi.getter(name="actorId")
     def actor_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+        (Number) The ID of the actor that can bypass a ruleset. Must be omitted for ID-less actor types: `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` — the GitHub API does not use an ID for these types and will ignore any value set.
         """
         return pulumi.get(self, "actor_id")
 
@@ -3231,7 +3201,7 @@ class OrganizationRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
     """
     do_not_enforce_on_create: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+    Allow repositories and branches to be created if a check would otherwise prohibit it.
     """
     strict_required_status_checks_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -3246,7 +3216,7 @@ class OrganizationRulesetRulesRequiredStatusChecksArgs:
                  strict_required_status_checks_policy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]] required_checks: Status checks that are required. Several can be defined.
-        :param pulumi.Input[_builtins.bool] do_not_enforce_on_create: (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
         :param pulumi.Input[_builtins.bool] strict_required_status_checks_policy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "required_checks", required_checks)
@@ -3271,7 +3241,7 @@ class OrganizationRulesetRulesRequiredStatusChecksArgs:
     @pulumi.getter(name="doNotEnforceOnCreate")
     def do_not_enforce_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
         """
         return pulumi.get(self, "do_not_enforce_on_create")
 
@@ -3633,15 +3603,15 @@ class OrganizationWebhookConfigurationArgs:
 class ProviderAppAuthArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
     """
-    The GitHub App ID.
+    The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
     """
     installation_id: pulumi.Input[_builtins.str]
     """
-    The GitHub App installation instance ID.
+    The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
     """
     pem_file: pulumi.Input[_builtins.str]
     """
-    The GitHub App PEM file contents.
+    The GitHub App's PEM file content; `\\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
     """
 
 @pulumi.input_type
@@ -3651,9 +3621,9 @@ class ProviderAppAuthArgs:
                  installation_id: pulumi.Input[_builtins.str],
                  pem_file: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] id: The GitHub App ID.
-        :param pulumi.Input[_builtins.str] installation_id: The GitHub App installation instance ID.
-        :param pulumi.Input[_builtins.str] pem_file: The GitHub App PEM file contents.
+        :param pulumi.Input[_builtins.str] id: The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
+        :param pulumi.Input[_builtins.str] installation_id: The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
+        :param pulumi.Input[_builtins.str] pem_file: The GitHub App's PEM file content; `\\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "installation_id", installation_id)
@@ -3663,7 +3633,7 @@ class ProviderAppAuthArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub App ID.
+        The GitHub App's identifier. This can also be set by the `GITHUB_APP_ID` environment variable.
         """
         return pulumi.get(self, "id")
 
@@ -3675,7 +3645,7 @@ class ProviderAppAuthArgs:
     @pulumi.getter(name="installationId")
     def installation_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub App installation instance ID.
+        The GitHub App's installation identifier. This can also be set by the `GITHUB_APP_INSTALLATION_ID` environment variable.
         """
         return pulumi.get(self, "installation_id")
 
@@ -3687,7 +3657,7 @@ class ProviderAppAuthArgs:
     @pulumi.getter(name="pemFile")
     def pem_file(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub App PEM file contents.
+        The GitHub App's PEM file content; `\\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
         """
         return pulumi.get(self, "pem_file")
 
@@ -3699,7 +3669,7 @@ class ProviderAppAuthArgs:
 class RepositoryCollaboratorsIgnoreTeamArgsDict(TypedDict):
     team_id: pulumi.Input[_builtins.str]
     """
-    The GitHub team id or the GitHub team slug.
+    ID or slug of the team to ignore.
     """
 
 @pulumi.input_type
@@ -3707,7 +3677,7 @@ class RepositoryCollaboratorsIgnoreTeamArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug.
+        :param pulumi.Input[_builtins.str] team_id: ID or slug of the team to ignore.
         """
         pulumi.set(__self__, "team_id", team_id)
 
@@ -3715,7 +3685,7 @@ class RepositoryCollaboratorsIgnoreTeamArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub team id or the GitHub team slug.
+        ID or slug of the team to ignore.
         """
         return pulumi.get(self, "team_id")
 
@@ -3727,13 +3697,11 @@ class RepositoryCollaboratorsIgnoreTeamArgs:
 class RepositoryCollaboratorsTeamArgsDict(TypedDict):
     team_id: pulumi.Input[_builtins.str]
     """
-    The GitHub team id or the GitHub team slug.
+    ID or slug of the team to add to the repository as a collaborator.
     """
     permission: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The permission of the outside collaborators for the repository.
-    Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-    Must be `push` for personal repositories. Defaults to `push`.
+    Permission to grant to the team. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `push`.
     """
 
 @pulumi.input_type
@@ -3742,10 +3710,8 @@ class RepositoryCollaboratorsTeamArgs:
                  team_id: pulumi.Input[_builtins.str],
                  permission: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug.
-        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborators for the repository.
-               Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-               Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[_builtins.str] team_id: ID or slug of the team to add to the repository as a collaborator.
+        :param pulumi.Input[_builtins.str] permission: Permission to grant to the team. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `push`.
         """
         pulumi.set(__self__, "team_id", team_id)
         if permission is not None:
@@ -3755,7 +3721,7 @@ class RepositoryCollaboratorsTeamArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub team id or the GitHub team slug.
+        ID or slug of the team to add to the repository as a collaborator.
         """
         return pulumi.get(self, "team_id")
 
@@ -3767,9 +3733,7 @@ class RepositoryCollaboratorsTeamArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The permission of the outside collaborators for the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        Must be `push` for personal repositories. Defaults to `push`.
+        Permission to grant to the team. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Defaults to `push`.
         """
         return pulumi.get(self, "permission")
 
@@ -3781,13 +3745,11 @@ class RepositoryCollaboratorsTeamArgs:
 class RepositoryCollaboratorsUserArgsDict(TypedDict):
     username: pulumi.Input[_builtins.str]
     """
-    The user to add to the repository as a collaborator.
+    Login for the user to add to the repository as a collaborator.
     """
     permission: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The permission of the outside collaborators for the repository.
-    Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-    Must be `push` for personal repositories. Defaults to `push`.
+    Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
     """
 
 @pulumi.input_type
@@ -3796,10 +3758,8 @@ class RepositoryCollaboratorsUserArgs:
                  username: pulumi.Input[_builtins.str],
                  permission: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] username: The user to add to the repository as a collaborator.
-        :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborators for the repository.
-               Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-               Must be `push` for personal repositories. Defaults to `push`.
+        :param pulumi.Input[_builtins.str] username: Login for the user to add to the repository as a collaborator.
+        :param pulumi.Input[_builtins.str] permission: Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
         """
         pulumi.set(__self__, "username", username)
         if permission is not None:
@@ -3809,7 +3769,7 @@ class RepositoryCollaboratorsUserArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
         """
-        The user to add to the repository as a collaborator.
+        Login for the user to add to the repository as a collaborator.
         """
         return pulumi.get(self, "username")
 
@@ -3821,9 +3781,7 @@ class RepositoryCollaboratorsUserArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The permission of the outside collaborators for the repository.
-        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        Must be `push` for personal repositories. Defaults to `push`.
+        Permission to grant to the user. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization. Must be `push` for personal repositories. Defaults to `push`.
         """
         return pulumi.get(self, "permission")
 
@@ -4121,7 +4079,7 @@ class RepositoryPagesSourceArgs:
 class RepositoryRulesetBypassActorArgsDict(TypedDict):
     actor_type: pulumi.Input[_builtins.str]
     """
-    The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+    The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
     """
     bypass_mode: pulumi.Input[_builtins.str]
     """
@@ -4129,12 +4087,11 @@ class RepositoryRulesetBypassActorArgsDict(TypedDict):
 
     > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-    - `OrganizationAdmin` > `1`
     - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
     """
     actor_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+    (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actor_type` is `User`, `actor_id` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
     """
 
 @pulumi.input_type
@@ -4144,14 +4101,13 @@ class RepositoryRulesetBypassActorArgs:
                  bypass_mode: pulumi.Input[_builtins.str],
                  actor_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+        :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
         :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
                
                > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
                
-               - `OrganizationAdmin` > `1`
                - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
-        :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+        :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actor_type` is `User`, `actor_id` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
         """
         pulumi.set(__self__, "actor_type", actor_type)
         pulumi.set(__self__, "bypass_mode", bypass_mode)
@@ -4162,7 +4118,7 @@ class RepositoryRulesetBypassActorArgs:
     @pulumi.getter(name="actorType")
     def actor_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`, `EnterpriseOwner`, `User`.
         """
         return pulumi.get(self, "actor_type")
 
@@ -4178,7 +4134,6 @@ class RepositoryRulesetBypassActorArgs:
 
         > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        - `OrganizationAdmin` > `1`
         - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         return pulumi.get(self, "bypass_mode")
@@ -4191,7 +4146,7 @@ class RepositoryRulesetBypassActorArgs:
     @pulumi.getter(name="actorId")
     def actor_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). If `actor_type` is `User`, `actor_id` is the numeric GitHub user ID. Some actor types such as `OrganizationAdmin`, `EnterpriseOwner`, and `DeployKey` do not have an ID — this argument should not be set in those cases as the GitHub API will ignore it.
         """
         return pulumi.get(self, "actor_id")
 
@@ -6436,12 +6391,11 @@ class RepositoryWebhookConfigurationArgs:
 class TeamMembersMemberArgsDict(TypedDict):
     username: pulumi.Input[_builtins.str]
     """
-    The user to add to the team.
+    User to add to the team.
     """
     role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The role of the user within the team.
-    Must be one of `member` or `maintainer`. Defaults to `member`.
+    Role to grant the user within the team; must be one of `member` or `maintainer`.
     """
 
 @pulumi.input_type
@@ -6450,9 +6404,8 @@ class TeamMembersMemberArgs:
                  username: pulumi.Input[_builtins.str],
                  role: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] username: The user to add to the team.
-        :param pulumi.Input[_builtins.str] role: The role of the user within the team.
-               Must be one of `member` or `maintainer`. Defaults to `member`.
+        :param pulumi.Input[_builtins.str] username: User to add to the team.
+        :param pulumi.Input[_builtins.str] role: Role to grant the user within the team; must be one of `member` or `maintainer`.
         """
         pulumi.set(__self__, "username", username)
         if role is not None:
@@ -6462,7 +6415,7 @@ class TeamMembersMemberArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
         """
-        The user to add to the team.
+        User to add to the team.
         """
         return pulumi.get(self, "username")
 
@@ -6474,8 +6427,7 @@ class TeamMembersMemberArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role of the user within the team.
-        Must be one of `member` or `maintainer`. Defaults to `member`.
+        Role to grant the user within the team; must be one of `member` or `maintainer`.
         """
         return pulumi.get(self, "role")
 

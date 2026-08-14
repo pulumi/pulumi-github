@@ -46,8 +46,7 @@ export interface GetRepositoryWebhooksResult {
     readonly id: string;
     readonly repository: string;
     /**
-     * An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-     * ***
+     * An Array of GitHub Webhooks. Each `webhook` block consists of the fields documented below.
      */
     readonly webhooks: outputs.GetRepositoryWebhooksWebhook[];
 }

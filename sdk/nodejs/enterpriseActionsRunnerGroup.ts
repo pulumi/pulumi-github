@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise.
- * You must have admin access to an enterprise to use this resource.
+ * This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise. You must have admin access to an enterprise to use this resource.
  *
  * ## Example Usage
  *

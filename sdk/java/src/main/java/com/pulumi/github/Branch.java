@@ -17,8 +17,7 @@ import javax.annotation.Nullable;
 /**
  * This resource allows you to create and manage branches within your repository.
  * 
- * Additional constraints can be applied to ensure your branch is created from
- * another branch or commit.
+ * Additional constraints can be applied to ensure your branch is created from another branch or commit.
  * 
  * ## Example Usage
  * 
@@ -68,8 +67,7 @@ import javax.annotation.Nullable;
  * $ pulumi import github:index/branch:Branch terraform[&#34;terraform&#34;] terraform:main
  * ```
  * 
- * Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`.
- * This is useful for importing branches that do not branch directly off main.
+ * Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
  * 
  * ```sh
  * $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev

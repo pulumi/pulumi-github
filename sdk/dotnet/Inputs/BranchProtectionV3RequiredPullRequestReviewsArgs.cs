@@ -40,8 +40,7 @@ namespace Pulumi.Github.Inputs
         private InputList<string>? _dismissalTeams;
 
         /// <summary>
-        /// The list of team slugs with dismissal access.
-        /// Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// The list of team slugs with dismissal access. Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         /// </summary>
         public InputList<string> DismissalTeams
         {
@@ -71,7 +70,7 @@ namespace Pulumi.Github.Inputs
         public Input<bool>? RequireCodeOwnerReviews { get; set; }
 
         /// <summary>
-        /// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `False`
+        /// Require that the most recent push must be approved by someone other than the last pusher. Defaults to `False`
         /// </summary>
         [Input("requireLastPushApproval")]
         public Input<bool>? RequireLastPushApproval { get; set; }

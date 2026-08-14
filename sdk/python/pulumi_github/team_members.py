@@ -22,23 +22,29 @@ __all__ = ['TeamMembersArgs', 'TeamMembers']
 class TeamMembersArgs:
     def __init__(__self__, *,
                  members: pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]],
-                 team_id: pulumi.Input[_builtins.str]):
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TeamMembers resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
-        :param pulumi.Input[_builtins.str] team_id: The team id or the team slug
-               
-               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of users that should be members of the team.
+        :param pulumi.Input[_builtins.str] team_id: ID or slug of the GitHub team to manage membership for.
+        :param pulumi.Input[_builtins.str] team_slug: Slug of the GitHub team to manage membership for.
         """
         pulumi.set(__self__, "members", members)
-        pulumi.set(__self__, "team_id", team_id)
+        if team_id is not None:
+            warnings.warn("""Use `team_slug` instead; this field will be made computed only in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""team_id is deprecated: Use `team_slug` instead; this field will be made computed only in a future version of the provider.""")
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+        if team_slug is not None:
+            pulumi.set(__self__, "team_slug", team_slug)
 
     @_builtins.property
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]:
         """
-        List of team members. See Members below for details.
+        List of users that should be members of the team.
         """
         return pulumi.get(self, "members")
 
@@ -48,42 +54,58 @@ class TeamMembersArgs:
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> pulumi.Input[_builtins.str]:
+    @_utilities.deprecated("""Use `team_slug` instead; this field will be made computed only in a future version of the provider.""")
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The team id or the team slug
-
-        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+        ID or slug of the GitHub team to manage membership for.
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: pulumi.Input[_builtins.str]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="teamSlug")
+    def team_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Slug of the GitHub team to manage membership for.
+        """
+        return pulumi.get(self, "team_slug")
+
+    @team_slug.setter
+    def team_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "team_slug", value)
 
 
 @pulumi.input_type
 class _TeamMembersState:
     def __init__(__self__, *,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input['TeamMembersMemberArgs']]]] = None,
-                 team_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamMembers resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
-        :param pulumi.Input[_builtins.str] team_id: The team id or the team slug
-               
-               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of users that should be members of the team.
+        :param pulumi.Input[_builtins.str] team_id: ID or slug of the GitHub team to manage membership for.
+        :param pulumi.Input[_builtins.str] team_slug: Slug of the GitHub team to manage membership for.
         """
         if members is not None:
             pulumi.set(__self__, "members", members)
         if team_id is not None:
+            warnings.warn("""Use `team_slug` instead; this field will be made computed only in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""team_id is deprecated: Use `team_slug` instead; this field will be made computed only in a future version of the provider.""")
+        if team_id is not None:
             pulumi.set(__self__, "team_id", team_id)
+        if team_slug is not None:
+            pulumi.set(__self__, "team_slug", team_slug)
 
     @_builtins.property
     @pulumi.getter
     def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamMembersMemberArgs']]]]:
         """
-        List of team members. See Members below for details.
+        List of users that should be members of the team.
         """
         return pulumi.get(self, "members")
 
@@ -93,17 +115,28 @@ class _TeamMembersState:
 
     @_builtins.property
     @pulumi.getter(name="teamId")
+    @_utilities.deprecated("""Use `team_slug` instead; this field will be made computed only in a future version of the provider.""")
     def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The team id or the team slug
-
-        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+        ID or slug of the GitHub team to manage membership for.
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
     def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="teamSlug")
+    def team_slug(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Slug of the GitHub team to manage membership for.
+        """
+        return pulumi.get(self, "team_slug")
+
+    @team_slug.setter
+    def team_slug(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "team_slug", value)
 
 
 @pulumi.type_token("github:index/teamMembers:TeamMembers")
@@ -114,21 +147,16 @@ class TeamMembers(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a GitHub team members resource.
+        > This resource is not compatible with `TeamMembership`; use either `TeamMembers` or `TeamMembership`.
 
-        This resource allows you to manage members of teams in your organization. It sets the requested team members for the team and removes all users not managed by Terraform.
+        Resource to authoritatively manage GitHub team members.
 
-        When applied, if the user hasn't accepted their invitation to the organization, they won't be part of the team until they do.
+        This resource allows you to manage members of teams in your organization; it sets the requested team members for the team and removes all users not managed by Terraform. If an organization owner is given the `member` role they will be granted `maintainer` instead which will result in a perpetual diff. If a user who hasn't accepted their invitation to the organization is added to the team, they will not be a team member until they've accepted the invitation. When this resource is deleted all users will be removed from the team.
 
-        When destroyed, all users will be removed from the team.
-
-        > **Note** This resource is not compatible with `TeamMembership`. Use either `TeamMembers` or `TeamMembership`.
-
-        > **Note** You can accidentally lock yourself out of your team using this resource. Deleting a `TeamMembers` resource removes access from anyone without organization-level access to the team. Proceed with caution. It should generally only be used with teams fully managed by Terraform.
-
-        > **Note** Attempting to set a user who is an organization owner to "member" will result in the user being granted "maintainer" instead; this can result in a perpetual `terraform plan` diff that changes their status back to "member".
+        > If you don't have a member with the `maintainer` set then this resource may end up with a perpetual diff as the GitHub API will automatically promote a member to `maintainer` if there are no maintainers in the team. To avoid this, ensure that at least one member has the `maintainer` role.
 
         ## Example Usage
 
@@ -136,18 +164,9 @@ class TeamMembers(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membership_for_some_user",
-            username="SomeUser",
-            role="member")
-        membership_for_another_user = github.Membership("membership_for_another_user",
-            username="AnotherUser",
-            role="member")
-        some_team = github.Team("some_team",
-            name="SomeTeam",
-            description="Some cool team")
-        some_team_members = github.TeamMembers("some_team_members",
-            team_id=some_team.id,
+        example = github.Team("example", name="my-team")
+        example_team_members = github.TeamMembers("example",
+            team_slug=example.slug,
             members=[
                 {
                     "username": "SomeUser",
@@ -162,22 +181,20 @@ class TeamMembers(pulumi.CustomResource):
 
         ## Import
 
-        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
+        This resource can be imported either by the team slug or team ID; it is recommended to use the team slug in combination with the `team_slug` resource attribute.
 
-        GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
+        The `pulumi import` command can be used, for example:
 
         ```sh
-        $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
-        $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
+        $ pulumi import github:index/teamMembers:TeamMembers example my-team
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of team members. See Members below for details.
-        :param pulumi.Input[_builtins.str] team_id: The team id or the team slug
-               
-               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of users that should be members of the team.
+        :param pulumi.Input[_builtins.str] team_id: ID or slug of the GitHub team to manage membership for.
+        :param pulumi.Input[_builtins.str] team_slug: Slug of the GitHub team to manage membership for.
         """
         ...
     @overload
@@ -186,19 +203,13 @@ class TeamMembers(pulumi.CustomResource):
                  args: TeamMembersArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GitHub team members resource.
+        > This resource is not compatible with `TeamMembership`; use either `TeamMembers` or `TeamMembership`.
 
-        This resource allows you to manage members of teams in your organization. It sets the requested team members for the team and removes all users not managed by Terraform.
+        Resource to authoritatively manage GitHub team members.
 
-        When applied, if the user hasn't accepted their invitation to the organization, they won't be part of the team until they do.
+        This resource allows you to manage members of teams in your organization; it sets the requested team members for the team and removes all users not managed by Terraform. If an organization owner is given the `member` role they will be granted `maintainer` instead which will result in a perpetual diff. If a user who hasn't accepted their invitation to the organization is added to the team, they will not be a team member until they've accepted the invitation. When this resource is deleted all users will be removed from the team.
 
-        When destroyed, all users will be removed from the team.
-
-        > **Note** This resource is not compatible with `TeamMembership`. Use either `TeamMembers` or `TeamMembership`.
-
-        > **Note** You can accidentally lock yourself out of your team using this resource. Deleting a `TeamMembers` resource removes access from anyone without organization-level access to the team. Proceed with caution. It should generally only be used with teams fully managed by Terraform.
-
-        > **Note** Attempting to set a user who is an organization owner to "member" will result in the user being granted "maintainer" instead; this can result in a perpetual `terraform plan` diff that changes their status back to "member".
+        > If you don't have a member with the `maintainer` set then this resource may end up with a perpetual diff as the GitHub API will automatically promote a member to `maintainer` if there are no maintainers in the team. To avoid this, ensure that at least one member has the `maintainer` role.
 
         ## Example Usage
 
@@ -206,18 +217,9 @@ class TeamMembers(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membership_for_some_user",
-            username="SomeUser",
-            role="member")
-        membership_for_another_user = github.Membership("membership_for_another_user",
-            username="AnotherUser",
-            role="member")
-        some_team = github.Team("some_team",
-            name="SomeTeam",
-            description="Some cool team")
-        some_team_members = github.TeamMembers("some_team_members",
-            team_id=some_team.id,
+        example = github.Team("example", name="my-team")
+        example_team_members = github.TeamMembers("example",
+            team_slug=example.slug,
             members=[
                 {
                     "username": "SomeUser",
@@ -232,13 +234,12 @@ class TeamMembers(pulumi.CustomResource):
 
         ## Import
 
-        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
+        This resource can be imported either by the team slug or team ID; it is recommended to use the team slug in combination with the `team_slug` resource attribute.
 
-        GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
+        The `pulumi import` command can be used, for example:
 
         ```sh
-        $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
-        $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
+        $ pulumi import github:index/teamMembers:TeamMembers example my-team
         ```
 
 
@@ -259,6 +260,7 @@ class TeamMembers(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -271,9 +273,8 @@ class TeamMembers(pulumi.CustomResource):
             if members is None and not opts.urn:
                 raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
-            if team_id is None and not opts.urn:
-                raise TypeError("Missing required property 'team_id'")
             __props__.__dict__["team_id"] = team_id
+            __props__.__dict__["team_slug"] = team_slug
         super(TeamMembers, __self__).__init__(
             'github:index/teamMembers:TeamMembers',
             resource_name,
@@ -285,7 +286,8 @@ class TeamMembers(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
-            team_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamMembers':
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamMembers':
         """
         Get an existing TeamMembers resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -293,10 +295,9 @@ class TeamMembers(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of team members. See Members below for details.
-        :param pulumi.Input[_builtins.str] team_id: The team id or the team slug
-               
-               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of users that should be members of the team.
+        :param pulumi.Input[_builtins.str] team_id: ID or slug of the GitHub team to manage membership for.
+        :param pulumi.Input[_builtins.str] team_slug: Slug of the GitHub team to manage membership for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -304,23 +305,31 @@ class TeamMembers(pulumi.CustomResource):
 
         __props__.__dict__["members"] = members
         __props__.__dict__["team_id"] = team_id
+        __props__.__dict__["team_slug"] = team_slug
         return TeamMembers(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.TeamMembersMember']]:
         """
-        List of team members. See Members below for details.
+        List of users that should be members of the team.
         """
         return pulumi.get(self, "members")
 
     @_builtins.property
     @pulumi.getter(name="teamId")
+    @_utilities.deprecated("""Use `team_slug` instead; this field will be made computed only in a future version of the provider.""")
     def team_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The team id or the team slug
-
-        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
+        ID or slug of the GitHub team to manage membership for.
         """
         return pulumi.get(self, "team_id")
+
+    @_builtins.property
+    @pulumi.getter(name="teamSlug")
+    def team_slug(self) -> pulumi.Output[_builtins.str]:
+        """
+        Slug of the GitHub team to manage membership for.
+        """
+        return pulumi.get(self, "team_slug")
 

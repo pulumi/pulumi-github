@@ -208,8 +208,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
                  sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        This resource allows you to enable and manage GitHub Actions permissions for a given repository.
-        You must have admin access to an repository to use this resource.
+        This resource allows you to enable and manage GitHub Actions permissions for a given repository. You must have admin access to an repository to use this resource.
 
         ## Example Usage
 
@@ -255,8 +254,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
                  args: ActionsRepositoryPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to enable and manage GitHub Actions permissions for a given repository.
-        You must have admin access to an repository to use this resource.
+        This resource allows you to enable and manage GitHub Actions permissions for a given repository. You must have admin access to an repository to use this resource.
 
         ## Example Usage
 

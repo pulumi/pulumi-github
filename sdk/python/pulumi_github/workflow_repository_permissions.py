@@ -140,8 +140,7 @@ class WorkflowRepositoryPermissions(pulumi.CustomResource):
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to manage GitHub Workflow permissions for a given repository.
-        You must have admin access to a repository to use this resource.
+        This resource allows you to manage GitHub Workflow permissions for a given repository. You must have admin access to a repository to use this resource.
 
         ## Example Usage
 
@@ -178,8 +177,7 @@ class WorkflowRepositoryPermissions(pulumi.CustomResource):
                  args: WorkflowRepositoryPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to manage GitHub Workflow permissions for a given repository.
-        You must have admin access to a repository to use this resource.
+        This resource allows you to manage GitHub Workflow permissions for a given repository. You must have admin access to a repository to use this resource.
 
         ## Example Usage
 

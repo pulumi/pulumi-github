@@ -215,8 +215,8 @@ def get_team(membership_type: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
-    :param _builtins.int results_per_page: (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
+    :param _builtins.int results_per_page: (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
     :param _builtins.str slug: The team slug.
     :param _builtins.bool summary_only: Exclude the members and repositories of the team from the returned result. Defaults to `false`.
     """
@@ -261,8 +261,8 @@ def get_team_output(membership_type: pulumi.Input[Optional[Optional[_builtins.st
     ```
 
 
-    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
-    :param _builtins.int results_per_page: (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either `all` *(default)- or `immediate`.
+    :param _builtins.int results_per_page: (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
     :param _builtins.str slug: The team slug.
     :param _builtins.bool summary_only: Exclude the members and repositories of the team from the returned result. Defaults to `false`.
     """

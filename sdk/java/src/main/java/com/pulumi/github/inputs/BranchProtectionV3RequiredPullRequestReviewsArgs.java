@@ -65,16 +65,14 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
     }
 
     /**
-     * The list of team slugs with dismissal access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     @Import(name="dismissalTeams")
     private @Nullable Output<List<String>> dismissalTeams;
 
     /**
-     * @return The list of team slugs with dismissal access.
-     * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+     * @return The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
      */
     public Optional<Output<List<String>>> dismissalTeams() {
@@ -131,14 +129,14 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
     }
 
     /**
-     * Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     @Import(name="requireLastPushApproval")
     private @Nullable Output<Boolean> requireLastPushApproval;
 
     /**
-     * @return Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * @return Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> requireLastPushApproval() {
@@ -266,8 +264,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         }
 
         /**
-         * @param dismissalTeams The list of team slugs with dismissal access.
-         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * @param dismissalTeams The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
          * 
          * @return builder
          * 
@@ -278,8 +275,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         }
 
         /**
-         * @param dismissalTeams The list of team slugs with dismissal access.
-         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * @param dismissalTeams The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
          * 
          * @return builder
          * 
@@ -289,8 +285,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         }
 
         /**
-         * @param dismissalTeams The list of team slugs with dismissal access.
-         * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+         * @param dismissalTeams The list of team slugs with dismissal access. Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
          * 
          * @return builder
          * 
@@ -377,7 +372,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         }
 
         /**
-         * @param requireLastPushApproval Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * @param requireLastPushApproval Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
          * 
          * @return builder
          * 
@@ -388,7 +383,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         }
 
         /**
-         * @param requireLastPushApproval Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * @param requireLastPushApproval Require that the most recent push must be approved by someone other than the last pusher. Defaults to `false`
          * 
          * @return builder
          * 

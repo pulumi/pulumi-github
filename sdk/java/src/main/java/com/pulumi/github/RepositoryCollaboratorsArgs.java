@@ -21,14 +21,14 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     public static final RepositoryCollaboratorsArgs Empty = new RepositoryCollaboratorsArgs();
 
     /**
-     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * Teams to ignore when managing repository collaborators.
      * 
      */
     @Import(name="ignoreTeams")
     private @Nullable Output<List<RepositoryCollaboratorsIgnoreTeamArgs>> ignoreTeams;
 
     /**
-     * @return List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * @return Teams to ignore when managing repository collaborators.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsIgnoreTeamArgs>>> ignoreTeams() {
@@ -36,14 +36,14 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The GitHub repository.
+     * Name of the repository.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The GitHub repository.
+     * @return Name of the repository.
      * 
      */
     public Output<String> repository() {
@@ -51,14 +51,14 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of teams to grant access to the repository.
+     * Teams to grant access to the repository.
      * 
      */
     @Import(name="teams")
     private @Nullable Output<List<RepositoryCollaboratorsTeamArgs>> teams;
 
     /**
-     * @return List of teams to grant access to the repository.
+     * @return Teams to grant access to the repository.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsTeamArgs>>> teams() {
@@ -66,14 +66,14 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of users to grant access to the repository.
+     * Users to grant access to the repository.
      * 
      */
     @Import(name="users")
     private @Nullable Output<List<RepositoryCollaboratorsUserArgs>> users;
 
     /**
-     * @return List of users to grant access to the repository.
+     * @return Users to grant access to the repository.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsUserArgs>>> users() {
@@ -108,7 +108,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * @param ignoreTeams Teams to ignore when managing repository collaborators.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * @param ignoreTeams Teams to ignore when managing repository collaborators.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * @param ignoreTeams Teams to ignore when managing repository collaborators.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repository The GitHub repository.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repository The GitHub repository.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param teams List of teams to grant access to the repository.
+         * @param teams Teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param teams List of teams to grant access to the repository.
+         * @param teams Teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param teams List of teams to grant access to the repository.
+         * @param teams Teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param users List of users to grant access to the repository.
+         * @param users Users to grant access to the repository.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param users List of users to grant access to the repository.
+         * @param users Users to grant access to the repository.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param users List of users to grant access to the repository.
+         * @param users Users to grant access to the repository.
          * 
          * @return builder
          * 

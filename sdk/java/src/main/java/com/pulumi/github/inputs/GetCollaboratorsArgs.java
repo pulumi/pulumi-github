@@ -17,14 +17,14 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetCollaboratorsArgs Empty = new GetCollaboratorsArgs();
 
     /**
-     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+     * Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
      * 
      */
     @Import(name="affiliation")
     private @Nullable Output<String> affiliation;
 
     /**
-     * @return Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+     * @return Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
      * 
      */
     public Optional<Output<String>> affiliation() {
@@ -47,14 +47,14 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
      * 
      */
     @Import(name="permission")
     private @Nullable Output<String> permission;
 
     /**
-     * @return Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * @return Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
      * 
      */
     public Optional<Output<String>> permission() {
@@ -104,7 +104,7 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param affiliation Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+         * @param affiliation Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param affiliation Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+         * @param affiliation Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`. Defaults to `all`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param permission Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+         * @param permission Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param permission Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+         * @param permission Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`. Defaults to not doing any filtering on permission.
          * 
          * @return builder
          * 

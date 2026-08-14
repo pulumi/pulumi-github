@@ -95,8 +95,7 @@ def get_actions_environment_public_key(environment: Optional[_builtins.str] = No
                                        repository: Optional[_builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionsEnvironmentPublicKeyResult:
     """
-    Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it's environments.
+    Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it's environments.
 
     ## Example Usage
 
@@ -128,8 +127,7 @@ def get_actions_environment_public_key_output(environment: pulumi.Input[Optional
                                               repository: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsEnvironmentPublicKeyResult]:
     """
-    Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
-    Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it's environments.
+    Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions. Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it's environments.
 
     ## Example Usage
 

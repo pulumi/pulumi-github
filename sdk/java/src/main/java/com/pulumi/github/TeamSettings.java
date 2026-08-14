@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.TeamArgs;
  * import com.pulumi.github.TeamSettings;
  * import com.pulumi.github.TeamSettingsArgs;
+ * import com.pulumi.github.inputs.TeamSettingsReviewRequestDelegationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -53,6 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Add a repository to the team
  *         var someTeam = new Team("someTeam", TeamArgs.builder()
  *             .name("SomeTeam")
  *             .description("Some cool team")
@@ -60,7 +62,11 @@ import javax.annotation.Nullable;
  * 
  *         var codeReviewSettings = new TeamSettings("codeReviewSettings", TeamSettingsArgs.builder()
  *             .teamId(someTeam.id())
- *             .notify(true)
+ *             .reviewRequestDelegation(TeamSettingsReviewRequestDelegationArgs.builder()
+ *                 .algorithm("ROUND_ROBIN")
+ *                 .memberCount(1)
+ *                 .notify(true)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -113,12 +119,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * ## Import
- * 
- * GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
- * 
- * or,
  * 
  */
 @ResourceType(type="github:index/teamSettings:TeamSettings")

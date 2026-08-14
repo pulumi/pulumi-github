@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
-    /// You must have admin access to an organization to use this resource.
+    /// This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations. You must have admin access to an organization to use this resource.
     /// 
     /// ## Example Usage
     /// 

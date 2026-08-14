@@ -174,14 +174,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Import
- * 
- * Organization custom properties can be imported using the property name:
- * 
- * ```sh
- * $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
- * ```
- * 
  */
 @ResourceType(type="github:index/organizationCustomProperties:OrganizationCustomProperties")
 public class OrganizationCustomProperties extends com.pulumi.resources.CustomResource {
