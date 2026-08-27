@@ -72,12 +72,8 @@ type LookupOrganizationCustomRoleResult struct {
 }
 
 func LookupOrganizationCustomRoleOutput(ctx *pulumi.Context, args LookupOrganizationCustomRoleOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationCustomRoleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationCustomRoleResultOutput, error) {
-			args := v.(LookupOrganizationCustomRoleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args, LookupOrganizationCustomRoleResultOutput{}, options).(LookupOrganizationCustomRoleResultOutput), nil
-		}).(LookupOrganizationCustomRoleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args, LookupOrganizationCustomRoleResultOutput{}, options).(LookupOrganizationCustomRoleResultOutput)
 }
 
 // A collection of arguments for invoking getOrganizationCustomRole.

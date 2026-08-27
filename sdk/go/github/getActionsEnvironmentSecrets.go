@@ -70,12 +70,8 @@ type GetActionsEnvironmentSecretsResult struct {
 }
 
 func GetActionsEnvironmentSecretsOutput(ctx *pulumi.Context, args GetActionsEnvironmentSecretsOutputArgs, opts ...pulumi.InvokeOption) GetActionsEnvironmentSecretsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetActionsEnvironmentSecretsResultOutput, error) {
-			args := v.(GetActionsEnvironmentSecretsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", args, GetActionsEnvironmentSecretsResultOutput{}, options).(GetActionsEnvironmentSecretsResultOutput), nil
-		}).(GetActionsEnvironmentSecretsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", args, GetActionsEnvironmentSecretsResultOutput{}, options).(GetActionsEnvironmentSecretsResultOutput)
 }
 
 // A collection of arguments for invoking getActionsEnvironmentSecrets.

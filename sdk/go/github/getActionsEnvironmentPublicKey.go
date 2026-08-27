@@ -70,12 +70,8 @@ type GetActionsEnvironmentPublicKeyResult struct {
 }
 
 func GetActionsEnvironmentPublicKeyOutput(ctx *pulumi.Context, args GetActionsEnvironmentPublicKeyOutputArgs, opts ...pulumi.InvokeOption) GetActionsEnvironmentPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetActionsEnvironmentPublicKeyResultOutput, error) {
-			args := v.(GetActionsEnvironmentPublicKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", args, GetActionsEnvironmentPublicKeyResultOutput{}, options).(GetActionsEnvironmentPublicKeyResultOutput), nil
-		}).(GetActionsEnvironmentPublicKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", args, GetActionsEnvironmentPublicKeyResultOutput{}, options).(GetActionsEnvironmentPublicKeyResultOutput)
 }
 
 // A collection of arguments for invoking getActionsEnvironmentPublicKey.

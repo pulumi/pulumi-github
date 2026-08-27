@@ -84,12 +84,8 @@ type LookupRepositoryFileResult struct {
 }
 
 func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryFileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryFileResultOutput, error) {
-			args := v.(LookupRepositoryFileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryFile:getRepositoryFile", args, LookupRepositoryFileResultOutput{}, options).(LookupRepositoryFileResultOutput), nil
-		}).(LookupRepositoryFileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryFile:getRepositoryFile", args, LookupRepositoryFileResultOutput{}, options).(LookupRepositoryFileResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryFile.

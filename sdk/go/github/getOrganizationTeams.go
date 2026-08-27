@@ -99,12 +99,8 @@ type GetOrganizationTeamsResult struct {
 }
 
 func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationTeamsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrganizationTeamsResultOutput, error) {
-			args := v.(GetOrganizationTeamsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getOrganizationTeams:getOrganizationTeams", args, GetOrganizationTeamsResultOutput{}, options).(GetOrganizationTeamsResultOutput), nil
-		}).(GetOrganizationTeamsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationTeams:getOrganizationTeams", args, GetOrganizationTeamsResultOutput{}, options).(GetOrganizationTeamsResultOutput)
 }
 
 // A collection of arguments for invoking getOrganizationTeams.

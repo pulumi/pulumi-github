@@ -66,12 +66,8 @@ type GetActionsPublicKeyResult struct {
 }
 
 func GetActionsPublicKeyOutput(ctx *pulumi.Context, args GetActionsPublicKeyOutputArgs, opts ...pulumi.InvokeOption) GetActionsPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetActionsPublicKeyResultOutput, error) {
-			args := v.(GetActionsPublicKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getActionsPublicKey:getActionsPublicKey", args, GetActionsPublicKeyResultOutput{}, options).(GetActionsPublicKeyResultOutput), nil
-		}).(GetActionsPublicKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsPublicKey:getActionsPublicKey", args, GetActionsPublicKeyResultOutput{}, options).(GetActionsPublicKeyResultOutput)
 }
 
 // A collection of arguments for invoking getActionsPublicKey.

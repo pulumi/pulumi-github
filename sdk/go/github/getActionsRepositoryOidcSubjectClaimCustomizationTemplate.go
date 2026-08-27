@@ -66,12 +66,8 @@ type LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResult struct {
 }
 
 func LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput(ctx *pulumi.Context, args LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput, error) {
-			args := v.(LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", args, LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput{}, options).(LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput), nil
-		}).(LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", args, LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput{}, options).(LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput)
 }
 
 // A collection of arguments for invoking getActionsRepositoryOidcSubjectClaimCustomizationTemplate.

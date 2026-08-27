@@ -111,12 +111,8 @@ type GetUserResult struct {
 }
 
 func GetUserOutput(ctx *pulumi.Context, args GetUserOutputArgs, opts ...pulumi.InvokeOption) GetUserResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserResultOutput, error) {
-			args := v.(GetUserArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getUser:getUser", args, GetUserResultOutput{}, options).(GetUserResultOutput), nil
-		}).(GetUserResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getUser:getUser", args, GetUserResultOutput{}, options).(GetUserResultOutput)
 }
 
 // A collection of arguments for invoking getUser.

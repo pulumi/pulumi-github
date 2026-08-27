@@ -67,7 +67,7 @@ namespace Pulumi.Github
     ///         {
     ///             Separator = "/",
     ///             Text = test.FullName,
-    ///         }).Result[0],
+    ///         }).Apply(invoke =&gt; invoke.Result[0]),
     ///         Repository = test.Name,
     ///         Title = "v1.0.0",
     ///         Description = "General Availability",

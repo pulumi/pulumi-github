@@ -64,12 +64,8 @@ type GetRepositoryAutolinkReferencesResult struct {
 }
 
 func GetRepositoryAutolinkReferencesOutput(ctx *pulumi.Context, args GetRepositoryAutolinkReferencesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryAutolinkReferencesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryAutolinkReferencesResultOutput, error) {
-			args := v.(GetRepositoryAutolinkReferencesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args, GetRepositoryAutolinkReferencesResultOutput{}, options).(GetRepositoryAutolinkReferencesResultOutput), nil
-		}).(GetRepositoryAutolinkReferencesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args, GetRepositoryAutolinkReferencesResultOutput{}, options).(GetRepositoryAutolinkReferencesResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryAutolinkReferences.

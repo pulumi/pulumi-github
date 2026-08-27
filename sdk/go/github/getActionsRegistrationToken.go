@@ -66,12 +66,8 @@ type GetActionsRegistrationTokenResult struct {
 }
 
 func GetActionsRegistrationTokenOutput(ctx *pulumi.Context, args GetActionsRegistrationTokenOutputArgs, opts ...pulumi.InvokeOption) GetActionsRegistrationTokenResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetActionsRegistrationTokenResultOutput, error) {
-			args := v.(GetActionsRegistrationTokenArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getActionsRegistrationToken:getActionsRegistrationToken", args, GetActionsRegistrationTokenResultOutput{}, options).(GetActionsRegistrationTokenResultOutput), nil
-		}).(GetActionsRegistrationTokenResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsRegistrationToken:getActionsRegistrationToken", args, GetActionsRegistrationTokenResultOutput{}, options).(GetActionsRegistrationTokenResultOutput)
 }
 
 // A collection of arguments for invoking getActionsRegistrationToken.

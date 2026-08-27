@@ -135,12 +135,8 @@ type LookupReleaseAssetResult struct {
 }
 
 func LookupReleaseAssetOutput(ctx *pulumi.Context, args LookupReleaseAssetOutputArgs, opts ...pulumi.InvokeOption) LookupReleaseAssetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReleaseAssetResultOutput, error) {
-			args := v.(LookupReleaseAssetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getReleaseAsset:getReleaseAsset", args, LookupReleaseAssetResultOutput{}, options).(LookupReleaseAssetResultOutput), nil
-		}).(LookupReleaseAssetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getReleaseAsset:getReleaseAsset", args, LookupReleaseAssetResultOutput{}, options).(LookupReleaseAssetResultOutput)
 }
 
 // A collection of arguments for invoking getReleaseAsset.

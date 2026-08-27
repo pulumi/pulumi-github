@@ -55,10 +55,8 @@ type GetOrganizationTeamSyncGroupsResult struct {
 }
 
 func GetOrganizationTeamSyncGroupsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationTeamSyncGroupsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationTeamSyncGroupsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", nil, GetOrganizationTeamSyncGroupsResultOutput{}, options).(GetOrganizationTeamSyncGroupsResultOutput), nil
-	}).(GetOrganizationTeamSyncGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", nil, GetOrganizationTeamSyncGroupsResultOutput{}, options).(GetOrganizationTeamSyncGroupsResultOutput)
 }
 
 // A collection of values returned by getOrganizationTeamSyncGroups.

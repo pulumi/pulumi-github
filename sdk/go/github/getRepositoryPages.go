@@ -80,12 +80,8 @@ type LookupRepositoryPagesResult struct {
 }
 
 func LookupRepositoryPagesOutput(ctx *pulumi.Context, args LookupRepositoryPagesOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryPagesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryPagesResultOutput, error) {
-			args := v.(LookupRepositoryPagesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryPages:getRepositoryPages", args, LookupRepositoryPagesResultOutput{}, options).(LookupRepositoryPagesResultOutput), nil
-		}).(LookupRepositoryPagesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryPages:getRepositoryPages", args, LookupRepositoryPagesResultOutput{}, options).(LookupRepositoryPagesResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryPages.

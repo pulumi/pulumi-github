@@ -68,12 +68,8 @@ type GetRepositoryEnvironmentDeploymentPoliciesResult struct {
 }
 
 func GetRepositoryEnvironmentDeploymentPoliciesOutput(ctx *pulumi.Context, args GetRepositoryEnvironmentDeploymentPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryEnvironmentDeploymentPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryEnvironmentDeploymentPoliciesResultOutput, error) {
-			args := v.(GetRepositoryEnvironmentDeploymentPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryEnvironmentDeploymentPolicies:getRepositoryEnvironmentDeploymentPolicies", args, GetRepositoryEnvironmentDeploymentPoliciesResultOutput{}, options).(GetRepositoryEnvironmentDeploymentPoliciesResultOutput), nil
-		}).(GetRepositoryEnvironmentDeploymentPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryEnvironmentDeploymentPolicies:getRepositoryEnvironmentDeploymentPolicies", args, GetRepositoryEnvironmentDeploymentPoliciesResultOutput{}, options).(GetRepositoryEnvironmentDeploymentPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryEnvironmentDeploymentPolicies.

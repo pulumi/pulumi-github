@@ -55,10 +55,8 @@ type GetActionsOrganizationVariablesResult struct {
 }
 
 func GetActionsOrganizationVariablesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationVariablesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationVariablesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", nil, GetActionsOrganizationVariablesResultOutput{}, options).(GetActionsOrganizationVariablesResultOutput), nil
-	}).(GetActionsOrganizationVariablesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", nil, GetActionsOrganizationVariablesResultOutput{}, options).(GetActionsOrganizationVariablesResultOutput)
 }
 
 // A collection of values returned by getActionsOrganizationVariables.

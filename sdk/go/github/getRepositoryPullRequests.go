@@ -89,12 +89,8 @@ type LookupRepositoryPullRequestsResult struct {
 }
 
 func LookupRepositoryPullRequestsOutput(ctx *pulumi.Context, args LookupRepositoryPullRequestsOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryPullRequestsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryPullRequestsResultOutput, error) {
-			args := v.(LookupRepositoryPullRequestsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args, LookupRepositoryPullRequestsResultOutput{}, options).(LookupRepositoryPullRequestsResultOutput), nil
-		}).(LookupRepositoryPullRequestsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args, LookupRepositoryPullRequestsResultOutput{}, options).(LookupRepositoryPullRequestsResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryPullRequests.

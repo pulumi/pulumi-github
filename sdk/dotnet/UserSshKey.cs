@@ -31,7 +31,7 @@ namespace Pulumi.Github
     ///         Key = Std.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_rsa.pub",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

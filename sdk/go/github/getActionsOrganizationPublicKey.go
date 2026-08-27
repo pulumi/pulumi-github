@@ -57,10 +57,8 @@ type GetActionsOrganizationPublicKeyResult struct {
 }
 
 func GetActionsOrganizationPublicKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationPublicKeyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationPublicKeyResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", nil, GetActionsOrganizationPublicKeyResultOutput{}, options).(GetActionsOrganizationPublicKeyResultOutput), nil
-	}).(GetActionsOrganizationPublicKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", nil, GetActionsOrganizationPublicKeyResultOutput{}, options).(GetActionsOrganizationPublicKeyResultOutput)
 }
 
 // A collection of values returned by getActionsOrganizationPublicKey.

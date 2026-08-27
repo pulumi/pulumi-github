@@ -66,12 +66,8 @@ type GetCodespacesPublicKeyResult struct {
 }
 
 func GetCodespacesPublicKeyOutput(ctx *pulumi.Context, args GetCodespacesPublicKeyOutputArgs, opts ...pulumi.InvokeOption) GetCodespacesPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCodespacesPublicKeyResultOutput, error) {
-			args := v.(GetCodespacesPublicKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getCodespacesPublicKey:getCodespacesPublicKey", args, GetCodespacesPublicKeyResultOutput{}, options).(GetCodespacesPublicKeyResultOutput), nil
-		}).(GetCodespacesPublicKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getCodespacesPublicKey:getCodespacesPublicKey", args, GetCodespacesPublicKeyResultOutput{}, options).(GetCodespacesPublicKeyResultOutput)
 }
 
 // A collection of arguments for invoking getCodespacesPublicKey.

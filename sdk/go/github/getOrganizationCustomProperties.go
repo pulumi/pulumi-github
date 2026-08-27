@@ -87,12 +87,8 @@ type LookupOrganizationCustomPropertiesResult struct {
 }
 
 func LookupOrganizationCustomPropertiesOutput(ctx *pulumi.Context, args LookupOrganizationCustomPropertiesOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationCustomPropertiesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationCustomPropertiesResultOutput, error) {
-			args := v.(LookupOrganizationCustomPropertiesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getOrganizationCustomProperties:getOrganizationCustomProperties", args, LookupOrganizationCustomPropertiesResultOutput{}, options).(LookupOrganizationCustomPropertiesResultOutput), nil
-		}).(LookupOrganizationCustomPropertiesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationCustomProperties:getOrganizationCustomProperties", args, LookupOrganizationCustomPropertiesResultOutput{}, options).(LookupOrganizationCustomPropertiesResultOutput)
 }
 
 // A collection of arguments for invoking getOrganizationCustomProperties.

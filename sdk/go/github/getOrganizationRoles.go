@@ -66,10 +66,8 @@ type GetOrganizationRolesResult struct {
 }
 
 func GetOrganizationRolesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationRolesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationRolesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getOrganizationRoles:getOrganizationRoles", nil, GetOrganizationRolesResultOutput{}, options).(GetOrganizationRolesResultOutput), nil
-	}).(GetOrganizationRolesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationRoles:getOrganizationRoles", nil, GetOrganizationRolesResultOutput{}, options).(GetOrganizationRolesResultOutput)
 }
 
 // A collection of values returned by getOrganizationRoles.

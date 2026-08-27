@@ -65,12 +65,8 @@ type GetRepositoryWebhooksResult struct {
 }
 
 func GetRepositoryWebhooksOutput(ctx *pulumi.Context, args GetRepositoryWebhooksOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryWebhooksResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryWebhooksResultOutput, error) {
-			args := v.(GetRepositoryWebhooksArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args, GetRepositoryWebhooksResultOutput{}, options).(GetRepositoryWebhooksResultOutput), nil
-		}).(GetRepositoryWebhooksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args, GetRepositoryWebhooksResultOutput{}, options).(GetRepositoryWebhooksResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryWebhooks.

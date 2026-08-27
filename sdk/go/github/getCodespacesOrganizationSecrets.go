@@ -55,10 +55,8 @@ type GetCodespacesOrganizationSecretsResult struct {
 }
 
 func GetCodespacesOrganizationSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCodespacesOrganizationSecretsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesOrganizationSecretsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", nil, GetCodespacesOrganizationSecretsResultOutput{}, options).(GetCodespacesOrganizationSecretsResultOutput), nil
-	}).(GetCodespacesOrganizationSecretsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", nil, GetCodespacesOrganizationSecretsResultOutput{}, options).(GetCodespacesOrganizationSecretsResultOutput)
 }
 
 // A collection of values returned by getCodespacesOrganizationSecrets.

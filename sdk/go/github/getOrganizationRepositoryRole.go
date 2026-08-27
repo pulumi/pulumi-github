@@ -73,12 +73,8 @@ type LookupOrganizationRepositoryRoleResult struct {
 }
 
 func LookupOrganizationRepositoryRoleOutput(ctx *pulumi.Context, args LookupOrganizationRepositoryRoleOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationRepositoryRoleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationRepositoryRoleResultOutput, error) {
-			args := v.(LookupOrganizationRepositoryRoleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getOrganizationRepositoryRole:getOrganizationRepositoryRole", args, LookupOrganizationRepositoryRoleResultOutput{}, options).(LookupOrganizationRepositoryRoleResultOutput), nil
-		}).(LookupOrganizationRepositoryRoleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationRepositoryRole:getOrganizationRepositoryRole", args, LookupOrganizationRepositoryRoleResultOutput{}, options).(LookupOrganizationRepositoryRoleResultOutput)
 }
 
 // A collection of arguments for invoking getOrganizationRepositoryRole.

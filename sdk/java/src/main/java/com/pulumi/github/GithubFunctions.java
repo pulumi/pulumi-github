@@ -3277,6 +3277,7 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3295,7 +3296,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -3320,6 +3323,7 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3338,7 +3342,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -3363,6 +3369,7 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3381,7 +3388,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -3406,6 +3415,7 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3424,7 +3434,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -3449,6 +3461,7 @@ public final class GithubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.ArrayList;
@@ -3467,7 +3480,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId("123456")
      *             .installationId("78910")
-     *             .pemFile(StdFunctions.file(Map.of("input", "foo/bar.pem")).result())
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }

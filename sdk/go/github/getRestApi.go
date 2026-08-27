@@ -70,12 +70,8 @@ type GetRestApiResult struct {
 }
 
 func GetRestApiOutput(ctx *pulumi.Context, args GetRestApiOutputArgs, opts ...pulumi.InvokeOption) GetRestApiResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRestApiResultOutput, error) {
-			args := v.(GetRestApiArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRestApi:getRestApi", args, GetRestApiResultOutput{}, options).(GetRestApiResultOutput), nil
-		}).(GetRestApiResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRestApi:getRestApi", args, GetRestApiResultOutput{}, options).(GetRestApiResultOutput)
 }
 
 // A collection of arguments for invoking getRestApi.

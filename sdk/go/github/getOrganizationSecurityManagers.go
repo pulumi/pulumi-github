@@ -57,10 +57,8 @@ type GetOrganizationSecurityManagersResult struct {
 }
 
 func GetOrganizationSecurityManagersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationSecurityManagersResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationSecurityManagersResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", nil, GetOrganizationSecurityManagersResultOutput{}, options).(GetOrganizationSecurityManagersResultOutput), nil
-	}).(GetOrganizationSecurityManagersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", nil, GetOrganizationSecurityManagersResultOutput{}, options).(GetOrganizationSecurityManagersResultOutput)
 }
 
 // A collection of values returned by getOrganizationSecurityManagers.

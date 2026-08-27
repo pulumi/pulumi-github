@@ -68,12 +68,8 @@ type GetActionsSecretsResult struct {
 }
 
 func GetActionsSecretsOutput(ctx *pulumi.Context, args GetActionsSecretsOutputArgs, opts ...pulumi.InvokeOption) GetActionsSecretsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetActionsSecretsResultOutput, error) {
-			args := v.(GetActionsSecretsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getActionsSecrets:getActionsSecrets", args, GetActionsSecretsResultOutput{}, options).(GetActionsSecretsResultOutput), nil
-		}).(GetActionsSecretsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsSecrets:getActionsSecrets", args, GetActionsSecretsResultOutput{}, options).(GetActionsSecretsResultOutput)
 }
 
 // A collection of arguments for invoking getActionsSecrets.

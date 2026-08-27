@@ -147,7 +147,7 @@ class UserSshKey(pulumi.CustomResource):
 
         example = github.UserSshKey("example",
             title="example title",
-            key=std.file(input="~/.ssh/id_rsa.pub")["result"])
+            key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
 
         ## Import
@@ -184,7 +184,7 @@ class UserSshKey(pulumi.CustomResource):
 
         example = github.UserSshKey("example",
             title="example title",
-            key=std.file(input="~/.ssh/id_rsa.pub")["result"])
+            key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
 
         ## Import

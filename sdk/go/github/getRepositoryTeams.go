@@ -68,12 +68,8 @@ type GetRepositoryTeamsResult struct {
 }
 
 func GetRepositoryTeamsOutput(ctx *pulumi.Context, args GetRepositoryTeamsOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryTeamsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryTeamsResultOutput, error) {
-			args := v.(GetRepositoryTeamsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryTeams:getRepositoryTeams", args, GetRepositoryTeamsResultOutput{}, options).(GetRepositoryTeamsResultOutput), nil
-		}).(GetRepositoryTeamsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryTeams:getRepositoryTeams", args, GetRepositoryTeamsResultOutput{}, options).(GetRepositoryTeamsResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryTeams.

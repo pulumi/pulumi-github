@@ -42,10 +42,10 @@ import * as utilities from "./utilities";
  *     hasIssues: true,
  * });
  * const testRepositoryMilestone = new github.RepositoryMilestone("test", {
- *     owner: std.split({
+ *     owner: std.splitOutput({
  *         separator: "/",
  *         text: test.fullName,
- *     }).result[0],
+ *     }).apply(invoke => invoke.result?.[0]),
  *     repository: test.name,
  *     title: "v1.0.0",
  *     description: "General Availability",

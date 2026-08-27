@@ -57,10 +57,8 @@ type GetDependabotOrganizationPublicKeyResult struct {
 }
 
 func GetDependabotOrganizationPublicKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDependabotOrganizationPublicKeyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetDependabotOrganizationPublicKeyResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", nil, GetDependabotOrganizationPublicKeyResultOutput{}, options).(GetDependabotOrganizationPublicKeyResultOutput), nil
-	}).(GetDependabotOrganizationPublicKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", nil, GetDependabotOrganizationPublicKeyResultOutput{}, options).(GetDependabotOrganizationPublicKeyResultOutput)
 }
 
 // A collection of values returned by getDependabotOrganizationPublicKey.

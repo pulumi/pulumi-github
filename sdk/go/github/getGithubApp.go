@@ -69,12 +69,8 @@ type GetGithubAppResult struct {
 }
 
 func GetGithubAppOutput(ctx *pulumi.Context, args GetGithubAppOutputArgs, opts ...pulumi.InvokeOption) GetGithubAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGithubAppResultOutput, error) {
-			args := v.(GetGithubAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getGithubApp:getGithubApp", args, GetGithubAppResultOutput{}, options).(GetGithubAppResultOutput), nil
-		}).(GetGithubAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getGithubApp:getGithubApp", args, GetGithubAppResultOutput{}, options).(GetGithubAppResultOutput)
 }
 
 // A collection of arguments for invoking getGithubApp.
