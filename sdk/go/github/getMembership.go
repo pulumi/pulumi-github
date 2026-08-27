@@ -72,12 +72,8 @@ type LookupMembershipResult struct {
 }
 
 func LookupMembershipOutput(ctx *pulumi.Context, args LookupMembershipOutputArgs, opts ...pulumi.InvokeOption) LookupMembershipResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMembershipResultOutput, error) {
-			args := v.(LookupMembershipArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getMembership:getMembership", args, LookupMembershipResultOutput{}, options).(LookupMembershipResultOutput), nil
-		}).(LookupMembershipResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getMembership:getMembership", args, LookupMembershipResultOutput{}, options).(LookupMembershipResultOutput)
 }
 
 // A collection of arguments for invoking getMembership.

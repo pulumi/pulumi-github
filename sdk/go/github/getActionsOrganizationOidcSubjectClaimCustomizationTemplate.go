@@ -55,10 +55,8 @@ type LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult struct
 }
 
 func LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", nil, LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput{}, options).(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput), nil
-	}).(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", nil, LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput{}, options).(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput)
 }
 
 // A collection of values returned by getActionsOrganizationOidcSubjectClaimCustomizationTemplate.

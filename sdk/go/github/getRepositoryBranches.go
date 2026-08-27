@@ -70,12 +70,8 @@ type GetRepositoryBranchesResult struct {
 }
 
 func GetRepositoryBranchesOutput(ctx *pulumi.Context, args GetRepositoryBranchesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryBranchesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryBranchesResultOutput, error) {
-			args := v.(GetRepositoryBranchesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryBranches:getRepositoryBranches", args, GetRepositoryBranchesResultOutput{}, options).(GetRepositoryBranchesResultOutput), nil
-		}).(GetRepositoryBranchesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryBranches:getRepositoryBranches", args, GetRepositoryBranchesResultOutput{}, options).(GetRepositoryBranchesResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryBranches.

@@ -78,12 +78,8 @@ type LookupRepositoryMilestoneResult struct {
 }
 
 func LookupRepositoryMilestoneOutput(ctx *pulumi.Context, args LookupRepositoryMilestoneOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryMilestoneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryMilestoneResultOutput, error) {
-			args := v.(LookupRepositoryMilestoneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryMilestone:getRepositoryMilestone", args, LookupRepositoryMilestoneResultOutput{}, options).(LookupRepositoryMilestoneResultOutput), nil
-		}).(LookupRepositoryMilestoneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryMilestone:getRepositoryMilestone", args, LookupRepositoryMilestoneResultOutput{}, options).(LookupRepositoryMilestoneResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryMilestone.

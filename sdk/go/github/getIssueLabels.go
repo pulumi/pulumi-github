@@ -38,12 +38,8 @@ type LookupIssueLabelsResult struct {
 }
 
 func LookupIssueLabelsOutput(ctx *pulumi.Context, args LookupIssueLabelsOutputArgs, opts ...pulumi.InvokeOption) LookupIssueLabelsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIssueLabelsResultOutput, error) {
-			args := v.(LookupIssueLabelsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getIssueLabels:getIssueLabels", args, LookupIssueLabelsResultOutput{}, options).(LookupIssueLabelsResultOutput), nil
-		}).(LookupIssueLabelsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getIssueLabels:getIssueLabels", args, LookupIssueLabelsResultOutput{}, options).(LookupIssueLabelsResultOutput)
 }
 
 // A collection of arguments for invoking getIssueLabels.

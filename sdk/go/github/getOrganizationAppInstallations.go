@@ -57,10 +57,8 @@ type GetOrganizationAppInstallationsResult struct {
 }
 
 func GetOrganizationAppInstallationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationAppInstallationsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationAppInstallationsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getOrganizationAppInstallations:getOrganizationAppInstallations", nil, GetOrganizationAppInstallationsResultOutput{}, options).(GetOrganizationAppInstallationsResultOutput), nil
-	}).(GetOrganizationAppInstallationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationAppInstallations:getOrganizationAppInstallations", nil, GetOrganizationAppInstallationsResultOutput{}, options).(GetOrganizationAppInstallationsResultOutput)
 }
 
 // A collection of values returned by getOrganizationAppInstallations.

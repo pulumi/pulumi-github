@@ -69,12 +69,8 @@ type GetUserExternalIdentityResult struct {
 }
 
 func GetUserExternalIdentityOutput(ctx *pulumi.Context, args GetUserExternalIdentityOutputArgs, opts ...pulumi.InvokeOption) GetUserExternalIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserExternalIdentityResultOutput, error) {
-			args := v.(GetUserExternalIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getUserExternalIdentity:getUserExternalIdentity", args, GetUserExternalIdentityResultOutput{}, options).(GetUserExternalIdentityResultOutput), nil
-		}).(GetUserExternalIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getUserExternalIdentity:getUserExternalIdentity", args, GetUserExternalIdentityResultOutput{}, options).(GetUserExternalIdentityResultOutput)
 }
 
 // A collection of arguments for invoking getUserExternalIdentity.

@@ -70,12 +70,8 @@ type GetActionsEnvironmentVariablesResult struct {
 }
 
 func GetActionsEnvironmentVariablesOutput(ctx *pulumi.Context, args GetActionsEnvironmentVariablesOutputArgs, opts ...pulumi.InvokeOption) GetActionsEnvironmentVariablesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetActionsEnvironmentVariablesResultOutput, error) {
-			args := v.(GetActionsEnvironmentVariablesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", args, GetActionsEnvironmentVariablesResultOutput{}, options).(GetActionsEnvironmentVariablesResultOutput), nil
-		}).(GetActionsEnvironmentVariablesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", args, GetActionsEnvironmentVariablesResultOutput{}, options).(GetActionsEnvironmentVariablesResultOutput)
 }
 
 // A collection of arguments for invoking getActionsEnvironmentVariables.

@@ -57,10 +57,8 @@ type GetActionsOrganizationRegistrationTokenResult struct {
 }
 
 func GetActionsOrganizationRegistrationTokenOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationRegistrationTokenResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationRegistrationTokenResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken", nil, GetActionsOrganizationRegistrationTokenResultOutput{}, options).(GetActionsOrganizationRegistrationTokenResultOutput), nil
-	}).(GetActionsOrganizationRegistrationTokenResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken", nil, GetActionsOrganizationRegistrationTokenResultOutput{}, options).(GetActionsOrganizationRegistrationTokenResultOutput)
 }
 
 // A collection of values returned by getActionsOrganizationRegistrationToken.

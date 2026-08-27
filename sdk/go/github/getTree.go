@@ -86,12 +86,8 @@ type GetTreeResult struct {
 }
 
 func GetTreeOutput(ctx *pulumi.Context, args GetTreeOutputArgs, opts ...pulumi.InvokeOption) GetTreeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTreeResultOutput, error) {
-			args := v.(GetTreeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getTree:getTree", args, GetTreeResultOutput{}, options).(GetTreeResultOutput), nil
-		}).(GetTreeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getTree:getTree", args, GetTreeResultOutput{}, options).(GetTreeResultOutput)
 }
 
 // A collection of arguments for invoking getTree.

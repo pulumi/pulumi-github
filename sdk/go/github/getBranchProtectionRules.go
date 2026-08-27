@@ -64,12 +64,8 @@ type GetBranchProtectionRulesResult struct {
 }
 
 func GetBranchProtectionRulesOutput(ctx *pulumi.Context, args GetBranchProtectionRulesOutputArgs, opts ...pulumi.InvokeOption) GetBranchProtectionRulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetBranchProtectionRulesResultOutput, error) {
-			args := v.(GetBranchProtectionRulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getBranchProtectionRules:getBranchProtectionRules", args, GetBranchProtectionRulesResultOutput{}, options).(GetBranchProtectionRulesResultOutput), nil
-		}).(GetBranchProtectionRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getBranchProtectionRules:getBranchProtectionRules", args, GetBranchProtectionRulesResultOutput{}, options).(GetBranchProtectionRulesResultOutput)
 }
 
 // A collection of arguments for invoking getBranchProtectionRules.

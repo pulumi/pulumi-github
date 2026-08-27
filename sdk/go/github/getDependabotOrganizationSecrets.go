@@ -55,10 +55,8 @@ type GetDependabotOrganizationSecretsResult struct {
 }
 
 func GetDependabotOrganizationSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDependabotOrganizationSecretsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetDependabotOrganizationSecretsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", nil, GetDependabotOrganizationSecretsResultOutput{}, options).(GetDependabotOrganizationSecretsResultOutput), nil
-	}).(GetDependabotOrganizationSecretsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", nil, GetDependabotOrganizationSecretsResultOutput{}, options).(GetDependabotOrganizationSecretsResultOutput)
 }
 
 // A collection of values returned by getDependabotOrganizationSecrets.

@@ -64,12 +64,8 @@ type GetRepositoryDeployKeysResult struct {
 }
 
 func GetRepositoryDeployKeysOutput(ctx *pulumi.Context, args GetRepositoryDeployKeysOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryDeployKeysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryDeployKeysResultOutput, error) {
-			args := v.(GetRepositoryDeployKeysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", args, GetRepositoryDeployKeysResultOutput{}, options).(GetRepositoryDeployKeysResultOutput), nil
-		}).(GetRepositoryDeployKeysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", args, GetRepositoryDeployKeysResultOutput{}, options).(GetRepositoryDeployKeysResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryDeployKeys.

@@ -57,10 +57,8 @@ type GetCodespacesUserPublicKeyResult struct {
 }
 
 func GetCodespacesUserPublicKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCodespacesUserPublicKeyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesUserPublicKeyResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", nil, GetCodespacesUserPublicKeyResultOutput{}, options).(GetCodespacesUserPublicKeyResultOutput), nil
-	}).(GetCodespacesUserPublicKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", nil, GetCodespacesUserPublicKeyResultOutput{}, options).(GetCodespacesUserPublicKeyResultOutput)
 }
 
 // A collection of values returned by getCodespacesUserPublicKey.

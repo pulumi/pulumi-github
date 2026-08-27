@@ -28,8 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "foo/bar.pem",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "foo/bar.pem",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -79,12 +79,8 @@ type GetAppTokenResult struct {
 }
 
 func GetAppTokenOutput(ctx *pulumi.Context, args GetAppTokenOutputArgs, opts ...pulumi.InvokeOption) GetAppTokenResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAppTokenResultOutput, error) {
-			args := v.(GetAppTokenArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getAppToken:getAppToken", args, GetAppTokenResultOutput{}, options).(GetAppTokenResultOutput), nil
-		}).(GetAppTokenResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getAppToken:getAppToken", args, GetAppTokenResultOutput{}, options).(GetAppTokenResultOutput)
 }
 
 // A collection of arguments for invoking getAppToken.

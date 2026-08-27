@@ -74,12 +74,8 @@ type GetCodespacesSecretsResult struct {
 }
 
 func GetCodespacesSecretsOutput(ctx *pulumi.Context, args GetCodespacesSecretsOutputArgs, opts ...pulumi.InvokeOption) GetCodespacesSecretsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCodespacesSecretsResultOutput, error) {
-			args := v.(GetCodespacesSecretsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getCodespacesSecrets:getCodespacesSecrets", args, GetCodespacesSecretsResultOutput{}, options).(GetCodespacesSecretsResultOutput), nil
-		}).(GetCodespacesSecretsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getCodespacesSecrets:getCodespacesSecrets", args, GetCodespacesSecretsResultOutput{}, options).(GetCodespacesSecretsResultOutput)
 }
 
 // A collection of arguments for invoking getCodespacesSecrets.

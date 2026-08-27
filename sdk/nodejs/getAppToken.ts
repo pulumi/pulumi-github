@@ -14,13 +14,13 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  * import * as std from "@pulumi/std";
  *
- * const _this = github.getAppToken({
+ * const _this = std.file({
+ *     input: "foo/bar.pem",
+ * }).then(invoke => github.getAppToken({
  *     appId: "123456",
  *     installationId: "78910",
- *     pemFile: std.file({
- *         input: "foo/bar.pem",
- *     }).result,
- * });
+ *     pemFile: invoke.result,
+ * }));
  * ```
  */
 export function getAppToken(args: GetAppTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAppTokenResult> {
@@ -76,13 +76,13 @@ export interface GetAppTokenResult {
  * import * as github from "@pulumi/github";
  * import * as std from "@pulumi/std";
  *
- * const _this = github.getAppToken({
+ * const _this = std.file({
+ *     input: "foo/bar.pem",
+ * }).then(invoke => github.getAppToken({
  *     appId: "123456",
  *     installationId: "78910",
- *     pemFile: std.file({
- *         input: "foo/bar.pem",
- *     }).result,
- * });
+ *     pemFile: invoke.result,
+ * }));
  * ```
  */
 export function getAppTokenOutput(args: GetAppTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppTokenResult> {

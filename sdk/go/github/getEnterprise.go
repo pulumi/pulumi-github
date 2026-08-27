@@ -73,12 +73,8 @@ type GetEnterpriseResult struct {
 }
 
 func GetEnterpriseOutput(ctx *pulumi.Context, args GetEnterpriseOutputArgs, opts ...pulumi.InvokeOption) GetEnterpriseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEnterpriseResultOutput, error) {
-			args := v.(GetEnterpriseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getEnterprise:getEnterprise", args, GetEnterpriseResultOutput{}, options).(GetEnterpriseResultOutput), nil
-		}).(GetEnterpriseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getEnterprise:getEnterprise", args, GetEnterpriseResultOutput{}, options).(GetEnterpriseResultOutput)
 }
 
 // A collection of arguments for invoking getEnterprise.

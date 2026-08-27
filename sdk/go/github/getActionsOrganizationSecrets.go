@@ -55,10 +55,8 @@ type GetActionsOrganizationSecretsResult struct {
 }
 
 func GetActionsOrganizationSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationSecretsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationSecretsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", nil, GetActionsOrganizationSecretsResultOutput{}, options).(GetActionsOrganizationSecretsResultOutput), nil
-	}).(GetActionsOrganizationSecretsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", nil, GetActionsOrganizationSecretsResultOutput{}, options).(GetActionsOrganizationSecretsResultOutput)
 }
 
 // A collection of values returned by getActionsOrganizationSecrets.

@@ -70,12 +70,8 @@ type GetRepositoryDeploymentBranchPoliciesResult struct {
 }
 
 func GetRepositoryDeploymentBranchPoliciesOutput(ctx *pulumi.Context, args GetRepositoryDeploymentBranchPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryDeploymentBranchPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryDeploymentBranchPoliciesResultOutput, error) {
-			args := v.(GetRepositoryDeploymentBranchPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args, GetRepositoryDeploymentBranchPoliciesResultOutput{}, options).(GetRepositoryDeploymentBranchPoliciesResultOutput), nil
-		}).(GetRepositoryDeploymentBranchPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args, GetRepositoryDeploymentBranchPoliciesResultOutput{}, options).(GetRepositoryDeploymentBranchPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryDeploymentBranchPolicies.

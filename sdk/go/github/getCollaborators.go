@@ -75,12 +75,8 @@ type GetCollaboratorsResult struct {
 }
 
 func GetCollaboratorsOutput(ctx *pulumi.Context, args GetCollaboratorsOutputArgs, opts ...pulumi.InvokeOption) GetCollaboratorsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCollaboratorsResultOutput, error) {
-			args := v.(GetCollaboratorsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getCollaborators:getCollaborators", args, GetCollaboratorsResultOutput{}, options).(GetCollaboratorsResultOutput), nil
-		}).(GetCollaboratorsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getCollaborators:getCollaborators", args, GetCollaboratorsResultOutput{}, options).(GetCollaboratorsResultOutput)
 }
 
 // A collection of arguments for invoking getCollaborators.

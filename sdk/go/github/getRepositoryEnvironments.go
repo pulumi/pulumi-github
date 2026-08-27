@@ -66,12 +66,8 @@ type GetRepositoryEnvironmentsResult struct {
 }
 
 func GetRepositoryEnvironmentsOutput(ctx *pulumi.Context, args GetRepositoryEnvironmentsOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryEnvironmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryEnvironmentsResultOutput, error) {
-			args := v.(GetRepositoryEnvironmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryEnvironments:getRepositoryEnvironments", args, GetRepositoryEnvironmentsResultOutput{}, options).(GetRepositoryEnvironmentsResultOutput), nil
-		}).(GetRepositoryEnvironmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryEnvironments:getRepositoryEnvironments", args, GetRepositoryEnvironmentsResultOutput{}, options).(GetRepositoryEnvironmentsResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryEnvironments.

@@ -55,10 +55,8 @@ type GetOrganizationIpAllowListResult struct {
 }
 
 func GetOrganizationIpAllowListOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationIpAllowListResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationIpAllowListResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", nil, GetOrganizationIpAllowListResultOutput{}, options).(GetOrganizationIpAllowListResultOutput), nil
-	}).(GetOrganizationIpAllowListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", nil, GetOrganizationIpAllowListResultOutput{}, options).(GetOrganizationIpAllowListResultOutput)
 }
 
 // A collection of values returned by getOrganizationIpAllowList.

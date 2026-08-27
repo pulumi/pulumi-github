@@ -55,10 +55,8 @@ type GetOrganizationExternalIdentitiesResult struct {
 }
 
 func GetOrganizationExternalIdentitiesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationExternalIdentitiesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationExternalIdentitiesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", nil, GetOrganizationExternalIdentitiesResultOutput{}, options).(GetOrganizationExternalIdentitiesResultOutput), nil
-	}).(GetOrganizationExternalIdentitiesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", nil, GetOrganizationExternalIdentitiesResultOutput{}, options).(GetOrganizationExternalIdentitiesResultOutput)
 }
 
 // A collection of values returned by getOrganizationExternalIdentities.

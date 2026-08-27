@@ -64,12 +64,8 @@ type GetRepositoryCustomPropertiesResult struct {
 }
 
 func GetRepositoryCustomPropertiesOutput(ctx *pulumi.Context, args GetRepositoryCustomPropertiesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryCustomPropertiesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryCustomPropertiesResultOutput, error) {
-			args := v.(GetRepositoryCustomPropertiesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("github:index/getRepositoryCustomProperties:getRepositoryCustomProperties", args, GetRepositoryCustomPropertiesResultOutput{}, options).(GetRepositoryCustomPropertiesResultOutput), nil
-		}).(GetRepositoryCustomPropertiesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("github:index/getRepositoryCustomProperties:getRepositoryCustomProperties", args, GetRepositoryCustomPropertiesResultOutput{}, options).(GetRepositoryCustomPropertiesResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryCustomProperties.
