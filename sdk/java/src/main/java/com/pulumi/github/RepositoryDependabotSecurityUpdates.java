@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new RepositoryDependabotSecurityUpdates("example", RepositoryDependabotSecurityUpdatesArgs.builder()
- *             .repository(test.name())
+ *             .repository(test.get("name"))
  *             .enabled(true)
  *             .build());
  * 

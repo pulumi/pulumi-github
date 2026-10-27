@@ -38,7 +38,24 @@ namespace Pulumi.Github
         /// 
         /// To retrieve a specific release from a repository based on its ID:
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRelease.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         RetrieveBy = "id",
+        ///         Id = 12345,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// Finally, to retrieve a release based on its tag:
         /// 
@@ -91,7 +108,24 @@ namespace Pulumi.Github
         /// 
         /// To retrieve a specific release from a repository based on its ID:
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRelease.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         RetrieveBy = "id",
+        ///         Id = 12345,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// Finally, to retrieve a release based on its tag:
         /// 
@@ -144,7 +178,24 @@ namespace Pulumi.Github
         /// 
         /// To retrieve a specific release from a repository based on its ID:
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRelease.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         RetrieveBy = "id",
+        ///         Id = 12345,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// Finally, to retrieve a release based on its tag:
         /// 

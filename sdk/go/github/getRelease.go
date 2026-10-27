@@ -45,6 +45,33 @@ import (
 //
 // To retrieve a specific release from a repository based on its ID:
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRelease(ctx, &github.LookupReleaseArgs{
+//				Repository: "example-repository",
+//				Owner:      "example-owner",
+//				RetrieveBy: "id",
+//				Id:         12345,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // Finally, to retrieve a release based on its tag:
 //
 // ```go

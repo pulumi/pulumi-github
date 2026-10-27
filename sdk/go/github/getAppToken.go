@@ -37,7 +37,7 @@ import (
 //			_, err := github.GetAppToken(ctx, &github.GetAppTokenArgs{
 //				AppId:          "123456",
 //				InstallationId: "78910",
-//				PemFile:        invokeFile.Result,
+//				PemFile:        *string(invokeFile.Result),
 //			}, nil)
 //			if err != nil {
 //				return err

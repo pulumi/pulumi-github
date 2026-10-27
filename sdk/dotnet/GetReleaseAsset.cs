@@ -38,7 +38,24 @@ namespace Pulumi.Github
         /// 
         /// To retrieve a specific release asset from a repository, and download the file into a `File` attribute on the data source:
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetReleaseAsset.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         AssetId = 12345,
+        ///         DownloadFile = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// To retrieve the first release asset associated with the latest release in a repository:
         /// 
@@ -84,7 +101,7 @@ namespace Pulumi.Github
         ///         RetrieveBy = "latest",
         ///     });
         /// 
-        ///     var exampleGetReleaseAsset = ;
+        ///     var exampleGetReleaseAsset = _arg1_;
         /// 
         /// });
         /// ```
@@ -119,7 +136,24 @@ namespace Pulumi.Github
         /// 
         /// To retrieve a specific release asset from a repository, and download the file into a `File` attribute on the data source:
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetReleaseAsset.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         AssetId = 12345,
+        ///         DownloadFile = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// To retrieve the first release asset associated with the latest release in a repository:
         /// 
@@ -165,7 +199,7 @@ namespace Pulumi.Github
         ///         RetrieveBy = "latest",
         ///     });
         /// 
-        ///     var exampleGetReleaseAsset = ;
+        ///     var exampleGetReleaseAsset = _arg1_;
         /// 
         /// });
         /// ```
@@ -200,7 +234,24 @@ namespace Pulumi.Github
         /// 
         /// To retrieve a specific release asset from a repository, and download the file into a `File` attribute on the data source:
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetReleaseAsset.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         AssetId = 12345,
+        ///         DownloadFile = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// To retrieve the first release asset associated with the latest release in a repository:
         /// 
@@ -246,7 +297,7 @@ namespace Pulumi.Github
         ///         RetrieveBy = "latest",
         ///     });
         /// 
-        ///     var exampleGetReleaseAsset = ;
+        ///     var exampleGetReleaseAsset = _arg1_;
         /// 
         /// });
         /// ```

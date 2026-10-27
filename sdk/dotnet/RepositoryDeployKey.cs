@@ -33,7 +33,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Generate an ssh key using provider "hashicorp/tls"
+    ///     // Generate an ssh key using provider "pulumi/tls"
     ///     var exampleRepositoryDeployKey = new Tls.PrivateKey("example_repository_deploy_key", new()
     ///     {
     ///         Algorithm = "ED25519",

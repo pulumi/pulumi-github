@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			column, err := github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
-//				ProjectId: project.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: project.ID(),
 //				Name:      pulumi.String("Backlog"),
 //			})
 //			if err != nil {
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			testIssue, err := github.NewIssue(ctx, "test", &github.IssueArgs{
-//				Repository: test.ID().ToIDOutput().ToStringOutput(),
+//				Repository: test.ID(),
 //				Title:      pulumi.String("Test issue title"),
 //				Body:       pulumi.String("Test issue body"),
 //			})
@@ -96,7 +96,7 @@ import (
 //				return err
 //			}
 //			testProjectColumn, err := github.NewProjectColumn(ctx, "test", &github.ProjectColumnArgs{
-//				ProjectId: testRepositoryProject.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: testRepositoryProject.ID(),
 //				Name:      pulumi.String("Backlog"),
 //			})
 //			if err != nil {
