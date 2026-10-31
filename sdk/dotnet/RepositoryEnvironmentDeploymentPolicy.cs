@@ -45,7 +45,7 @@ namespace Pulumi.Github
     ///             {
     ///                 Users = new[]
     ///                 {
-    ///                     current.Apply(getUserResult =&gt; getUserResult.Id),
+    ///                     Output.Create(current.Apply(getUserResult =&gt; getUserResult.Id)).Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///                 },
     ///             },
     ///         },
@@ -97,7 +97,7 @@ namespace Pulumi.Github
     ///             {
     ///                 Users = new[]
     ///                 {
-    ///                     current.Apply(getUserResult =&gt; getUserResult.Id),
+    ///                     Output.Create(current.Apply(getUserResult =&gt; getUserResult.Id)).Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///                 },
     ///             },
     ///         },

@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewTeamMembership(ctx, "some_team_membership", &github.TeamMembershipArgs{
-//				TeamId:   someTeam.ID().ToIDOutput().ToStringOutput(),
+//				TeamId:   someTeam.ID(),
 //				Username: pulumi.String("SomeUser"),
 //				Role:     pulumi.String("member"),
 //			})

@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  * import * as tls from "@pulumi/tls";
  *
- * // Generate an ssh key using provider "hashicorp/tls"
+ * // Generate an ssh key using provider "pulumi/tls"
  * const exampleRepositoryDeployKey = new tls.PrivateKey("example_repository_deploy_key", {algorithm: "ED25519"});
  * // Add the ssh key as a deploy key
  * const exampleRepositoryDeployKeyRepositoryDeployKey = new github.RepositoryDeployKey("example_repository_deploy_key", {

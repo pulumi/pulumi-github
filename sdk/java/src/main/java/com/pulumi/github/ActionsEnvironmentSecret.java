@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleEncrypted = new ActionsEnvironmentSecret("exampleEncrypted", ActionsEnvironmentSecretArgs.builder()
  *             .repository(example.name())
- *             .environment(exampleGithubRepositoryEnvironment.environment())
+ *             .environment(exampleGithubRepositoryEnvironment.get("environment"))
  *             .secretName("test_secret_name")
  *             .plaintextValue("example-value")
  *             .build());

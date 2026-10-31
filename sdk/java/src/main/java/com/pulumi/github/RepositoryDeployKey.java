@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Generate an ssh key using provider "hashicorp/tls"
+ *         // Generate an ssh key using provider "pulumi/tls"
  *         var exampleRepositoryDeployKey = new PrivateKey("exampleRepositoryDeployKey", PrivateKeyArgs.builder()
  *             .algorithm("ED25519")
  *             .build());
