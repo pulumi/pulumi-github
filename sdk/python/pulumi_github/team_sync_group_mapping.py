@@ -117,7 +117,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict', 'outputs.TeamSyncGroupMappingGroup']]]]] = None,
                  team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -152,7 +152,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]] groups: An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict', 'outputs.TeamSyncGroupMappingGroup']]]] groups: An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
         :param pulumi.Input[_builtins.str] team_slug: Slug of the team
         """
         ...
@@ -206,7 +206,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict', 'outputs.TeamSyncGroupMappingGroup']]]]] = None,
                  team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -233,7 +233,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             etag: pulumi.Input[Optional[_builtins.str]] = None,
-            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict', 'outputs.TeamSyncGroupMappingGroup']]]]] = None,
             team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamSyncGroupMapping':
         """
         Get an existing TeamSyncGroupMapping resource's state with the given name, id, and optional extra
@@ -242,7 +242,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]] groups: An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict', 'outputs.TeamSyncGroupMappingGroup']]]] groups: An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
         :param pulumi.Input[_builtins.str] team_slug: Slug of the team
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

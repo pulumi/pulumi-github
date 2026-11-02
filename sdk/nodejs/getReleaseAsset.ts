@@ -24,6 +24,18 @@ import * as utilities from "./utilities";
  *
  * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getReleaseAsset({
+ *     repository: "example-repository",
+ *     owner: "example-owner",
+ *     assetId: 12345,
+ *     downloadFile: true,
+ * });
+ * ```
+ *
  * To retrieve the first release asset associated with the latest release in a repository:
  *
  * ```typescript
@@ -53,11 +65,7 @@ import * as utilities from "./utilities";
  *     owner: "example-owner",
  *     retrieveBy: "latest",
  * });
- * const exampleGetReleaseAsset = .map(__index => (github.getReleaseAsset({
- *     repository: "example-repository",
- *     owner: "example-owner",
- *     assetId: _arg0_.assets[__index].id,
- * })));
+ * const exampleGetReleaseAsset = _arg1_;
  * ```
  */
 export function getReleaseAsset(args: GetReleaseAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseAssetResult> {
@@ -165,6 +173,18 @@ export interface GetReleaseAssetResult {
  *
  * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getReleaseAsset({
+ *     repository: "example-repository",
+ *     owner: "example-owner",
+ *     assetId: 12345,
+ *     downloadFile: true,
+ * });
+ * ```
+ *
  * To retrieve the first release asset associated with the latest release in a repository:
  *
  * ```typescript
@@ -194,11 +214,7 @@ export interface GetReleaseAssetResult {
  *     owner: "example-owner",
  *     retrieveBy: "latest",
  * });
- * const exampleGetReleaseAsset = .map(__index => (github.getReleaseAsset({
- *     repository: "example-repository",
- *     owner: "example-owner",
- *     assetId: _arg0_.assets[__index].id,
- * })));
+ * const exampleGetReleaseAsset = _arg1_;
  * ```
  */
 export function getReleaseAssetOutput(args: GetReleaseAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReleaseAssetResult> {

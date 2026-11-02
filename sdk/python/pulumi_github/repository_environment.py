@@ -281,11 +281,11 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  can_admins_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
-                 deployment_branch_policy: pulumi.Input[Optional[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict']]] = None,
+                 deployment_branch_policy: pulumi.Input[Optional[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict', 'outputs.RepositoryEnvironmentDeploymentBranchPolicy']]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  prevent_self_review: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
-                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict']]]]] = None,
+                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict', 'outputs.RepositoryEnvironmentReviewer']]]]] = None,
                  wait_timer: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -336,11 +336,11 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
-        :param pulumi.Input[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict']] deployment_branch_policy: The deployment branch policy configuration
+        :param pulumi.Input[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict', 'outputs.RepositoryEnvironmentDeploymentBranchPolicy']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict']]]] reviewers: The environment reviewers configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict', 'outputs.RepositoryEnvironmentReviewer']]]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[_builtins.int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         ...
@@ -410,11 +410,11 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  can_admins_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
-                 deployment_branch_policy: pulumi.Input[Optional[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict']]] = None,
+                 deployment_branch_policy: pulumi.Input[Optional[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict', 'outputs.RepositoryEnvironmentDeploymentBranchPolicy']]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  prevent_self_review: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
-                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict']]]]] = None,
+                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict', 'outputs.RepositoryEnvironmentReviewer']]]]] = None,
                  wait_timer: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -448,12 +448,12 @@ class RepositoryEnvironment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             can_admins_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
-            deployment_branch_policy: pulumi.Input[Optional[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict']]] = None,
+            deployment_branch_policy: pulumi.Input[Optional[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict', 'outputs.RepositoryEnvironmentDeploymentBranchPolicy']]] = None,
             environment: pulumi.Input[Optional[_builtins.str]] = None,
             prevent_self_review: pulumi.Input[Optional[_builtins.bool]] = None,
             repository: pulumi.Input[Optional[_builtins.str]] = None,
             repository_id: pulumi.Input[Optional[_builtins.int]] = None,
-            reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict']]]]] = None,
+            reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict', 'outputs.RepositoryEnvironmentReviewer']]]]] = None,
             wait_timer: pulumi.Input[Optional[_builtins.int]] = None) -> 'RepositoryEnvironment':
         """
         Get an existing RepositoryEnvironment resource's state with the given name, id, and optional extra
@@ -463,12 +463,12 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
-        :param pulumi.Input[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict']] deployment_branch_policy: The deployment branch policy configuration
+        :param pulumi.Input[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict', 'outputs.RepositoryEnvironmentDeploymentBranchPolicy']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
         :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict']]]] reviewers: The environment reviewers configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict', 'outputs.RepositoryEnvironmentReviewer']]]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[_builtins.int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

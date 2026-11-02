@@ -41,7 +41,7 @@ namespace Pulumi.Github
     ///             Source = "github",
     ///         },
     ///         Size = "4-core",
-    ///         RunnerGroupId = example.Id,
+    ///         RunnerGroupId = example.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });
@@ -72,7 +72,7 @@ namespace Pulumi.Github
     ///             Source = "github",
     ///         },
     ///         Size = "8-core",
-    ///         RunnerGroupId = advanced.Id,
+    ///         RunnerGroupId = advanced.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         MaximumRunners = 10,
     ///         PublicIpEnabled = true,
     ///     });

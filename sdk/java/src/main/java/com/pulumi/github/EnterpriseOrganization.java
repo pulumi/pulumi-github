@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var org = new EnterpriseOrganization("org", EnterpriseOrganizationArgs.builder()
- *             .enterpriseId(enterprise.id())
+ *             .enterpriseId(enterprise.get("id"))
  *             .name("some-awesome-org")
  *             .displayName("Some Awesome Org")
  *             .description("Organization created with terraform")

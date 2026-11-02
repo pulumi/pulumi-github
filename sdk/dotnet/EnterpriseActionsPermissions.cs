@@ -46,7 +46,7 @@ namespace Pulumi.Github
     ///         {
     ///             OrganizationIds = new[]
     ///             {
-    ///                 example_org.Apply(example_org =&gt; example_org.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)),
+    ///                 Output.Create(example_org.Apply(example_org =&gt; example_org.Apply(getOrganizationResult =&gt; getOrganizationResult.Id))).Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///             },
     ///         },
     ///     });

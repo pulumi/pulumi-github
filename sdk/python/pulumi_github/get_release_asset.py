@@ -228,6 +228,16 @@ def get_release_asset(asset_id: Optional[_builtins.int] = None,
 
     To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
 
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release_asset(repository="example-repository",
+        owner="example-owner",
+        asset_id=12345,
+        download_file=True)
+    ```
+
     To retrieve the first release asset associated with the latest release in a repository:
 
     ```python
@@ -251,9 +261,9 @@ def get_release_asset(asset_id: Optional[_builtins.int] = None,
     example = github.get_release(repository="example-repository",
         owner="example-owner",
         retrieve_by="latest")
-    example_get_release_asset = [github.get_release_asset(repository="example-repository",
+    example_get_release_asset = range(len(example.assets)).apply(lambda range: [github.get_release_asset(repository="example-repository",
         owner="example-owner",
-        asset_id=example.assets[__index].id) for __index in len(example.assets).apply(lambda length: range(length))]
+        asset_id=example.assets[__index].id) for __index in range])
     ```
 
 
@@ -309,6 +319,16 @@ def get_release_asset_output(asset_id: pulumi.Input[Optional[_builtins.int]] = N
 
     To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
 
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release_asset(repository="example-repository",
+        owner="example-owner",
+        asset_id=12345,
+        download_file=True)
+    ```
+
     To retrieve the first release asset associated with the latest release in a repository:
 
     ```python
@@ -332,9 +352,9 @@ def get_release_asset_output(asset_id: pulumi.Input[Optional[_builtins.int]] = N
     example = github.get_release(repository="example-repository",
         owner="example-owner",
         retrieve_by="latest")
-    example_get_release_asset = [github.get_release_asset(repository="example-repository",
+    example_get_release_asset = range(len(example.assets)).apply(lambda range: [github.get_release_asset(repository="example-repository",
         owner="example-owner",
-        asset_id=example.assets[__index].id) for __index in len(example.assets).apply(lambda length: range(length))]
+        asset_id=example.assets[__index].id) for __index in range])
     ```
 
 

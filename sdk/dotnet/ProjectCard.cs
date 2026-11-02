@@ -38,7 +38,7 @@ namespace Pulumi.Github
     /// 
     ///     var card = new Github.ProjectCard("card", new()
     ///     {
-    ///         ColumnId = column.ColumnId,
+    ///         ColumnId = column.ColumnId.Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
     ///         Note = "## Unaccepted 👇",
     ///     });
     /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Github
     /// 
     ///     var testProjectCard = new Github.ProjectCard("test", new()
     ///     {
-    ///         ColumnId = testProjectColumn.ColumnId,
+    ///         ColumnId = testProjectColumn.ColumnId.Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
     ///         ContentId = testIssue.IssueId,
     ///         ContentType = "Issue",
     ///     });

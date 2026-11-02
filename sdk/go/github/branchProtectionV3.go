@@ -127,7 +127,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewTeamRepository(ctx, "example", &github.TeamRepositoryArgs{
-//				TeamId:     exampleTeam.ID().ToIDOutput().ToStringOutput(),
+//				TeamId:     exampleTeam.ID(),
 //				Repository: exampleRepository.Name,
 //				Permission: pulumi.String("pull"),
 //			})

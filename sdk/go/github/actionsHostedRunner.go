@@ -48,7 +48,7 @@ import (
 //					Source: pulumi.String("github"),
 //				},
 //				Size:          pulumi.String("4-core"),
-//				RunnerGroupId: example.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				RunnerGroupId: example.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +89,7 @@ import (
 //					Source: pulumi.String("github"),
 //				},
 //				Size:            pulumi.String("8-core"),
-//				RunnerGroupId:   advanced.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				RunnerGroupId:   advanced.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //				MaximumRunners:  pulumi.Int(10),
 //				PublicIpEnabled: pulumi.Bool(true),
 //			})
