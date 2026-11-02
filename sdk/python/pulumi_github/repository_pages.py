@@ -318,7 +318,7 @@ class RepositoryPages(pulumi.CustomResource):
                  https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
                  public: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict', 'outputs.RepositoryPagesSource']]] = None,
                  __props__=None):
         """
         This resource allows you to manage GitHub Pages for a repository. See the [documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) for details on GitHub Pages.
@@ -398,7 +398,7 @@ class RepositoryPages(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] https_enforced: Whether HTTPS is enforced for the GitHub Pages site. GitHub Pages sites serve over HTTPS by default; this setting only applies when a custom domain (`cname`) is configured. Requires `cname` to be set.
         :param pulumi.Input[_builtins.bool] public: Whether the GitHub Pages site is public.
         :param pulumi.Input[_builtins.str] repository: The repository name to configure GitHub Pages for.
-        :param pulumi.Input[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']] source: The source branch and directory for the rendered Pages site. Required when `build_type` is `legacy`. See Source below for details.
+        :param pulumi.Input[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict', 'outputs.RepositoryPagesSource']] source: The source branch and directory for the rendered Pages site. Required when `build_type` is `legacy`. See Source below for details.
         """
         ...
     @overload
@@ -497,7 +497,7 @@ class RepositoryPages(pulumi.CustomResource):
                  https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
                  public: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict', 'outputs.RepositoryPagesSource']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -540,7 +540,7 @@ class RepositoryPages(pulumi.CustomResource):
             public: pulumi.Input[Optional[_builtins.bool]] = None,
             repository: pulumi.Input[Optional[_builtins.str]] = None,
             repository_id: pulumi.Input[Optional[_builtins.int]] = None,
-            source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']]] = None) -> 'RepositoryPages':
+            source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict', 'outputs.RepositoryPagesSource']]] = None) -> 'RepositoryPages':
         """
         Get an existing RepositoryPages resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -558,7 +558,7 @@ class RepositoryPages(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public: Whether the GitHub Pages site is public.
         :param pulumi.Input[_builtins.str] repository: The repository name to configure GitHub Pages for.
         :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
-        :param pulumi.Input[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict']] source: The source branch and directory for the rendered Pages site. Required when `build_type` is `legacy`. See Source below for details.
+        :param pulumi.Input[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict', 'outputs.RepositoryPagesSource']] source: The source branch and directory for the rendered Pages site. Required when `build_type` is `legacy`. See Source below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

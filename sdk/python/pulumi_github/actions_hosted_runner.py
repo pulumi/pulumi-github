@@ -375,7 +375,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict', 'outputs.ActionsHostedRunnerImage']]] = None,
                  image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
                  image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
@@ -458,7 +458,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']] image: Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
+        :param pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict', 'outputs.ActionsHostedRunnerImage']] image: Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
         :param pulumi.Input[_builtins.bool] image_gen: Whether this runner should be used to generate custom images. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] image_version: The version of the runner image to deploy. This is only relevant for runners using custom images.
         :param pulumi.Input[_builtins.int] maximum_runners: Maximum number of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit costs.
@@ -560,7 +560,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict', 'outputs.ActionsHostedRunnerImage']]] = None,
                  image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
                  image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
@@ -606,16 +606,16 @@ class ActionsHostedRunner(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']]] = None,
+            image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict', 'outputs.ActionsHostedRunnerImage']]] = None,
             image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
             image_version: pulumi.Input[Optional[_builtins.str]] = None,
             last_active_on: pulumi.Input[Optional[_builtins.str]] = None,
-            machine_size_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerMachineSizeDetailArgs', 'ActionsHostedRunnerMachineSizeDetailArgsDict']]]]] = None,
+            machine_size_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerMachineSizeDetailArgs', 'ActionsHostedRunnerMachineSizeDetailArgsDict', 'outputs.ActionsHostedRunnerMachineSizeDetail']]]]] = None,
             maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             platform: pulumi.Input[Optional[_builtins.str]] = None,
             public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            public_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerPublicIpArgs', 'ActionsHostedRunnerPublicIpArgsDict']]]]] = None,
+            public_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerPublicIpArgs', 'ActionsHostedRunnerPublicIpArgsDict', 'outputs.ActionsHostedRunnerPublicIp']]]]] = None,
             runner_group_id: pulumi.Input[Optional[_builtins.int]] = None,
             size: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionsHostedRunner':
@@ -626,16 +626,16 @@ class ActionsHostedRunner(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']] image: Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
+        :param pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict', 'outputs.ActionsHostedRunnerImage']] image: Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
         :param pulumi.Input[_builtins.bool] image_gen: Whether this runner should be used to generate custom images. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] image_version: The version of the runner image to deploy. This is only relevant for runners using custom images.
         :param pulumi.Input[_builtins.str] last_active_on: Timestamp (RFC3339) when the runner was last active.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionsHostedRunnerMachineSizeDetailArgs', 'ActionsHostedRunnerMachineSizeDetailArgsDict']]]] machine_size_details: Detailed specifications of the machine size:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionsHostedRunnerMachineSizeDetailArgs', 'ActionsHostedRunnerMachineSizeDetailArgsDict', 'outputs.ActionsHostedRunnerMachineSizeDetail']]]] machine_size_details: Detailed specifications of the machine size:
         :param pulumi.Input[_builtins.int] maximum_runners: Maximum number of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit costs.
         :param pulumi.Input[_builtins.str] name: Name of the hosted runner. Must be between 1 and 64 characters and may only contain alphanumeric characters, '.', '-', and '_'.
         :param pulumi.Input[_builtins.str] platform: Platform of the runner (e.g., "linux-x64", "win-x64").
         :param pulumi.Input[_builtins.bool] public_ip_enabled: Whether to enable static public IP for the runner. Note there are account limits. To list limits, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/limits`. Defaults to false.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionsHostedRunnerPublicIpArgs', 'ActionsHostedRunnerPublicIpArgsDict']]]] public_ips: List of public IP ranges assigned to this runner (only if `public_ip_enabled` is true):
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionsHostedRunnerPublicIpArgs', 'ActionsHostedRunnerPublicIpArgsDict', 'outputs.ActionsHostedRunnerPublicIp']]]] public_ips: List of public IP ranges assigned to this runner (only if `public_ip_enabled` is true):
         :param pulumi.Input[_builtins.int] runner_group_id: The ID of the runner group to assign this runner to.
         :param pulumi.Input[_builtins.str] size: Machine size for the hosted runner (e.g., "4-core", "8-core"). Can be updated to scale the runner. To list available sizes, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/machine-sizes`.
         :param pulumi.Input[_builtins.str] status: Current status of the runner (e.g., "Ready", "Provisioning").

@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
-//				ProjectId: project.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: project.ID(),
 //				Name:      pulumi.String("a column"),
 //			})
 //			if err != nil {

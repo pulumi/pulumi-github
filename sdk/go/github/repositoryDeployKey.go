@@ -39,7 +39,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Generate an ssh key using provider "hashicorp/tls"
+//			// Generate an ssh key using provider "pulumi/tls"
 //			exampleRepositoryDeployKey, err := tls.NewPrivateKey(ctx, "example_repository_deploy_key", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("ED25519"),
 //			})

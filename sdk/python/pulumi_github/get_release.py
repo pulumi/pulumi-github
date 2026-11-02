@@ -306,6 +306,16 @@ def get_release(owner: Optional[_builtins.str] = None,
 
     To retrieve a specific release from a repository based on its ID:
 
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(repository="example-repository",
+        owner="example-owner",
+        retrieve_by="id",
+        id=12345)
+    ```
+
     Finally, to retrieve a release based on its tag:
 
     ```python
@@ -379,6 +389,16 @@ def get_release_output(owner: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
     To retrieve a specific release from a repository based on its ID:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(repository="example-repository",
+        owner="example-owner",
+        retrieve_by="id",
+        id=12345)
+    ```
 
     Finally, to retrieve a release based on its tag:
 

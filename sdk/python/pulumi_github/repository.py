@@ -1509,14 +1509,14 @@ class Repository(pulumi.CustomResource):
                  merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
                  merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
+                 pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict', 'outputs.RepositoryPages']]] = None,
                  private: pulumi.Input[Optional[_builtins.bool]] = None,
-                 security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+                 security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict', 'outputs.RepositorySecurityAndAnalysis']]] = None,
                  source_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  source_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
                  squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
-                 template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
+                 template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict', 'outputs.RepositoryTemplate']]] = None,
                  topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  visibility: pulumi.Input[Optional[_builtins.str]] = None,
                  vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1595,14 +1595,14 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
-        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict', 'outputs.RepositoryPages']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict', 'outputs.RepositorySecurityAndAnalysis']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
-        :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
+        :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict', 'outputs.RepositoryTemplate']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
                
                > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
@@ -1703,14 +1703,14 @@ class Repository(pulumi.CustomResource):
                  merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
                  merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
+                 pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict', 'outputs.RepositoryPages']]] = None,
                  private: pulumi.Input[Optional[_builtins.bool]] = None,
-                 security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+                 security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict', 'outputs.RepositorySecurityAndAnalysis']]] = None,
                  source_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  source_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
                  squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
-                 template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
+                 template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict', 'outputs.RepositoryTemplate']]] = None,
                  topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  visibility: pulumi.Input[Optional[_builtins.str]] = None,
                  vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1814,18 +1814,18 @@ class Repository(pulumi.CustomResource):
             merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             node_id: pulumi.Input[Optional[_builtins.str]] = None,
-            pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
+            pages: pulumi.Input[Optional[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict', 'outputs.RepositoryPages']]] = None,
             primary_language: pulumi.Input[Optional[_builtins.str]] = None,
             private: pulumi.Input[Optional[_builtins.bool]] = None,
             repo_id: pulumi.Input[Optional[_builtins.int]] = None,
-            security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+            security_and_analysis: pulumi.Input[Optional[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict', 'outputs.RepositorySecurityAndAnalysis']]] = None,
             source_owner: pulumi.Input[Optional[_builtins.str]] = None,
             source_repo: pulumi.Input[Optional[_builtins.str]] = None,
             squash_merge_commit_message: pulumi.Input[Optional[_builtins.str]] = None,
             squash_merge_commit_title: pulumi.Input[Optional[_builtins.str]] = None,
             ssh_clone_url: pulumi.Input[Optional[_builtins.str]] = None,
             svn_url: pulumi.Input[Optional[_builtins.str]] = None,
-            template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
+            template: pulumi.Input[Optional[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict', 'outputs.RepositoryTemplate']]] = None,
             topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             visibility: pulumi.Input[Optional[_builtins.str]] = None,
             vulnerability_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1868,18 +1868,18 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[_builtins.str] node_id: GraphQL global node id for use with v4 API
-        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict', 'outputs.RepositoryPages']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.str] primary_language: The primary language used in the repository.
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[_builtins.int] repo_id: GitHub ID for the repository
-        :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict', 'outputs.RepositorySecurityAndAnalysis']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[_builtins.str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-        :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
+        :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict', 'outputs.RepositoryTemplate']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
                
                > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).

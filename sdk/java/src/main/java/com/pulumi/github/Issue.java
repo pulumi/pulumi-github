@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .owner(StdFunctions.split(SplitArgs.builder()
  *                 .separator("/")
  *                 .text(test.fullName())
- *                 .build()).applyValue(_invoke -> _invoke.result()[0]))
+ *                 .build()).applyValue(_invoke -> _invoke.result().get(0)))
  *             .repository(test.name())
  *             .title("v1.0.0")
  *             .description("General Availability")

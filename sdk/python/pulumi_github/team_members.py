@@ -145,7 +145,7 @@ class TeamMembers(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict', 'outputs.TeamMembersMember']]]]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -192,7 +192,7 @@ class TeamMembers(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of users that should be members of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict', 'outputs.TeamMembersMember']]]] members: List of users that should be members of the team.
         :param pulumi.Input[_builtins.str] team_id: ID or slug of the GitHub team to manage membership for.
         :param pulumi.Input[_builtins.str] team_slug: Slug of the GitHub team to manage membership for.
         """
@@ -258,7 +258,7 @@ class TeamMembers(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict', 'outputs.TeamMembersMember']]]]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  team_slug: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -285,7 +285,7 @@ class TeamMembers(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict', 'outputs.TeamMembersMember']]]]] = None,
             team_id: pulumi.Input[Optional[_builtins.str]] = None,
             team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamMembers':
         """
@@ -295,7 +295,7 @@ class TeamMembers(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of users that should be members of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict', 'outputs.TeamMembersMember']]]] members: List of users that should be members of the team.
         :param pulumi.Input[_builtins.str] team_id: ID or slug of the GitHub team to manage membership for.
         :param pulumi.Input[_builtins.str] team_slug: Slug of the GitHub team to manage membership for.
         """

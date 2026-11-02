@@ -12375,6 +12375,40 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release from a repository based on its ID:
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
+     *             .id(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
@@ -12456,6 +12490,40 @@ public final class GithubFunctions {
      * </pre>
      * 
      * To retrieve a specific release from a repository based on its ID:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
+     *             .id(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * Finally, to retrieve a release based on its tag:
      * 
@@ -12539,6 +12607,40 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release from a repository based on its ID:
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
+     *             .id(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
@@ -12620,6 +12722,40 @@ public final class GithubFunctions {
      * </pre>
      * 
      * To retrieve a specific release from a repository based on its ID:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
+     *             .id(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * Finally, to retrieve a release based on its tag:
      * 
@@ -12703,6 +12839,40 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release from a repository based on its ID:
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
+     *             .id(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
@@ -12784,6 +12954,40 @@ public final class GithubFunctions {
      * </pre>
      * 
      * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .downloadFile(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -12875,6 +13079,40 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .downloadFile(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
      * <pre>
@@ -12964,6 +13202,40 @@ public final class GithubFunctions {
      * </pre>
      * 
      * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .downloadFile(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -13055,6 +13327,40 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .downloadFile(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
      * <pre>
@@ -13144,6 +13450,40 @@ public final class GithubFunctions {
      * </pre>
      * 
      * To retrieve a specific release asset from a repository, and download the file into a `file` attribute on the data source:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .downloadFile(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * To retrieve the first release asset associated with the latest release in a repository:
      * 
@@ -15146,7 +15486,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(fooGithubRepository.name())
+     *             .repository(fooGithubRepository.get("name"))
      *             .branch("main")
      *             .file(".gitignore")
      *             .build());
@@ -15188,7 +15528,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(fooGithubRepository.name())
+     *             .repository(fooGithubRepository.get("name"))
      *             .branch("main")
      *             .file(".gitignore")
      *             .build());
@@ -15230,7 +15570,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(fooGithubRepository.name())
+     *             .repository(fooGithubRepository.get("name"))
      *             .branch("main")
      *             .file(".gitignore")
      *             .build());
@@ -15272,7 +15612,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(fooGithubRepository.name())
+     *             .repository(fooGithubRepository.get("name"))
      *             .branch("main")
      *             .file(".gitignore")
      *             .build());
@@ -15314,7 +15654,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(fooGithubRepository.name())
+     *             .repository(fooGithubRepository.get("name"))
      *             .branch("main")
      *             .file(".gitignore")
      *             .build());

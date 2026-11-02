@@ -466,9 +466,9 @@ class BranchProtection(pulumi.CustomResource):
                  require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
                  required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
-                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
-                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
-                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict', 'outputs.BranchProtectionRequiredPullRequestReview']]]]] = None,
+                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict', 'outputs.BranchProtectionRequiredStatusCheck']]]]] = None,
+                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict', 'outputs.BranchProtectionRestrictPush']]]]] = None,
                  __props__=None):
         """
         Protects a GitHub branch.
@@ -547,9 +547,9 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[_builtins.bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[_builtins.bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict', 'outputs.BranchProtectionRequiredPullRequestReview']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict', 'outputs.BranchProtectionRequiredStatusCheck']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict', 'outputs.BranchProtectionRestrictPush']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
         """
         ...
     @overload
@@ -647,9 +647,9 @@ class BranchProtection(pulumi.CustomResource):
                  require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
                  required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
-                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
-                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
-                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
+                 required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict', 'outputs.BranchProtectionRequiredPullRequestReview']]]]] = None,
+                 required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict', 'outputs.BranchProtectionRequiredStatusCheck']]]]] = None,
+                 restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict', 'outputs.BranchProtectionRestrictPush']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -696,9 +696,9 @@ class BranchProtection(pulumi.CustomResource):
             require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
             require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
             required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
-            required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
-            required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
-            restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None) -> 'BranchProtection':
+            required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict', 'outputs.BranchProtectionRequiredPullRequestReview']]]]] = None,
+            required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict', 'outputs.BranchProtectionRequiredStatusCheck']]]]] = None,
+            restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict', 'outputs.BranchProtectionRestrictPush']]]]] = None) -> 'BranchProtection':
         """
         Get an existing BranchProtection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -716,9 +716,9 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[_builtins.bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[_builtins.bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict', 'outputs.BranchProtectionRequiredPullRequestReview']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict', 'outputs.BranchProtectionRequiredStatusCheck']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict', 'outputs.BranchProtectionRestrictPush']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

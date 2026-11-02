@@ -26,6 +26,18 @@ import * as utilities from "./utilities";
  *
  * To retrieve a specific release from a repository based on its ID:
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRelease({
+ *     repository: "example-repository",
+ *     owner: "example-owner",
+ *     retrieveBy: "id",
+ *     id: 12345,
+ * });
+ * ```
+ *
  * Finally, to retrieve a release based on its tag:
  *
  * ```typescript
@@ -178,6 +190,18 @@ export interface GetReleaseResult {
  * ```
  *
  * To retrieve a specific release from a repository based on its ID:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRelease({
+ *     repository: "example-repository",
+ *     owner: "example-owner",
+ *     retrieveBy: "id",
+ *     id: 12345,
+ * });
+ * ```
  *
  * Finally, to retrieve a release based on its tag:
  *

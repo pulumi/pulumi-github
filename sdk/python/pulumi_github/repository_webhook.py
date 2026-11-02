@@ -209,7 +209,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 configuration: pulumi.Input[Optional[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict', 'outputs.RepositoryWebhookConfiguration']]] = None,
                  etag: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
@@ -257,7 +257,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Indicate if the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']] configuration: Configuration block for the webhook. Detailed below.
+        :param pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict', 'outputs.RepositoryWebhookConfiguration']] configuration: Configuration block for the webhook. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[_builtins.str] repository: The repository of the webhook.
         """
@@ -323,7 +323,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 configuration: pulumi.Input[Optional[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict', 'outputs.RepositoryWebhookConfiguration']]] = None,
                  etag: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
@@ -357,7 +357,7 @@ class RepositoryWebhook(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
-            configuration: pulumi.Input[Optional[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict', 'outputs.RepositoryWebhookConfiguration']]] = None,
             etag: pulumi.Input[Optional[_builtins.str]] = None,
             events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             repository: pulumi.Input[Optional[_builtins.str]] = None,
@@ -370,7 +370,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Indicate if the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']] configuration: Configuration block for the webhook. Detailed below.
+        :param pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict', 'outputs.RepositoryWebhookConfiguration']] configuration: Configuration block for the webhook. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[_builtins.str] repository: The repository of the webhook.
         :param pulumi.Input[_builtins.str] url: URL of the webhook. This is a sensitive attribute because it may include basic auth credentials.
