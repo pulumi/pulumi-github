@@ -266,6 +266,18 @@ class WorkflowRepositoryPermissions(pulumi.CustomResource):
         __props__.__dict__["repository"] = repository
         return WorkflowRepositoryPermissions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            can_approve_pull_request_reviews: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_workflow_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["canApprovePullRequestReviews"] = can_approve_pull_request_reviews
+        __props__["defaultWorkflowPermissions"] = default_workflow_permissions
+        __props__["repository"] = repository
+        return pulumi.runtime.exists_resource(None, 'github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="canApprovePullRequestReviews")
     def can_approve_pull_request_reviews(self) -> pulumi.Output[Optional[_builtins.bool]]:

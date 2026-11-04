@@ -139,6 +139,12 @@ func (ActionsRepositoryPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsRepositoryPermissionsState)(nil)).Elem()
 }
 
+// ActionsRepositoryPermissionsExists checks whether an existing ActionsRepositoryPermissions resource with the given ID exists.
+func ActionsRepositoryPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsRepositoryPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions", id, state, "", opts...)
+}
+
 type actionsRepositoryPermissionsArgs struct {
 	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
 	AllowedActions *string `pulumi:"allowedActions"`

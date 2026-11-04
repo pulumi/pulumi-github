@@ -36,22 +36,20 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * ID or slug of the GitHub team to manage membership for.
      * 
-     * @deprecated
-     * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+     * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      * 
      */
-    @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
+    @Deprecated
     @Import(name="teamId")
     private @Nullable Output<String> teamId;
 
     /**
      * @return ID or slug of the GitHub team to manage membership for.
      * 
-     * @deprecated
-     * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+     * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      * 
      */
-    @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
+    @Deprecated
     public Optional<Output<String>> teamId() {
         return Optional.ofNullable(this.teamId);
     }
@@ -133,11 +131,10 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+         * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
          * 
          */
-        @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
+        @Deprecated
         public Builder teamId(@Nullable Output<String> teamId) {
             $.teamId = teamId;
             return this;
@@ -148,11 +145,10 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+         * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
          * 
          */
-        @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
+        @Deprecated
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

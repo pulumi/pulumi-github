@@ -215,6 +215,18 @@ class UserGpgKey(pulumi.CustomResource):
         __props__.__dict__["key_id"] = key_id
         return UserGpgKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            armored_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["armoredPublicKey"] = armored_public_key
+        __props__["etag"] = etag
+        __props__["keyId"] = key_id
+        return pulumi.runtime.exists_resource(None, 'github:index/userGpgKey:UserGpgKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="armoredPublicKey")
     def armored_public_key(self) -> pulumi.Output[_builtins.str]:

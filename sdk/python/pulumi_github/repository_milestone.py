@@ -409,6 +409,26 @@ class RepositoryMilestone(pulumi.CustomResource):
         __props__.__dict__["title"] = title
         return RepositoryMilestone(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            due_date: pulumi.Input[Optional[_builtins.str]] = None,
+            number: pulumi.Input[Optional[_builtins.int]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["dueDate"] = due_date
+        __props__["number"] = number
+        __props__["owner"] = owner
+        __props__["repository"] = repository
+        __props__["state"] = state
+        __props__["title"] = title
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryMilestone:RepositoryMilestone', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

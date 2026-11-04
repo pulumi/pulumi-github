@@ -148,6 +148,12 @@ func (EnterpriseActionsPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseActionsPermissionsState)(nil)).Elem()
 }
 
+// EnterpriseActionsPermissionsExists checks whether an existing EnterpriseActionsPermissions resource with the given ID exists.
+func EnterpriseActionsPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnterpriseActionsPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions", id, state, "", opts...)
+}
+
 type enterpriseActionsPermissionsArgs struct {
 	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
 	AllowedActions *string `pulumi:"allowedActions"`

@@ -19,11 +19,10 @@ public final class GetReleaseResult {
     /**
      * @return **Deprecated**: Use `assetsUrl` resource instead
      * 
-     * @deprecated
-     * use assetsUrl instead
+     * @deprecated use assetsUrl instead
      * 
      */
-    @Deprecated /* use assetsUrl instead */
+    @Deprecated
     private String assertsUrl;
     /**
      * @return Collection of assets for the release. Each asset conforms to the following schema:
@@ -118,11 +117,10 @@ public final class GetReleaseResult {
     /**
      * @return **Deprecated**: Use `assetsUrl` resource instead
      * 
-     * @deprecated
-     * use assetsUrl instead
+     * @deprecated use assetsUrl instead
      * 
      */
-    @Deprecated /* use assetsUrl instead */
+    @Deprecated
     public String assertsUrl() {
         return this.assertsUrl;
     }

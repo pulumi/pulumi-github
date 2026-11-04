@@ -106,6 +106,12 @@ func (OrganizationProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationProjectState)(nil)).Elem()
 }
 
+// OrganizationProjectExists checks whether an existing OrganizationProject resource with the given ID exists.
+func OrganizationProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationProject:OrganizationProject", id, state, "", opts...)
+}
+
 type organizationProjectArgs struct {
 	// The body of the project.
 	Body *string `pulumi:"body"`

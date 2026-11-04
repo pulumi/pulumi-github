@@ -136,6 +136,12 @@ func (EnterpriseIpAllowListEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseIpAllowListEntryState)(nil)).Elem()
 }
 
+// EnterpriseIpAllowListEntryExists checks whether an existing EnterpriseIpAllowListEntry resource with the given ID exists.
+func EnterpriseIpAllowListEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnterpriseIpAllowListEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/enterpriseIpAllowListEntry:EnterpriseIpAllowListEntry", id, state, "", opts...)
+}
+
 type enterpriseIpAllowListEntryArgs struct {
 	// The slug of the enterprise.
 	EnterpriseSlug string `pulumi:"enterpriseSlug"`

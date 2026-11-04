@@ -659,6 +659,38 @@ class ActionsHostedRunner(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return ActionsHostedRunner(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            image: pulumi.Input[Optional[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict', 'outputs.ActionsHostedRunnerImage']]] = None,
+            image_gen: pulumi.Input[Optional[_builtins.bool]] = None,
+            image_version: pulumi.Input[Optional[_builtins.str]] = None,
+            last_active_on: pulumi.Input[Optional[_builtins.str]] = None,
+            machine_size_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerMachineSizeDetailArgs', 'ActionsHostedRunnerMachineSizeDetailArgsDict', 'outputs.ActionsHostedRunnerMachineSizeDetail']]]]] = None,
+            maximum_runners: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionsHostedRunnerPublicIpArgs', 'ActionsHostedRunnerPublicIpArgsDict', 'outputs.ActionsHostedRunnerPublicIp']]]]] = None,
+            runner_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+            size: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["image"] = image
+        __props__["imageGen"] = image_gen
+        __props__["imageVersion"] = image_version
+        __props__["lastActiveOn"] = last_active_on
+        __props__["machineSizeDetails"] = machine_size_details
+        __props__["maximumRunners"] = maximum_runners
+        __props__["name"] = name
+        __props__["platform"] = platform
+        __props__["publicIpEnabled"] = public_ip_enabled
+        __props__["publicIps"] = public_ips
+        __props__["runnerGroupId"] = runner_group_id
+        __props__["size"] = size
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'github:index/actionsHostedRunner:ActionsHostedRunner', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def image(self) -> pulumi.Output['outputs.ActionsHostedRunnerImage']:

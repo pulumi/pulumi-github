@@ -158,22 +158,20 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
-     * @deprecated
-     * Use the github.BranchDefault resource instead
+     * @deprecated Use the github.BranchDefault resource instead
      * 
      */
-    @Deprecated /* Use the github.BranchDefault resource instead */
+    @Deprecated
     @Import(name="defaultBranch")
     private @Nullable Output<String> defaultBranch;
 
     /**
      * @return (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
-     * @deprecated
-     * Use the github.BranchDefault resource instead
+     * @deprecated Use the github.BranchDefault resource instead
      * 
      */
-    @Deprecated /* Use the github.BranchDefault resource instead */
+    @Deprecated
     public Optional<Output<String>> defaultBranch() {
         return Optional.ofNullable(this.defaultBranch);
     }
@@ -263,22 +261,20 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      * 
-     * @deprecated
-     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+     * @deprecated This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
-    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
+    @Deprecated
     @Import(name="hasDownloads")
     private @Nullable Output<Boolean> hasDownloads;
 
     /**
      * @return (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      * 
-     * @deprecated
-     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+     * @deprecated This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
-    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
+    @Deprecated
     public Optional<Output<Boolean>> hasDownloads() {
         return Optional.ofNullable(this.hasDownloads);
     }
@@ -346,22 +342,20 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
-     * @deprecated
-     * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
+    @Deprecated
     @Import(name="ignoreVulnerabilityAlertsDuringRead")
     private @Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead;
 
     /**
      * @return (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
-     * @deprecated
-     * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
+    @Deprecated
     public Optional<Output<Boolean>> ignoreVulnerabilityAlertsDuringRead() {
         return Optional.ofNullable(this.ignoreVulnerabilityAlertsDuringRead);
     }
@@ -444,22 +438,20 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
      * 
-     * @deprecated
-     * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
+    @Deprecated
     @Import(name="pages")
     private @Nullable Output<RepositoryPagesArgs> pages;
 
     /**
      * @return (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
      * 
-     * @deprecated
-     * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
+    @Deprecated
     public Optional<Output<RepositoryPagesArgs>> pages() {
         return Optional.ofNullable(this.pages);
     }
@@ -467,22 +459,20 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      * 
-     * @deprecated
-     * use visibility instead
+     * @deprecated use visibility instead
      * 
      */
-    @Deprecated /* use visibility instead */
+    @Deprecated
     @Import(name="private")
     private @Nullable Output<Boolean> private_;
 
     /**
      * @return Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      * 
-     * @deprecated
-     * use visibility instead
+     * @deprecated use visibility instead
      * 
      */
-    @Deprecated /* use visibility instead */
+    @Deprecated
     public Optional<Output<Boolean>> private_() {
         return Optional.ofNullable(this.private_);
     }
@@ -614,22 +604,20 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
      * 
-     * @deprecated
-     * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
+    @Deprecated
     @Import(name="vulnerabilityAlerts")
     private @Nullable Output<Boolean> vulnerabilityAlerts;
 
     /**
      * @return (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
      * 
-     * @deprecated
-     * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
+    @Deprecated
     public Optional<Output<Boolean>> vulnerabilityAlerts() {
         return Optional.ofNullable(this.vulnerabilityAlerts);
     }
@@ -905,11 +893,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the github.BranchDefault resource instead
+         * @deprecated Use the github.BranchDefault resource instead
          * 
          */
-        @Deprecated /* Use the github.BranchDefault resource instead */
+        @Deprecated
         public Builder defaultBranch(@Nullable Output<String> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
@@ -920,11 +907,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the github.BranchDefault resource instead
+         * @deprecated Use the github.BranchDefault resource instead
          * 
          */
-        @Deprecated /* Use the github.BranchDefault resource instead */
+        @Deprecated
         public Builder defaultBranch(String defaultBranch) {
             return defaultBranch(Output.of(defaultBranch));
         }
@@ -1048,11 +1034,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+         * @deprecated This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
          * 
          */
-        @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
+        @Deprecated
         public Builder hasDownloads(@Nullable Output<Boolean> hasDownloads) {
             $.hasDownloads = hasDownloads;
             return this;
@@ -1063,11 +1048,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+         * @deprecated This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
          * 
          */
-        @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
+        @Deprecated
         public Builder hasDownloads(Boolean hasDownloads) {
             return hasDownloads(Output.of(hasDownloads));
         }
@@ -1161,11 +1145,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
+         * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
+        @Deprecated
         public Builder ignoreVulnerabilityAlertsDuringRead(@Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead) {
             $.ignoreVulnerabilityAlertsDuringRead = ignoreVulnerabilityAlertsDuringRead;
             return this;
@@ -1176,11 +1159,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
+         * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
+        @Deprecated
         public Builder ignoreVulnerabilityAlertsDuringRead(Boolean ignoreVulnerabilityAlertsDuringRead) {
             return ignoreVulnerabilityAlertsDuringRead(Output.of(ignoreVulnerabilityAlertsDuringRead));
         }
@@ -1295,11 +1277,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
+         * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
+        @Deprecated
         public Builder pages(@Nullable Output<RepositoryPagesArgs> pages) {
             $.pages = pages;
             return this;
@@ -1310,11 +1291,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
+         * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
+        @Deprecated
         public Builder pages(RepositoryPagesArgs pages) {
             return pages(Output.of(pages));
         }
@@ -1324,11 +1304,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * use visibility instead
+         * @deprecated use visibility instead
          * 
          */
-        @Deprecated /* use visibility instead */
+        @Deprecated
         public Builder private_(@Nullable Output<Boolean> private_) {
             $.private_ = private_;
             return this;
@@ -1339,11 +1318,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * use visibility instead
+         * @deprecated use visibility instead
          * 
          */
-        @Deprecated /* use visibility instead */
+        @Deprecated
         public Builder private_(Boolean private_) {
             return private_(Output.of(private_));
         }
@@ -1537,11 +1515,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
+         * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
+        @Deprecated
         public Builder vulnerabilityAlerts(@Nullable Output<Boolean> vulnerabilityAlerts) {
             $.vulnerabilityAlerts = vulnerabilityAlerts;
             return this;
@@ -1552,11 +1529,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
+         * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
+        @Deprecated
         public Builder vulnerabilityAlerts(Boolean vulnerabilityAlerts) {
             return vulnerabilityAlerts(Output.of(vulnerabilityAlerts));
         }

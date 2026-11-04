@@ -418,6 +418,24 @@ class ProjectCard(pulumi.CustomResource):
         __props__.__dict__["note"] = note
         return ProjectCard(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            card_id: pulumi.Input[Optional[_builtins.int]] = None,
+            column_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_id: pulumi.Input[Optional[_builtins.int]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            note: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cardId"] = card_id
+        __props__["columnId"] = column_id
+        __props__["contentId"] = content_id
+        __props__["contentType"] = content_type
+        __props__["etag"] = etag
+        __props__["note"] = note
+        return pulumi.runtime.exists_resource(None, 'github:index/projectCard:ProjectCard', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cardId")
     def card_id(self) -> pulumi.Output[_builtins.int]:

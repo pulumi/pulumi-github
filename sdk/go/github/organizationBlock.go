@@ -103,6 +103,12 @@ func (OrganizationBlockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationBlockState)(nil)).Elem()
 }
 
+// OrganizationBlockExists checks whether an existing OrganizationBlock resource with the given ID exists.
+func OrganizationBlockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationBlockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationBlock:OrganizationBlock", id, state, "", opts...)
+}
+
 type organizationBlockArgs struct {
 	// The name of the user to block.
 	Username string `pulumi:"username"`

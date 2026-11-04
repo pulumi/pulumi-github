@@ -190,11 +190,10 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
     /**
      * (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     @Export(name="encryptedValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptedValue;
 
@@ -238,11 +237,10 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
      * 
      * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 

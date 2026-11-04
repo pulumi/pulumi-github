@@ -50,22 +50,20 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
     /**
      * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
      * 
-     * @deprecated
-     * Use the top-level notify attribute instead.
+     * @deprecated Use the top-level notify attribute instead.
      * 
      */
-    @Deprecated /* Use the top-level notify attribute instead. */
+    @Deprecated
     @Import(name="notify")
     private @Nullable Output<Boolean> notify;
 
     /**
      * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
      * 
-     * @deprecated
-     * Use the top-level notify attribute instead.
+     * @deprecated Use the top-level notify attribute instead.
      * 
      */
-    @Deprecated /* Use the top-level notify attribute instead. */
+    @Deprecated
     public Optional<Output<Boolean>> notify_() {
         return Optional.ofNullable(this.notify);
     }
@@ -143,11 +141,10 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the top-level notify attribute instead.
+         * @deprecated Use the top-level notify attribute instead.
          * 
          */
-        @Deprecated /* Use the top-level notify attribute instead. */
+        @Deprecated
         public Builder notify_(@Nullable Output<Boolean> notify) {
             $.notify = notify;
             return this;
@@ -158,11 +155,10 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the top-level notify attribute instead.
+         * @deprecated Use the top-level notify attribute instead.
          * 
          */
-        @Deprecated /* Use the top-level notify attribute instead. */
+        @Deprecated
         public Builder notify_(Boolean notify) {
             return notify_(Output.of(notify));
         }

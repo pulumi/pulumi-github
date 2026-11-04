@@ -265,6 +265,20 @@ class UserSshKey(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return UserSshKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["etag"] = etag
+        __props__["key"] = key
+        __props__["title"] = title
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'github:index/userSshKey:UserSshKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:

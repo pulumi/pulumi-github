@@ -284,6 +284,22 @@ class EmuGroupMapping(pulumi.CustomResource):
         __props__.__dict__["team_slug"] = team_slug
         return EmuGroupMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.int]] = None,
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            team_id: pulumi.Input[Optional[_builtins.int]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["etag"] = etag
+        __props__["groupId"] = group_id
+        __props__["groupName"] = group_name
+        __props__["teamId"] = team_id
+        __props__["teamSlug"] = team_slug
+        return pulumi.runtime.exists_resource(None, 'github:index/emuGroupMapping:EmuGroupMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:

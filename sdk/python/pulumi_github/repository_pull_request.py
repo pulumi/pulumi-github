@@ -591,6 +591,44 @@ class RepositoryPullRequest(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return RepositoryPullRequest(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            base_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            base_repository: pulumi.Input[Optional[_builtins.str]] = None,
+            base_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            draft: pulumi.Input[Optional[_builtins.bool]] = None,
+            head_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            head_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            maintainer_can_modify: pulumi.Input[Optional[_builtins.bool]] = None,
+            number: pulumi.Input[Optional[_builtins.int]] = None,
+            opened_at: pulumi.Input[Optional[_builtins.int]] = None,
+            opened_by: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["baseRef"] = base_ref
+        __props__["baseRepository"] = base_repository
+        __props__["baseSha"] = base_sha
+        __props__["body"] = body
+        __props__["draft"] = draft
+        __props__["headRef"] = head_ref
+        __props__["headSha"] = head_sha
+        __props__["labels"] = labels
+        __props__["maintainerCanModify"] = maintainer_can_modify
+        __props__["number"] = number
+        __props__["openedAt"] = opened_at
+        __props__["openedBy"] = opened_by
+        __props__["owner"] = owner
+        __props__["state"] = state
+        __props__["title"] = title
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryPullRequest:RepositoryPullRequest', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="baseRef")
     def base_ref(self) -> pulumi.Output[_builtins.str]:

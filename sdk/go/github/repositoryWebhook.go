@@ -154,6 +154,12 @@ func (RepositoryWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryWebhookState)(nil)).Elem()
 }
 
+// RepositoryWebhookExists checks whether an existing RepositoryWebhook resource with the given ID exists.
+func RepositoryWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryWebhook:RepositoryWebhook", id, state, "", opts...)
+}
+
 type repositoryWebhookArgs struct {
 	// Indicate if the webhook should receive events. Defaults to `true`.
 	Active *bool `pulumi:"active"`

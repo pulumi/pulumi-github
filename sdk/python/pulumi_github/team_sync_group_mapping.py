@@ -254,6 +254,18 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         __props__.__dict__["team_slug"] = team_slug
         return TeamSyncGroupMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict', 'outputs.TeamSyncGroupMappingGroup']]]]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["etag"] = etag
+        __props__["groups"] = groups
+        __props__["teamSlug"] = team_slug
+        return pulumi.runtime.exists_resource(None, 'github:index/teamSyncGroupMapping:TeamSyncGroupMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:

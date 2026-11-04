@@ -120,6 +120,12 @@ func (CodespacesOrganizationSecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*codespacesOrganizationSecretState)(nil)).Elem()
 }
 
+// CodespacesOrganizationSecretExists checks whether an existing CodespacesOrganizationSecret resource with the given ID exists.
+func CodespacesOrganizationSecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CodespacesOrganizationSecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret", id, state, "", opts...)
+}
+
 type codespacesOrganizationSecretArgs struct {
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`

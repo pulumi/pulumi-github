@@ -137,6 +137,12 @@ func (ActionsOrganizationSecretRepositoriesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsOrganizationSecretRepositoriesState)(nil)).Elem()
 }
 
+// ActionsOrganizationSecretRepositoriesExists checks whether an existing ActionsOrganizationSecretRepositories resource with the given ID exists.
+func ActionsOrganizationSecretRepositoriesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsOrganizationSecretRepositoriesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories", id, state, "", opts...)
+}
+
 type actionsOrganizationSecretRepositoriesArgs struct {
 	// Name of the actions organization secret.
 	SecretName string `pulumi:"secretName"`

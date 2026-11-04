@@ -230,6 +230,12 @@ func (OrganizationCustomPropertiesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationCustomPropertiesState)(nil)).Elem()
 }
 
+// OrganizationCustomPropertiesExists checks whether an existing OrganizationCustomProperties resource with the given ID exists.
+func OrganizationCustomPropertiesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationCustomPropertiesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationCustomProperties:OrganizationCustomProperties", id, state, "", opts...)
+}
+
 type organizationCustomPropertiesArgs struct {
 	// List of allowed values for the custom property. Only applicable when `valueType` is `singleSelect` or `multiSelect`.
 	AllowedValues []string `pulumi:"allowedValues"`

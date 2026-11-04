@@ -242,6 +242,12 @@ func (OrganizationRulesetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationRulesetState)(nil)).Elem()
 }
 
+// OrganizationRulesetExists checks whether an existing OrganizationRuleset resource with the given ID exists.
+func OrganizationRulesetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationRulesetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationRuleset:OrganizationRuleset", id, state, "", opts...)
+}
+
 type organizationRulesetArgs struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors []OrganizationRulesetBypassActor `pulumi:"bypassActors"`

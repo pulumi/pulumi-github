@@ -87,6 +87,12 @@ func (TeamSyncGroupMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamSyncGroupMappingState)(nil)).Elem()
 }
 
+// TeamSyncGroupMappingExists checks whether an existing TeamSyncGroupMapping resource with the given ID exists.
+func TeamSyncGroupMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamSyncGroupMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/teamSyncGroupMapping:TeamSyncGroupMapping", id, state, "", opts...)
+}
+
 type teamSyncGroupMappingArgs struct {
 	// An Array of GitHub Identity Provider Groups (or empty []). Each `group` block consists of the fields documented below.
 	Groups []TeamSyncGroupMappingGroup `pulumi:"groups"`

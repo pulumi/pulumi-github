@@ -440,6 +440,24 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         __props__.__dict__["tag_pattern"] = tag_pattern
         return RepositoryEnvironmentDeploymentPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.int]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            tag_pattern: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["branchPattern"] = branch_pattern
+        __props__["environment"] = environment
+        __props__["policyId"] = policy_id
+        __props__["repository"] = repository
+        __props__["repositoryId"] = repository_id
+        __props__["tagPattern"] = tag_pattern
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="branchPattern")
     def branch_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:

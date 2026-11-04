@@ -152,6 +152,12 @@ func (RepositoryCollaboratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryCollaboratorState)(nil)).Elem()
 }
 
+// RepositoryCollaboratorExists checks whether an existing RepositoryCollaborator resource with the given ID exists.
+func RepositoryCollaboratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryCollaboratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryCollaborator:RepositoryCollaborator", id, state, "", opts...)
+}
+
 type repositoryCollaboratorArgs struct {
 	// The permission of the outside collaborator for the repository. Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories. Must be `push` for personal repositories. Defaults to `push`.
 	Permission *string `pulumi:"permission"`

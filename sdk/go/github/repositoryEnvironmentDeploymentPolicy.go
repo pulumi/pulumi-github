@@ -235,6 +235,12 @@ func (RepositoryEnvironmentDeploymentPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryEnvironmentDeploymentPolicyState)(nil)).Elem()
 }
 
+// RepositoryEnvironmentDeploymentPolicyExists checks whether an existing RepositoryEnvironmentDeploymentPolicy resource with the given ID exists.
+func RepositoryEnvironmentDeploymentPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryEnvironmentDeploymentPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy", id, state, "", opts...)
+}
+
 type repositoryEnvironmentDeploymentPolicyArgs struct {
 	// The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
 	BranchPattern *string `pulumi:"branchPattern"`

@@ -128,6 +128,12 @@ func (EmuGroupMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emuGroupMappingState)(nil)).Elem()
 }
 
+// EmuGroupMappingExists checks whether an existing EmuGroupMapping resource with the given ID exists.
+func EmuGroupMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmuGroupMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/emuGroupMapping:EmuGroupMapping", id, state, "", opts...)
+}
+
 type emuGroupMappingArgs struct {
 	// Integer corresponding to the external group ID to be linked
 	GroupId int `pulumi:"groupId"`

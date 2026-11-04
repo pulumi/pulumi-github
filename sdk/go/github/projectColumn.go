@@ -117,6 +117,12 @@ func (ProjectColumnState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectColumnState)(nil)).Elem()
 }
 
+// ProjectColumnExists checks whether an existing ProjectColumn resource with the given ID exists.
+func ProjectColumnExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectColumnState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/projectColumn:ProjectColumn", id, state, "", opts...)
+}
+
 type projectColumnArgs struct {
 	// The name of the column.
 	Name *string `pulumi:"name"`

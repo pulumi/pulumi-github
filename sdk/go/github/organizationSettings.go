@@ -275,6 +275,12 @@ func (OrganizationSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationSettingsState)(nil)).Elem()
 }
 
+// OrganizationSettingsExists checks whether an existing OrganizationSettings resource with the given ID exists.
+func OrganizationSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationSettings:OrganizationSettings", id, state, "", opts...)
+}
+
 type organizationSettingsArgs struct {
 	// Whether or not advanced security is enabled for new repositories. Defaults to `false`.
 	AdvancedSecurityEnabledForNewRepositories *bool `pulumi:"advancedSecurityEnabledForNewRepositories"`

@@ -21,7 +21,7 @@ public final class AppAuth {
      */
     private String installationId;
     /**
-     * @return The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
+     * @return The GitHub App&#39;s PEM file content; `&#92;n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     private String pemFile;
@@ -42,7 +42,7 @@ public final class AppAuth {
         return this.installationId;
     }
     /**
-     * @return The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
+     * @return The GitHub App&#39;s PEM file content; `&#92;n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     public String pemFile() {

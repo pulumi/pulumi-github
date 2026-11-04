@@ -54,11 +54,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
      * 
-     * @deprecated
-     * This argument is deprecated and will be removed in a future major release; use `owner` instead.
+     * @deprecated This argument is deprecated and will be removed in a future major release; use `owner` instead.
      * 
      */
-    @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
+    @Deprecated
     @Export(name="organization", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organization;
 

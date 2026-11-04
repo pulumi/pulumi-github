@@ -318,6 +318,12 @@ func (ActionsOrganizationSecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsOrganizationSecretState)(nil)).Elem()
 }
 
+// ActionsOrganizationSecretExists checks whether an existing ActionsOrganizationSecret resource with the given ID exists.
+func ActionsOrganizationSecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsOrganizationSecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsOrganizationSecret:ActionsOrganizationSecret", id, state, "", opts...)
+}
+
 type actionsOrganizationSecretArgs struct {
 	// (Optional) This is ignored as drift detection is built into the resource.
 	//

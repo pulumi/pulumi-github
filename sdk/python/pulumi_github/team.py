@@ -583,6 +583,38 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["slug"] = slug
         return Team(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            create_default_maintainer: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            ldap_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            members_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_setting: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_read_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_read_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy: pulumi.Input[Optional[_builtins.str]] = None,
+            slug: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createDefaultMaintainer"] = create_default_maintainer
+        __props__["description"] = description
+        __props__["etag"] = etag
+        __props__["ldapDn"] = ldap_dn
+        __props__["membersCount"] = members_count
+        __props__["name"] = name
+        __props__["nodeId"] = node_id
+        __props__["notificationSetting"] = notification_setting
+        __props__["parentTeamId"] = parent_team_id
+        __props__["parentTeamReadId"] = parent_team_read_id
+        __props__["parentTeamReadSlug"] = parent_team_read_slug
+        __props__["privacy"] = privacy
+        __props__["slug"] = slug
+        return pulumi.runtime.exists_resource(None, 'github:index/team:Team', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createDefaultMaintainer")
     @_utilities.deprecated("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")

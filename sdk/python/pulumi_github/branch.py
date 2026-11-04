@@ -409,6 +409,26 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["source_sha"] = source_sha
         return Branch(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            ref: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            sha: pulumi.Input[Optional[_builtins.str]] = None,
+            source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            source_sha: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["branch"] = branch
+        __props__["etag"] = etag
+        __props__["ref"] = ref
+        __props__["repository"] = repository
+        __props__["sha"] = sha
+        __props__["sourceBranch"] = source_branch
+        __props__["sourceSha"] = source_sha
+        return pulumi.runtime.exists_resource(None, 'github:index/branch:Branch', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def branch(self) -> pulumi.Output[_builtins.str]:

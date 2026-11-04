@@ -107,6 +107,12 @@ func (OrganizationSecurityManagerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationSecurityManagerState)(nil)).Elem()
 }
 
+// OrganizationSecurityManagerExists checks whether an existing OrganizationSecurityManager resource with the given ID exists.
+func OrganizationSecurityManagerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationSecurityManagerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationSecurityManager:OrganizationSecurityManager", id, state, "", opts...)
+}
+
 type organizationSecurityManagerArgs struct {
 	// The slug of the team to manage.
 	TeamSlug string `pulumi:"teamSlug"`

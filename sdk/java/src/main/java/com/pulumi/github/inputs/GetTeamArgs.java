@@ -36,22 +36,20 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
      * 
-     * @deprecated
-     * This is deprecated and will be removed in a future release.
+     * @deprecated This is deprecated and will be removed in a future release.
      * 
      */
-    @Deprecated /* This is deprecated and will be removed in a future release. */
+    @Deprecated
     @Import(name="resultsPerPage")
     private @Nullable Output<Integer> resultsPerPage;
 
     /**
      * @return (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 *(defaults to `100`)*.
      * 
-     * @deprecated
-     * This is deprecated and will be removed in a future release.
+     * @deprecated This is deprecated and will be removed in a future release.
      * 
      */
-    @Deprecated /* This is deprecated and will be removed in a future release. */
+    @Deprecated
     public Optional<Output<Integer>> resultsPerPage() {
         return Optional.ofNullable(this.resultsPerPage);
     }
@@ -139,11 +137,10 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This is deprecated and will be removed in a future release.
+         * @deprecated This is deprecated and will be removed in a future release.
          * 
          */
-        @Deprecated /* This is deprecated and will be removed in a future release. */
+        @Deprecated
         public Builder resultsPerPage(@Nullable Output<Integer> resultsPerPage) {
             $.resultsPerPage = resultsPerPage;
             return this;
@@ -154,11 +151,10 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This is deprecated and will be removed in a future release.
+         * @deprecated This is deprecated and will be removed in a future release.
          * 
          */
-        @Deprecated /* This is deprecated and will be removed in a future release. */
+        @Deprecated
         public Builder resultsPerPage(Integer resultsPerPage) {
             return resultsPerPage(Output.of(resultsPerPage));
         }

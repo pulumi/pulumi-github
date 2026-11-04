@@ -232,6 +232,16 @@ class UserInvitationAccepter(pulumi.CustomResource):
         __props__.__dict__["invitation_id"] = invitation_id
         return UserInvitationAccepter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_empty_id: pulumi.Input[Optional[_builtins.bool]] = None,
+            invitation_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowEmptyId"] = allow_empty_id
+        __props__["invitationId"] = invitation_id
+        return pulumi.runtime.exists_resource(None, 'github:index/userInvitationAccepter:UserInvitationAccepter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowEmptyId")
     def allow_empty_id(self) -> pulumi.Output[Optional[_builtins.bool]]:

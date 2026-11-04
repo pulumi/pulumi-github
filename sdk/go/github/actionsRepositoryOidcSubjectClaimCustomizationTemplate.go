@@ -137,6 +137,12 @@ func (ActionsRepositoryOidcSubjectClaimCustomizationTemplateState) ElementType()
 	return reflect.TypeOf((*actionsRepositoryOidcSubjectClaimCustomizationTemplateState)(nil)).Elem()
 }
 
+// ActionsRepositoryOidcSubjectClaimCustomizationTemplateExists checks whether an existing ActionsRepositoryOidcSubjectClaimCustomizationTemplate resource with the given ID exists.
+func ActionsRepositoryOidcSubjectClaimCustomizationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsRepositoryOidcSubjectClaimCustomizationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate", id, state, "", opts...)
+}
+
 type actionsRepositoryOidcSubjectClaimCustomizationTemplateArgs struct {
 	// A list of OpenID Connect claims.
 	IncludeClaimKeys []string `pulumi:"includeClaimKeys"`

@@ -240,6 +240,12 @@ func (RepositoryRulesetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryRulesetState)(nil)).Elem()
 }
 
+// RepositoryRulesetExists checks whether an existing RepositoryRuleset resource with the given ID exists.
+func RepositoryRulesetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryRulesetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryRuleset:RepositoryRuleset", id, state, "", opts...)
+}
+
 type repositoryRulesetArgs struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors []RepositoryRulesetBypassActor `pulumi:"bypassActors"`

@@ -154,6 +154,12 @@ func (BranchState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchState)(nil)).Elem()
 }
 
+// BranchExists checks whether an existing Branch resource with the given ID exists.
+func BranchExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/branch:Branch", id, state, "", opts...)
+}
+
 type branchArgs struct {
 	// The repository branch to create.
 	Branch string `pulumi:"branch"`

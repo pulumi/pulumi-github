@@ -577,6 +577,34 @@ class RepositoryPages(pulumi.CustomResource):
         __props__.__dict__["source"] = source
         return RepositoryPages(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_url: pulumi.Input[Optional[_builtins.str]] = None,
+            build_status: pulumi.Input[Optional[_builtins.str]] = None,
+            build_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cname: pulumi.Input[Optional[_builtins.str]] = None,
+            custom404: pulumi.Input[Optional[_builtins.bool]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            https_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+            public: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            source: pulumi.Input[Optional[Union['RepositoryPagesSourceArgs', 'RepositoryPagesSourceArgsDict', 'outputs.RepositoryPagesSource']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiUrl"] = api_url
+        __props__["buildStatus"] = build_status
+        __props__["buildType"] = build_type
+        __props__["cname"] = cname
+        __props__["custom404"] = custom404
+        __props__["htmlUrl"] = html_url
+        __props__["httpsEnforced"] = https_enforced
+        __props__["public"] = public
+        __props__["repository"] = repository
+        __props__["repositoryId"] = repository_id
+        __props__["source"] = source
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryPages:RepositoryPages', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> pulumi.Output[_builtins.str]:

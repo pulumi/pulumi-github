@@ -252,6 +252,20 @@ class ProjectColumn(pulumi.CustomResource):
         __props__.__dict__["project_id"] = project_id
         return ProjectColumn(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            column_id: pulumi.Input[Optional[_builtins.int]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["columnId"] = column_id
+        __props__["etag"] = etag
+        __props__["name"] = name
+        __props__["projectId"] = project_id
+        return pulumi.runtime.exists_resource(None, 'github:index/projectColumn:ProjectColumn', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="columnId")
     def column_id(self) -> pulumi.Output[_builtins.int]:

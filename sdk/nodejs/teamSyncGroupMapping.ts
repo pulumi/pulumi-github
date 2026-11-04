@@ -50,6 +50,17 @@ export class TeamSyncGroupMapping extends pulumi.CustomResource {
         return new TeamSyncGroupMapping(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing TeamSyncGroupMapping resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: TeamSyncGroupMappingState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("github:index/teamSyncGroupMapping:TeamSyncGroupMapping", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'github:index/teamSyncGroupMapping:TeamSyncGroupMapping';
 

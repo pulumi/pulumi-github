@@ -762,6 +762,52 @@ class Release(pulumi.CustomResource):
         __props__.__dict__["zipball_url"] = zipball_url
         return Release(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assets_url: pulumi.Input[Optional[_builtins.str]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            discussion_category_name: pulumi.Input[Optional[_builtins.str]] = None,
+            draft: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            generate_release_notes: pulumi.Input[Optional[_builtins.bool]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            prerelease: pulumi.Input[Optional[_builtins.bool]] = None,
+            published_at: pulumi.Input[Optional[_builtins.str]] = None,
+            release_id: pulumi.Input[Optional[_builtins.int]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tarball_url: pulumi.Input[Optional[_builtins.str]] = None,
+            target_commitish: pulumi.Input[Optional[_builtins.str]] = None,
+            upload_url: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            zipball_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assetsUrl"] = assets_url
+        __props__["body"] = body
+        __props__["createdAt"] = created_at
+        __props__["discussionCategoryName"] = discussion_category_name
+        __props__["draft"] = draft
+        __props__["etag"] = etag
+        __props__["generateReleaseNotes"] = generate_release_notes
+        __props__["htmlUrl"] = html_url
+        __props__["name"] = name
+        __props__["nodeId"] = node_id
+        __props__["prerelease"] = prerelease
+        __props__["publishedAt"] = published_at
+        __props__["releaseId"] = release_id
+        __props__["repository"] = repository
+        __props__["tagName"] = tag_name
+        __props__["tarballUrl"] = tarball_url
+        __props__["targetCommitish"] = target_commitish
+        __props__["uploadUrl"] = upload_url
+        __props__["url"] = url
+        __props__["zipballUrl"] = zipball_url
+        return pulumi.runtime.exists_resource(None, 'github:index/release:Release', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assetsUrl")
     def assets_url(self) -> pulumi.Output[_builtins.str]:

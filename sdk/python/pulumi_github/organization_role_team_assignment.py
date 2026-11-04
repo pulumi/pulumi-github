@@ -238,6 +238,16 @@ class OrganizationRoleTeamAssignment(pulumi.CustomResource):
         __props__.__dict__["team_slug"] = team_slug
         return OrganizationRoleTeamAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            role_id: pulumi.Input[Optional[_builtins.str]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["roleId"] = role_id
+        __props__["teamSlug"] = team_slug
+        return pulumi.runtime.exists_resource(None, 'github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="roleId")
     def role_id(self) -> pulumi.Output[_builtins.str]:

@@ -110,6 +110,12 @@ func (OrganizationRoleTeamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationRoleTeamState)(nil)).Elem()
 }
 
+// OrganizationRoleTeamExists checks whether an existing OrganizationRoleTeam resource with the given ID exists.
+func OrganizationRoleTeamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationRoleTeamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationRoleTeam:OrganizationRoleTeam", id, state, "", opts...)
+}
+
 type organizationRoleTeamArgs struct {
 	// The ID of the organization role.
 	RoleId int `pulumi:"roleId"`

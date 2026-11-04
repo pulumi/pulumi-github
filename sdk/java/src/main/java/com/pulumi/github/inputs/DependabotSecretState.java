@@ -34,22 +34,20 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     /**
      * (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     @Import(name="encryptedValue")
     private @Nullable Output<String> encryptedValue;
 
     /**
      * @return (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     public Optional<Output<String>> encryptedValue() {
         return Optional.ofNullable(this.encryptedValue);
     }
@@ -74,11 +72,10 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
      * 
      * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
@@ -87,11 +84,10 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
      * 
      * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     public Optional<Output<String>> plaintextValue() {
         return Optional.ofNullable(this.plaintextValue);
     }
@@ -261,11 +257,10 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use valueEncrypted and key_id.
+         * @deprecated Use valueEncrypted and key_id.
          * 
          */
-        @Deprecated /* Use valueEncrypted and key_id. */
+        @Deprecated
         public Builder encryptedValue(@Nullable Output<String> encryptedValue) {
             $.encryptedValue = encryptedValue;
             return this;
@@ -276,11 +271,10 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use valueEncrypted and key_id.
+         * @deprecated Use valueEncrypted and key_id.
          * 
          */
-        @Deprecated /* Use valueEncrypted and key_id. */
+        @Deprecated
         public Builder encryptedValue(String encryptedValue) {
             return encryptedValue(Output.of(encryptedValue));
         }
@@ -313,11 +307,10 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use value.
+         * @deprecated Use value.
          * 
          */
-        @Deprecated /* Use value. */
+        @Deprecated
         public Builder plaintextValue(@Nullable Output<String> plaintextValue) {
             $.plaintextValue = plaintextValue;
             return this;
@@ -330,11 +323,10 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use value.
+         * @deprecated Use value.
          * 
          */
-        @Deprecated /* Use value. */
+        @Deprecated
         public Builder plaintextValue(String plaintextValue) {
             return plaintextValue(Output.of(plaintextValue));
         }

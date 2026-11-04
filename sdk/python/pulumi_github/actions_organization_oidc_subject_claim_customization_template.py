@@ -192,6 +192,14 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
         __props__.__dict__["include_claim_keys"] = include_claim_keys
         return ActionsOrganizationOidcSubjectClaimCustomizationTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            include_claim_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["includeClaimKeys"] = include_claim_keys
+        return pulumi.runtime.exists_resource(None, 'github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="includeClaimKeys")
     def include_claim_keys(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -79,11 +79,10 @@ public final class GetRepositoryResult {
     /**
      * @return (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      * 
-     * @deprecated
-     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+     * @deprecated This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
-    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
+    @Deprecated
     private Boolean hasDownloads;
     /**
      * @return Whether the repository has GitHub Issues enabled.
@@ -148,11 +147,10 @@ public final class GetRepositoryResult {
     /**
      * @return (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` data source instead. This field will be removed in a future version.
      * 
-     * @deprecated
-     * Use the github.RepositoryPages data source instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryPages data source instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryPages data source instead. This field will be removed in a future version. */
+    @Deprecated
     private List<GetRepositoryPage> pages;
     /**
      * @return The primary language used in the repository.
@@ -300,11 +298,10 @@ public final class GetRepositoryResult {
     /**
      * @return (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      * 
-     * @deprecated
-     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+     * @deprecated This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
-    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
+    @Deprecated
     public Boolean hasDownloads() {
         return this.hasDownloads;
     }
@@ -395,11 +392,10 @@ public final class GetRepositoryResult {
     /**
      * @return (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` data source instead. This field will be removed in a future version.
      * 
-     * @deprecated
-     * Use the github.RepositoryPages data source instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryPages data source instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryPages data source instead. This field will be removed in a future version. */
+    @Deprecated
     public List<GetRepositoryPage> pages() {
         return this.pages;
     }

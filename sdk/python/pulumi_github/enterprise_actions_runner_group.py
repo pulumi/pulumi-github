@@ -521,6 +521,34 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
         __props__.__dict__["visibility"] = visibility
         return EnterpriseActionsRunnerGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allows_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            default: pulumi.Input[Optional[_builtins.bool]] = None,
+            enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            restricted_to_workflows: pulumi.Input[Optional[_builtins.bool]] = None,
+            runners_url: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_organization_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            selected_organizations_url: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_workflows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowsPublicRepositories"] = allows_public_repositories
+        __props__["default"] = default
+        __props__["enterpriseSlug"] = enterprise_slug
+        __props__["etag"] = etag
+        __props__["name"] = name
+        __props__["restrictedToWorkflows"] = restricted_to_workflows
+        __props__["runnersUrl"] = runners_url
+        __props__["selectedOrganizationIds"] = selected_organization_ids
+        __props__["selectedOrganizationsUrl"] = selected_organizations_url
+        __props__["selectedWorkflows"] = selected_workflows
+        __props__["visibility"] = visibility
+        return pulumi.runtime.exists_resource(None, 'github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowsPublicRepositories")
     def allows_public_repositories(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -103,11 +103,10 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
     /**
      * ID or slug of the GitHub team to manage membership for.
      * 
-     * @deprecated
-     * Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
+     * @deprecated Use `teamSlug` instead; this field will be made computed only in a future version of the provider.
      * 
      */
-    @Deprecated /* Use `teamSlug` instead; this field will be made computed only in a future version of the provider. */
+    @Deprecated
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 

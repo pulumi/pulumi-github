@@ -170,6 +170,12 @@ func (ActionsRunnerGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsRunnerGroupState)(nil)).Elem()
 }
 
+// ActionsRunnerGroupExists checks whether an existing ActionsRunnerGroup resource with the given ID exists.
+func ActionsRunnerGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsRunnerGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsRunnerGroup:ActionsRunnerGroup", id, state, "", opts...)
+}
+
 type actionsRunnerGroupArgs struct {
 	// Whether public repositories can be added to the runner group. Defaults to false.
 	AllowsPublicRepositories *bool `pulumi:"allowsPublicRepositories"`

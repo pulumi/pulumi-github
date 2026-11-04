@@ -142,6 +142,12 @@ func (TeamMembersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamMembersState)(nil)).Elem()
 }
 
+// TeamMembersExists checks whether an existing TeamMembers resource with the given ID exists.
+func TeamMembersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamMembersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/teamMembers:TeamMembers", id, state, "", opts...)
+}
+
 type teamMembersArgs struct {
 	// List of users that should be members of the team.
 	Members []TeamMembersMember `pulumi:"members"`

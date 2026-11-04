@@ -189,11 +189,10 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
      * 
      * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
      * 
      */
-    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
+    @Deprecated
     @Export(name="destroyOnDrift", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> destroyOnDrift;
 
@@ -209,11 +208,10 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
     /**
      * (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     @Export(name="encryptedValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptedValue;
 
@@ -241,11 +239,10 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
     /**
      * (Optional) Please use `value`.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
@@ -287,11 +284,10 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
     /**
      * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
+     * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets. */
+    @Deprecated
     @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 

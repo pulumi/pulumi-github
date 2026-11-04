@@ -589,6 +589,30 @@ class OrganizationRuleset(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return OrganizationRuleset(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bypass_actors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict', 'outputs.OrganizationRulesetBypassActor']]]]] = None,
+            conditions: pulumi.Input[Optional[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict', 'outputs.OrganizationRulesetConditions']]] = None,
+            enforcement: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict', 'outputs.OrganizationRulesetRules']]] = None,
+            ruleset_id: pulumi.Input[Optional[_builtins.int]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bypassActors"] = bypass_actors
+        __props__["conditions"] = conditions
+        __props__["enforcement"] = enforcement
+        __props__["etag"] = etag
+        __props__["name"] = name
+        __props__["nodeId"] = node_id
+        __props__["rules"] = rules
+        __props__["rulesetId"] = ruleset_id
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'github:index/organizationRuleset:OrganizationRuleset', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bypassActors")
     def bypass_actors(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationRulesetBypassActor']]]:

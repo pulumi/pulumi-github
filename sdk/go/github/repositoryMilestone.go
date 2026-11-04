@@ -147,6 +147,12 @@ func (RepositoryMilestoneState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryMilestoneState)(nil)).Elem()
 }
 
+// RepositoryMilestoneExists checks whether an existing RepositoryMilestone resource with the given ID exists.
+func RepositoryMilestoneExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryMilestoneState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryMilestone:RepositoryMilestone", id, state, "", opts...)
+}
+
 type repositoryMilestoneArgs struct {
 	// A description of the milestone.
 	Description *string `pulumi:"description"`

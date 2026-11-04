@@ -186,6 +186,14 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         __props__.__dict__["team_slug"] = team_slug
         return OrganizationSecurityManager(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["teamSlug"] = team_slug
+        return pulumi.runtime.exists_resource(None, 'github:index/organizationSecurityManager:OrganizationSecurityManager', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> pulumi.Output[_builtins.str]:

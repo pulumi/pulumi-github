@@ -595,6 +595,34 @@ class DependabotSecret(pulumi.CustomResource):
         __props__.__dict__["value_encrypted"] = value_encrypted
         return DependabotSecret(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted_value: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            plaintext_value: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_encrypted: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["encryptedValue"] = encrypted_value
+        __props__["keyId"] = key_id
+        __props__["plaintextValue"] = plaintext_value
+        __props__["remoteUpdatedAt"] = remote_updated_at
+        __props__["repository"] = repository
+        __props__["repositoryId"] = repository_id
+        __props__["secretName"] = secret_name
+        __props__["updatedAt"] = updated_at
+        __props__["value"] = value
+        __props__["valueEncrypted"] = value_encrypted
+        return pulumi.runtime.exists_resource(None, 'github:index/dependabotSecret:DependabotSecret', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

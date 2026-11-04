@@ -315,6 +315,22 @@ class OrganizationWebhook(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return OrganizationWebhook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            configuration: pulumi.Input[Optional[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict', 'outputs.OrganizationWebhookConfiguration']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["configuration"] = configuration
+        __props__["etag"] = etag
+        __props__["events"] = events
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'github:index/organizationWebhook:OrganizationWebhook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:

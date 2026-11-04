@@ -141,6 +141,12 @@ func (IssueLabelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*issueLabelState)(nil)).Elem()
 }
 
+// IssueLabelExists checks whether an existing IssueLabel resource with the given ID exists.
+func IssueLabelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IssueLabelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/issueLabel:IssueLabel", id, state, "", opts...)
+}
+
 type issueLabelArgs struct {
 	// A 6 character hex code, **without the leading #**, identifying the color of the label.
 	Color string `pulumi:"color"`

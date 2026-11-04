@@ -45,14 +45,14 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
+     * The GitHub App&#39;s PEM file content; `&#92;n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     @Import(name="pemFile", required=true)
     private Output<String> pemFile;
 
     /**
-     * @return The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
+     * @return The GitHub App&#39;s PEM file content; `&#92;n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
      * 
      */
     public Output<String> pemFile() {
@@ -128,7 +128,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pemFile The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
+         * @param pemFile The GitHub App&#39;s PEM file content; `&#92;n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pemFile The GitHub App&#39;s PEM file content; `\n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
+         * @param pemFile The GitHub App&#39;s PEM file content; `&#92;n` can be used for newlines. This can also be set by the `GITHUB_APP_PEM_FILE` environment variable.
          * 
          * @return builder
          * 

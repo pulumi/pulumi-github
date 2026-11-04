@@ -456,6 +456,12 @@ func (RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryState)(nil)).Elem()
 }
 
+// RepositoryExists checks whether an existing Repository resource with the given ID exists.
+func RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repository:Repository", id, state, "", opts...)
+}
+
 type repositoryArgs struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge *bool `pulumi:"allowAutoMerge"`

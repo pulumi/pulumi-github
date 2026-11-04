@@ -195,6 +195,12 @@ func (RepositoryPullRequestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPullRequestState)(nil)).Elem()
 }
 
+// RepositoryPullRequestExists checks whether an existing RepositoryPullRequest resource with the given ID exists.
+func RepositoryPullRequestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPullRequestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryPullRequest:RepositoryPullRequest", id, state, "", opts...)
+}
+
 type repositoryPullRequestArgs struct {
 	// Name of the branch serving as the base of the Pull Request.
 	BaseRef string `pulumi:"baseRef"`

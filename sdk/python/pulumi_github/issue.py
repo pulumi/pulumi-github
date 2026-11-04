@@ -515,6 +515,30 @@ class Issue(pulumi.CustomResource):
         __props__.__dict__["title"] = title
         return Issue(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assignees: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            issue_id: pulumi.Input[Optional[_builtins.int]] = None,
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            milestone_number: pulumi.Input[Optional[_builtins.int]] = None,
+            number: pulumi.Input[Optional[_builtins.int]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignees"] = assignees
+        __props__["body"] = body
+        __props__["etag"] = etag
+        __props__["issueId"] = issue_id
+        __props__["labels"] = labels
+        __props__["milestoneNumber"] = milestone_number
+        __props__["number"] = number
+        __props__["repository"] = repository
+        __props__["title"] = title
+        return pulumi.runtime.exists_resource(None, 'github:index/issue:Issue', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def assignees(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

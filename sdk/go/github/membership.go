@@ -119,6 +119,12 @@ func (MembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*membershipState)(nil)).Elem()
 }
 
+// MembershipExists checks whether an existing Membership resource with the given ID exists.
+func MembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/membership:Membership", id, state, "", opts...)
+}
+
 type membershipArgs struct {
 	// Defaults to `false`. If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'.
 	DowngradeOnDestroy *bool `pulumi:"downgradeOnDestroy"`
