@@ -309,6 +309,22 @@ class RepositoryProject(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return RepositoryProject(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["body"] = body
+        __props__["etag"] = etag
+        __props__["name"] = name
+        __props__["repository"] = repository
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryProject:RepositoryProject', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Output[Optional[_builtins.str]]:

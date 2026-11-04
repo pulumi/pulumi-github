@@ -243,11 +243,10 @@ public class Repository extends com.pulumi.resources.CustomResource {
     /**
      * (Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created, and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
-     * @deprecated
-     * Use the github.BranchDefault resource instead
+     * @deprecated Use the github.BranchDefault resource instead
      * 
      */
-    @Deprecated /* Use the github.BranchDefault resource instead */
+    @Deprecated
     @Export(name="defaultBranch", refs={String.class}, tree="[0]")
     private Output<String> defaultBranch;
 
@@ -365,11 +364,10 @@ public class Repository extends com.pulumi.resources.CustomResource {
     /**
      * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      * 
-     * @deprecated
-     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+     * @deprecated This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
-    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
+    @Deprecated
     @Export(name="hasDownloads", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasDownloads;
 
@@ -467,11 +465,10 @@ public class Repository extends com.pulumi.resources.CustomResource {
     /**
      * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
-     * @deprecated
-     * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
+    @Deprecated
     @Export(name="ignoreVulnerabilityAlertsDuringRead", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreVulnerabilityAlertsDuringRead;
 
@@ -569,11 +566,10 @@ public class Repository extends com.pulumi.resources.CustomResource {
     /**
      * (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
      * 
-     * @deprecated
-     * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
+    @Deprecated
     @Export(name="pages", refs={RepositoryPages.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryPages> pages;
 
@@ -601,11 +597,10 @@ public class Repository extends com.pulumi.resources.CustomResource {
     /**
      * Set to `true` to create a private repository. Repositories are created as public (e.g. open source) by default.
      * 
-     * @deprecated
-     * use visibility instead
+     * @deprecated use visibility instead
      * 
      */
-    @Deprecated /* use visibility instead */
+    @Deprecated
     @Export(name="private", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> private_;
 
@@ -777,11 +772,10 @@ public class Repository extends com.pulumi.resources.CustomResource {
     /**
      * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
      * 
-     * @deprecated
-     * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
+     * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
+    @Deprecated
     @Export(name="vulnerabilityAlerts", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vulnerabilityAlerts;
 

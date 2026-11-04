@@ -508,6 +508,26 @@ class OrganizationCustomProperties(pulumi.CustomResource):
         __props__.__dict__["values_editable_by"] = values_editable_by
         return OrganizationCustomProperties(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_value: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            property_name: pulumi.Input[Optional[_builtins.str]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            value_type: pulumi.Input[Optional[_builtins.str]] = None,
+            values_editable_by: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedValues"] = allowed_values
+        __props__["defaultValue"] = default_value
+        __props__["description"] = description
+        __props__["propertyName"] = property_name
+        __props__["required"] = required
+        __props__["valueType"] = value_type
+        __props__["valuesEditableBy"] = values_editable_by
+        return pulumi.runtime.exists_resource(None, 'github:index/organizationCustomProperties:OrganizationCustomProperties', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedValues")
     def allowed_values(self) -> pulumi.Output[Sequence[_builtins.str]]:

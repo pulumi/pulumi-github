@@ -703,6 +703,36 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         __props__.__dict__["visibility"] = visibility
         return ActionsOrganizationSecret(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            destroy_on_drift: pulumi.Input[Optional[_builtins.bool]] = None,
+            encrypted_value: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            plaintext_value: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["destroyOnDrift"] = destroy_on_drift
+        __props__["encryptedValue"] = encrypted_value
+        __props__["keyId"] = key_id
+        __props__["plaintextValue"] = plaintext_value
+        __props__["remoteUpdatedAt"] = remote_updated_at
+        __props__["secretName"] = secret_name
+        __props__["selectedRepositoryIds"] = selected_repository_ids
+        __props__["updatedAt"] = updated_at
+        __props__["value"] = value
+        __props__["valueEncrypted"] = value_encrypted
+        __props__["visibility"] = visibility
+        return pulumi.runtime.exists_resource(None, 'github:index/actionsOrganizationSecret:ActionsOrganizationSecret', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

@@ -258,6 +258,16 @@ class ActionsOrganizationVariableRepositories(pulumi.CustomResource):
         __props__.__dict__["variable_name"] = variable_name
         return ActionsOrganizationVariableRepositories(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            selected_repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            variable_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["selectedRepositoryIds"] = selected_repository_ids
+        __props__["variableName"] = variable_name
+        return pulumi.runtime.exists_resource(None, 'github:index/actionsOrganizationVariableRepositories:ActionsOrganizationVariableRepositories', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> pulumi.Output[Sequence[_builtins.int]]:

@@ -72,11 +72,10 @@ public class Team extends com.pulumi.resources.CustomResource {
     /**
      * (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      * 
-     * @deprecated
-     * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
+     * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      * 
      */
-    @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
+    @Deprecated
     @Export(name="createDefaultMaintainer", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createDefaultMaintainer;
 

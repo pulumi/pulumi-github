@@ -146,6 +146,12 @@ func (ActionsVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsVariableState)(nil)).Elem()
 }
 
+// ActionsVariableExists checks whether an existing ActionsVariable resource with the given ID exists.
+func ActionsVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsVariable:ActionsVariable", id, state, "", opts...)
+}
+
 type actionsVariableArgs struct {
 	// Name of the repository.
 	Repository string `pulumi:"repository"`

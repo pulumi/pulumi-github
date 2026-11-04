@@ -126,6 +126,12 @@ func (AppInstallationRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appInstallationRepositoryState)(nil)).Elem()
 }
 
+// AppInstallationRepositoryExists checks whether an existing AppInstallationRepository resource with the given ID exists.
+func AppInstallationRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppInstallationRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/appInstallationRepository:AppInstallationRepository", id, state, "", opts...)
+}
+
 type appInstallationRepositoryArgs struct {
 	// The GitHub app installation id.
 	InstallationId string `pulumi:"installationId"`

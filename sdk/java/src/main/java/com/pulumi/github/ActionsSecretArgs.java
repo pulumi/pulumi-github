@@ -22,11 +22,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
      * 
      */
-    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
+    @Deprecated
     @Import(name="destroyOnDrift")
     private @Nullable Output<Boolean> destroyOnDrift;
 
@@ -35,11 +34,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
      * 
      */
-    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
+    @Deprecated
     public Optional<Output<Boolean>> destroyOnDrift() {
         return Optional.ofNullable(this.destroyOnDrift);
     }
@@ -47,22 +45,20 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     @Import(name="encryptedValue")
     private @Nullable Output<String> encryptedValue;
 
     /**
      * @return (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     public Optional<Output<String>> encryptedValue() {
         return Optional.ofNullable(this.encryptedValue);
     }
@@ -85,22 +81,20 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Optional) Please use `value`.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
      * @return (Optional) Please use `value`.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     public Optional<Output<String>> plaintextValue() {
         return Optional.ofNullable(this.plaintextValue);
     }
@@ -203,11 +197,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
          * 
          */
-        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
+        @Deprecated
         public Builder destroyOnDrift(@Nullable Output<Boolean> destroyOnDrift) {
             $.destroyOnDrift = destroyOnDrift;
             return this;
@@ -220,11 +213,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
          * 
          */
-        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
+        @Deprecated
         public Builder destroyOnDrift(Boolean destroyOnDrift) {
             return destroyOnDrift(Output.of(destroyOnDrift));
         }
@@ -234,11 +226,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use valueEncrypted and key_id.
+         * @deprecated Use valueEncrypted and key_id.
          * 
          */
-        @Deprecated /* Use valueEncrypted and key_id. */
+        @Deprecated
         public Builder encryptedValue(@Nullable Output<String> encryptedValue) {
             $.encryptedValue = encryptedValue;
             return this;
@@ -249,11 +240,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use valueEncrypted and key_id.
+         * @deprecated Use valueEncrypted and key_id.
          * 
          */
-        @Deprecated /* Use valueEncrypted and key_id. */
+        @Deprecated
         public Builder encryptedValue(String encryptedValue) {
             return encryptedValue(Output.of(encryptedValue));
         }
@@ -284,11 +274,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use value.
+         * @deprecated Use value.
          * 
          */
-        @Deprecated /* Use value. */
+        @Deprecated
         public Builder plaintextValue(@Nullable Output<String> plaintextValue) {
             $.plaintextValue = plaintextValue;
             return this;
@@ -299,11 +288,10 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use value.
+         * @deprecated Use value.
          * 
          */
-        @Deprecated /* Use value. */
+        @Deprecated
         public Builder plaintextValue(String plaintextValue) {
             return plaintextValue(Output.of(plaintextValue));
         }

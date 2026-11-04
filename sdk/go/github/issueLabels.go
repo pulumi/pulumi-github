@@ -127,6 +127,12 @@ func (IssueLabelsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*issueLabelsState)(nil)).Elem()
 }
 
+// IssueLabelsExists checks whether an existing IssueLabels resource with the given ID exists.
+func IssueLabelsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IssueLabelsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/issueLabels:IssueLabels", id, state, "", opts...)
+}
+
 type issueLabelsArgs struct {
 	// List of labels
 	Labels []IssueLabelsLabel `pulumi:"labels"`

@@ -369,6 +369,22 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
         __props__.__dict__["enterprise_slug"] = enterprise_slug
         return EnterpriseActionsPermissions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_actions_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsAllowedActionsConfigArgs', 'EnterpriseActionsPermissionsAllowedActionsConfigArgsDict', 'outputs.EnterpriseActionsPermissionsAllowedActionsConfig']]] = None,
+            enabled_organizations: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_organizations_config: pulumi.Input[Optional[Union['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs', 'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict', 'outputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig']]] = None,
+            enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedActions"] = allowed_actions
+        __props__["allowedActionsConfig"] = allowed_actions_config
+        __props__["enabledOrganizations"] = enabled_organizations
+        __props__["enabledOrganizationsConfig"] = enabled_organizations_config
+        __props__["enterpriseSlug"] = enterprise_slug
+        return pulumi.runtime.exists_resource(None, 'github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedActions")
     def allowed_actions(self) -> pulumi.Output[Optional[_builtins.str]]:

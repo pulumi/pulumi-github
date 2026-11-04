@@ -128,6 +128,12 @@ func (UserSshKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSshKeyState)(nil)).Elem()
 }
 
+// UserSshKeyExists checks whether an existing UserSshKey resource with the given ID exists.
+func UserSshKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserSshKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/userSshKey:UserSshKey", id, state, "", opts...)
+}
+
 type userSshKeyArgs struct {
 	// The public SSH key to add to your GitHub account.
 	Key string `pulumi:"key"`

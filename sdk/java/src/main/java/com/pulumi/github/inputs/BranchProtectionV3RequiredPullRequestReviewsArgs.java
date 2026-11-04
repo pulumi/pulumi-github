@@ -95,20 +95,18 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
     }
 
     /**
-     * @deprecated
-     * Use enforceAdmins instead
+     * @deprecated Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforceAdmins instead */
+    @Deprecated
     @Import(name="includeAdmins")
     private @Nullable Output<Boolean> includeAdmins;
 
     /**
-     * @deprecated
-     * Use enforceAdmins instead
+     * @deprecated Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforceAdmins instead */
+    @Deprecated
     public Optional<Output<Boolean>> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }
@@ -328,11 +326,10 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use enforceAdmins instead
+         * @deprecated Use enforceAdmins instead
          * 
          */
-        @Deprecated /* Use enforceAdmins instead */
+        @Deprecated
         public Builder includeAdmins(@Nullable Output<Boolean> includeAdmins) {
             $.includeAdmins = includeAdmins;
             return this;
@@ -341,11 +338,10 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use enforceAdmins instead
+         * @deprecated Use enforceAdmins instead
          * 
          */
-        @Deprecated /* Use enforceAdmins instead */
+        @Deprecated
         public Builder includeAdmins(Boolean includeAdmins) {
             return includeAdmins(Output.of(includeAdmins));
         }

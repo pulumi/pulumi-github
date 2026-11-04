@@ -23,18 +23,16 @@ public final class BranchProtectionV3RequiredStatusChecks {
      * 
      * &gt; Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(&lt;matrix_value&gt;[, &lt;matrix_value&gt;])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `&lt;initial_workflow.jobs.job.[name/id]&gt; / &lt;reused-workflow.jobs.job.[name/id]&gt;`. This can extend multiple levels.
      * 
-     * @deprecated
-     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+     * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      * 
      */
-    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
+    @Deprecated
     private @Nullable List<String> contexts;
     /**
-     * @deprecated
-     * Use enforceAdmins instead
+     * @deprecated Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforceAdmins instead */
+    @Deprecated
     private @Nullable Boolean includeAdmins;
     /**
      * @return Require branches to be up to date before merging. Defaults to `false`.
@@ -55,20 +53,18 @@ public final class BranchProtectionV3RequiredStatusChecks {
      * 
      * &gt; Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(&lt;matrix_value&gt;[, &lt;matrix_value&gt;])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `&lt;initial_workflow.jobs.job.[name/id]&gt; / &lt;reused-workflow.jobs.job.[name/id]&gt;`. This can extend multiple levels.
      * 
-     * @deprecated
-     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+     * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      * 
      */
-    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
+    @Deprecated
     public List<String> contexts() {
         return this.contexts == null ? List.of() : this.contexts;
     }
     /**
-     * @deprecated
-     * Use enforceAdmins instead
+     * @deprecated Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforceAdmins instead */
+    @Deprecated
     public Optional<Boolean> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }

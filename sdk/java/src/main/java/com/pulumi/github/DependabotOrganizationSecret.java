@@ -186,11 +186,10 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
     /**
      * (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     @Export(name="encryptedValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptedValue;
 
@@ -218,11 +217,10 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
     /**
      * (Optional) Please use `value`.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
@@ -266,11 +264,10 @@ public class DependabotOrganizationSecret extends com.pulumi.resources.CustomRes
      * 
      * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+     * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
+    @Deprecated
     @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 

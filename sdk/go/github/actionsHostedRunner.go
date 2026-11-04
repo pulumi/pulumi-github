@@ -256,6 +256,12 @@ func (ActionsHostedRunnerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsHostedRunnerState)(nil)).Elem()
 }
 
+// ActionsHostedRunnerExists checks whether an existing ActionsHostedRunner resource with the given ID exists.
+func ActionsHostedRunnerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsHostedRunnerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsHostedRunner:ActionsHostedRunner", id, state, "", opts...)
+}
+
 type actionsHostedRunnerArgs struct {
 	// Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
 	Image ActionsHostedRunnerImage `pulumi:"image"`

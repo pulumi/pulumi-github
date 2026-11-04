@@ -187,6 +187,12 @@ func (BranchDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchDefaultState)(nil)).Elem()
 }
 
+// BranchDefaultExists checks whether an existing BranchDefault resource with the given ID exists.
+func BranchDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/branchDefault:BranchDefault", id, state, "", opts...)
+}
+
 type branchDefaultArgs struct {
 	// The name of the branch to set as the default (e.g. 'main').
 	Branch string `pulumi:"branch"`

@@ -20,22 +20,20 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
     /**
      * (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      * 
-     * @deprecated
-     * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
+     * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      * 
      */
-    @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
+    @Deprecated
     @Import(name="createDefaultMaintainer")
     private @Nullable Output<Boolean> createDefaultMaintainer;
 
     /**
      * @return (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      * 
-     * @deprecated
-     * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
+     * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      * 
      */
-    @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
+    @Deprecated
     public Optional<Output<Boolean>> createDefaultMaintainer() {
         return Optional.ofNullable(this.createDefaultMaintainer);
     }
@@ -245,11 +243,10 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
+         * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
          * 
          */
-        @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
+        @Deprecated
         public Builder createDefaultMaintainer(@Nullable Output<Boolean> createDefaultMaintainer) {
             $.createDefaultMaintainer = createDefaultMaintainer;
             return this;
@@ -260,11 +257,10 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
+         * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
          * 
          */
-        @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
+        @Deprecated
         public Builder createDefaultMaintainer(Boolean createDefaultMaintainer) {
             return createDefaultMaintainer(Output.of(createDefaultMaintainer));
         }

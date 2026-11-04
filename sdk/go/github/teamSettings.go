@@ -175,6 +175,12 @@ func (TeamSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamSettingsState)(nil)).Elem()
 }
 
+// TeamSettingsExists checks whether an existing TeamSettings resource with the given ID exists.
+func TeamSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/teamSettings:TeamSettings", id, state, "", opts...)
+}
+
 type teamSettingsArgs struct {
 	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
 	Notify *bool `pulumi:"notify"`

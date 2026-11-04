@@ -236,6 +236,16 @@ class RepositoryTopics(pulumi.CustomResource):
         __props__.__dict__["topics"] = topics
         return RepositoryTopics(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["repository"] = repository
+        __props__["topics"] = topics
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryTopics:RepositoryTopics', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:

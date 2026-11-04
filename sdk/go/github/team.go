@@ -174,6 +174,12 @@ func (TeamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamState)(nil)).Elem()
 }
 
+// TeamExists checks whether an existing Team resource with the given ID exists.
+func TeamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/team:Team", id, state, "", opts...)
+}
+
 type teamArgs struct {
 	// (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
 	//

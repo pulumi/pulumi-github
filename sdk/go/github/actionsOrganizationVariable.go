@@ -181,6 +181,12 @@ func (ActionsOrganizationVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsOrganizationVariableState)(nil)).Elem()
 }
 
+// ActionsOrganizationVariableExists checks whether an existing ActionsOrganizationVariable resource with the given ID exists.
+func ActionsOrganizationVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsOrganizationVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsOrganizationVariable:ActionsOrganizationVariable", id, state, "", opts...)
+}
+
 type actionsOrganizationVariableArgs struct {
 	// An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`

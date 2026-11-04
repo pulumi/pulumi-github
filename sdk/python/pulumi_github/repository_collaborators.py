@@ -447,6 +447,26 @@ class RepositoryCollaborators(pulumi.CustomResource):
         __props__.__dict__["users"] = users
         return RepositoryCollaborators(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ignore_teams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict', 'outputs.RepositoryCollaboratorsIgnoreTeam']]]]] = None,
+            invitation_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            owner_configured: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict', 'outputs.RepositoryCollaboratorsTeam']]]]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict', 'outputs.RepositoryCollaboratorsUser']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["ignoreTeams"] = ignore_teams
+        __props__["invitationIds"] = invitation_ids
+        __props__["ownerConfigured"] = owner_configured
+        __props__["repository"] = repository
+        __props__["repositoryId"] = repository_id
+        __props__["teams"] = teams
+        __props__["users"] = users
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryCollaborators:RepositoryCollaborators', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="ignoreTeams")
     def ignore_teams(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCollaboratorsIgnoreTeam']]]:

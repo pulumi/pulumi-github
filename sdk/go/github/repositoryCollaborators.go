@@ -192,6 +192,12 @@ func (RepositoryCollaboratorsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryCollaboratorsState)(nil)).Elem()
 }
 
+// RepositoryCollaboratorsExists checks whether an existing RepositoryCollaborators resource with the given ID exists.
+func RepositoryCollaboratorsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryCollaboratorsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryCollaborators:RepositoryCollaborators", id, state, "", opts...)
+}
+
 type repositoryCollaboratorsArgs struct {
 	// Teams to ignore when managing repository collaborators.
 	IgnoreTeams []RepositoryCollaboratorsIgnoreTeam `pulumi:"ignoreTeams"`

@@ -136,6 +136,12 @@ func (RepositoryDeploymentBranchPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryDeploymentBranchPolicyState)(nil)).Elem()
 }
 
+// RepositoryDeploymentBranchPolicyExists checks whether an existing RepositoryDeploymentBranchPolicy resource with the given ID exists.
+func RepositoryDeploymentBranchPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryDeploymentBranchPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy", id, state, "", opts...)
+}
+
 type repositoryDeploymentBranchPolicyArgs struct {
 	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName string `pulumi:"environmentName"`

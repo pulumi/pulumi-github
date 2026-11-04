@@ -150,6 +150,12 @@ func (RepositoryAutolinkReferenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryAutolinkReferenceState)(nil)).Elem()
 }
 
+// RepositoryAutolinkReferenceExists checks whether an existing RepositoryAutolinkReference resource with the given ID exists.
+func RepositoryAutolinkReferenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryAutolinkReferenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryAutolinkReference:RepositoryAutolinkReference", id, state, "", opts...)
+}
+
 type repositoryAutolinkReferenceArgs struct {
 	// Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
 	IsAlphanumeric *bool `pulumi:"isAlphanumeric"`

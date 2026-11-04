@@ -485,6 +485,28 @@ class RepositoryEnvironment(pulumi.CustomResource):
         __props__.__dict__["wait_timer"] = wait_timer
         return RepositoryEnvironment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            can_admins_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+            deployment_branch_policy: pulumi.Input[Optional[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict', 'outputs.RepositoryEnvironmentDeploymentBranchPolicy']]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            prevent_self_review: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict', 'outputs.RepositoryEnvironmentReviewer']]]]] = None,
+            wait_timer: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["canAdminsBypass"] = can_admins_bypass
+        __props__["deploymentBranchPolicy"] = deployment_branch_policy
+        __props__["environment"] = environment
+        __props__["preventSelfReview"] = prevent_self_review
+        __props__["repository"] = repository
+        __props__["repositoryId"] = repository_id
+        __props__["reviewers"] = reviewers
+        __props__["waitTimer"] = wait_timer
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryEnvironment:RepositoryEnvironment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="canAdminsBypass")
     def can_admins_bypass(self) -> pulumi.Output[Optional[_builtins.bool]]:

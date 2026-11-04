@@ -135,6 +135,12 @@ func (DependabotOrganizationSecretRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dependabotOrganizationSecretRepositoryState)(nil)).Elem()
 }
 
+// DependabotOrganizationSecretRepositoryExists checks whether an existing DependabotOrganizationSecretRepository resource with the given ID exists.
+func DependabotOrganizationSecretRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DependabotOrganizationSecretRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/dependabotOrganizationSecretRepository:DependabotOrganizationSecretRepository", id, state, "", opts...)
+}
+
 type dependabotOrganizationSecretRepositoryArgs struct {
 	// ID of the repository that should be able to access the secret.
 	RepositoryId int `pulumi:"repositoryId"`

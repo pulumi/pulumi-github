@@ -181,6 +181,12 @@ func (RepositoryEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryEnvironmentState)(nil)).Elem()
 }
 
+// RepositoryEnvironmentExists checks whether an existing RepositoryEnvironment resource with the given ID exists.
+func RepositoryEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryEnvironment:RepositoryEnvironment", id, state, "", opts...)
+}
+
 type repositoryEnvironmentArgs struct {
 	// Can repository admins bypass the environment protections. Defaults to `true`.
 	CanAdminsBypass *bool `pulumi:"canAdminsBypass"`

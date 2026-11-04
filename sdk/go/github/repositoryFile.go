@@ -279,6 +279,12 @@ func (RepositoryFileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryFileState)(nil)).Elem()
 }
 
+// RepositoryFileExists checks whether an existing RepositoryFile resource with the given ID exists.
+func RepositoryFileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryFileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryFile:RepositoryFile", id, state, "", opts...)
+}
+
 type repositoryFileArgs struct {
 	// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
 	//

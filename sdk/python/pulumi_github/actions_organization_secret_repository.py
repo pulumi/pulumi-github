@@ -258,6 +258,16 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
         __props__.__dict__["secret_name"] = secret_name
         return ActionsOrganizationSecretRepository(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            secret_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["repositoryId"] = repository_id
+        __props__["secretName"] = secret_name
+        return pulumi.runtime.exists_resource(None, 'github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> pulumi.Output[_builtins.int]:

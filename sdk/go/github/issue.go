@@ -224,6 +224,12 @@ func (IssueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*issueState)(nil)).Elem()
 }
 
+// IssueExists checks whether an existing Issue resource with the given ID exists.
+func IssueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IssueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/issue:Issue", id, state, "", opts...)
+}
+
 type issueArgs struct {
 	// List of Logins to assign the to the issue
 	Assignees []string `pulumi:"assignees"`

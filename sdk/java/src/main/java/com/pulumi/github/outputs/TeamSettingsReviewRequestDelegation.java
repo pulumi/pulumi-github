@@ -26,11 +26,10 @@ public final class TeamSettingsReviewRequestDelegation {
     /**
      * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
      * 
-     * @deprecated
-     * Use the top-level notify attribute instead.
+     * @deprecated Use the top-level notify attribute instead.
      * 
      */
-    @Deprecated /* Use the top-level notify attribute instead. */
+    @Deprecated
     private @Nullable Boolean notify;
 
     private TeamSettingsReviewRequestDelegation() {}
@@ -51,11 +50,10 @@ public final class TeamSettingsReviewRequestDelegation {
     /**
      * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
      * 
-     * @deprecated
-     * Use the top-level notify attribute instead.
+     * @deprecated Use the top-level notify attribute instead.
      * 
      */
-    @Deprecated /* Use the top-level notify attribute instead. */
+    @Deprecated
     public Optional<Boolean> notify_() {
         return Optional.ofNullable(this.notify);
     }

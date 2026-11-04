@@ -356,6 +356,22 @@ class TeamSettings(pulumi.CustomResource):
         __props__.__dict__["team_uid"] = team_uid
         return TeamSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            notify: pulumi.Input[Optional[_builtins.bool]] = None,
+            review_request_delegation: pulumi.Input[Optional[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict', 'outputs.TeamSettingsReviewRequestDelegation']]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            team_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            team_uid: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["notify"] = notify
+        __props__["reviewRequestDelegation"] = review_request_delegation
+        __props__["teamId"] = team_id
+        __props__["teamSlug"] = team_slug
+        __props__["teamUid"] = team_uid
+        return pulumi.runtime.exists_resource(None, 'github:index/teamSettings:TeamSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def notify(self) -> pulumi.Output[Optional[_builtins.bool]]:

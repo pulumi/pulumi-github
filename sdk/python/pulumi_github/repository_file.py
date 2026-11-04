@@ -764,6 +764,42 @@ class RepositoryFile(pulumi.CustomResource):
         __props__.__dict__["sha"] = sha
         return RepositoryFile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            autocreate_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+            autocreate_branch_source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            autocreate_branch_source_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_author: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_email: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_sha: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            file: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            ref: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            sha: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autocreateBranch"] = autocreate_branch
+        __props__["autocreateBranchSourceBranch"] = autocreate_branch_source_branch
+        __props__["autocreateBranchSourceSha"] = autocreate_branch_source_sha
+        __props__["branch"] = branch
+        __props__["commitAuthor"] = commit_author
+        __props__["commitEmail"] = commit_email
+        __props__["commitMessage"] = commit_message
+        __props__["commitSha"] = commit_sha
+        __props__["content"] = content
+        __props__["file"] = file
+        __props__["overwriteOnCreate"] = overwrite_on_create
+        __props__["ref"] = ref
+        __props__["repository"] = repository
+        __props__["repositoryId"] = repository_id
+        __props__["sha"] = sha
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryFile:RepositoryFile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autocreateBranch")
     @_utilities.deprecated("""Use `Branch` resource instead""")

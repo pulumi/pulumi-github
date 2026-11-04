@@ -121,6 +121,12 @@ func (RepositoryTopicsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryTopicsState)(nil)).Elem()
 }
 
+// RepositoryTopicsExists checks whether an existing RepositoryTopics resource with the given ID exists.
+func RepositoryTopicsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryTopicsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryTopics:RepositoryTopics", id, state, "", opts...)
+}
+
 type repositoryTopicsArgs struct {
 	// The repository name.
 	Repository string `pulumi:"repository"`

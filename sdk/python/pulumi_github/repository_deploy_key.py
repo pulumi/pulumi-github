@@ -362,6 +362,22 @@ class RepositoryDeployKey(pulumi.CustomResource):
         __props__.__dict__["title"] = title
         return RepositoryDeployKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["etag"] = etag
+        __props__["key"] = key
+        __props__["readOnly"] = read_only
+        __props__["repository"] = repository
+        __props__["title"] = title
+        return pulumi.runtime.exists_resource(None, 'github:index/repositoryDeployKey:RepositoryDeployKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:

@@ -157,6 +157,12 @@ func (EnterpriseSecurityAnalysisSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseSecurityAnalysisSettingsState)(nil)).Elem()
 }
 
+// EnterpriseSecurityAnalysisSettingsExists checks whether an existing EnterpriseSecurityAnalysisSettings resource with the given ID exists.
+func EnterpriseSecurityAnalysisSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnterpriseSecurityAnalysisSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings", id, state, "", opts...)
+}
+
 type enterpriseSecurityAnalysisSettingsArgs struct {
 	// Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
 	AdvancedSecurityEnabledForNewRepositories *bool `pulumi:"advancedSecurityEnabledForNewRepositories"`

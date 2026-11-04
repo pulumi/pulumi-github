@@ -118,6 +118,12 @@ func (UserInvitationAccepterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userInvitationAccepterState)(nil)).Elem()
 }
 
+// UserInvitationAccepterExists checks whether an existing UserInvitationAccepter resource with the given ID exists.
+func UserInvitationAccepterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserInvitationAccepterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/userInvitationAccepter:UserInvitationAccepter", id, state, "", opts...)
+}
+
 type userInvitationAccepterArgs struct {
 	// Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
 	AllowEmptyId *bool `pulumi:"allowEmptyId"`

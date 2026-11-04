@@ -110,6 +110,12 @@ func (OrganizationRoleUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationRoleUserState)(nil)).Elem()
 }
 
+// OrganizationRoleUserExists checks whether an existing OrganizationRoleUser resource with the given ID exists.
+func OrganizationRoleUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationRoleUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationRoleUser:OrganizationRoleUser", id, state, "", opts...)
+}
+
 type organizationRoleUserArgs struct {
 	// The login for the GitHub user account.
 	Login string `pulumi:"login"`

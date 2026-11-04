@@ -120,6 +120,12 @@ func (WorkflowRepositoryPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowRepositoryPermissionsState)(nil)).Elem()
 }
 
+// WorkflowRepositoryPermissionsExists checks whether an existing WorkflowRepositoryPermissions resource with the given ID exists.
+func WorkflowRepositoryPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkflowRepositoryPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions", id, state, "", opts...)
+}
+
 type workflowRepositoryPermissionsArgs struct {
 	// Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.
 	CanApprovePullRequestReviews *bool `pulumi:"canApprovePullRequestReviews"`

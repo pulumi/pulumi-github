@@ -366,6 +366,22 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         __props__.__dict__["sha_pinning_required"] = sha_pinning_required
         return ActionsOrganizationPermissions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_actions: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_actions_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsAllowedActionsConfigArgs', 'ActionsOrganizationPermissionsAllowedActionsConfigArgsDict', 'outputs.ActionsOrganizationPermissionsAllowedActionsConfig']]] = None,
+            enabled_repositories: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_repositories_config: pulumi.Input[Optional[Union['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs', 'ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict', 'outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig']]] = None,
+            sha_pinning_required: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedActions"] = allowed_actions
+        __props__["allowedActionsConfig"] = allowed_actions_config
+        __props__["enabledRepositories"] = enabled_repositories
+        __props__["enabledRepositoriesConfig"] = enabled_repositories_config
+        __props__["shaPinningRequired"] = sha_pinning_required
+        return pulumi.runtime.exists_resource(None, 'github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedActions")
     def allowed_actions(self) -> pulumi.Output[Optional[_builtins.str]]:

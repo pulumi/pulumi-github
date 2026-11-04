@@ -147,6 +147,12 @@ func (RepositoryCustomPropertyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryCustomPropertyState)(nil)).Elem()
 }
 
+// RepositoryCustomPropertyExists checks whether an existing RepositoryCustomProperty resource with the given ID exists.
+func RepositoryCustomPropertyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryCustomPropertyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryCustomProperty:RepositoryCustomProperty", id, state, "", opts...)
+}
+
 type repositoryCustomPropertyArgs struct {
 	// Name of the custom property.
 	PropertyName string `pulumi:"propertyName"`

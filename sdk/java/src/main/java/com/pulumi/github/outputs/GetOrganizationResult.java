@@ -59,11 +59,10 @@ public final class GetOrganizationResult {
     /**
      * @return **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
      * 
-     * @deprecated
-     * Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
+     * @deprecated Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
      * 
      */
-    @Deprecated /* Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version. */
+    @Deprecated
     private List<String> members;
     /**
      * @return The type of repository allowed to be created by members of the organization. Can be one of `ALL`, `PUBLIC`, `PRIVATE`, `NONE`.
@@ -225,11 +224,10 @@ public final class GetOrganizationResult {
     /**
      * @return **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
      * 
-     * @deprecated
-     * Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
+     * @deprecated Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.
      * 
      */
-    @Deprecated /* Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version. */
+    @Deprecated
     public List<String> members() {
         return this.members;
     }

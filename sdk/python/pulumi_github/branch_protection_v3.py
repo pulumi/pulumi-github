@@ -569,6 +569,30 @@ class BranchProtectionV3(pulumi.CustomResource):
         __props__.__dict__["restrictions"] = restrictions
         return BranchProtectionV3(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+            required_pull_request_reviews: pulumi.Input[Optional[Union['BranchProtectionV3RequiredPullRequestReviewsArgs', 'BranchProtectionV3RequiredPullRequestReviewsArgsDict', 'outputs.BranchProtectionV3RequiredPullRequestReviews']]] = None,
+            required_status_checks: pulumi.Input[Optional[Union['BranchProtectionV3RequiredStatusChecksArgs', 'BranchProtectionV3RequiredStatusChecksArgsDict', 'outputs.BranchProtectionV3RequiredStatusChecks']]] = None,
+            restrictions: pulumi.Input[Optional[Union['BranchProtectionV3RestrictionsArgs', 'BranchProtectionV3RestrictionsArgsDict', 'outputs.BranchProtectionV3Restrictions']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["branch"] = branch
+        __props__["enforceAdmins"] = enforce_admins
+        __props__["etag"] = etag
+        __props__["repository"] = repository
+        __props__["requireConversationResolution"] = require_conversation_resolution
+        __props__["requireSignedCommits"] = require_signed_commits
+        __props__["requiredPullRequestReviews"] = required_pull_request_reviews
+        __props__["requiredStatusChecks"] = required_status_checks
+        __props__["restrictions"] = restrictions
+        return pulumi.runtime.exists_resource(None, 'github:index/branchProtectionV3:BranchProtectionV3', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def branch(self) -> pulumi.Output[_builtins.str]:

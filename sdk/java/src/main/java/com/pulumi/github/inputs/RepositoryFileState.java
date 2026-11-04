@@ -20,22 +20,20 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     /**
      * **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     @Import(name="autocreateBranch")
     private @Nullable Output<Boolean> autocreateBranch;
 
     /**
      * @return **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     public Optional<Output<Boolean>> autocreateBranch() {
         return Optional.ofNullable(this.autocreateBranch);
     }
@@ -43,22 +41,20 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     /**
      * **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     @Import(name="autocreateBranchSourceBranch")
     private @Nullable Output<String> autocreateBranchSourceBranch;
 
     /**
      * @return **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     public Optional<Output<String>> autocreateBranchSourceBranch() {
         return Optional.ofNullable(this.autocreateBranchSourceBranch);
     }
@@ -66,22 +62,20 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     /**
      * **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     @Import(name="autocreateBranchSourceSha")
     private @Nullable Output<String> autocreateBranchSourceSha;
 
     /**
      * @return **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     public Optional<Output<String>> autocreateBranchSourceSha() {
         return Optional.ofNullable(this.autocreateBranchSourceSha);
     }
@@ -309,11 +303,10 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `github.Branch` resource instead
+         * @deprecated Use `github.Branch` resource instead
          * 
          */
-        @Deprecated /* Use `github.Branch` resource instead */
+        @Deprecated
         public Builder autocreateBranch(@Nullable Output<Boolean> autocreateBranch) {
             $.autocreateBranch = autocreateBranch;
             return this;
@@ -324,11 +317,10 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `github.Branch` resource instead
+         * @deprecated Use `github.Branch` resource instead
          * 
          */
-        @Deprecated /* Use `github.Branch` resource instead */
+        @Deprecated
         public Builder autocreateBranch(Boolean autocreateBranch) {
             return autocreateBranch(Output.of(autocreateBranch));
         }
@@ -338,11 +330,10 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `github.Branch` resource instead
+         * @deprecated Use `github.Branch` resource instead
          * 
          */
-        @Deprecated /* Use `github.Branch` resource instead */
+        @Deprecated
         public Builder autocreateBranchSourceBranch(@Nullable Output<String> autocreateBranchSourceBranch) {
             $.autocreateBranchSourceBranch = autocreateBranchSourceBranch;
             return this;
@@ -353,11 +344,10 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `github.Branch` resource instead
+         * @deprecated Use `github.Branch` resource instead
          * 
          */
-        @Deprecated /* Use `github.Branch` resource instead */
+        @Deprecated
         public Builder autocreateBranchSourceBranch(String autocreateBranchSourceBranch) {
             return autocreateBranchSourceBranch(Output.of(autocreateBranchSourceBranch));
         }
@@ -367,11 +357,10 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `github.Branch` resource instead
+         * @deprecated Use `github.Branch` resource instead
          * 
          */
-        @Deprecated /* Use `github.Branch` resource instead */
+        @Deprecated
         public Builder autocreateBranchSourceSha(@Nullable Output<String> autocreateBranchSourceSha) {
             $.autocreateBranchSourceSha = autocreateBranchSourceSha;
             return this;
@@ -382,11 +371,10 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `github.Branch` resource instead
+         * @deprecated Use `github.Branch` resource instead
          * 
          */
-        @Deprecated /* Use `github.Branch` resource instead */
+        @Deprecated
         public Builder autocreateBranchSourceSha(String autocreateBranchSourceSha) {
             return autocreateBranchSourceSha(Output.of(autocreateBranchSourceSha));
         }

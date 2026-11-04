@@ -144,11 +144,10 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
     /**
      * **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     @Export(name="autocreateBranch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autocreateBranch;
 
@@ -162,11 +161,10 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
     /**
      * **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     @Export(name="autocreateBranchSourceBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autocreateBranchSourceBranch;
 
@@ -180,11 +178,10 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
     /**
      * **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
      * 
-     * @deprecated
-     * Use `github.Branch` resource instead
+     * @deprecated Use `github.Branch` resource instead
      * 
      */
-    @Deprecated /* Use `github.Branch` resource instead */
+    @Deprecated
     @Export(name="autocreateBranchSourceSha", refs={String.class}, tree="[0]")
     private Output<String> autocreateBranchSourceSha;
 

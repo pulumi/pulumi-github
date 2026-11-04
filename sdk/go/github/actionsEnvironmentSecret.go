@@ -307,6 +307,12 @@ func (ActionsEnvironmentSecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsEnvironmentSecretState)(nil)).Elem()
 }
 
+// ActionsEnvironmentSecretExists checks whether an existing ActionsEnvironmentSecret resource with the given ID exists.
+func ActionsEnvironmentSecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsEnvironmentSecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret", id, state, "", opts...)
+}
+
 type actionsEnvironmentSecretArgs struct {
 	// (Optional) Please use `valueEncrypted`.
 	//

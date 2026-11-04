@@ -248,6 +248,12 @@ func (BranchProtectionV3State) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchProtectionV3State)(nil)).Elem()
 }
 
+// BranchProtectionV3Exists checks whether an existing BranchProtectionV3 resource with the given ID exists.
+func BranchProtectionV3Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchProtectionV3State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/branchProtectionV3:BranchProtectionV3", id, state, "", opts...)
+}
+
 type branchProtectionV3Args struct {
 	// The Git branch to protect.
 	Branch string `pulumi:"branch"`

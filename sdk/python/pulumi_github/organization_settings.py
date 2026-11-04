@@ -1207,6 +1207,64 @@ class OrganizationSettings(pulumi.CustomResource):
         __props__.__dict__["web_commit_signoff_required"] = web_commit_signoff_required
         return OrganizationSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            billing_email: pulumi.Input[Optional[_builtins.str]] = None,
+            blog: pulumi.Input[Optional[_builtins.str]] = None,
+            company: pulumi.Input[Optional[_builtins.str]] = None,
+            default_repository_permission: pulumi.Input[Optional[_builtins.str]] = None,
+            dependabot_alerts_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            dependabot_security_updates_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            dependency_graph_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            has_organization_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_repository_projects: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            members_can_create_internal_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_private_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_public_pages: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_public_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_create_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            members_can_fork_private_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            twitter_username: pulumi.Input[Optional[_builtins.str]] = None,
+            web_commit_signoff_required: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["advancedSecurityEnabledForNewRepositories"] = advanced_security_enabled_for_new_repositories
+        __props__["billingEmail"] = billing_email
+        __props__["blog"] = blog
+        __props__["company"] = company
+        __props__["defaultRepositoryPermission"] = default_repository_permission
+        __props__["dependabotAlertsEnabledForNewRepositories"] = dependabot_alerts_enabled_for_new_repositories
+        __props__["dependabotSecurityUpdatesEnabledForNewRepositories"] = dependabot_security_updates_enabled_for_new_repositories
+        __props__["dependencyGraphEnabledForNewRepositories"] = dependency_graph_enabled_for_new_repositories
+        __props__["description"] = description
+        __props__["email"] = email
+        __props__["hasOrganizationProjects"] = has_organization_projects
+        __props__["hasRepositoryProjects"] = has_repository_projects
+        __props__["location"] = location
+        __props__["membersCanCreateInternalRepositories"] = members_can_create_internal_repositories
+        __props__["membersCanCreatePages"] = members_can_create_pages
+        __props__["membersCanCreatePrivatePages"] = members_can_create_private_pages
+        __props__["membersCanCreatePrivateRepositories"] = members_can_create_private_repositories
+        __props__["membersCanCreatePublicPages"] = members_can_create_public_pages
+        __props__["membersCanCreatePublicRepositories"] = members_can_create_public_repositories
+        __props__["membersCanCreateRepositories"] = members_can_create_repositories
+        __props__["membersCanForkPrivateRepositories"] = members_can_fork_private_repositories
+        __props__["name"] = name
+        __props__["secretScanningEnabledForNewRepositories"] = secret_scanning_enabled_for_new_repositories
+        __props__["secretScanningPushProtectionEnabledForNewRepositories"] = secret_scanning_push_protection_enabled_for_new_repositories
+        __props__["twitterUsername"] = twitter_username
+        __props__["webCommitSignoffRequired"] = web_commit_signoff_required
+        return pulumi.runtime.exists_resource(None, 'github:index/organizationSettings:OrganizationSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="advancedSecurityEnabledForNewRepositories")
     def advanced_security_enabled_for_new_repositories(self) -> pulumi.Output[Optional[_builtins.bool]]:

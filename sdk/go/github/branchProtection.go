@@ -245,6 +245,12 @@ func (BranchProtectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchProtectionState)(nil)).Elem()
 }
 
+// BranchProtectionExists checks whether an existing BranchProtection resource with the given ID exists.
+func BranchProtectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchProtectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/branchProtection:BranchProtection", id, state, "", opts...)
+}
+
 type branchProtectionArgs struct {
 	// Boolean, setting this to `true` to allow the branch to be deleted.
 	AllowsDeletions *bool `pulumi:"allowsDeletions"`

@@ -132,6 +132,12 @@ func (OrganizationWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationWebhookState)(nil)).Elem()
 }
 
+// OrganizationWebhookExists checks whether an existing OrganizationWebhook resource with the given ID exists.
+func OrganizationWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationWebhook:OrganizationWebhook", id, state, "", opts...)
+}
+
 type organizationWebhookArgs struct {
 	// Indicate of the webhook should receive events. Defaults to `true`.
 	Active *bool `pulumi:"active"`

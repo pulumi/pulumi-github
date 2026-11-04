@@ -411,6 +411,24 @@ class BranchDefault(pulumi.CustomResource):
         __props__.__dict__["wait_for_rename"] = wait_for_rename
         return BranchDefault(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            rename: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.int]] = None,
+            wait_for_rename: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["branch"] = branch
+        __props__["etag"] = etag
+        __props__["rename"] = rename
+        __props__["repository"] = repository
+        __props__["repositoryId"] = repository_id
+        __props__["waitForRename"] = wait_for_rename
+        return pulumi.runtime.exists_resource(None, 'github:index/branchDefault:BranchDefault', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def branch(self) -> pulumi.Output[_builtins.str]:

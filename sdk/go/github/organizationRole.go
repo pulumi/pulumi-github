@@ -131,6 +131,12 @@ func (OrganizationRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationRoleState)(nil)).Elem()
 }
 
+// OrganizationRoleExists checks whether an existing OrganizationRole resource with the given ID exists.
+func OrganizationRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/organizationRole:OrganizationRole", id, state, "", opts...)
+}
+
 type organizationRoleArgs struct {
 	// The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
 	BaseRole *string `pulumi:"baseRole"`

@@ -21,22 +21,20 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     /**
      * (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     @Import(name="encryptedValue")
     private @Nullable Output<String> encryptedValue;
 
     /**
      * @return (Optional) Please use `valueEncrypted`.
      * 
-     * @deprecated
-     * Use valueEncrypted and key_id.
+     * @deprecated Use valueEncrypted and key_id.
      * 
      */
-    @Deprecated /* Use valueEncrypted and key_id. */
+    @Deprecated
     public Optional<Output<String>> encryptedValue() {
         return Optional.ofNullable(this.encryptedValue);
     }
@@ -59,22 +57,20 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     /**
      * (Optional) Please use `value`.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
      * @return (Optional) Please use `value`.
      * 
-     * @deprecated
-     * Use value.
+     * @deprecated Use value.
      * 
      */
-    @Deprecated /* Use value. */
+    @Deprecated
     public Optional<Output<String>> plaintextValue() {
         return Optional.ofNullable(this.plaintextValue);
     }
@@ -99,11 +95,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
      * 
      * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+     * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
+    @Deprecated
     @Import(name="selectedRepositoryIds")
     private @Nullable Output<List<Integer>> selectedRepositoryIds;
 
@@ -112,11 +107,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
      * 
      * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+     * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
+    @Deprecated
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
         return Optional.ofNullable(this.selectedRepositoryIds);
     }
@@ -202,11 +196,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use valueEncrypted and key_id.
+         * @deprecated Use valueEncrypted and key_id.
          * 
          */
-        @Deprecated /* Use valueEncrypted and key_id. */
+        @Deprecated
         public Builder encryptedValue(@Nullable Output<String> encryptedValue) {
             $.encryptedValue = encryptedValue;
             return this;
@@ -217,11 +210,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use valueEncrypted and key_id.
+         * @deprecated Use valueEncrypted and key_id.
          * 
          */
-        @Deprecated /* Use valueEncrypted and key_id. */
+        @Deprecated
         public Builder encryptedValue(String encryptedValue) {
             return encryptedValue(Output.of(encryptedValue));
         }
@@ -252,11 +244,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use value.
+         * @deprecated Use value.
          * 
          */
-        @Deprecated /* Use value. */
+        @Deprecated
         public Builder plaintextValue(@Nullable Output<String> plaintextValue) {
             $.plaintextValue = plaintextValue;
             return this;
@@ -267,11 +258,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use value.
+         * @deprecated Use value.
          * 
          */
-        @Deprecated /* Use value. */
+        @Deprecated
         public Builder plaintextValue(String plaintextValue) {
             return plaintextValue(Output.of(plaintextValue));
         }
@@ -304,11 +294,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
+        @Deprecated
         public Builder selectedRepositoryIds(@Nullable Output<List<Integer>> selectedRepositoryIds) {
             $.selectedRepositoryIds = selectedRepositoryIds;
             return this;
@@ -321,11 +310,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
+        @Deprecated
         public Builder selectedRepositoryIds(List<Integer> selectedRepositoryIds) {
             return selectedRepositoryIds(Output.of(selectedRepositoryIds));
         }
@@ -337,11 +325,10 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
+        @Deprecated
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
         }

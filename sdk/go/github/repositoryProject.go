@@ -125,6 +125,12 @@ func (RepositoryProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryProjectState)(nil)).Elem()
 }
 
+// RepositoryProjectExists checks whether an existing RepositoryProject resource with the given ID exists.
+func RepositoryProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryProject:RepositoryProject", id, state, "", opts...)
+}
+
 type repositoryProjectArgs struct {
 	// The body of the project.
 	Body *string `pulumi:"body"`

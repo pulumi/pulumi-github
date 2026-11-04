@@ -209,6 +209,12 @@ func (ProjectCardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectCardState)(nil)).Elem()
 }
 
+// ProjectCardExists checks whether an existing ProjectCard resource with the given ID exists.
+func ProjectCardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectCardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/projectCard:ProjectCard", id, state, "", opts...)
+}
+
 type projectCardArgs struct {
 	// The ID of the card.
 	ColumnId string `pulumi:"columnId"`

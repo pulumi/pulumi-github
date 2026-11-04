@@ -50,11 +50,10 @@ public final class GetTeamResult {
     /**
      * @return (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
      * 
-     * @deprecated
-     * Closing down notice.
+     * @deprecated Closing down notice.
      * 
      */
-    @Deprecated /* Closing down notice. */
+    @Deprecated
     private String permission;
     /**
      * @return Team&#39;s privacy type. Can either be `closed` or `secret`.
@@ -64,11 +63,10 @@ public final class GetTeamResult {
     /**
      * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`.
      * 
-     * @deprecated
-     * Use repositoriesDetailed instead.
+     * @deprecated Use repositoriesDetailed instead.
      * 
      */
-    @Deprecated /* Use repositoriesDetailed instead. */
+    @Deprecated
     private List<String> repositories;
     /**
      * @return List of team repositories (each item comprises of `repoId`, `repoName` &amp; `roleName`). Not returned if `summaryOnly = true`.
@@ -76,11 +74,10 @@ public final class GetTeamResult {
      */
     private List<GetTeamRepositoriesDetailed> repositoriesDetaileds;
     /**
-     * @deprecated
-     * This is deprecated and will be removed in a future release.
+     * @deprecated This is deprecated and will be removed in a future release.
      * 
      */
-    @Deprecated /* This is deprecated and will be removed in a future release. */
+    @Deprecated
     private @Nullable Integer resultsPerPage;
     private String slug;
     private @Nullable Boolean summaryOnly;
@@ -134,11 +131,10 @@ public final class GetTeamResult {
     /**
      * @return (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
      * 
-     * @deprecated
-     * Closing down notice.
+     * @deprecated Closing down notice.
      * 
      */
-    @Deprecated /* Closing down notice. */
+    @Deprecated
     public String permission() {
         return this.permission;
     }
@@ -152,11 +148,10 @@ public final class GetTeamResult {
     /**
      * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`.
      * 
-     * @deprecated
-     * Use repositoriesDetailed instead.
+     * @deprecated Use repositoriesDetailed instead.
      * 
      */
-    @Deprecated /* Use repositoriesDetailed instead. */
+    @Deprecated
     public List<String> repositories() {
         return this.repositories;
     }
@@ -168,11 +163,10 @@ public final class GetTeamResult {
         return this.repositoriesDetaileds;
     }
     /**
-     * @deprecated
-     * This is deprecated and will be removed in a future release.
+     * @deprecated This is deprecated and will be removed in a future release.
      * 
      */
-    @Deprecated /* This is deprecated and will be removed in a future release. */
+    @Deprecated
     public Optional<Integer> resultsPerPage() {
         return Optional.ofNullable(this.resultsPerPage);
     }

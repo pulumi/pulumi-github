@@ -59,29 +59,26 @@ public final class GetIpRangesResult {
     /**
      * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
      * 
-     * @deprecated
-     * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      * 
      */
-    @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
+    @Deprecated
     private List<String> dependabotIpv4s;
     /**
      * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
      * 
-     * @deprecated
-     * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      * 
      */
-    @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
+    @Deprecated
     private List<String> dependabotIpv6s;
     /**
      * @return **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
      * 
-     * @deprecated
-     * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      * 
      */
-    @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
+    @Deprecated
     private List<String> dependabots;
     /**
      * @return A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
@@ -261,33 +258,30 @@ public final class GetIpRangesResult {
     /**
      * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
      * 
-     * @deprecated
-     * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      * 
      */
-    @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
+    @Deprecated
     public List<String> dependabotIpv4s() {
         return this.dependabotIpv4s;
     }
     /**
      * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
      * 
-     * @deprecated
-     * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      * 
      */
-    @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
+    @Deprecated
     public List<String> dependabotIpv6s() {
         return this.dependabotIpv6s;
     }
     /**
      * @return **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
      * 
-     * @deprecated
-     * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      * 
      */
-    @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
+    @Deprecated
     public List<String> dependabots() {
         return this.dependabots;
     }

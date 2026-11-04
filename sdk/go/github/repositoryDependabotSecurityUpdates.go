@@ -121,6 +121,12 @@ func (RepositoryDependabotSecurityUpdatesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryDependabotSecurityUpdatesState)(nil)).Elem()
 }
 
+// RepositoryDependabotSecurityUpdatesExists checks whether an existing RepositoryDependabotSecurityUpdates resource with the given ID exists.
+func RepositoryDependabotSecurityUpdatesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryDependabotSecurityUpdatesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates", id, state, "", opts...)
+}
+
 type repositoryDependabotSecurityUpdatesArgs struct {
 	// The state of the automated security fixes.
 	Enabled bool `pulumi:"enabled"`

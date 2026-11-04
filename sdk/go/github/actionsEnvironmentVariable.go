@@ -196,6 +196,12 @@ func (ActionsEnvironmentVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsEnvironmentVariableState)(nil)).Elem()
 }
 
+// ActionsEnvironmentVariableExists checks whether an existing ActionsEnvironmentVariable resource with the given ID exists.
+func ActionsEnvironmentVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsEnvironmentVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable", id, state, "", opts...)
+}
+
 type actionsEnvironmentVariableArgs struct {
 	// Name of the environment.
 	Environment string `pulumi:"environment"`

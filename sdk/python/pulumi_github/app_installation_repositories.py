@@ -260,6 +260,16 @@ class AppInstallationRepositories(pulumi.CustomResource):
         __props__.__dict__["selected_repositories"] = selected_repositories
         return AppInstallationRepositories(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            selected_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["installationId"] = installation_id
+        __props__["selectedRepositories"] = selected_repositories
+        return pulumi.runtime.exists_resource(None, 'github:index/appInstallationRepositories:AppInstallationRepositories', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="installationId")
     def installation_id(self) -> pulumi.Output[_builtins.str]:

@@ -149,6 +149,12 @@ func (EnterpriseOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseOrganizationState)(nil)).Elem()
 }
 
+// EnterpriseOrganizationExists checks whether an existing EnterpriseOrganization resource with the given ID exists.
+func EnterpriseOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnterpriseOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/enterpriseOrganization:EnterpriseOrganization", id, state, "", opts...)
+}
+
 type enterpriseOrganizationArgs struct {
 	// List of organization owner usernames.
 	AdminLogins []string `pulumi:"adminLogins"`

@@ -423,6 +423,24 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
         __props__.__dict__["secret_scanning_validity_checks_enabled"] = secret_scanning_validity_checks_enabled
         return EnterpriseSecurityAnalysisSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advanced_security_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_scanning_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            secret_scanning_push_protection_custom_link: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_scanning_push_protection_enabled_for_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            secret_scanning_validity_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["advancedSecurityEnabledForNewRepositories"] = advanced_security_enabled_for_new_repositories
+        __props__["enterpriseSlug"] = enterprise_slug
+        __props__["secretScanningEnabledForNewRepositories"] = secret_scanning_enabled_for_new_repositories
+        __props__["secretScanningPushProtectionCustomLink"] = secret_scanning_push_protection_custom_link
+        __props__["secretScanningPushProtectionEnabledForNewRepositories"] = secret_scanning_push_protection_enabled_for_new_repositories
+        __props__["secretScanningValidityChecksEnabled"] = secret_scanning_validity_checks_enabled
+        return pulumi.runtime.exists_resource(None, 'github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="advancedSecurityEnabledForNewRepositories")
     def advanced_security_enabled_for_new_repositories(self) -> pulumi.Output[Optional[_builtins.bool]]:

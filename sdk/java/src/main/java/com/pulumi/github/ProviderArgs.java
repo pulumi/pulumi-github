@@ -68,22 +68,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Allow insecure server connections when using SSL.
      * 
-     * @deprecated
-     * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
+     * @deprecated This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
      * 
      */
-    @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
+    @Deprecated
     @Import(name="insecure", json=true)
     private @Nullable Output<Boolean> insecure;
 
     /**
      * @return Allow insecure server connections when using SSL.
      * 
-     * @deprecated
-     * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
+     * @deprecated This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
      * 
      */
-    @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
+    @Deprecated
     public Optional<Output<Boolean>> insecure() {
         return Optional.ofNullable(this.insecure);
     }
@@ -136,22 +134,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
      * 
-     * @deprecated
-     * This argument is deprecated and will be removed in a future major release; use `owner` instead.
+     * @deprecated This argument is deprecated and will be removed in a future major release; use `owner` instead.
      * 
      */
-    @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
+    @Deprecated
     @Import(name="organization")
     private @Nullable Output<String> organization;
 
     /**
      * @return GitHub organization to manage. This can also be set by the `GITHUB_ORGANIZATION` environment variable.
      * 
-     * @deprecated
-     * This argument is deprecated and will be removed in a future major release; use `owner` instead.
+     * @deprecated This argument is deprecated and will be removed in a future major release; use `owner` instead.
      * 
      */
-    @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
+    @Deprecated
     public Optional<Output<String>> organization() {
         return Optional.ofNullable(this.organization);
     }
@@ -367,11 +363,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
+         * @deprecated This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
          * 
          */
-        @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
+        @Deprecated
         public Builder insecure(@Nullable Output<Boolean> insecure) {
             $.insecure = insecure;
             return this;
@@ -382,11 +377,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
+         * @deprecated This argument is deprecated as it&#39;s currently not used and will be removed in the next major version.
          * 
          */
-        @Deprecated /* This argument is deprecated as it's currently not used and will be removed in the next major version. */
+        @Deprecated
         public Builder insecure(Boolean insecure) {
             return insecure(Output.of(insecure));
         }
@@ -459,11 +453,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This argument is deprecated and will be removed in a future major release; use `owner` instead.
+         * @deprecated This argument is deprecated and will be removed in a future major release; use `owner` instead.
          * 
          */
-        @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
+        @Deprecated
         public Builder organization(@Nullable Output<String> organization) {
             $.organization = organization;
             return this;
@@ -474,11 +467,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This argument is deprecated and will be removed in a future major release; use `owner` instead.
+         * @deprecated This argument is deprecated and will be removed in a future major release; use `owner` instead.
          * 
          */
-        @Deprecated /* This argument is deprecated and will be removed in a future major release; use `owner` instead. */
+        @Deprecated
         public Builder organization(String organization) {
             return organization(Output.of(organization));
         }

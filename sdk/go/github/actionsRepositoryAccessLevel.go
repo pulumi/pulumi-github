@@ -117,6 +117,12 @@ func (ActionsRepositoryAccessLevelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsRepositoryAccessLevelState)(nil)).Elem()
 }
 
+// ActionsRepositoryAccessLevelExists checks whether an existing ActionsRepositoryAccessLevel resource with the given ID exists.
+func ActionsRepositoryAccessLevelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsRepositoryAccessLevelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel", id, state, "", opts...)
+}
+
 type actionsRepositoryAccessLevelArgs struct {
 	// Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
 	AccessLevel string `pulumi:"accessLevel"`

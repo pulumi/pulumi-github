@@ -155,6 +155,12 @@ func (RepositoryDeployKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryDeployKeyState)(nil)).Elem()
 }
 
+// RepositoryDeployKeyExists checks whether an existing RepositoryDeployKey resource with the given ID exists.
+func RepositoryDeployKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryDeployKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryDeployKey:RepositoryDeployKey", id, state, "", opts...)
+}
+
 type repositoryDeployKeyArgs struct {
 	// A SSH key.
 	Key string `pulumi:"key"`

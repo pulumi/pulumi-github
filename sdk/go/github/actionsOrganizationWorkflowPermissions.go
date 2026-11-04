@@ -135,6 +135,12 @@ func (ActionsOrganizationWorkflowPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsOrganizationWorkflowPermissionsState)(nil)).Elem()
 }
 
+// ActionsOrganizationWorkflowPermissionsExists checks whether an existing ActionsOrganizationWorkflowPermissions resource with the given ID exists.
+func ActionsOrganizationWorkflowPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsOrganizationWorkflowPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions", id, state, "", opts...)
+}
+
 type actionsOrganizationWorkflowPermissionsArgs struct {
 	// Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
 	CanApprovePullRequestReviews *bool `pulumi:"canApprovePullRequestReviews"`

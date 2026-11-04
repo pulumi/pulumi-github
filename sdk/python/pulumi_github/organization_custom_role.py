@@ -354,6 +354,20 @@ class OrganizationCustomRole(pulumi.CustomResource):
         __props__.__dict__["permissions"] = permissions
         return OrganizationCustomRole(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            base_role: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["baseRole"] = base_role
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["permissions"] = permissions
+        return pulumi.runtime.exists_resource(None, 'github:index/organizationCustomRole:OrganizationCustomRole', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="baseRole")
     def base_role(self) -> pulumi.Output[_builtins.str]:

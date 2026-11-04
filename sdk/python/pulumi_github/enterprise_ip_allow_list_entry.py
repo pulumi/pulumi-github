@@ -346,6 +346,24 @@ class EnterpriseIpAllowListEntry(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return EnterpriseIpAllowListEntry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            enterprise_slug: pulumi.Input[Optional[_builtins.str]] = None,
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["enterpriseSlug"] = enterprise_slug
+        __props__["ip"] = ip
+        __props__["isActive"] = is_active
+        __props__["name"] = name
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'github:index/enterpriseIpAllowListEntry:EnterpriseIpAllowListEntry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

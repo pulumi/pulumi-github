@@ -145,6 +145,12 @@ func (TeamRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamRepositoryState)(nil)).Elem()
 }
 
+// TeamRepositoryExists checks whether an existing TeamRepository resource with the given ID exists.
+func TeamRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/teamRepository:TeamRepository", id, state, "", opts...)
+}
+
 type teamRepositoryArgs struct {
 	// The permissions of team members regarding the repository. Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	Permission *string `pulumi:"permission"`

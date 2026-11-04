@@ -111,6 +111,12 @@ func (CodespacesUserSecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*codespacesUserSecretState)(nil)).Elem()
 }
 
+// CodespacesUserSecretExists checks whether an existing CodespacesUserSecret resource with the given ID exists.
+func CodespacesUserSecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CodespacesUserSecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/codespacesUserSecret:CodespacesUserSecret", id, state, "", opts...)
+}
+
 type codespacesUserSecretArgs struct {
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`

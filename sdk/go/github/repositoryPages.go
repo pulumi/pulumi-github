@@ -253,6 +253,12 @@ func (RepositoryPagesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPagesState)(nil)).Elem()
 }
 
+// RepositoryPagesExists checks whether an existing RepositoryPages resource with the given ID exists.
+func RepositoryPagesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPagesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/repositoryPages:RepositoryPages", id, state, "", opts...)
+}
+
 type repositoryPagesArgs struct {
 	// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. Defaults to `legacy`.
 	BuildType *string `pulumi:"buildType"`

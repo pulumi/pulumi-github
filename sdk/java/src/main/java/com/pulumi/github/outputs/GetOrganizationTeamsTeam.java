@@ -41,11 +41,10 @@ public final class GetOrganizationTeamsTeam {
     /**
      * @return (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
      * 
-     * @deprecated
-     * Use parentTeamId and parentTeamSlug instead.
+     * @deprecated Use parentTeamId and parentTeamSlug instead.
      * 
      */
-    @Deprecated /* Use parentTeamId and parentTeamSlug instead. */
+    @Deprecated
     private Map<String,String> parent;
     /**
      * @return The ID of the parent team, if there is one.
@@ -112,11 +111,10 @@ public final class GetOrganizationTeamsTeam {
     /**
      * @return (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
      * 
-     * @deprecated
-     * Use parentTeamId and parentTeamSlug instead.
+     * @deprecated Use parentTeamId and parentTeamSlug instead.
      * 
      */
-    @Deprecated /* Use parentTeamId and parentTeamSlug instead. */
+    @Deprecated
     public Map<String,String> parent() {
         return this.parent;
     }

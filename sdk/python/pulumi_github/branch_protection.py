@@ -739,6 +739,38 @@ class BranchProtection(pulumi.CustomResource):
         __props__.__dict__["restrict_pushes"] = restrict_pushes
         return BranchProtection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allows_deletions: pulumi.Input[Optional[_builtins.bool]] = None,
+            allows_force_pushes: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_push_bypassers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            lock_branch: pulumi.Input[Optional[_builtins.bool]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+            require_conversation_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_signed_commits: pulumi.Input[Optional[_builtins.bool]] = None,
+            required_linear_history: pulumi.Input[Optional[_builtins.bool]] = None,
+            required_pull_request_reviews: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict', 'outputs.BranchProtectionRequiredPullRequestReview']]]]] = None,
+            required_status_checks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict', 'outputs.BranchProtectionRequiredStatusCheck']]]]] = None,
+            restrict_pushes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict', 'outputs.BranchProtectionRestrictPush']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowsDeletions"] = allows_deletions
+        __props__["allowsForcePushes"] = allows_force_pushes
+        __props__["enforceAdmins"] = enforce_admins
+        __props__["forcePushBypassers"] = force_push_bypassers
+        __props__["lockBranch"] = lock_branch
+        __props__["pattern"] = pattern
+        __props__["repositoryId"] = repository_id
+        __props__["requireConversationResolution"] = require_conversation_resolution
+        __props__["requireSignedCommits"] = require_signed_commits
+        __props__["requiredLinearHistory"] = required_linear_history
+        __props__["requiredPullRequestReviews"] = required_pull_request_reviews
+        __props__["requiredStatusChecks"] = required_status_checks
+        __props__["restrictPushes"] = restrict_pushes
+        return pulumi.runtime.exists_resource(None, 'github:index/branchProtection:BranchProtection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowsDeletions")
     def allows_deletions(self) -> pulumi.Output[Optional[_builtins.bool]]:

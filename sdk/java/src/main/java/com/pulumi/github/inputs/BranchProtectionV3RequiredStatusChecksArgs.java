@@ -37,11 +37,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
      * 
      * &gt; Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(&lt;matrix_value&gt;[, &lt;matrix_value&gt;])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `&lt;initial_workflow.jobs.job.[name/id]&gt; / &lt;reused-workflow.jobs.job.[name/id]&gt;`. This can extend multiple levels.
      * 
-     * @deprecated
-     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+     * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      * 
      */
-    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
+    @Deprecated
     @Import(name="contexts")
     private @Nullable Output<List<String>> contexts;
 
@@ -50,30 +49,27 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
      * 
      * &gt; Note: This attribute can contain multiple string patterns. If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to. For workflows that use matrixes, append the matrix name to the value using the following pattern `(&lt;matrix_value&gt;[, &lt;matrix_value&gt;])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See [GitHub Documentation](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#using-a-matrix-strategy) for more information. For workflows that use reusable workflows, the pattern is `&lt;initial_workflow.jobs.job.[name/id]&gt; / &lt;reused-workflow.jobs.job.[name/id]&gt;`. This can extend multiple levels.
      * 
-     * @deprecated
-     * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+     * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      * 
      */
-    @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
+    @Deprecated
     public Optional<Output<List<String>>> contexts() {
         return Optional.ofNullable(this.contexts);
     }
 
     /**
-     * @deprecated
-     * Use enforceAdmins instead
+     * @deprecated Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforceAdmins instead */
+    @Deprecated
     @Import(name="includeAdmins")
     private @Nullable Output<Boolean> includeAdmins;
 
     /**
-     * @deprecated
-     * Use enforceAdmins instead
+     * @deprecated Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforceAdmins instead */
+    @Deprecated
     public Optional<Output<Boolean>> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }
@@ -158,11 +154,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+         * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
          * 
          */
-        @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
+        @Deprecated
         public Builder contexts(@Nullable Output<List<String>> contexts) {
             $.contexts = contexts;
             return this;
@@ -175,11 +170,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+         * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
          * 
          */
-        @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
+        @Deprecated
         public Builder contexts(List<String> contexts) {
             return contexts(Output.of(contexts));
         }
@@ -191,11 +185,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
+         * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
          * 
          */
-        @Deprecated /* GitHub is deprecating the use of `contexts`. Use a `checks` array instead. */
+        @Deprecated
         public Builder contexts(String... contexts) {
             return contexts(List.of(contexts));
         }
@@ -203,11 +196,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use enforceAdmins instead
+         * @deprecated Use enforceAdmins instead
          * 
          */
-        @Deprecated /* Use enforceAdmins instead */
+        @Deprecated
         public Builder includeAdmins(@Nullable Output<Boolean> includeAdmins) {
             $.includeAdmins = includeAdmins;
             return this;
@@ -216,11 +208,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use enforceAdmins instead
+         * @deprecated Use enforceAdmins instead
          * 
          */
-        @Deprecated /* Use enforceAdmins instead */
+        @Deprecated
         public Builder includeAdmins(Boolean includeAdmins) {
             return includeAdmins(Output.of(includeAdmins));
         }

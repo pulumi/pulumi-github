@@ -144,6 +144,12 @@ func (ActionsOrganizationPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionsOrganizationPermissionsState)(nil)).Elem()
 }
 
+// ActionsOrganizationPermissionsExists checks whether an existing ActionsOrganizationPermissions resource with the given ID exists.
+func ActionsOrganizationPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionsOrganizationPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions", id, state, "", opts...)
+}
+
 type actionsOrganizationPermissionsArgs struct {
 	// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
 	AllowedActions *string `pulumi:"allowedActions"`
