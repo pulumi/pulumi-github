@@ -252,7 +252,7 @@ config:
 
 ```
 
-> When using environment variables, an empty `appAuth` block is required to allow provider configurations from environment variables to be specified. See: <https://github.com/pulumi/pulumi-plugin-sdk/issues/142>
+> When using environment variables, an empty `appAuth` block is required to allow provider configurations from environment variables to be specified. See: <https://github.com/hashicorp/terraform-plugin-sdk/issues/142>
 #### .env
 
 ```shell

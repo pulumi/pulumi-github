@@ -27,6 +27,7 @@ import (
 	"github.com/integrations/terraform-provider-github/v6/github"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
@@ -277,6 +278,18 @@ func Provider() tfbridge.ProviderInfo {
 
 // Docs Edits
 
+// The default edits rewrite "hashicorp" and "terraform" in prose, which turns the upstream link to
+// hashicorp/terraform-plugin-sdk#142 into a nonexistent pulumi/pulumi-plugin-sdk URL.
+var fixPluginSDKIssueLink = tfbridge.DocsEdit{
+	Path:  "index.md",
+	Phase: info.PostCodeTranslation,
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return bytes.ReplaceAll(content,
+			[]byte("https://github.com/pulumi/pulumi-plugin-sdk/issues/142"),
+			[]byte("https://github.com/hashicorp/terraform-plugin-sdk/issues/142")), nil
+	},
+}
+
 // Ensure the text of IssueLabel makes it into the API documentation.
 // It contains important information on a courtesy labels import-before-create.
 var ensureIssueLabelsContent = tfbridge.DocsEdit{
@@ -311,6 +324,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	// Append additional rules
 	return append(edits,
 		ensureIssueLabelsContent,
+		fixPluginSDKIssueLink,
 		tfbridge.DocsEdit{
 			Path: "index.html.markdown",
 			Edit: func(_ string, content []byte) ([]byte, error) {
